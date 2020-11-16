@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[student]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-    [name] VARCHAR(100) NULL, 
+    [name] VARCHAR(100) NOT NULL, 
     [cpf] VARCHAR(14) NOT NULL UNIQUE, 
     [cep] VARCHAR(10) NULL, 
     [district] VARCHAR(100) NULL, 

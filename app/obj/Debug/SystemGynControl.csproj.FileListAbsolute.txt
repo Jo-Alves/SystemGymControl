@@ -1,0 +1,9 @@
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\SystemGynControl.exe.config
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\SystemGynControl.exe
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\SystemGynControl.pdb
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.csprojAssemblyReference.cache
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.Properties.Resources.resources
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.csproj.GenerateResource.cache
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.csproj.CoreCompileInputs.cache
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.exe
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.pdb

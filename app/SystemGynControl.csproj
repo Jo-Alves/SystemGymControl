@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="utils\Security.cs" />
+    <Compile Include="utils\ConnectionDataBase.cs" />
+    <Compile Include="Class\User.cs" />
+    <Compile Include="Class\Student.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -12,6 +12,7 @@ namespace SystemGynControl
 {
     public partial class Form1 : Form
     {
+        Student student = new Student();
         public Form1()
         {
             InitializeComponent();
