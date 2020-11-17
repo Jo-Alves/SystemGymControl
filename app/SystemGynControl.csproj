@@ -46,15 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\modality.cs" />
-    <Compile Include="Class\Person.cs" />
-    <Compile Include="Class\SituationsStudent.cs" />
-    <Compile Include="Class\FrequenciesStudent.cs" />
-    <Compile Include="Class\ResponsiblesStudent.cs" />
+    <Compile Include="class\SituationsPlan.cs" />
+    <Compile Include="class\Plan.cs" />
+    <Compile Include="class\BillingParametersPackage.cs" />
+    <Compile Include="class\ItemsPackage.cs" />
+    <Compile Include="class\Package.cs" />
+    <Compile Include="class\Modality.cs" />
+    <Compile Include="class\Person.cs" />
+    <Compile Include="class\SituationsStudent.cs" />
+    <Compile Include="class\FrequenciesStudent.cs" />
+    <Compile Include="class\ResponsiblesStudent.cs" />
     <Compile Include="utils\Security.cs" />
     <Compile Include="utils\ConnectionDataBase.cs" />
-    <Compile Include="Class\User.cs" />
-    <Compile Include="Class\Student.cs" />
+    <Compile Include="class\User.cs" />
+    <Compile Include="class\Student.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

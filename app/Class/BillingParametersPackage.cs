@@ -3,11 +3,13 @@ using System.Data.SqlClient;
 
 namespace SystemGynControl.Class
 {
-    class modality
+    class BillingParametersPackage
     {
         private int id;
-        private string description;
-        private int student_id;
+        private decimal valuePenalty;
+        private decimal valueInterest;
+        private string packageID;
+
 
         string _sql;
 
@@ -16,29 +18,35 @@ namespace SystemGynControl.Class
             get { return id; }
             set { id = value; }
         }
-        public string _description
+        public decimal _valuePenalty
         {
-            get { return description; }
-            set { description = value; }
+            get { return valuePenalty; }
+            set { valuePenalty = value; }
         }
-        public int _studentID
+        public decimal _valueInterest
         {
-            get { return student_id; }
-            set { student_id = value; }
+            get { return valueInterest; }
+            set { valueInterest = value; }
+        }
+        public string _packageID
+        {
+            get { return packageID; }
+            set { packageID = value; }
         }
 
         public void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             if (_id > 0)
-                _sql = "INSERT INTO modalities VALUES (@description, @student_id, @studentID)";
+                _sql = "INSERT INTO billing_parameters_package VALUES (@valuePenalty, @valueInterest, @packageID)";
             else
-                _sql = "UPDATE modalities SET description = @description, student_id = @studentID, student_id = @studentID WHERE id = @id";
+                _sql = "UPDATE billing_parameters_package SET valuePenalty = @value_penalty, value_interest = @valueInterest, package_id = @packageID WHERE id = @id";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@description", _description);
-            command.Parameters.AddWithValue("@studentID", _studentID);
+            command.Parameters.AddWithValue("@valuePenalty", _valuePenalty);
+            command.Parameters.AddWithValue("@valueInterest", _valueInterest);
+            command.Parameters.AddWithValue("@packageID", _packageID);
             try
             {
                 connection.Open();
@@ -60,13 +68,14 @@ namespace SystemGynControl.Class
             try
             {
                 connection.Open();
-                _sql = "SELECT * FROM modalities WHERE student_id = @studentID";
+                _sql = "SELECT * FROM billing_parameters_package WHERE id = @id";
                 SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@studentID", _studentID);
+                adapter.Parameters.AddWithValue("@id", _id);
                 SqlDataReader dr = adapter.ExecuteReader();
                 if (dr.Read())
                 {
-                    _description = dr["description"].ToString();
+                    _valuePenalty = decimal.Parse(dr["value_penalty"].ToString());
+                    _valueInterest = decimal.Parse(dr["value_interest"].ToString());
                 }
             }
             catch

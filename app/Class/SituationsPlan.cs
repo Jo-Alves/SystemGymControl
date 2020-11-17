@@ -1,13 +1,14 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace SystemGynControl.Class
+namespace SystemGynControl
 {
-    class modality
+    class SituationsPlan
     {
         private int id;
-        private string description;
-        private int student_id;
+        private string situation;
+        private int planID;
+
 
         string _sql;
 
@@ -16,29 +17,29 @@ namespace SystemGynControl.Class
             get { return id; }
             set { id = value; }
         }
-        public string _description
+        public string _situation
         {
-            get { return description; }
-            set { description = value; }
+            get { return situation; }
+            set { situation = value; }
         }
-        public int _studentID
+        public int _planID
         {
-            get { return student_id; }
-            set { student_id = value; }
+            get { return planID; }
+            set { planID = value; }
         }
 
         public void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             if (_id > 0)
-                _sql = "INSERT INTO modalities VALUES (@description, @student_id, @studentID)";
+                _sql = "INSERT INTO situations_plan VALUES (@situation, @planID)";
             else
-                _sql = "UPDATE modalities SET description = @description, student_id = @studentID, student_id = @studentID WHERE id = @id";
+                _sql = "UPDATE situations_plan SET situation = @situation WHERE id = @id";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@description", _description);
-            command.Parameters.AddWithValue("@studentID", _studentID);
+            command.Parameters.AddWithValue("@situation", _situation);
+            command.Parameters.AddWithValue("@planID", _planID);
             try
             {
                 connection.Open();
@@ -60,13 +61,13 @@ namespace SystemGynControl.Class
             try
             {
                 connection.Open();
-                _sql = "SELECT * FROM modalities WHERE student_id = @studentID";
+                _sql = "SELECT * FROM situations_plan WHERE id = @id";
                 SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@studentID", _studentID);
+                adapter.Parameters.AddWithValue("@id", _id);
                 SqlDataReader dr = adapter.ExecuteReader();
                 if (dr.Read())
                 {
-                    _description = dr["description"].ToString();
+                    _situation = dr["situation"].ToString();
                 }
             }
             catch

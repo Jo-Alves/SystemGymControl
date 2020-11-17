@@ -1,6 +1,6 @@
-﻿CREATE DATABASE dbCymControl
+﻿CREATE DATABASE dbGymControl
 
-USE dbCymControl
+USE dbGymControl
 
 CREATE TABLE [dbo].[students]
 (
@@ -84,7 +84,7 @@ CREATE TABLE [dbo].[items_packages]
 	FOREIGN KEY ([package_id]) REFERENCES [dbo].[package]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[billing_parameters]
+CREATE TABLE [dbo].[billing_parameters_package]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [value_penalty] DECIMAL(18, 2) NULL, 
@@ -96,7 +96,7 @@ CREATE TABLE [dbo].[billing_parameters]
 CREATE TABLE [dbo].[plans]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-	[numberPortions] INT NOT NULL,
+	[number_portions] INT NOT NULL,
     [date_purchase_plan] VARCHAR NOT NULL,
     [package_id] INT NOT NULL, 
     [student_id] INT NOT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE [dbo].[plans]
 	FOREIGN KEY ([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[situations_plans] (
+CREATE TABLE [dbo].[situations_plan] (
     [id]         INT          NOT NULL Identity,
     [situation]  VARCHAR (10) NOT NULL,
     [plan_id] INT          NOT NULL,
