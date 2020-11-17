@@ -1,4 +1,8 @@
-﻿CREATE TABLE [dbo].[student]
+﻿CREATE DATABASE dbCymControl
+
+USE dbCymControl
+
+CREATE TABLE [dbo].[students]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [name] VARCHAR(100) NOT NULL, 
@@ -13,7 +17,7 @@
     [photo] IMAGE NULL    
 )
 
-CREATE TABLE [dbo].[frequency_student]
+CREATE TABLE [dbo].[frequencies_student]
 (
 	[id] INT NOT NULL PRIMARY KEY, 
     [situation] VARCHAR(7) NOT NULL, 
@@ -22,15 +26,16 @@ CREATE TABLE [dbo].[frequency_student]
 	FOREIGN KEY ([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[situation_student] (
+CREATE TABLE [dbo].[situations_student] (
     [id]         INT          NOT NULL,
     [situation]  VARCHAR (10) NOT NULL,
+    [observation] VARCHAR(100) NULL,
     [student_id] INT          NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
     FOREIGN KEY ([student_id]) REFERENCES [dbo].[student] ([id]) ON DELETE CASCADE
 );
 
-CREATE TABLE [dbo].[responsible_student]
+CREATE TABLE [dbo].[responsibles_student]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [name] VARCHAR(100) NULL, 
@@ -40,6 +45,12 @@ CREATE TABLE [dbo].[responsible_student]
     FOREIGN KEY([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
 )
 
+CREATE TABLE modalities(
+    [id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    [description] VARCHAR(50) NOT NULL,
+    [student_id] INT NOT NULL,
+    FOREIGN KEY([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
+)
 
 CREATE TABLE [dbo].[personal]
 (
@@ -55,7 +66,7 @@ CREATE TABLE [dbo].[personal]
     [state] VARCHAR(50) NULL
 )
 
-CREATE TABLE [dbo].[package] (
+CREATE TABLE [dbo].[packages] (
     [id]          INT             IDENTITY (1, 1) NOT NULL,
     [description] VARCHAR (100)   NOT NULL,
     [duration]    INT             NOT NULL,
@@ -64,7 +75,7 @@ CREATE TABLE [dbo].[package] (
 );
 
 
-CREATE TABLE [dbo].[items_package]
+CREATE TABLE [dbo].[items_packages]
 (
 	[id] INT NOT NULL PRIMARY KEY, 
     [formOfPayment] VARCHAR(50) NOT NULL, 
@@ -82,7 +93,7 @@ CREATE TABLE [dbo].[billing_parameters]
 	FOREIGN KEY ([package_id]) REFERENCES [dbo].[package]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[plan]
+CREATE TABLE [dbo].[plans]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
 	[numberPortions] INT NOT NULL,
@@ -93,7 +104,7 @@ CREATE TABLE [dbo].[plan]
 	FOREIGN KEY ([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[situation_plan] (
+CREATE TABLE [dbo].[situations_plans] (
     [id]         INT          NOT NULL Identity,
     [situation]  VARCHAR (10) NOT NULL,
     [plan_id] INT          NOT NULL,
@@ -101,7 +112,7 @@ CREATE TABLE [dbo].[situation_plan] (
     FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plan] ([id]) ON DELETE CASCADE
 );
 
-CREATE TABLE [dbo].[payment]
+CREATE TABLE [dbo].[payments]
 (
 	[id] INT NOT NULL PRIMARY KEY,
     [portion] int NOT NULL, 
@@ -111,7 +122,7 @@ CREATE TABLE [dbo].[payment]
 	FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plan]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[formOfPayment]
+CREATE TABLE [dbo].[formOfPayments]
 (
 	[Id] INT NOT NULL PRIMARY KEY,
 	[description] VARCHAR(50) NOT NULL,
@@ -119,11 +130,13 @@ CREATE TABLE [dbo].[formOfPayment]
 	FOREIGN KEY ([payment_id]) REFERENCES [dbo].[payment]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[user]
+CREATE TABLE [dbo].[users]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[user] VARCHAR(50) NOT NULL UNIQUE,
 	[password] VARCHAR(MAX) NOT NULL,
+	[question] VARCHAR(100) NOT NULL,
+	[answer] VARCHAR(100) NOT NULL,
 	[date_registion] VARCHAR(10) NOT NULL
 )
 

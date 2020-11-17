@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\modality.cs" />
+    <Compile Include="Class\Person.cs" />
+    <Compile Include="Class\SituationsStudent.cs" />
+    <Compile Include="Class\FrequenciesStudent.cs" />
+    <Compile Include="Class\ResponsiblesStudent.cs" />
     <Compile Include="utils\Security.cs" />
     <Compile Include="utils\ConnectionDataBase.cs" />
     <Compile Include="Class\User.cs" />
