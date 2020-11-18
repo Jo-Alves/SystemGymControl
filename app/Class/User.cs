@@ -10,6 +10,7 @@ namespace SystemGynControl
         private string password;
         private string question;
         private string answer;
+        private string avatar;
         private string dateRegistion;
 
         string _sql;
@@ -39,6 +40,11 @@ namespace SystemGynControl
             get { return answer; }
             set { answer = value; }
         }
+        public string _avatar
+        {
+            get { return avatar; }
+            set { avatar = value; }
+        }
         public string _dateRegistion
         {
             get { return dateRegistion; }
@@ -49,16 +55,17 @@ namespace SystemGynControl
         public void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if(_id > 0)
-                _sql = "INSERT INTO users VALUES (@user, @password, @question, @answer, @dateRegistion)";
+            if (_id > 0)
+                _sql = "INSERT INTO users VALUES (@user, @password, @question, @answer, @avatar, @dateRegistion)";
             else
-                _sql = "UPDATE users SET user = @user, password = @password, question = @question, answer = @answer, dateRegistion = @dateRegistion WHERE id = @id";
+                _sql = "UPDATE users SET user = @user, password = @password, question = @question, answer = @answer, avatar = @avatar, dateRegistion = @dateRegistion WHERE id = @id";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);
             command.Parameters.AddWithValue("@user", _user);
             command.Parameters.AddWithValue("@question", _question);
             command.Parameters.AddWithValue("@answer", _answer);
+            command.Parameters.AddWithValue("@avatar", _avatar);
             command.Parameters.AddWithValue("@password", _password);
             command.Parameters.AddWithValue("@dateRegistion", _dateRegistion);
             try
@@ -115,22 +122,36 @@ namespace SystemGynControl
             }
         }
 
-        public DataTable SearchID()
+        public bool SearchUser()
         {
+            bool existUser = false;
+
+            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
+ 
             try
             {
-                SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-                _sql = "SELECT * FROM users WHERE id = @id";
-                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
+                _sql = "SELECT * FROM users WHERE user = @user and password = @password";
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@user", _user);
+                command.Parameters.AddWithValue("@password", _password);
+                connection.Open();
+                SqlDataReader dr = command.ExecuteReader();
+                if (dr.Read())
+                {
+                    _id = int.Parse(dr["id"].ToString());
+                    existUser = true;
+                }
             }
             catch
             {
                 throw;
             }
+            finally
+            {
+                connection.Close();
+            }
+
+            return existUser;
         }
     }
 }

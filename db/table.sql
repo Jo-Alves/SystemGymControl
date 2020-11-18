@@ -122,7 +122,7 @@ CREATE TABLE [dbo].[payments]
 	FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plan]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[formOfPayments]
+CREATE TABLE [dbo].[forms_of_payment]
 (
 	[Id] INT NOT NULL PRIMARY KEY,
 	[description] VARCHAR(50) NOT NULL,
@@ -137,6 +137,7 @@ CREATE TABLE [dbo].[users]
 	[password] VARCHAR(MAX) NOT NULL,
 	[question] VARCHAR(100) NOT NULL,
 	[answer] VARCHAR(100) NOT NULL,
+    [avatar] varchar(MAX) NOT NULL,
 	[date_registion] VARCHAR(10) NOT NULL
 )
 

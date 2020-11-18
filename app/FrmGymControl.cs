@@ -10,10 +10,9 @@ using System.Windows.Forms;
 
 namespace SystemGynControl
 {
-    public partial class Form1 : Form
+    public partial class FrmGymControl : Form
     {
-        Student student = new Student();
-        public Form1()
+        public FrmGymControl()
         {
             InitializeComponent();
         }
