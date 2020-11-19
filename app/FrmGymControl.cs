@@ -19,6 +19,10 @@ namespace SystemGynControl
         {
             InitializeComponent();
             panelWidth = pnConjuctMenu.Width;
+            //pcLogo.Image = Properties.Resources.logo;
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(pcLogo.DisplayRectangle);
+            pcLogo.Region = new Region(gp);
         }
 
 
@@ -85,6 +89,32 @@ namespace SystemGynControl
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
             btnClose.Image = Properties.Resources.icons8_close_window_32px;
+        }
+
+        private void btnRetoreMaximize_MouseEnter(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+                btnRetoreMaximize.Image = Properties.Resources.icons8_restore_window_32px_leave;
+            else if (this.WindowState == FormWindowState.Normal)
+                btnRetoreMaximize.Image = Properties.Resources.icons8_maximize_window_32px_leave;
+        }
+
+        private void btnRetoreMaximize_MouseLeave(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+                btnRetoreMaximize.Image = Properties.Resources.icons8_restore_window_32px;
+            else if (this.WindowState == FormWindowState.Normal)
+                btnRetoreMaximize.Image = Properties.Resources.icons8_maximize_window_32px_5;
+        }
+
+        private void btnMimized_MouseEnter(object sender, EventArgs e)
+        {
+            btnMimized.Image = Properties.Resources.icons8_minimize_window_leave;
+        }
+
+        private void btnMimized_MouseLeave(object sender, EventArgs e)
+        {
+            btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_1;
         }
     }
 }

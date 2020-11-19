@@ -133,6 +133,16 @@ namespace SystemGynControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_maximize_window_32px_leave {
+            get {
+                object obj = ResourceManager.GetObject("icons8_maximize_window_32px_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_menu_32px_5 {
             get {
                 object obj = ResourceManager.GetObject("icons8_menu_32px_5", resourceCulture);
@@ -153,9 +163,29 @@ namespace SystemGynControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_minimize_window_leave {
+            get {
+                object obj = ResourceManager.GetObject("icons8_minimize_window_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_restore_window_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_restore_window_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_window_32px_leave {
+            get {
+                object obj = ResourceManager.GetObject("icons8_restore_window_32px_leave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

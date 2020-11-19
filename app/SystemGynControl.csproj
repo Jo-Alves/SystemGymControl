@@ -184,5 +184,14 @@
   <ItemGroup>
     <None Include="Resources\icons8_minimize_window_32px_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_minimize_window_leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_restore_window_32px_leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_maximize_window_32px_leave.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

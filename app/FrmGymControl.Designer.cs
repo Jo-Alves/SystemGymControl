@@ -31,24 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGymControl));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnRetoreMaximize = new System.Windows.Forms.Button();
-            this.btnMimized = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.pnStatus = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.btnSobre = new System.Windows.Forms.Button();
-            this.btnToggleMenu = new System.Windows.Forms.Button();
             this.pnConjuctMenu = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pnPage = new System.Windows.Forms.Panel();
+            this.pcLogo = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btnSubMenuPackage = new System.Windows.Forms.Button();
             this.btnSubMenuStudent = new System.Windows.Forms.Button();
             this.btnMenuCadastro = new System.Windows.Forms.Button();
-            this.pnPage = new System.Windows.Forms.Panel();
-            this.pcLogo = new System.Windows.Forms.PictureBox();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnSobre = new System.Windows.Forms.Button();
+            this.btnToggleMenu = new System.Windows.Forms.Button();
+            this.btnRetoreMaximize = new System.Windows.Forms.Button();
+            this.btnMimized = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnConjuctMenu.SuspendLayout();
@@ -70,53 +70,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(852, 63);
             this.panel2.TabIndex = 1;
-            // 
-            // btnRetoreMaximize
-            // 
-            this.btnRetoreMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRetoreMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRetoreMaximize.FlatAppearance.BorderSize = 0;
-            this.btnRetoreMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRetoreMaximize.Image = global::SystemGynControl.Properties.Resources.icons8_restore_window_32px;
-            this.btnRetoreMaximize.Location = new System.Drawing.Point(784, 17);
-            this.btnRetoreMaximize.Name = "btnRetoreMaximize";
-            this.btnRetoreMaximize.Size = new System.Drawing.Size(25, 30);
-            this.btnRetoreMaximize.TabIndex = 3;
-            this.btnRetoreMaximize.TabStop = false;
-            this.btnRetoreMaximize.UseVisualStyleBackColor = true;
-            this.btnRetoreMaximize.Click += new System.EventHandler(this.btnRetoreMaximize_Click);
-            // 
-            // btnMimized
-            // 
-            this.btnMimized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMimized.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMimized.FlatAppearance.BorderSize = 0;
-            this.btnMimized.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMimized.Image = ((System.Drawing.Image)(resources.GetObject("btnMimized.Image")));
-            this.btnMimized.Location = new System.Drawing.Point(753, 17);
-            this.btnMimized.Name = "btnMimized";
-            this.btnMimized.Size = new System.Drawing.Size(25, 30);
-            this.btnMimized.TabIndex = 2;
-            this.btnMimized.TabStop = false;
-            this.btnMimized.UseVisualStyleBackColor = true;
-            this.btnMimized.Click += new System.EventHandler(this.btnMimized_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(815, 16);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(25, 30);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.TabStop = false;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
-            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
             // 
             // lblTitle
             // 
@@ -156,48 +109,6 @@
             this.panel1.Size = new System.Drawing.Size(45, 415);
             this.panel1.TabIndex = 7;
             // 
-            // btnSetting
-            // 
-            this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
-            this.btnSetting.Location = new System.Drawing.Point(3, 375);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(42, 28);
-            this.btnSetting.TabIndex = 2;
-            this.btnSetting.TabStop = false;
-            this.btnSetting.UseVisualStyleBackColor = true;
-            // 
-            // btnSobre
-            // 
-            this.btnSobre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSobre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSobre.FlatAppearance.BorderSize = 0;
-            this.btnSobre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSobre.Image = ((System.Drawing.Image)(resources.GetObject("btnSobre.Image")));
-            this.btnSobre.Location = new System.Drawing.Point(3, 341);
-            this.btnSobre.Name = "btnSobre";
-            this.btnSobre.Size = new System.Drawing.Size(42, 28);
-            this.btnSobre.TabIndex = 1;
-            this.btnSobre.TabStop = false;
-            this.btnSobre.UseVisualStyleBackColor = true;
-            // 
-            // btnToggleMenu
-            // 
-            this.btnToggleMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnToggleMenu.FlatAppearance.BorderSize = 0;
-            this.btnToggleMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToggleMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnToggleMenu.Image")));
-            this.btnToggleMenu.Location = new System.Drawing.Point(3, 7);
-            this.btnToggleMenu.Name = "btnToggleMenu";
-            this.btnToggleMenu.Size = new System.Drawing.Size(42, 28);
-            this.btnToggleMenu.TabIndex = 0;
-            this.btnToggleMenu.TabStop = false;
-            this.btnToggleMenu.UseVisualStyleBackColor = true;
-            this.btnToggleMenu.Click += new System.EventHandler(this.btnToggleMenu_Click);
-            // 
             // pnConjuctMenu
             // 
             this.pnConjuctMenu.AutoScroll = true;
@@ -220,6 +131,26 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(237, 190);
             this.panel5.TabIndex = 0;
+            // 
+            // pnPage
+            // 
+            this.pnPage.Controls.Add(this.pcLogo);
+            this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnPage.Location = new System.Drawing.Point(282, 63);
+            this.pnPage.Name = "pnPage";
+            this.pnPage.Size = new System.Drawing.Size(570, 415);
+            this.pnPage.TabIndex = 9;
+            // 
+            // pcLogo
+            // 
+            this.pcLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pcLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcLogo.Image")));
+            this.pcLogo.Location = new System.Drawing.Point(156, 83);
+            this.pcLogo.Name = "pcLogo";
+            this.pcLogo.Size = new System.Drawing.Size(259, 249);
+            this.pcLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcLogo.TabIndex = 1;
+            this.pcLogo.TabStop = false;
             // 
             // button3
             // 
@@ -300,25 +231,98 @@
             this.btnMenuCadastro.Text = "Cadastro";
             this.btnMenuCadastro.UseVisualStyleBackColor = false;
             // 
-            // pnPage
+            // btnSetting
             // 
-            this.pnPage.Controls.Add(this.pcLogo);
-            this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPage.Location = new System.Drawing.Point(282, 63);
-            this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(570, 415);
-            this.pnPage.TabIndex = 9;
+            this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.Location = new System.Drawing.Point(3, 375);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(42, 28);
+            this.btnSetting.TabIndex = 2;
+            this.btnSetting.TabStop = false;
+            this.btnSetting.UseVisualStyleBackColor = true;
             // 
-            // pcLogo
+            // btnSobre
             // 
-            this.pcLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pcLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcLogo.Image")));
-            this.pcLogo.Location = new System.Drawing.Point(156, 83);
-            this.pcLogo.Name = "pcLogo";
-            this.pcLogo.Size = new System.Drawing.Size(259, 249);
-            this.pcLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcLogo.TabIndex = 1;
-            this.pcLogo.TabStop = false;
+            this.btnSobre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSobre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSobre.FlatAppearance.BorderSize = 0;
+            this.btnSobre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSobre.Image = ((System.Drawing.Image)(resources.GetObject("btnSobre.Image")));
+            this.btnSobre.Location = new System.Drawing.Point(3, 341);
+            this.btnSobre.Name = "btnSobre";
+            this.btnSobre.Size = new System.Drawing.Size(42, 28);
+            this.btnSobre.TabIndex = 1;
+            this.btnSobre.TabStop = false;
+            this.btnSobre.UseVisualStyleBackColor = true;
+            // 
+            // btnToggleMenu
+            // 
+            this.btnToggleMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnToggleMenu.FlatAppearance.BorderSize = 0;
+            this.btnToggleMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToggleMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnToggleMenu.Image")));
+            this.btnToggleMenu.Location = new System.Drawing.Point(3, 7);
+            this.btnToggleMenu.Name = "btnToggleMenu";
+            this.btnToggleMenu.Size = new System.Drawing.Size(42, 28);
+            this.btnToggleMenu.TabIndex = 0;
+            this.btnToggleMenu.TabStop = false;
+            this.btnToggleMenu.UseVisualStyleBackColor = true;
+            this.btnToggleMenu.Click += new System.EventHandler(this.btnToggleMenu_Click);
+            // 
+            // btnRetoreMaximize
+            // 
+            this.btnRetoreMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRetoreMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRetoreMaximize.FlatAppearance.BorderSize = 0;
+            this.btnRetoreMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRetoreMaximize.Image = global::SystemGynControl.Properties.Resources.icons8_maximize_window_32px_5;
+            this.btnRetoreMaximize.Location = new System.Drawing.Point(782, 17);
+            this.btnRetoreMaximize.Name = "btnRetoreMaximize";
+            this.btnRetoreMaximize.Size = new System.Drawing.Size(27, 30);
+            this.btnRetoreMaximize.TabIndex = 3;
+            this.btnRetoreMaximize.TabStop = false;
+            this.btnRetoreMaximize.UseVisualStyleBackColor = true;
+            this.btnRetoreMaximize.Click += new System.EventHandler(this.btnRetoreMaximize_Click);
+            this.btnRetoreMaximize.MouseEnter += new System.EventHandler(this.btnRetoreMaximize_MouseEnter);
+            this.btnRetoreMaximize.MouseLeave += new System.EventHandler(this.btnRetoreMaximize_MouseLeave);
+            // 
+            // btnMimized
+            // 
+            this.btnMimized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMimized.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMimized.FlatAppearance.BorderSize = 0;
+            this.btnMimized.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMimized.Image = ((System.Drawing.Image)(resources.GetObject("btnMimized.Image")));
+            this.btnMimized.Location = new System.Drawing.Point(751, 17);
+            this.btnMimized.Name = "btnMimized";
+            this.btnMimized.Size = new System.Drawing.Size(25, 30);
+            this.btnMimized.TabIndex = 2;
+            this.btnMimized.TabStop = false;
+            this.btnMimized.UseVisualStyleBackColor = true;
+            this.btnMimized.Click += new System.EventHandler(this.btnMimized_Click);
+            this.btnMimized.MouseEnter += new System.EventHandler(this.btnMimized_MouseEnter);
+            this.btnMimized.MouseLeave += new System.EventHandler(this.btnMimized_MouseLeave);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(815, 16);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(25, 30);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TabStop = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
+            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
             // 
             // FrmGymControl
             // 
