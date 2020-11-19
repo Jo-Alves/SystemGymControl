@@ -29,7 +29,6 @@ namespace SystemGynControl
         public string _state { get; set; }
 
         public abstract void Save();
-        public abstract void Delete();
         public abstract DataTable SearchID();
     }
 }

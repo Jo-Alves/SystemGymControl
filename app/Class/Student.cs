@@ -53,7 +53,7 @@ namespace SystemGynControl
             }
         }
 
-        public override void Delete()
+        public void Delete()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             _sql = "DELETE FROM students WHERE id = @id";

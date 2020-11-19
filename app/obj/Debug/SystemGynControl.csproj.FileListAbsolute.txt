@@ -7,3 +7,6 @@ C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynCon
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.csproj.CoreCompileInputs.cache
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.exe
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.pdb
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.FrmGymControl.resources
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.csproj.CopyComplete
