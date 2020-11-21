@@ -23,9 +23,11 @@ namespace SystemGynControl
         {
             pnMenuClass.Visible = false;
             pnMenuSave.Visible = false;
+            //pnSubMenuMontilyPayment.Visible = false;
+            //pnSubMenuReport.Visible = false;
         }
-        
-      private void btnClose_Click(object sender, EventArgs e)
+
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -197,6 +199,7 @@ namespace SystemGynControl
         }
 
         private Form activeForm = null;
+
         private void OpenForm(Form form)
         {
             if (activeForm != null)
@@ -213,6 +216,7 @@ namespace SystemGynControl
         private void pcHome_Click(object sender, EventArgs e)
         {
             OpenForm(new FrmHome());
+            HideSubMenu();
         }
 
         private void pnTitle_DoubleClick(object sender, EventArgs e)
