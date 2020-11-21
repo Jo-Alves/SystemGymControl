@@ -118,16 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnMimized.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAPhJREFUWEft
-        lj0KwkAQhaez8Oc0KngO8VqiFlrbiQcQVJKN4HkstBC0WN8uL5giK2sS0GI+eEWGmbcvJLAjilKGzWRg
-        jRyhC2RrynkcoD7tP4PDR2h+crhJPWwiQx4TBgFOfiCVqd1Lm+XKwKsDzbxnJgnLYdB4880YZKk29ixd
-        el5ZCsNGy8fGiPbVABpAA2gADfCXAexOergdx7jNJlFyvZjhuKdeACOrvB6tVJYc9+R1PoYpa8RbuSVl
-        A22jlMnazXDcg3r1AE3wTYAfLyTvlWzRRAj8jC14zhkgZTkMv/fvllIHQri13ED3gkFVOQ/jPGmvKAVE
-        XkqKSJHeXKZRAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAYNJREFUWEft
@@ -167,13 +157,6 @@
         crKoBiKsZhJ/wmDL1VbRweszNUfDk4E72kOnqzXYVOKN8WTggTkS7uXsd3j7CP5LWQxUpdTWVlOx5pTF
         wIVt5LBrPUcnxLKMjSWN9AK/fPCX1piMjVWIAfvDZbAjI5NSDRjU+LrgkREZl5ViIKBzdEk4f6UMhLSL
         bgkVozoDUeHDrcSAoQP0yFGx4kdjmg1k/myWXMAnvQ47Yv44J3gAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnToggleMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAEdJREFUWEft
-        06ENADAMA8Hsv1RHa4mhzVwp4E96GBllAKxzz9yfaSZzR800AyBzr9NMM5k7aqYZAJl7nWaaydxRM80A
-        2GLmASUsimCnxxrBAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="pcLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
