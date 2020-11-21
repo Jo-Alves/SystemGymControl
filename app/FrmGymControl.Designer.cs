@@ -30,18 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGymControl));
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pnConjuctMenu = new System.Windows.Forms.Panel();
             this.pnMenuClass = new System.Windows.Forms.Panel();
             this.pnMenuSave = new System.Windows.Forms.Panel();
             this.pnStatus = new System.Windows.Forms.Panel();
             this.lblDateNow = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pnPage = new System.Windows.Forms.Panel();
-            this.pcLogo = new System.Windows.Forms.PictureBox();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnFequency = new System.Windows.Forms.Button();
             this.btnClass = new System.Windows.Forms.Button();
@@ -49,35 +46,33 @@
             this.btnSubMenuPackage = new System.Windows.Forms.Button();
             this.btnSubMenuStudent = new System.Windows.Forms.Button();
             this.btnMenuCadastro = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.btnSobre = new System.Windows.Forms.Button();
+            this.pcHome = new System.Windows.Forms.PictureBox();
             this.btnRetoreMaximize = new System.Windows.Forms.Button();
             this.btnMimized = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnTitle.SuspendLayout();
             this.pnConjuctMenu.SuspendLayout();
             this.pnMenuClass.SuspendLayout();
             this.pnMenuSave.SuspendLayout();
             this.pnStatus.SuspendLayout();
-            this.pnPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHome)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // pnTitle
             // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.btnRetoreMaximize);
-            this.panel2.Controls.Add(this.btnMimized);
-            this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.lblTitle);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(852, 40);
-            this.panel2.TabIndex = 1;
+            this.pnTitle.BackColor = System.Drawing.Color.Black;
+            this.pnTitle.Controls.Add(this.btnRetoreMaximize);
+            this.pnTitle.Controls.Add(this.btnMimized);
+            this.pnTitle.Controls.Add(this.btnClose);
+            this.pnTitle.Controls.Add(this.lblTitle);
+            this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.pnTitle.Name = "pnTitle";
+            this.pnTitle.Size = new System.Drawing.Size(852, 40);
+            this.pnTitle.TabIndex = 1;
+            this.pnTitle.DoubleClick += new System.EventHandler(this.pnTitle_DoubleClick);
+            this.pnTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnTitle_MouseDown);
             // 
             // lblTitle
             // 
@@ -97,18 +92,6 @@
             this.timer.Interval = 30;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Controls.Add(this.btnSetting);
-            this.panel1.Controls.Add(this.btnSobre);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 40);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(45, 438);
-            this.panel1.TabIndex = 7;
-            // 
             // pnConjuctMenu
             // 
             this.pnConjuctMenu.AutoScroll = true;
@@ -117,10 +100,11 @@
             this.pnConjuctMenu.Controls.Add(this.btnClass);
             this.pnConjuctMenu.Controls.Add(this.pnMenuSave);
             this.pnConjuctMenu.Controls.Add(this.btnMenuCadastro);
+            this.pnConjuctMenu.Controls.Add(this.pcHome);
             this.pnConjuctMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnConjuctMenu.Location = new System.Drawing.Point(45, 40);
+            this.pnConjuctMenu.Location = new System.Drawing.Point(0, 40);
             this.pnConjuctMenu.Name = "pnConjuctMenu";
-            this.pnConjuctMenu.Size = new System.Drawing.Size(189, 438);
+            this.pnConjuctMenu.Size = new System.Drawing.Size(218, 438);
             this.pnConjuctMenu.TabIndex = 8;
             // 
             // pnMenuClass
@@ -128,10 +112,10 @@
             this.pnMenuClass.Controls.Add(this.btnHistory);
             this.pnMenuClass.Controls.Add(this.btnFequency);
             this.pnMenuClass.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnMenuClass.Location = new System.Drawing.Point(0, 242);
+            this.pnMenuClass.Location = new System.Drawing.Point(0, 292);
             this.pnMenuClass.Name = "pnMenuClass";
-            this.pnMenuClass.Size = new System.Drawing.Size(189, 143);
-            this.pnMenuClass.TabIndex = 6;
+            this.pnMenuClass.Size = new System.Drawing.Size(218, 103);
+            this.pnMenuClass.TabIndex = 10;
             // 
             // pnMenuSave
             // 
@@ -139,14 +123,14 @@
             this.pnMenuSave.Controls.Add(this.btnSubMenuPackage);
             this.pnMenuSave.Controls.Add(this.btnSubMenuStudent);
             this.pnMenuSave.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnMenuSave.Location = new System.Drawing.Point(0, 47);
+            this.pnMenuSave.Location = new System.Drawing.Point(0, 97);
             this.pnMenuSave.Name = "pnMenuSave";
-            this.pnMenuSave.Size = new System.Drawing.Size(189, 148);
-            this.pnMenuSave.TabIndex = 3;
+            this.pnMenuSave.Size = new System.Drawing.Size(218, 148);
+            this.pnMenuSave.TabIndex = 8;
             // 
             // pnStatus
             // 
-            this.pnStatus.BackColor = System.Drawing.Color.Black;
+            this.pnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.pnStatus.Controls.Add(this.lblDateNow);
             this.pnStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnStatus.Location = new System.Drawing.Point(0, 478);
@@ -157,6 +141,7 @@
             // lblDateNow
             // 
             this.lblDateNow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDateNow.BackColor = System.Drawing.Color.Black;
             this.lblDateNow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.lblDateNow.Location = new System.Drawing.Point(461, 9);
             this.lblDateNow.Name = "lblDateNow";
@@ -164,36 +149,15 @@
             this.lblDateNow.Size = new System.Drawing.Size(379, 22);
             this.lblDateNow.TabIndex = 0;
             this.lblDateNow.Text = "segunda-feira, 20 de novembro de 2020, 16:32:44";
-            this.lblDateNow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(807, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(45, 438);
-            this.panel3.TabIndex = 10;
+            this.lblDateNow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnPage
             // 
-            this.pnPage.Controls.Add(this.pcLogo);
             this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPage.Location = new System.Drawing.Point(234, 40);
+            this.pnPage.Location = new System.Drawing.Point(218, 40);
             this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(573, 438);
+            this.pnPage.Size = new System.Drawing.Size(634, 438);
             this.pnPage.TabIndex = 11;
-            // 
-            // pcLogo
-            // 
-            this.pcLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pcLogo.Image = ((System.Drawing.Image)(resources.GetObject("pcLogo.Image")));
-            this.pcLogo.Location = new System.Drawing.Point(0, 0);
-            this.pcLogo.Name = "pcLogo";
-            this.pcLogo.Size = new System.Drawing.Size(573, 438);
-            this.pcLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcLogo.TabIndex = 1;
-            this.pcLogo.TabStop = false;
             // 
             // btnHistory
             // 
@@ -205,11 +169,11 @@
             this.btnHistory.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnHistory.Image = global::SystemGynControl.Properties.Resources.icons8_activity_history_32px;
-            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHistory.Location = new System.Drawing.Point(0, 51);
             this.btnHistory.Name = "btnHistory";
             this.btnHistory.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnHistory.Size = new System.Drawing.Size(189, 47);
+            this.btnHistory.Size = new System.Drawing.Size(218, 47);
             this.btnHistory.TabIndex = 5;
             this.btnHistory.TabStop = false;
             this.btnHistory.Text = "Histórico";
@@ -226,11 +190,11 @@
             this.btnFequency.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFequency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnFequency.Image = global::SystemGynControl.Properties.Resources.icons8_frequency_32px_1;
-            this.btnFequency.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFequency.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFequency.Location = new System.Drawing.Point(0, 4);
             this.btnFequency.Name = "btnFequency";
             this.btnFequency.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnFequency.Size = new System.Drawing.Size(189, 47);
+            this.btnFequency.Size = new System.Drawing.Size(218, 47);
             this.btnFequency.TabIndex = 4;
             this.btnFequency.TabStop = false;
             this.btnFequency.Text = "Fequência";
@@ -248,12 +212,12 @@
             this.btnClass.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnClass.Image = global::SystemGynControl.Properties.Resources.icons8_class_32px;
-            this.btnClass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClass.Location = new System.Drawing.Point(0, 195);
+            this.btnClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClass.Location = new System.Drawing.Point(0, 245);
             this.btnClass.Name = "btnClass";
             this.btnClass.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnClass.Size = new System.Drawing.Size(189, 47);
-            this.btnClass.TabIndex = 5;
+            this.btnClass.Size = new System.Drawing.Size(218, 47);
+            this.btnClass.TabIndex = 9;
             this.btnClass.TabStop = false;
             this.btnClass.Text = "Aula";
             this.btnClass.UseVisualStyleBackColor = false;
@@ -269,11 +233,11 @@
             this.btnSubMenuUser.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubMenuUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSubMenuUser.Image = global::SystemGynControl.Properties.Resources.icons8_checked_user;
-            this.btnSubMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSubMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubMenuUser.Location = new System.Drawing.Point(0, 98);
             this.btnSubMenuUser.Name = "btnSubMenuUser";
             this.btnSubMenuUser.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnSubMenuUser.Size = new System.Drawing.Size(189, 47);
+            this.btnSubMenuUser.Size = new System.Drawing.Size(218, 47);
             this.btnSubMenuUser.TabIndex = 3;
             this.btnSubMenuUser.TabStop = false;
             this.btnSubMenuUser.Text = "Usuário";
@@ -290,11 +254,11 @@
             this.btnSubMenuPackage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubMenuPackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSubMenuPackage.Image = global::SystemGynControl.Properties.Resources.icons8_handle_with_package;
-            this.btnSubMenuPackage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSubMenuPackage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubMenuPackage.Location = new System.Drawing.Point(0, 51);
             this.btnSubMenuPackage.Name = "btnSubMenuPackage";
             this.btnSubMenuPackage.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnSubMenuPackage.Size = new System.Drawing.Size(189, 47);
+            this.btnSubMenuPackage.Size = new System.Drawing.Size(218, 47);
             this.btnSubMenuPackage.TabIndex = 2;
             this.btnSubMenuPackage.TabStop = false;
             this.btnSubMenuPackage.Text = "Pacote";
@@ -311,11 +275,11 @@
             this.btnSubMenuStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubMenuStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSubMenuStudent.Image = global::SystemGynControl.Properties.Resources.icons8_client;
-            this.btnSubMenuStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSubMenuStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubMenuStudent.Location = new System.Drawing.Point(0, 4);
             this.btnSubMenuStudent.Name = "btnSubMenuStudent";
             this.btnSubMenuStudent.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnSubMenuStudent.Size = new System.Drawing.Size(189, 47);
+            this.btnSubMenuStudent.Size = new System.Drawing.Size(218, 47);
             this.btnSubMenuStudent.TabIndex = 1;
             this.btnSubMenuStudent.TabStop = false;
             this.btnSubMenuStudent.Text = "Aluno";
@@ -333,57 +297,29 @@
             this.btnMenuCadastro.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuCadastro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnMenuCadastro.Image = global::SystemGynControl.Properties.Resources.icons8_save_32px;
-            this.btnMenuCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuCadastro.Location = new System.Drawing.Point(0, 0);
+            this.btnMenuCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuCadastro.Location = new System.Drawing.Point(0, 50);
             this.btnMenuCadastro.Name = "btnMenuCadastro";
             this.btnMenuCadastro.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnMenuCadastro.Size = new System.Drawing.Size(189, 47);
-            this.btnMenuCadastro.TabIndex = 2;
+            this.btnMenuCadastro.Size = new System.Drawing.Size(218, 47);
+            this.btnMenuCadastro.TabIndex = 7;
             this.btnMenuCadastro.TabStop = false;
             this.btnMenuCadastro.Text = "Cadastro";
             this.btnMenuCadastro.UseVisualStyleBackColor = false;
             this.btnMenuCadastro.Click += new System.EventHandler(this.btnMenuCadastro_Click);
             // 
-            // btnHome
+            // pcHome
             // 
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Image = global::SystemGynControl.Properties.Resources.icons8_home_page;
-            this.btnHome.Location = new System.Drawing.Point(3, 9);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(42, 28);
-            this.btnHome.TabIndex = 3;
-            this.btnHome.TabStop = false;
-            this.btnHome.UseVisualStyleBackColor = true;
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
-            this.btnSetting.Location = new System.Drawing.Point(3, 398);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(42, 28);
-            this.btnSetting.TabIndex = 2;
-            this.btnSetting.TabStop = false;
-            this.btnSetting.UseVisualStyleBackColor = true;
-            // 
-            // btnSobre
-            // 
-            this.btnSobre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSobre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSobre.FlatAppearance.BorderSize = 0;
-            this.btnSobre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSobre.Image = ((System.Drawing.Image)(resources.GetObject("btnSobre.Image")));
-            this.btnSobre.Location = new System.Drawing.Point(3, 364);
-            this.btnSobre.Name = "btnSobre";
-            this.btnSobre.Size = new System.Drawing.Size(42, 28);
-            this.btnSobre.TabIndex = 1;
-            this.btnSobre.TabStop = false;
-            this.btnSobre.UseVisualStyleBackColor = true;
+            this.pcHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pcHome.Image = global::SystemGynControl.Properties.Resources.logo;
+            this.pcHome.Location = new System.Drawing.Point(0, 0);
+            this.pcHome.Name = "pcHome";
+            this.pcHome.Size = new System.Drawing.Size(218, 50);
+            this.pcHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcHome.TabIndex = 0;
+            this.pcHome.TabStop = false;
+            this.pcHome.Click += new System.EventHandler(this.pcHome_Click);
             // 
             // btnRetoreMaximize
             // 
@@ -392,9 +328,9 @@
             this.btnRetoreMaximize.FlatAppearance.BorderSize = 0;
             this.btnRetoreMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRetoreMaximize.Image = global::SystemGynControl.Properties.Resources.icons8_maximize_window_32px_leave;
-            this.btnRetoreMaximize.Location = new System.Drawing.Point(782, 6);
+            this.btnRetoreMaximize.Location = new System.Drawing.Point(781, 6);
             this.btnRetoreMaximize.Name = "btnRetoreMaximize";
-            this.btnRetoreMaximize.Size = new System.Drawing.Size(27, 30);
+            this.btnRetoreMaximize.Size = new System.Drawing.Size(28, 30);
             this.btnRetoreMaximize.TabIndex = 3;
             this.btnRetoreMaximize.TabStop = false;
             this.btnRetoreMaximize.UseVisualStyleBackColor = true;
@@ -409,7 +345,7 @@
             this.btnMimized.FlatAppearance.BorderSize = 0;
             this.btnMimized.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMimized.Image = global::SystemGynControl.Properties.Resources.icons8_minimize_window_32px_leave;
-            this.btnMimized.Location = new System.Drawing.Point(751, 6);
+            this.btnMimized.Location = new System.Drawing.Point(750, 6);
             this.btnMimized.Name = "btnMimized";
             this.btnMimized.Size = new System.Drawing.Size(25, 30);
             this.btnMimized.TabIndex = 2;
@@ -443,55 +379,48 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(852, 518);
             this.Controls.Add(this.pnPage);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnConjuctMenu);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnStatus);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnTitle);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGymControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGymControl";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.TopMost = true;
+            this.pnTitle.ResumeLayout(false);
+            this.pnTitle.PerformLayout();
             this.pnConjuctMenu.ResumeLayout(false);
             this.pnMenuClass.ResumeLayout(false);
             this.pnMenuSave.ResumeLayout(false);
             this.pnStatus.ResumeLayout(false);
-            this.pnPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pcLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcHome)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRetoreMaximize;
         private System.Windows.Forms.Button btnMimized;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSetting;
-        private System.Windows.Forms.Button btnSobre;
         private System.Windows.Forms.Panel pnConjuctMenu;
         private System.Windows.Forms.Panel pnStatus;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnPage;
-        private System.Windows.Forms.PictureBox pcLogo;
-        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblDateNow;
+        private System.Windows.Forms.Panel pnMenuClass;
+        private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnFequency;
         private System.Windows.Forms.Button btnClass;
         private System.Windows.Forms.Panel pnMenuSave;
         private System.Windows.Forms.Button btnSubMenuUser;
         private System.Windows.Forms.Button btnSubMenuPackage;
         private System.Windows.Forms.Button btnSubMenuStudent;
         private System.Windows.Forms.Button btnMenuCadastro;
-        private System.Windows.Forms.Panel pnMenuClass;
-        private System.Windows.Forms.Button btnHistory;
-        private System.Windows.Forms.Button btnFequency;
+        private System.Windows.Forms.PictureBox pcHome;
     }
 }

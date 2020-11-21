@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace SystemGynControl
 {
     public partial class FrmGymControl : Form
     {
-        int panelWidth;
-        bool hidden;
-
         public FrmGymControl()
         {
             InitializeComponent();
-            panelWidth = pnConjuctMenu.Width;
             HideSubMenu();
+            OpenForm(new FrmHome());
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void HideSubMenu()
         {
@@ -28,6 +32,18 @@ namespace SystemGynControl
 
         private void btnRetoreMaximize_Click(object sender, EventArgs e)
         {
+            //if (isMaXimized)
+            //{
+            //    this.ClientSize = new Size(innerWidth, innerHeight);
+            //}
+            //else
+            //{
+            //    this.ClientSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            //    this.Top = 0;
+            //    this.Left = 0;
+            //}
+
+            //isMaXimized = !isMaXimized;
             if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
@@ -43,8 +59,8 @@ namespace SystemGynControl
 
         //private void btnToggleMenu_Click(object sender, EventArgs e)
         //{
-            
-        //    //timer.Start();
+
+        //    timer.Start();
         //    if (pnConjuctMenu.Width == 0)
         //    {
         //        pnConjuctMenu.Width = panelWidth;
@@ -128,6 +144,8 @@ namespace SystemGynControl
 
         private void btnSubMenuStudent_Click(object sender, EventArgs e)
         {
+            OpenForm(new FrmClass());
+
             HideSubMenu();
         }
 
@@ -170,6 +188,36 @@ namespace SystemGynControl
         private void btnHistory_Click(object sender, EventArgs e)
         {
             HideSubMenu();
+        }
+
+        private void pnTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private Form activeForm = null;
+        private void OpenForm(Form form)
+        {
+            if (activeForm != null)
+                activeForm = form;
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            pnPage.Controls.Add(form);
+            pnPage.Tag = form;
+            form.BringToFront();
+            form.Show();
+        }
+
+        private void pcHome_Click(object sender, EventArgs e)
+        {
+            OpenForm(new FrmHome());
+        }
+
+        private void pnTitle_DoubleClick(object sender, EventArgs e)
+        {
+            btnRetoreMaximize_Click(sender, e);
         }
     }
 }

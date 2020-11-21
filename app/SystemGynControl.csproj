@@ -70,6 +70,18 @@
     <Compile Include="FrmGymControl.Designer.cs">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClass.Designer.cs">
+      <DependentUpon>FrmClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="utils\Security.cs" />
     <Compile Include="utils\ConnectionDataBase.cs" />
     <Compile Include="class\User.cs" />
@@ -78,6 +90,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClass.resx">
+      <DependentUpon>FrmClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
