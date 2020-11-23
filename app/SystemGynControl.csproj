@@ -36,6 +36,15 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=4834897b48fcce04, processorArchitecture=MSIL">
       <HintPath>packages\FontAwesome.Sharp.StrongName.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,22 +73,16 @@
     <Compile Include="class\SituationsStudent.cs" />
     <Compile Include="class\FrequenciesStudent.cs" />
     <Compile Include="class\ResponsiblesStudent.cs" />
-    <Compile Include="FrmGymControl.cs">
+    <Compile Include="views\FrmGymControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGymControl.Designer.cs">
+    <Compile Include="views\FrmGymControl.Designer.cs">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmClass.cs">
+    <Compile Include="views\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmClass.Designer.cs">
-      <DependentUpon>FrmClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmHome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmHome.Designer.cs">
+    <Compile Include="views\FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
     <Compile Include="utils\Security.cs" />
@@ -88,13 +91,16 @@
     <Compile Include="class\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmGymControl.resx">
+    <Compile Include="views\FrmOptionsSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\FrmOptionsSave.Designer.cs">
+      <DependentUpon>FrmOptionsSave.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="views\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmClass.resx">
-      <DependentUpon>FrmClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmHome.resx">
+    <EmbeddedResource Include="views\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -107,6 +113,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="views\FrmOptionsSave.resx">
+      <DependentUpon>FrmOptionsSave.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -203,9 +212,6 @@
     <None Include="Resources\icons8_minimize_window_leave.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_restore_window_32px_leave.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8_maximize_window_32px_leave.png" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +234,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_maximize_window_32px_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_restore_window_32px_leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_person_female_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_client_management_64px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_handle_with_care_64px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_user_64px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

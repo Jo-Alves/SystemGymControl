@@ -7,11 +7,38 @@ namespace SystemGynControl
 {
     public partial class FrmGymControl : Form
     {
+        bool isMaximized;
+
         public FrmGymControl()
         {
             InitializeComponent();
             HideSubMenu();
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(pcPerfil.DisplayRectangle);
+            pcPerfil.Region = new Region(gp);
             OpenForm(new FrmHome());
+            _obj = this;
+
+        }
+
+        static FrmGymControl _obj;
+
+        public static FrmGymControl Instance
+        {
+            get
+            {
+                if (_obj == null)
+                {
+                    _obj = new FrmGymControl();
+                }
+                return _obj;
+            }
+        }
+
+        public Panel PnPageContainer
+        {
+            get { return pnPage; }
+            set {pnPage = value; }
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -21,9 +48,9 @@ namespace SystemGynControl
 
         private void HideSubMenu()
         {
-            pnMenuClass.Visible = false;
-            pnMenuSave.Visible = false;
-            //pnSubMenuMontilyPayment.Visible = false;
+            //pnMenuClass.Visible = false;
+            //pnMenuSave.Visible = false;
+            ////pnSubMenuMontilyPayment.Visible = false;
             //pnSubMenuReport.Visible = false;
         }
 
@@ -32,20 +59,9 @@ namespace SystemGynControl
             Application.Exit();
         }
 
+       
         private void btnRetoreMaximize_Click(object sender, EventArgs e)
         {
-            //if (isMaXimized)
-            //{
-            //    this.ClientSize = new Size(innerWidth, innerHeight);
-            //}
-            //else
-            //{
-            //    this.ClientSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
-            //    this.Top = 0;
-            //    this.Left = 0;
-            //}
-
-            //isMaXimized = !isMaXimized;
             if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
@@ -55,47 +71,14 @@ namespace SystemGynControl
             {
                 this.WindowState = FormWindowState.Maximized;
                 btnRetoreMaximize.Image = Properties.Resources.icons8_maximize_window_32px_leave;
-
             }
+
+            isMaximized = !isMaximized;
         }
-
-        //private void btnToggleMenu_Click(object sender, EventArgs e)
-        //{
-
-        //    timer.Start();
-        //    if (pnConjuctMenu.Width == 0)
-        //    {
-        //        pnConjuctMenu.Width = panelWidth;
-        //    }
-        //    else
-        //    {
-        //        pnConjuctMenu.Width = 0;
-        //    }
-        //}
 
         private void timer_Tick(object sender, EventArgs e)
         {
             lblDateNow.Text = $"{DateTime.Now.ToLongDateString()}, {DateTime.Now.ToLongTimeString()}";
-            //if (hidden)
-            //{
-            //    pnConjuctMenu.Width += 10;
-            //    if (pnConjuctMenu.Width >= panelWidth)
-            //    {
-            //        timer.Stop();
-            //        hidden = false;
-            //        this.Refresh();
-            //    }
-            //}
-            //else
-            //{
-            //    pnConjuctMenu.Width -= 10;
-            //    if (pnConjuctMenu.Width <= 0)
-            //    {
-            //        timer.Stop();
-            //        hidden = true;
-            //        this.Refresh();
-            //    }
-            //}
         }
 
         private void btnMimized_Click(object sender, EventArgs e)
@@ -144,36 +127,24 @@ namespace SystemGynControl
             HideSubMenu();
         }
 
-        private void btnSubMenuStudent_Click(object sender, EventArgs e)
-        {
-            OpenForm(new FrmClass());
+        //private void btnSubMenuUser_Click(object sender, EventArgs e)
+        //{
+        //    HideSubMenu();
+        //}
 
-            HideSubMenu();
-        }
+        //private void btnClass_Click(object sender, EventArgs e)
+        //{
+        //    ShowSubMenu(pnMenuClass);
+        //}
 
-        private void btnSubMenuPackage_Click(object sender, EventArgs e)
-        {
-            HideSubMenu();
-        }
-
-        private void btnSubMenuUser_Click(object sender, EventArgs e)
-        {
-            HideSubMenu();
-        }
-
-        private void btnClass_Click(object sender, EventArgs e)
-        {
-            ShowSubMenu(pnMenuClass);
-        }
-
-        private void btnMenuCadastro_Click(object sender, EventArgs e)
-        {
-            ShowSubMenu(pnMenuSave);
-        }
+        //private void btnMenuCadastro_Click(object sender, EventArgs e)
+        //{
+        //    ShowSubMenu(pnMenuSave);
+        //}
 
         private void ShowSubMenu(Panel subMenu)
         {
-            if (!subMenu.Visible)
+           if (!subMenu.Visible)
             {
                 HideSubMenu();
                 subMenu.Visible = true;
@@ -184,6 +155,7 @@ namespace SystemGynControl
 
         private void btnFequency_Click(object sender, EventArgs e)
         {
+
             HideSubMenu();
         }
 
@@ -204,6 +176,7 @@ namespace SystemGynControl
         {
             if (activeForm != null)
                 activeForm = form;
+
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
@@ -219,9 +192,14 @@ namespace SystemGynControl
             HideSubMenu();
         }
 
-        private void pnTitle_DoubleClick(object sender, EventArgs e)
+        private void btnMenuSave_Click(object sender, EventArgs e)
         {
-            btnRetoreMaximize_Click(sender, e);
+            OpenForm(new FrmOptionsSave());
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            OpenForm(new FrmHome());
         }
     }
 }

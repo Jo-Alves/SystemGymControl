@@ -113,6 +113,16 @@ namespace SystemGynControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_client_management_64px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_client_management_64px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_close_window_32px_enter {
             get {
                 object obj = ResourceManager.GetObject("icons8_close_window_32px_enter", resourceCulture);
@@ -136,6 +146,16 @@ namespace SystemGynControl.Properties {
         internal static System.Drawing.Bitmap icons8_frequency_32px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_frequency_32px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_handle_with_care_64px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_handle_with_care_64px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,6 +233,16 @@ namespace SystemGynControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_person_female_50px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_person_female_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_report_file_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_report_file_32px", resourceCulture);
@@ -256,6 +286,16 @@ namespace SystemGynControl.Properties {
         internal static System.Drawing.Bitmap icons8_settings_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_settings_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_user_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

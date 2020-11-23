@@ -11,4 +11,7 @@ C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynCon
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.csproj.CopyComplete
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.FrmHome.resources
-C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.FrmClass.resources
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.FrmOptionsSave.resources
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\MetroFramework.Design.dll
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\MetroFramework.dll
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\MetroFramework.Fonts.dll
