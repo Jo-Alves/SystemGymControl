@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SystemGynControl.Properties
+namespace SystemGymControl.Properties
 {
 
 

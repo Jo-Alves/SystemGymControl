@@ -1,0 +1,17 @@
+C:\Users\val\Desktop\SystemGymControl\bin\Debug\SystemGymControl.exe.config
+C:\Users\val\Desktop\SystemGymControl\bin\Debug\SystemGymControl.exe
+C:\Users\val\Desktop\SystemGymControl\bin\Debug\SystemGymControl.pdb
+C:\Users\val\Desktop\SystemGymControl\bin\Debug\MetroFramework.Design.dll
+C:\Users\val\Desktop\SystemGymControl\bin\Debug\MetroFramework.dll
+C:\Users\val\Desktop\SystemGymControl\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.csprojAssemblyReference.cache
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.FrmGymControl.resources
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.Properties.Resources.resources
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.csproj.GenerateResource.cache
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.csproj.CoreCompileInputs.cache
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.csproj.CopyComplete
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.exe
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.pdb
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.FrmHome.resources
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.usSaveStudent.resources
+C:\Users\val\Desktop\SystemGymControl\obj\Debug\SystemGymControl.UsStudent.resources

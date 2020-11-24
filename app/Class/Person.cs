@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace SystemGynControl
+namespace SystemGymControl
 {
     public abstract class Person
     {

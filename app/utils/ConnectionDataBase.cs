@@ -1,4 +1,4 @@
-﻿namespace SystemGynControl
+﻿namespace SystemGymControl
 {
     public static class ConnectionDataBase
     {

@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace SystemGynControl
+namespace SystemGymControl
 {
     class ItemsPpackage
     {
