@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnClass = new System.Windows.Forms.Panel();
-            this.lblClass = new System.Windows.Forms.Label();
-            this.btnSaveClass = new System.Windows.Forms.Button();
-            this.pcClass = new System.Windows.Forms.PictureBox();
+            this.pnStudent = new System.Windows.Forms.Panel();
+            this.lblStudent = new System.Windows.Forms.Label();
+            this.btnSaveStudent = new System.Windows.Forms.Button();
+            this.pcStudent = new System.Windows.Forms.PictureBox();
             this.pnPackage = new System.Windows.Forms.Panel();
             this.lblPackage = new System.Windows.Forms.Label();
             this.btnSavePackage = new System.Windows.Forms.Button();
@@ -41,8 +41,8 @@
             this.btnSaveUser = new System.Windows.Forms.Button();
             this.pcUser = new System.Windows.Forms.PictureBox();
             this.pcLogo = new System.Windows.Forms.PictureBox();
-            this.pnClass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcClass)).BeginInit();
+            this.pnStudent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcStudent)).BeginInit();
             this.pnPackage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcPackage)).BeginInit();
             this.pnUser.SuspendLayout();
@@ -50,53 +50,54 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnClass
+            // pnStudent
             // 
-            this.pnClass.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pnClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pnClass.Controls.Add(this.lblClass);
-            this.pnClass.Controls.Add(this.btnSaveClass);
-            this.pnClass.Controls.Add(this.pcClass);
-            this.pnClass.Location = new System.Drawing.Point(17, 221);
-            this.pnClass.Name = "pnClass";
-            this.pnClass.Size = new System.Drawing.Size(188, 192);
-            this.pnClass.TabIndex = 1;
+            this.pnStudent.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnStudent.Controls.Add(this.lblStudent);
+            this.pnStudent.Controls.Add(this.btnSaveStudent);
+            this.pnStudent.Controls.Add(this.pcStudent);
+            this.pnStudent.Location = new System.Drawing.Point(17, 221);
+            this.pnStudent.Name = "pnStudent";
+            this.pnStudent.Size = new System.Drawing.Size(188, 192);
+            this.pnStudent.TabIndex = 1;
             // 
-            // lblClass
+            // lblStudent
             // 
-            this.lblClass.AutoSize = true;
-            this.lblClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblClass.Location = new System.Drawing.Point(62, 88);
-            this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(54, 22);
-            this.lblClass.TabIndex = 2;
-            this.lblClass.Text = "Aluno";
+            this.lblStudent.AutoSize = true;
+            this.lblStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblStudent.Location = new System.Drawing.Point(62, 88);
+            this.lblStudent.Name = "lblStudent";
+            this.lblStudent.Size = new System.Drawing.Size(54, 22);
+            this.lblStudent.TabIndex = 2;
+            this.lblStudent.Text = "Aluno";
             // 
-            // btnSaveClass
+            // btnSaveStudent
             // 
-            this.btnSaveClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
-            this.btnSaveClass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveClass.FlatAppearance.BorderSize = 0;
-            this.btnSaveClass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.btnSaveClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveClass.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveClass.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveClass.Location = new System.Drawing.Point(10, 123);
-            this.btnSaveClass.Name = "btnSaveClass";
-            this.btnSaveClass.Size = new System.Drawing.Size(168, 42);
-            this.btnSaveClass.TabIndex = 1;
-            this.btnSaveClass.Text = "Ir para a tela";
-            this.btnSaveClass.UseVisualStyleBackColor = false;
+            this.btnSaveStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
+            this.btnSaveStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveStudent.FlatAppearance.BorderSize = 0;
+            this.btnSaveStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnSaveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveStudent.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveStudent.Location = new System.Drawing.Point(10, 123);
+            this.btnSaveStudent.Name = "btnSaveStudent";
+            this.btnSaveStudent.Size = new System.Drawing.Size(168, 42);
+            this.btnSaveStudent.TabIndex = 1;
+            this.btnSaveStudent.Text = "Ir para a tela";
+            this.btnSaveStudent.UseVisualStyleBackColor = false;
+            this.btnSaveStudent.Click += new System.EventHandler(this.btnSaveStudent_Click);
             // 
-            // pcClass
+            // pcStudent
             // 
-            this.pcClass.Image = global::SystemGynControl.Properties.Resources.icons8_client_management_64px_1;
-            this.pcClass.Location = new System.Drawing.Point(56, 17);
-            this.pcClass.Name = "pcClass";
-            this.pcClass.Size = new System.Drawing.Size(64, 64);
-            this.pcClass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcClass.TabIndex = 0;
-            this.pcClass.TabStop = false;
+            this.pcStudent.Image = global::SystemGynControl.Properties.Resources.icons8_client_management_64px_1;
+            this.pcStudent.Location = new System.Drawing.Point(56, 17);
+            this.pcStudent.Name = "pcStudent";
+            this.pcStudent.Size = new System.Drawing.Size(64, 64);
+            this.pcStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcStudent.TabIndex = 0;
+            this.pcStudent.TabStop = false;
             // 
             // pnPackage
             // 
@@ -213,7 +214,7 @@
             this.ClientSize = new System.Drawing.Size(617, 500);
             this.Controls.Add(this.pnUser);
             this.Controls.Add(this.pnPackage);
-            this.Controls.Add(this.pnClass);
+            this.Controls.Add(this.pnStudent);
             this.Controls.Add(this.pcLogo);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -221,9 +222,9 @@
             this.Name = "FrmOptionsSave";
             this.Text = "FrmOptionsSave";
             this.ClientSizeChanged += new System.EventHandler(this.FrmOptionsSave_ClientSizeChanged);
-            this.pnClass.ResumeLayout(false);
-            this.pnClass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcClass)).EndInit();
+            this.pnStudent.ResumeLayout(false);
+            this.pnStudent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcStudent)).EndInit();
             this.pnPackage.ResumeLayout(false);
             this.pnPackage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcPackage)).EndInit();
@@ -238,16 +239,16 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pcLogo;
-        private System.Windows.Forms.Panel pnClass;
-        private System.Windows.Forms.PictureBox pcClass;
+        private System.Windows.Forms.Panel pnStudent;
+        private System.Windows.Forms.PictureBox pcStudent;
         private System.Windows.Forms.Panel pnPackage;
         private System.Windows.Forms.Panel pnUser;
-        private System.Windows.Forms.Button btnSaveClass;
+        private System.Windows.Forms.Button btnSaveStudent;
         private System.Windows.Forms.Button btnSavePackage;
         private System.Windows.Forms.PictureBox pcPackage;
         private System.Windows.Forms.Button btnSaveUser;
         private System.Windows.Forms.PictureBox pcUser;
-        private System.Windows.Forms.Label lblClass;
+        private System.Windows.Forms.Label lblStudent;
         private System.Windows.Forms.Label lblPackage;
         private System.Windows.Forms.Label lblUser;
     }

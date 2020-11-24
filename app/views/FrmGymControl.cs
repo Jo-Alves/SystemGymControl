@@ -12,10 +12,10 @@ namespace SystemGynControl
         public FrmGymControl()
         {
             InitializeComponent();
-            HideSubMenu();
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
             gp.AddEllipse(pcPerfil.DisplayRectangle);
             pcPerfil.Region = new Region(gp);
+          
             OpenForm(new FrmHome());
             _obj = this;
 
@@ -45,14 +45,6 @@ namespace SystemGynControl
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void HideSubMenu()
-        {
-            //pnMenuClass.Visible = false;
-            //pnMenuSave.Visible = false;
-            ////pnSubMenuMontilyPayment.Visible = false;
-            //pnSubMenuReport.Visible = false;
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -122,48 +114,6 @@ namespace SystemGynControl
             btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_leave;
         }
 
-        private void btnMenuCadastro_MouseLeave(object sender, EventArgs e)
-        {
-            HideSubMenu();
-        }
-
-        //private void btnSubMenuUser_Click(object sender, EventArgs e)
-        //{
-        //    HideSubMenu();
-        //}
-
-        //private void btnClass_Click(object sender, EventArgs e)
-        //{
-        //    ShowSubMenu(pnMenuClass);
-        //}
-
-        //private void btnMenuCadastro_Click(object sender, EventArgs e)
-        //{
-        //    ShowSubMenu(pnMenuSave);
-        //}
-
-        private void ShowSubMenu(Panel subMenu)
-        {
-           if (!subMenu.Visible)
-            {
-                HideSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
-        }
-
-        private void btnFequency_Click(object sender, EventArgs e)
-        {
-
-            HideSubMenu();
-        }
-
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
-            HideSubMenu();
-        }
-
         private void pnTitle_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -189,7 +139,6 @@ namespace SystemGynControl
         private void pcHome_Click(object sender, EventArgs e)
         {
             OpenForm(new FrmHome());
-            HideSubMenu();
         }
 
         private void btnMenuSave_Click(object sender, EventArgs e)

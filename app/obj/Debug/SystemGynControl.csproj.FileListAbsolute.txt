@@ -15,3 +15,7 @@ C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynCon
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\MetroFramework.Design.dll
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\MetroFramework.dll
 C:\Users\val\Desktop\projects-freela\SystemGynControl\app\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.FrmClass.resources
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.FrmStudent.resources
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.usStudent.resources
+C:\Users\val\Desktop\projects-freela\SystemGynControl\app\obj\Debug\SystemGynControl.usSaveStudent.resources

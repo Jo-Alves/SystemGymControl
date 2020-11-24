@@ -17,22 +17,17 @@ namespace SystemGynControl
             InitializeComponent();
         }
 
-        private void ResizeControl()
-        {
-
-        }
-
         private void FrmOptionsSave_ClientSizeChanged(object sender, EventArgs e)
         {
             if(this.Width > 617)
             {
-                /* Aluno - Class */
-                pnClass.Location = new Point(73, 213);
-                pnClass.Size = new Size(272, 245);
-                pcClass.Location = new Point(102, 28);
-                lblClass.Location = new Point(108, 103);
-                btnSaveClass.Location = new Point(9, 159);
-                btnSaveClass.Size = new Size(252, 42);
+                /* Aluno - Student */
+                pnStudent.Location = new Point(73, 213);
+                pnStudent.Size = new Size(272, 245);
+                pcStudent.Location = new Point(102, 28);
+                lblStudent.Location = new Point(108, 103);
+                btnSaveStudent.Location = new Point(9, 159);
+                btnSaveStudent.Size = new Size(252, 42);
 
                 /* Pacote - Package*/
                 pnPackage.Location = new Point(420, 213);
@@ -53,13 +48,13 @@ namespace SystemGynControl
             }
             else
             {
-                /* Aluno - Class */
-                pnClass.Location = new Point(17, 221);
-                pnClass.Size = new Size(188, 192);
-                pcClass.Location = new Point(56, 17);
-                lblClass.Location = new Point(62, 88);
-                btnSaveClass.Location = new Point(10, 123);
-                btnSaveClass.Size = new Size(168, 42);
+                /* Aluno - Student */
+                pnStudent.Location = new Point(17, 221);
+                pnStudent.Size = new Size(188, 192);
+                pcStudent.Location = new Point(56, 17);
+                lblStudent.Location = new Point(62, 88);
+                btnSaveStudent.Location = new Point(10, 123);
+                btnSaveStudent.Size = new Size(168, 42);
 
                 /* Pacote - Package*/
                 pnPackage.Location = new Point(211, 221);
@@ -79,9 +74,9 @@ namespace SystemGynControl
             }
         }
 
-        private void btnSaveClass_MouseEnter(object sender, EventArgs e)
+        private void btnSaveStudent_MouseEnter(object sender, EventArgs e)
         {
-            this.btnSaveClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))); 
+            this.btnSaveStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))); 
         }
 
         private void btnSavePackage_MouseEnter(object sender, EventArgs e)
@@ -94,9 +89,9 @@ namespace SystemGynControl
             this.btnSaveUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
         }
 
-        private void btnSaveClass_MouseLeave(object sender, EventArgs e)
+        private void btnSaveStudent_MouseLeave(object sender, EventArgs e)
         {
-            this.btnSaveClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(29)))), ((int)(((byte)(52)))));
+            this.btnSaveStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(29)))), ((int)(((byte)(52)))));
         }
 
         private void btnSavePackage_MouseLeave(object sender, EventArgs e)
@@ -107,6 +102,18 @@ namespace SystemGynControl
         private void btnSaveUser_MouseLeave(object sender, EventArgs e)
         {
             this.btnSaveUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(29)))), ((int)(((byte)(52)))));
+        }
+
+        private void btnSaveStudent_Click(object sender, EventArgs e)
+        {
+            if (!FrmGymControl.Instance.PnPageContainer.Controls.ContainsKey("usStudent"))
+            {
+                usStudent student = new usStudent();
+                student.Dock = DockStyle.Fill;
+                FrmGymControl.Instance.PnPageContainer.Controls.Add(student);
+            }
+
+            FrmGymControl.Instance.PnPageContainer.Controls["usStudent"].BringToFront();
         }
     }
 }

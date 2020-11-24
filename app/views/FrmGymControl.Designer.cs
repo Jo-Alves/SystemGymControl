@@ -50,9 +50,9 @@
             this.lblDateNow = new System.Windows.Forms.Label();
             this.pnPage = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.pnTitle.SuspendLayout();
             this.pnConjuctMenu.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,7 +81,7 @@
             this.btnRetoreMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRetoreMaximize.FlatAppearance.BorderSize = 0;
             this.btnRetoreMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRetoreMaximize.Image = global::SystemGynControl.Properties.Resources.icons8_maximize_window_32px_leave;
+            this.btnRetoreMaximize.Image = global::SystemGynControl.Properties.Resources.icons8_restore_window_32px_leave;
             this.btnRetoreMaximize.Location = new System.Drawing.Point(781, 4);
             this.btnRetoreMaximize.Name = "btnRetoreMaximize";
             this.btnRetoreMaximize.Size = new System.Drawing.Size(28, 30);
@@ -140,7 +140,7 @@
             this.pnConjuctMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnConjuctMenu.Location = new System.Drawing.Point(0, 40);
             this.pnConjuctMenu.Name = "pnConjuctMenu";
-            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 500);
+            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 535);
             this.pnConjuctMenu.TabIndex = 8;
             // 
             // panel3
@@ -308,7 +308,7 @@
             this.pnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(29)))), ((int)(((byte)(52)))));
             this.pnStatus.Controls.Add(this.lblDateNow);
             this.pnStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnStatus.Location = new System.Drawing.Point(0, 540);
+            this.pnStatus.Location = new System.Drawing.Point(0, 575);
             this.pnStatus.Name = "pnStatus";
             this.pnStatus.Size = new System.Drawing.Size(852, 35);
             this.pnStatus.TabIndex = 5;
@@ -329,10 +329,11 @@
             // 
             // pnPage
             // 
+            this.pnPage.AutoScroll = true;
             this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPage.Location = new System.Drawing.Point(235, 40);
             this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(617, 500);
+            this.pnPage.Size = new System.Drawing.Size(617, 535);
             this.pnPage.TabIndex = 11;
             // 
             // panel2
@@ -342,6 +343,12 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(218, 100);
             this.panel2.TabIndex = 27;
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // button4
             // 
@@ -383,18 +390,12 @@
             this.button5.Text = "Aluno";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // metroToolTip1
-            // 
-            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroToolTip1.StyleManager = null;
-            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
             // FrmGymControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(852, 575);
+            this.ClientSize = new System.Drawing.Size(852, 610);
             this.Controls.Add(this.pnPage);
             this.Controls.Add(this.pnConjuctMenu);
             this.Controls.Add(this.pnStatus);
@@ -426,7 +427,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel pnConjuctMenu;
         private System.Windows.Forms.Panel pnStatus;
-        private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lblDateNow;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -442,5 +442,6 @@
         private System.Windows.Forms.Button btnMenuSave;
         private System.Windows.Forms.Button btnHome;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
+        private System.Windows.Forms.Panel pnPage;
     }
 }

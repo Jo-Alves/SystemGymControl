@@ -73,6 +73,18 @@
     <Compile Include="class\SituationsStudent.cs" />
     <Compile Include="class\FrequenciesStudent.cs" />
     <Compile Include="class\ResponsiblesStudent.cs" />
+    <Compile Include="views\FrmSaveStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\FrmSaveStudent.Designer.cs">
+      <DependentUpon>FrmSaveStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\FrmStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\FrmStudent.Designer.cs">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\FrmGymControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,21 @@
     <Compile Include="views\FrmOptionsSave.Designer.cs">
       <DependentUpon>FrmOptionsSave.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\usSaveStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\usSaveStudent.Designer.cs">
+      <DependentUpon>usSaveStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\usStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="views\usStudent.Designer.cs">
+      <DependentUpon>usStudent.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="views\FrmStudent.resx">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +142,15 @@
     </Compile>
     <EmbeddedResource Include="views\FrmOptionsSave.resx">
       <DependentUpon>FrmOptionsSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\FrmSaveStudent.resx">
+      <DependentUpon>FrmSaveStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\usSaveStudent.resx">
+      <DependentUpon>usSaveStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\usStudent.resx">
+      <DependentUpon>usStudent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -249,6 +285,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_user_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_pencil_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_trash_25px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
