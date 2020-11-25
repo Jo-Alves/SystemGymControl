@@ -55,23 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\BillingParametersPackage.cs" />
-    <Compile Include="Class\CashFlow.cs" />
-    <Compile Include="Class\FormsOfPayment.cs" />
-    <Compile Include="Class\FrequenciesStudent.cs" />
-    <Compile Include="Class\IcomingCashFlow.cs" />
-    <Compile Include="Class\ItemsPackage.cs" />
-    <Compile Include="Class\Modality.cs" />
-    <Compile Include="Class\OutgoingCashFlow.cs" />
-    <Compile Include="Class\Package.cs" />
-    <Compile Include="Class\Payment.cs" />
-    <Compile Include="Class\Person.cs" />
-    <Compile Include="Class\Plan.cs" />
-    <Compile Include="Class\ResponsiblesStudent.cs" />
-    <Compile Include="Class\SituationsPlan.cs" />
-    <Compile Include="Class\SituationsStudent.cs" />
-    <Compile Include="Class\Student.cs" />
-    <Compile Include="Class\User.cs" />
     <Compile Include="Utils\ConnectionDataBase.cs" />
     <Compile Include="Utils\OpenFormAndUser.cs" />
     <Compile Include="Utils\Security.cs" />
@@ -143,7 +126,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Bussiness\Bussiness.csproj">
+      <Project>{22491b1a-e22e-48ed-a85d-0916fbd952d1}</Project>
+      <Name>Bussiness</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_activity_history_32px.png" />
   </ItemGroup>

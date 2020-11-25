@@ -68,7 +68,6 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(121, 26);
             this.txtCEP.TabIndex = 53;
-            this.txtCEP.Text = "00.000-000";
             this.txtCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCEP.WordWrap = false;
             // 
@@ -116,6 +115,7 @@
             this.btnSave.TabIndex = 50;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtId
             // 
@@ -125,6 +125,7 @@
             this.txtId.ForeColor = System.Drawing.Color.Black;
             this.txtId.Location = new System.Drawing.Point(22, 56);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(112, 26);
             this.txtId.TabIndex = 49;
             this.txtId.WordWrap = false;
@@ -146,6 +147,34 @@
             this.cbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbState.FormattingEnabled = true;
+            this.cbState.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RR",
+            "RO",
+            "RJ",
+            "RN",
+            "RS",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
             this.cbState.Location = new System.Drawing.Point(455, 387);
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(111, 30);
@@ -202,6 +231,7 @@
             this.btnOpenImage.TabIndex = 43;
             this.btnOpenImage.Text = "Abrir Imagem";
             this.btnOpenImage.UseVisualStyleBackColor = false;
+            this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
             // 
             // lblBirth
             // 
@@ -249,6 +279,11 @@
             // ndNumber
             // 
             this.ndNumber.Location = new System.Drawing.Point(462, 321);
+            this.ndNumber.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.ndNumber.Name = "ndNumber";
             this.ndNumber.Size = new System.Drawing.Size(104, 29);
             this.ndNumber.TabIndex = 38;
@@ -329,7 +364,6 @@
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(159, 26);
             this.txtCPF.TabIndex = 32;
-            this.txtCPF.Text = "000.000.000-00";
             this.txtCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCPF.WordWrap = false;
             // 

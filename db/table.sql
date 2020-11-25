@@ -7,14 +7,14 @@ CREATE TABLE [dbo].[students]
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [name] VARCHAR(100) NOT NULL, 
     [cpf] VARCHAR(14) NOT NULL UNIQUE, 
+    [birth] VARCHAR(10) NULL, 
     [cep] VARCHAR(10) NULL, 
     [district] VARCHAR(100) NULL, 
     [address] VARCHAR(100) NULL, 
     [number] INT NULL, 
-    [birth] VARCHAR(10) NULL, 
     [city] VARCHAR(50) NULL, 
     [state] VARCHAR(50) NULL,
-    [photo] IMAGE NULL    
+    [photo] VARCHAR(100) NULL    
 )
 
 CREATE TABLE [dbo].[frequencies_student]
@@ -23,7 +23,7 @@ CREATE TABLE [dbo].[frequencies_student]
     [situation] VARCHAR(7) NOT NULL, 
     [date] VARCHAR(10) NOT NULL, 
     [student_id] INT NOT NULL,    
-	FOREIGN KEY ([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
+	FOREIGN KEY ([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[situations_student] (
@@ -32,7 +32,7 @@ CREATE TABLE [dbo].[situations_student] (
     [observation] VARCHAR(100) NULL,
     [student_id] INT          NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
-    FOREIGN KEY ([student_id]) REFERENCES [dbo].[student] ([id]) ON DELETE CASCADE
+    FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
 );
 
 CREATE TABLE [dbo].[responsibles_student]
@@ -42,14 +42,14 @@ CREATE TABLE [dbo].[responsibles_student]
     [cpf] VARCHAR(14) NOT NULL, 
     [kinship] VARCHAR(100) NULL,
     [student_id] INT NOT NULL,
-    FOREIGN KEY([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
+    FOREIGN KEY([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE modalities(
     [id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [description] VARCHAR(50) NOT NULL,
     [student_id] INT NOT NULL,
-    FOREIGN KEY([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
+    FOREIGN KEY([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[personal]
@@ -81,7 +81,7 @@ CREATE TABLE [dbo].[items_packages]
     [formOfPayment] VARCHAR(50) NOT NULL, 
     [value] DECIMAL(18, 2) NOT NULL, 
     [package_id] INT NOT NULL,
-	FOREIGN KEY ([package_id]) REFERENCES [dbo].[package]([id]) ON DELETE CASCADE
+	FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[billing_parameters_package]
@@ -90,7 +90,7 @@ CREATE TABLE [dbo].[billing_parameters_package]
     [value_penalty] DECIMAL(18, 2) NULL, 
     [value_interest] DECIMAL(18, 2) NULL, 
     [package_id] INT NULL,
-	FOREIGN KEY ([package_id]) REFERENCES [dbo].[package]([id]) ON DELETE CASCADE
+	FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[plans]
@@ -100,8 +100,8 @@ CREATE TABLE [dbo].[plans]
     [date_purchase_plan] VARCHAR NOT NULL,
     [package_id] INT NOT NULL, 
     [student_id] INT NOT NULL,
-	FOREIGN KEY ([package_id]) REFERENCES [dbo].[package]([id]) ON DELETE CASCADE,
-	FOREIGN KEY ([student_id]) REFERENCES [dbo].[student]([id]) ON DELETE CASCADE
+	FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE,
+	FOREIGN KEY ([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[situations_plan] (
@@ -109,7 +109,7 @@ CREATE TABLE [dbo].[situations_plan] (
     [situation]  VARCHAR (10) NOT NULL,
     [plan_id] INT          NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
-    FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plan] ([id]) ON DELETE CASCADE
+    FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans] ([id]) ON DELETE CASCADE
 );
 
 CREATE TABLE [dbo].[payments]
@@ -119,7 +119,7 @@ CREATE TABLE [dbo].[payments]
 	[dueDate] VARCHAR(10) NOT NULL,
 	[payday] VARCHAR(10) NULL,
     [plan_id] INT NULL,	
-	FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plan]([id]) ON DELETE CASCADE
+	FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[forms_of_payment]
@@ -127,7 +127,7 @@ CREATE TABLE [dbo].[forms_of_payment]
 	[Id] INT NOT NULL PRIMARY KEY,
 	[description] VARCHAR(50) NOT NULL,
 	payment_id INT NOT NULL,
-	FOREIGN KEY ([payment_id]) REFERENCES [dbo].[payment]([id]) ON DELETE CASCADE
+	FOREIGN KEY ([payment_id]) REFERENCES [dbo].[payments]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[users]
@@ -151,7 +151,7 @@ CREATE TABLE [dbo].[cash_flow]
 	[closing_date] VARCHAR(10),
 	[closing_time] VARCHAR(8),
 	[user_id] INT NOT NULL,
-	FOREIGN KEY ([user_id]) REFERENCES [dbo].[user]([id])
+	FOREIGN KEY ([user_id]) REFERENCES [dbo].[users]([id])
 )
 
 

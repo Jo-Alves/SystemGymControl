@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bussiness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -113,6 +114,38 @@ namespace SystemGymControl
                 txtName.Size = new Size(378, 26);
                 txtDistrict.Size = new Size(294, 26);
                 txtCity.Size = new Size(427, 26);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var student = new Student();
+            if (!string.IsNullOrWhiteSpace(txtId.Text))
+                student._id = int.Parse(txtId.Text);
+
+            student._name = txtName.Text.Trim();
+            student._cpf = txtCPF.Text.Trim();
+            student._birth = dtBirth.Text;
+            student._cep = txtCEP.Text;
+            student._address = txtAddress.Text.Trim();
+            student._district = txtDistrict.Text.Trim();
+            student._number = int.Parse(ndNumber.Value.ToString());
+            student._city = txtCity.Text.Trim();
+            student._state = cbState.Text.Trim();
+            student._photo = image;
+            student.SaveStudent();
+        }
+
+        string image = "asasas";
+        private void btnOpenImage_Click(object sender, EventArgs e)
+        {
+           var OpenImage = new OpenFileDialog();
+            OpenImage.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF*";
+            if (OpenImage.ShowDialog() == DialogResult.OK)
+            {
+                image = OpenImage.FileName;
+                pcPhoto.ImageLocation = image;
+                pcPhoto.Load();
             }
         }
     }
