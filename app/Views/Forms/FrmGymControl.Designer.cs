@@ -173,6 +173,7 @@
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnSetting.Size = new System.Drawing.Size(235, 55);
             this.btnSetting.TabIndex = 14;
+            this.btnSetting.TabStop = false;
             this.btnSetting.Text = "Configurações";
             this.btnSetting.UseVisualStyleBackColor = false;
             // 
@@ -192,6 +193,7 @@
             this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuQuestion.Size = new System.Drawing.Size(235, 55);
             this.btnMenuQuestion.TabIndex = 13;
+            this.btnMenuQuestion.TabStop = false;
             this.btnMenuQuestion.Text = "Sobre";
             this.btnMenuQuestion.UseVisualStyleBackColor = false;
             // 
@@ -211,6 +213,7 @@
             this.btnMenuReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuReport.Size = new System.Drawing.Size(235, 55);
             this.btnMenuReport.TabIndex = 12;
+            this.btnMenuReport.TabStop = false;
             this.btnMenuReport.Text = "Relatório";
             this.btnMenuReport.UseVisualStyleBackColor = false;
             // 
@@ -230,6 +233,7 @@
             this.btnMenuClass.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuClass.Size = new System.Drawing.Size(235, 55);
             this.btnMenuClass.TabIndex = 11;
+            this.btnMenuClass.TabStop = false;
             this.btnMenuClass.Text = "Aula";
             this.btnMenuClass.UseVisualStyleBackColor = false;
             // 
@@ -249,6 +253,7 @@
             this.btnMenuSave.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuSave.Size = new System.Drawing.Size(235, 55);
             this.btnMenuSave.TabIndex = 10;
+            this.btnMenuSave.TabStop = false;
             this.btnMenuSave.Text = "Cadastro";
             this.btnMenuSave.UseVisualStyleBackColor = false;
             this.btnMenuSave.Click += new System.EventHandler(this.btnMenuSave_Click);
@@ -268,6 +273,7 @@
             this.btnHome.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnHome.Size = new System.Drawing.Size(235, 55);
             this.btnHome.TabIndex = 9;
+            this.btnHome.TabStop = false;
             this.metroToolTip1.SetToolTip(this.btnHome, "Início");
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);

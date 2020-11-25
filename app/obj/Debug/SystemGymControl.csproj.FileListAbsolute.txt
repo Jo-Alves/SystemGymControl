@@ -36,3 +36,4 @@ C:\Users\val\Desktop\projects-freela\SystemGymControl\app\bin\Debug\Database.dll
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\bin\Debug\Bussiness.pdb
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\bin\Debug\Database.pdb
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.csproj.CopyComplete
+C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmResponsiblesStudent.resources

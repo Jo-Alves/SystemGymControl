@@ -26,7 +26,7 @@ namespace Database
                 if (_id == 0)
                     _sql = "INSERT INTO students VALUES (@name, @cpf, @birth, @cep, @district, @address, @number, @city, @state, @photo)";
                 else
-                    _sql = "UPDATE students SET name = @name, cpf = @cpf, cep = @cep, distict = @district, adress = @address, number = @number, birth = @birth, city = @city, state = @state, photo = @photo WHERE id = @id";
+                    _sql = "UPDATE students SET name = @name, cpf = @cpf, cep = @cep, district = @district, address = @address, number = @number, birth = @birth, city = @city, state = @state, photo = @photo WHERE id = @id";
 
                 var command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);

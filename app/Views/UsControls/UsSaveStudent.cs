@@ -39,7 +39,8 @@ namespace SystemGymControl
             cbState.Text = student.SearchID().Rows[0]["state"].ToString();
             if (!string.IsNullOrEmpty(student.SearchID().Rows[0]["photo"].ToString()))
             {
-                pcPhoto.ImageLocation = student.SearchID().Rows[0]["photo"].ToString();
+                image = student.SearchID().Rows[0]["photo"].ToString();
+                pcPhoto.ImageLocation = image;
                 pcPhoto.Load();
             }
         }
@@ -54,6 +55,8 @@ namespace SystemGymControl
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string nameResponsible, cpfResponsible, Kinship;
+
             try
             {
                 if (!string.IsNullOrWhiteSpace(txtId.Text))
@@ -71,59 +74,78 @@ namespace SystemGymControl
                 student._photo = image;
 
                 if (string.IsNullOrEmpty(student.ValidationBox()))
+                {
+                    if (!CheckedHigherStudent())
+                    {
+                        var responsible = new FrmResponsiblesStudent();
+                        responsible.ShowDialog();
+                        if(!string.IsNullOrEmpty(responsible.name))
+                        {
+                            nameResponsible = responsible.name;
+                            cpfResponsible = responsible.cpf;
+                            Kinship = responsible.kinship;
+                        }
+
+                        return;
+
+                    }
+
                     student.SaveStudent();
+                }
                 else
                 {
-                    if(student.ValidationBox() == "Campo Nome obrigatório!")
+                    error.Clear();
+
+                    if (student.ValidationBox() == "Campo Nome obrigatório!")
                     {
                         MessageBox.Show("Campo Nome obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(txtName, "Campo Nome obrigatório!");
                         txtName.Focus();
                         return;
                     }
-                    else if(student.ValidationBox() == "Campo CPF obrigatório!")
+                    else if (student.ValidationBox() == "Campo CPF obrigatório!")
                     {
                         MessageBox.Show("Campo CPF obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(txtCPF, "Campo CPF obrigatório!");
                         txtName.Focus();
                         return;
                     }
-                    else if(student.ValidationBox() == "Campo CEP obrigatório!")
+                    else if (student.ValidationBox() == "Campo CEP obrigatório!")
                     {
                         MessageBox.Show("Campo CEP obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(txtCEP, "Campo CEP obrigatório!");
                         txtName.Focus();
                         return;
                     }
-                    else if(student.ValidationBox() == "Campo Bairro obrigatório!")
+                    else if (student.ValidationBox() == "Campo Bairro obrigatório!")
                     {
                         MessageBox.Show("Campo Bairro obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(txtDistrict, "Campo Bairro obrigatório!");
                         txtName.Focus();
                         return;
                     }
-                    else if(student.ValidationBox() == "Campo Endereço obrigatório!")
+                    else if (student.ValidationBox() == "Campo Endereço obrigatório!")
                     {
                         MessageBox.Show("Campo Endereço obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(txtAddress, "Campo Endereço obrigatório!");
                         txtName.Focus();
                         return;
                     }
-                    else if(student.ValidationBox() == "Campo Cidade obrigatório!")
+                    else if (student.ValidationBox() == "Campo Cidade obrigatório!")
                     {
                         MessageBox.Show("Campo Cidade obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(txtCity, "Campo Cidade obrigatório!");
                         txtName.Focus();
                         return;
                     }
-                    else if(student.ValidationBox() == "Campo Estado obrigatório!")
+                    else if (student.ValidationBox() == "Campo Estado obrigatório!")
                     {
                         MessageBox.Show("Campo Estado obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(cbState, "Campo Estado obrigatório!");
                         txtName.Focus();
                         return;
-                    }   
-                    else if(student.ValidationBox() == "Este CPF já está cadastrado!")
+                    }
+                    else if (student.ValidationBox() == "Este CPF já está cadastrado!")
                     {
                         MessageBox.Show("Este CPF já está cadastrado!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         error.SetError(txtCEP, "Este CPF já está cadastrado!");
@@ -139,6 +161,34 @@ namespace SystemGymControl
             {
                 MessageBox.Show(ex.Message, "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Verifica se o estudante é de maior idade
+
+        private bool CheckedHigherStudent()
+        {
+            // é de maior
+            bool isItBigger = false;
+
+            DateTime result = DateTime.MinValue;
+            if (DateTime.TryParse(this.dtBirth.Text.Trim(), out result))
+            {
+                string Date = DateTime.Now.ToShortDateString();
+
+                DateTime birth = Convert.ToDateTime(dtBirth.Text);
+                DateTime today = Convert.ToDateTime(Date);
+                TimeSpan time = today.Subtract(birth);
+
+                int days = time.Days;
+                int age = days / 365;
+
+                if(age >= 18)
+                {
+                    isItBigger = true;
+                }
+            }
+
+            return isItBigger;
         }
 
         private void usSaveStudent_ClientSizeChanged(object sender, EventArgs e)
@@ -233,7 +283,7 @@ namespace SystemGymControl
             }
         }
 
-        string image = null;
+        string image = "";
         private void btnOpenImage_Click(object sender, EventArgs e)
         {
            var OpenImage = new OpenFileDialog();
@@ -243,6 +293,32 @@ namespace SystemGymControl
                 image = OpenImage.FileName;
                 pcPhoto.ImageLocation = image;
                 pcPhoto.Load();
+            }
+        }
+
+        private void UsSaveStudent_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCEP.Text))
+                if (e.KeyCode == Keys.Enter)
+                    btnSearchCep_Click(sender, e);
+        }
+
+        private void btnSearchCep_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var wsMail = new WsMail.AtendeClienteClient())
+                {
+                    var searchCep = wsMail.consultaCEP(txtCEP.Text);
+                    txtAddress.Text = searchCep.end;
+                    txtDistrict.Text = searchCep.bairro;
+                    txtCity.Text = searchCep.cidade;
+                    cbState.Text = searchCep.uf;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

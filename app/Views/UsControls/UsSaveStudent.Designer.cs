@@ -130,6 +130,7 @@
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(112, 26);
             this.txtId.TabIndex = 0;
+            this.txtId.TabStop = false;
             this.txtId.WordWrap = false;
             // 
             // lblId
@@ -356,6 +357,7 @@
             this.btnSearchCep.TabStop = false;
             this.btnSearchCep.Text = "Buscar CEP";
             this.btnSearchCep.UseVisualStyleBackColor = false;
+            this.btnSearchCep.Click += new System.EventHandler(this.btnSearchCep_Click);
             // 
             // txtCPF
             // 
@@ -443,6 +445,7 @@
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.Size = new System.Drawing.Size(617, 507);
             this.ClientSizeChanged += new System.EventHandler(this.usSaveStudent_ClientSizeChanged);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UsSaveStudent_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumber)).EndInit();
             this.ResumeLayout(false);
