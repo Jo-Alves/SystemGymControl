@@ -13,15 +13,132 @@ namespace SystemGymControl
 {
     public partial class UsSaveStudent : UserControl
     {
+
+        Student student = new Student();
+
         public UsSaveStudent()
         {
             InitializeComponent();
+        } 
+        public UsSaveStudent(int id)
+        {
+            InitializeComponent();
+            
+            student._id = id;
+            student.SearchID();
+
+            txtId.Text = id.ToString();
+            txtName.Text = student.SearchID().Rows[0]["name"].ToString();
+            txtCPF.Text = student.SearchID().Rows[0]["cpf"].ToString();
+            dtBirth.Text = student.SearchID().Rows[0]["birth"].ToString();
+            txtCEP.Text = student.SearchID().Rows[0]["cep"].ToString();
+            txtDistrict.Text = student.SearchID().Rows[0]["district"].ToString();
+            txtAddress.Text = student.SearchID().Rows[0]["address"].ToString();
+            ndNumber.Value = decimal.Parse(student.SearchID().Rows[0]["number"].ToString());
+            txtCity.Text = student.SearchID().Rows[0]["city"].ToString();
+            cbState.Text = student.SearchID().Rows[0]["state"].ToString();
+            if (!string.IsNullOrEmpty(student.SearchID().Rows[0]["photo"].ToString()))
+            {
+                pcPhoto.ImageLocation = student.SearchID().Rows[0]["photo"].ToString();
+                pcPhoto.Load();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             FrmGymControl.Instance.PnPageContainer.Controls.Clear();
             OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+        }
+
+        ErrorProvider error = new ErrorProvider();
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtId.Text))
+                    student._id = int.Parse(txtId.Text);
+
+                student._name = txtName.Text.Trim();
+                student._cpf = txtCPF.Text.Trim();
+                student._birth = dtBirth.Text;
+                student._cep = txtCEP.Text;
+                student._address = txtAddress.Text.Trim();
+                student._district = txtDistrict.Text.Trim();
+                student._number = int.Parse(ndNumber.Value.ToString());
+                student._city = txtCity.Text.Trim();
+                student._state = cbState.Text.Trim();
+                student._photo = image;
+
+                if (string.IsNullOrEmpty(student.ValidationBox()))
+                    student.SaveStudent();
+                else
+                {
+                    if(student.ValidationBox() == "Campo Nome obrigatório!")
+                    {
+                        MessageBox.Show("Campo Nome obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(txtName, "Campo Nome obrigatório!");
+                        txtName.Focus();
+                        return;
+                    }
+                    else if(student.ValidationBox() == "Campo CPF obrigatório!")
+                    {
+                        MessageBox.Show("Campo CPF obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(txtCPF, "Campo CPF obrigatório!");
+                        txtName.Focus();
+                        return;
+                    }
+                    else if(student.ValidationBox() == "Campo CEP obrigatório!")
+                    {
+                        MessageBox.Show("Campo CEP obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(txtCEP, "Campo CEP obrigatório!");
+                        txtName.Focus();
+                        return;
+                    }
+                    else if(student.ValidationBox() == "Campo Bairro obrigatório!")
+                    {
+                        MessageBox.Show("Campo Bairro obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(txtDistrict, "Campo Bairro obrigatório!");
+                        txtName.Focus();
+                        return;
+                    }
+                    else if(student.ValidationBox() == "Campo Endereço obrigatório!")
+                    {
+                        MessageBox.Show("Campo Endereço obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(txtAddress, "Campo Endereço obrigatório!");
+                        txtName.Focus();
+                        return;
+                    }
+                    else if(student.ValidationBox() == "Campo Cidade obrigatório!")
+                    {
+                        MessageBox.Show("Campo Cidade obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(txtCity, "Campo Cidade obrigatório!");
+                        txtName.Focus();
+                        return;
+                    }
+                    else if(student.ValidationBox() == "Campo Estado obrigatório!")
+                    {
+                        MessageBox.Show("Campo Estado obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(cbState, "Campo Estado obrigatório!");
+                        txtName.Focus();
+                        return;
+                    }   
+                    else if(student.ValidationBox() == "Este CPF já está cadastrado!")
+                    {
+                        MessageBox.Show("Este CPF já está cadastrado!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        error.SetError(txtCEP, "Este CPF já está cadastrado!");
+                        txtName.Focus();
+                        return;
+                    }
+                }
+
+                FrmGymControl.Instance.PnPageContainer.Controls.Clear();
+                OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void usSaveStudent_ClientSizeChanged(object sender, EventArgs e)
@@ -72,7 +189,6 @@ namespace SystemGymControl
             }
             else
             {
-
                 /* labels - Location */
 
                 lblId.Location = new Point(18, 30);
@@ -84,7 +200,7 @@ namespace SystemGymControl
                 lblAddress.Location = new Point(18, 297);
                 lblNumber.Location = new Point(458, 297);
                 lblCity.Location = new Point(18, 363);
-                lblState.Location = new Point(451, 363);
+                lblState.Location = new Point(456, 363);
 
                 /* textbox  - Location*/
 
@@ -97,7 +213,7 @@ namespace SystemGymControl
                 txtAddress.Location = new Point(22, 323);
                 ndNumber.Location = new Point(462, 321);
                 txtCity.Location = new Point(22, 389);
-                cbState.Location = new Point(455, 387);
+                cbState.Location = new Point(460, 387);
 
 
                 /* Buttons - Location */
@@ -117,26 +233,7 @@ namespace SystemGymControl
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            var student = new Student();
-            if (!string.IsNullOrWhiteSpace(txtId.Text))
-                student._id = int.Parse(txtId.Text);
-
-            student._name = txtName.Text.Trim();
-            student._cpf = txtCPF.Text.Trim();
-            student._birth = dtBirth.Text;
-            student._cep = txtCEP.Text;
-            student._address = txtAddress.Text.Trim();
-            student._district = txtDistrict.Text.Trim();
-            student._number = int.Parse(ndNumber.Value.ToString());
-            student._city = txtCity.Text.Trim();
-            student._state = cbState.Text.Trim();
-            student._photo = image;
-            student.SaveStudent();
-        }
-
-        string image = "asasas";
+        string image = null;
         private void btnOpenImage_Click(object sender, EventArgs e)
         {
            var OpenImage = new OpenFileDialog();

@@ -94,16 +94,39 @@ namespace Database
 
         public override DataTable SearchID(int id)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
                    _sql = "SELECT * FROM students WHERE id = @id";
-                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    var adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", id);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        } 
+        
+        public bool SearchCPF(string CPF)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                   _sql = "SELECT * FROM students WHERE cpf = @cpf";
+                    var command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@cpf", CPF);
+                    connection.Open();
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.Read())
+                        return true;
+                    else
+                        return false;
                 }
                 catch
                 {

@@ -17,6 +17,30 @@ namespace Bussiness
             set { photo = value; }
         }
 
+        public string ValidationBox()
+        {
+            string message = null;
+
+            if (string.IsNullOrEmpty(this._name))
+                message = "Campo Nome obrigatório!";
+            else if (string.IsNullOrEmpty(this._cpf))
+                message = "Campo CPF obrigatório!";
+            else if (string.IsNullOrEmpty(this._cep))
+                message = "Campo CEP obrigatório!";
+            else if (string.IsNullOrEmpty(this._district))
+                message = "Campo Bairro obrigatório!";
+            else if (string.IsNullOrEmpty(this._address))
+                message = "Campo Endereço obrigatório!";
+            else if (string.IsNullOrEmpty(this._city))
+                message = "Campo Cidade obrigatório!";
+            else if (string.IsNullOrEmpty(this._state))
+                message = "Campo Estado obrigatório!";
+            else if (student.SearchCPF(this._cpf) && this._id == 0)
+                message = "Este CPF já está cadastrado!";
+
+            return message;
+        }
+
         public override void SaveStudent()
         {
             student._id = this._id;
@@ -30,6 +54,7 @@ namespace Bussiness
             student._city = this._city;
             student._state = this._state;
             student._photo = this.photo;
+
             student.Save();
         }
 

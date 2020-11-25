@@ -67,7 +67,7 @@
             this.txtCEP.MaxLength = 10;
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(121, 26);
-            this.txtCEP.TabIndex = 53;
+            this.txtCEP.TabIndex = 4;
             this.txtCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCEP.WordWrap = false;
             // 
@@ -96,6 +96,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 43);
             this.btnCancel.TabIndex = 51;
+            this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -113,6 +114,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 43);
             this.btnSave.TabIndex = 50;
+            this.btnSave.TabStop = false;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -127,7 +129,7 @@
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(112, 26);
-            this.txtId.TabIndex = 49;
+            this.txtId.TabIndex = 0;
             this.txtId.WordWrap = false;
             // 
             // lblId
@@ -175,17 +177,17 @@
             "SP",
             "SE",
             "TO"});
-            this.cbState.Location = new System.Drawing.Point(455, 387);
+            this.cbState.Location = new System.Drawing.Point(460, 387);
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(111, 30);
-            this.cbState.TabIndex = 47;
+            this.cbState.TabIndex = 10;
             // 
             // lblState
             // 
             this.lblState.AutoSize = true;
             this.lblState.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblState.Location = new System.Drawing.Point(451, 363);
+            this.lblState.Location = new System.Drawing.Point(456, 363);
             this.lblState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(68, 22);
@@ -201,7 +203,7 @@
             this.txtCity.Location = new System.Drawing.Point(22, 389);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(427, 26);
-            this.txtCity.TabIndex = 45;
+            this.txtCity.TabIndex = 9;
             this.txtCity.WordWrap = false;
             // 
             // lblCity
@@ -229,6 +231,7 @@
             this.btnOpenImage.Name = "btnOpenImage";
             this.btnOpenImage.Size = new System.Drawing.Size(140, 33);
             this.btnOpenImage.TabIndex = 43;
+            this.btnOpenImage.TabStop = false;
             this.btnOpenImage.Text = "Abrir Imagem";
             this.btnOpenImage.UseVisualStyleBackColor = false;
             this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
@@ -252,7 +255,7 @@
             this.dtBirth.Name = "dtBirth";
             this.dtBirth.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtBirth.Size = new System.Drawing.Size(162, 29);
-            this.dtBirth.TabIndex = 41;
+            this.dtBirth.TabIndex = 3;
             // 
             // pcPhoto
             // 
@@ -286,7 +289,7 @@
             0});
             this.ndNumber.Name = "ndNumber";
             this.ndNumber.Size = new System.Drawing.Size(104, 29);
-            this.ndNumber.TabIndex = 38;
+            this.ndNumber.TabIndex = 8;
             this.ndNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtAddress
@@ -298,7 +301,7 @@
             this.txtAddress.Location = new System.Drawing.Point(22, 323);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(427, 26);
-            this.txtAddress.TabIndex = 37;
+            this.txtAddress.TabIndex = 7;
             this.txtAddress.WordWrap = false;
             // 
             // lblAddress
@@ -322,7 +325,7 @@
             this.txtDistrict.Location = new System.Drawing.Point(272, 255);
             this.txtDistrict.Name = "txtDistrict";
             this.txtDistrict.Size = new System.Drawing.Size(294, 26);
-            this.txtDistrict.TabIndex = 35;
+            this.txtDistrict.TabIndex = 5;
             this.txtDistrict.WordWrap = false;
             // 
             // lblDistrict
@@ -350,6 +353,7 @@
             this.btnSearchCep.Name = "btnSearchCep";
             this.btnSearchCep.Size = new System.Drawing.Size(117, 35);
             this.btnSearchCep.TabIndex = 33;
+            this.btnSearchCep.TabStop = false;
             this.btnSearchCep.Text = "Buscar CEP";
             this.btnSearchCep.UseVisualStyleBackColor = false;
             // 
@@ -363,7 +367,7 @@
             this.txtCPF.MaxLength = 14;
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(159, 26);
-            this.txtCPF.TabIndex = 32;
+            this.txtCPF.TabIndex = 2;
             this.txtCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCPF.WordWrap = false;
             // 
@@ -388,7 +392,7 @@
             this.txtName.Location = new System.Drawing.Point(22, 119);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(378, 26);
-            this.txtName.TabIndex = 30;
+            this.txtName.TabIndex = 1;
             this.txtName.WordWrap = false;
             // 
             // lblName
