@@ -57,7 +57,7 @@
             this.pnStudent.Controls.Add(this.lblStudent);
             this.pnStudent.Controls.Add(this.btnSaveStudent);
             this.pnStudent.Controls.Add(this.pcStudent);
-            this.pnStudent.Location = new System.Drawing.Point(17, 221);
+            this.pnStudent.Location = new System.Drawing.Point(17, 239);
             this.pnStudent.Name = "pnStudent";
             this.pnStudent.Size = new System.Drawing.Size(188, 192);
             this.pnStudent.TabIndex = 1;
@@ -74,13 +74,13 @@
             // 
             // btnSaveStudent
             // 
-            this.btnSaveStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
+            this.btnSaveStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSaveStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveStudent.FlatAppearance.BorderSize = 0;
-            this.btnSaveStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnSaveStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(85)))));
             this.btnSaveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveStudent.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnSaveStudent.Location = new System.Drawing.Point(10, 123);
             this.btnSaveStudent.Name = "btnSaveStudent";
             this.btnSaveStudent.Size = new System.Drawing.Size(168, 42);
@@ -106,7 +106,7 @@
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnSavePackage);
             this.pnPackage.Controls.Add(this.pcPackage);
-            this.pnPackage.Location = new System.Drawing.Point(211, 221);
+            this.pnPackage.Location = new System.Drawing.Point(211, 239);
             this.pnPackage.Name = "pnPackage";
             this.pnPackage.Size = new System.Drawing.Size(188, 192);
             this.pnPackage.TabIndex = 2;
@@ -123,13 +123,13 @@
             // 
             // btnSavePackage
             // 
-            this.btnSavePackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
+            this.btnSavePackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSavePackage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSavePackage.FlatAppearance.BorderSize = 0;
             this.btnSavePackage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSavePackage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSavePackage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePackage.ForeColor = System.Drawing.Color.Black;
+            this.btnSavePackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnSavePackage.Location = new System.Drawing.Point(10, 123);
             this.btnSavePackage.Name = "btnSavePackage";
             this.btnSavePackage.Size = new System.Drawing.Size(168, 42);
@@ -154,7 +154,7 @@
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnSaveUser);
             this.pnUser.Controls.Add(this.pcUser);
-            this.pnUser.Location = new System.Drawing.Point(405, 221);
+            this.pnUser.Location = new System.Drawing.Point(405, 239);
             this.pnUser.Name = "pnUser";
             this.pnUser.Size = new System.Drawing.Size(188, 192);
             this.pnUser.TabIndex = 2;
@@ -171,13 +171,13 @@
             // 
             // btnSaveUser
             // 
-            this.btnSaveUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
+            this.btnSaveUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSaveUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveUser.FlatAppearance.BorderSize = 0;
             this.btnSaveUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveUser.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveUser.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnSaveUser.Location = new System.Drawing.Point(10, 123);
             this.btnSaveUser.Name = "btnSaveUser";
             this.btnSaveUser.Size = new System.Drawing.Size(168, 42);
@@ -201,7 +201,7 @@
             this.pcLogo.Image = global::SystemGymControl.Properties.Resources.logo;
             this.pcLogo.Location = new System.Drawing.Point(0, 0);
             this.pcLogo.Name = "pcLogo";
-            this.pcLogo.Size = new System.Drawing.Size(617, 150);
+            this.pcLogo.Size = new System.Drawing.Size(617, 187);
             this.pcLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcLogo.TabIndex = 0;
             this.pcLogo.TabStop = false;
@@ -210,13 +210,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(617, 500);
             this.Controls.Add(this.pnUser);
             this.Controls.Add(this.pnPackage);
             this.Controls.Add(this.pnStudent);
             this.Controls.Add(this.pcLogo);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Silver;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmOptionsSave";

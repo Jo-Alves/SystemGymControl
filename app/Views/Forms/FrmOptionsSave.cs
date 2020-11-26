@@ -22,7 +22,7 @@ namespace SystemGymControl
             if (this.Width > 617)
             {
                 /* Aluno - Student */
-                pnStudent.Location = new Point(73, 213);
+                pnStudent.Location = new Point(73, 231);
                 pnStudent.Size = new Size(272, 245);
                 pcStudent.Location = new Point(102, 28);
                 lblStudent.Location = new Point(108, 103);
@@ -30,7 +30,7 @@ namespace SystemGymControl
                 btnSaveStudent.Size = new Size(252, 42);
 
                 /* Pacote - Package*/
-                pnPackage.Location = new Point(420, 213);
+                pnPackage.Location = new Point(420, 231);
                 pnPackage.Size = new Size(272, 245);
                 pcPackage.Location = new Point(102, 28);
                 lblPackage.Location = new Point(104, 103);
@@ -38,7 +38,7 @@ namespace SystemGymControl
                 btnSavePackage.Size = new Size(252, 42);
 
                 /* Usuário - user */
-                pnUser.Location = new Point(785, 213);
+                pnUser.Location = new Point(785, 231);
                 pnUser.Size = new Size(272, 245);
                 pcUser.Location = new Point(102, 28);
                 lblUser.Location = new Point(104, 103);
@@ -49,7 +49,7 @@ namespace SystemGymControl
             else
             {
                 /* Aluno - Student */
-                pnStudent.Location = new Point(17, 221);
+                pnStudent.Location = new Point(17, 239);
                 pnStudent.Size = new Size(188, 192);
                 pcStudent.Location = new Point(56, 17);
                 lblStudent.Location = new Point(62, 88);
@@ -57,7 +57,7 @@ namespace SystemGymControl
                 btnSaveStudent.Size = new Size(168, 42);
 
                 /* Pacote - Package*/
-                pnPackage.Location = new Point(211, 221);
+                pnPackage.Location = new Point(211, 239);
                 pnPackage.Size = new Size(188, 192);
                 pcPackage.Location = new Point(56, 17);
                 lblPackage.Location = new Point(60, 88);
@@ -65,7 +65,7 @@ namespace SystemGymControl
                 btnSavePackage.Size = new Size(168, 42);
 
                 /* Usuário - user */
-                pnUser.Location = new Point(404, 221);
+                pnUser.Location = new Point(404, 239);
                 pnUser.Size = new Size(188, 192);
                 pcUser.Location = new Point(56, 17);
                 lblUser.Location = new Point(56, 88);

@@ -66,6 +66,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConnectionDataBase.cs" />
+    <Compile Include="Utils\CPF.cs" />
     <Compile Include="Utils\OpenFormAndUser.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Views\Forms\FrmHome.cs">
@@ -121,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Forms\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\FrmOptionsSave.resx">
+      <DependentUpon>FrmOptionsSave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\FrmResponsiblesStudent.resx">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>

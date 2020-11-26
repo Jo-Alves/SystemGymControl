@@ -4,3 +4,9 @@ C:\Users\val\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Databas
 C:\Users\val\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
 C:\Users\val\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Database.dll
 C:\Users\val\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Database.pdb
+C:\Users\val\Desktop\SystemGymControl\Database\bin\Debug\Database.dll
+C:\Users\val\Desktop\SystemGymControl\Database\bin\Debug\Database.pdb
+C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.csprojAssemblyReference.cache
+C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
+C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.dll
+C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.pdb

@@ -28,12 +28,13 @@ namespace SystemGymControl
             student._id = id;
             student.SearchID();
 
+            mkCPF.Enabled = false;
             txtId.Text = id.ToString();
             txtName.Text = student.SearchID().Rows[0]["name"].ToString();
-            txtCPF.Text = student.SearchID().Rows[0]["cpf"].ToString();
+            mkCPF.Text = student.SearchID().Rows[0]["cpf"].ToString();
             dtBirth.Text = student.SearchID().Rows[0]["birth"].ToString();
-            txtCEP.Text = student.SearchID().Rows[0]["cep"].ToString();
-            txtPhone.Text = student.SearchID().Rows[0]["phone"].ToString();
+            mkCEP.Text = student.SearchID().Rows[0]["cep"].ToString();
+            mkPhone.Text = student.SearchID().Rows[0]["phone"].ToString();
             txtDistrict.Text = student.SearchID().Rows[0]["district"].ToString();
             txtAddress.Text = student.SearchID().Rows[0]["address"].ToString();
             ndNumber.Value = decimal.Parse(student.SearchID().Rows[0]["number"].ToString());
@@ -58,7 +59,7 @@ namespace SystemGymControl
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           
+
 
             try
             {
@@ -66,10 +67,10 @@ namespace SystemGymControl
                     student._id = int.Parse(txtId.Text);
 
                 student._name = txtName.Text.Trim();
-                student._cpf = txtCPF.Text.Trim();
-                student._phone = txtPhone.Text;
+                student._cpf = mkCPF.Text.Trim();
+                student._phone = mkPhone.Text;
                 student._birth = dtBirth.Text;
-                student._cep = txtCEP.Text;
+                student._cep = mkCEP.Text;
                 student._address = txtAddress.Text.Trim();
                 student._district = txtDistrict.Text.Trim();
                 student._number = int.Parse(ndNumber.Value.ToString());
@@ -77,7 +78,14 @@ namespace SystemGymControl
                 student._state = cbState.Text.Trim();
                 student._photo = image;
 
-                if (string.IsNullOrEmpty(student.ValidationBox()))
+                if (!CPF.ValidateCPF(mkCPF.Text))
+                {
+                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    mkCPF.Focus();
+                    return;
+                }
+
+                if (ValidateFields())
                 {
                     if (!CheckedHigherStudent())
                     {
@@ -91,12 +99,10 @@ namespace SystemGymControl
                                 cpfResponsible = responsible.cpf;
                                 Kinship = responsible.kinship;
                                 phone = responsible.phone;
-                                
                             }
                             else
                                 return;
                         }
-
                     }
 
                     student.Save();
@@ -109,77 +115,80 @@ namespace SystemGymControl
                         responsible._studentID = student.GetMaxID();
                         responsible.Save();
                     }
-                    
-                }
-                else
-                {
-                    error.Clear();
 
-                    if (student.ValidationBox() == "Campo Nome obrigatório!")
-                    {
-                        MessageBox.Show("Campo Nome obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(txtName, "Campo Nome obrigatório!");
-                        txtName.Focus();
-                        return;
-                    }
-                    else if (student.ValidationBox() == "Campo CPF obrigatório!")
-                    {
-                        MessageBox.Show("Campo CPF obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(txtCPF, "Campo CPF obrigatório!");
-                        txtName.Focus();
-                        return;
-                    }
-                    else if (student.ValidationBox() == "Campo CEP obrigatório!")
-                    {
-                        MessageBox.Show("Campo CEP obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(txtCEP, "Campo CEP obrigatório!");
-                        txtName.Focus();
-                        return;
-                    }
-                    else if (student.ValidationBox() == "Campo Bairro obrigatório!")
-                    {
-                        MessageBox.Show("Campo Bairro obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(txtDistrict, "Campo Bairro obrigatório!");
-                        txtName.Focus();
-                        return;
-                    }
-                    else if (student.ValidationBox() == "Campo Endereço obrigatório!")
-                    {
-                        MessageBox.Show("Campo Endereço obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(txtAddress, "Campo Endereço obrigatório!");
-                        txtName.Focus();
-                        return;
-                    }
-                    else if (student.ValidationBox() == "Campo Cidade obrigatório!")
-                    {
-                        MessageBox.Show("Campo Cidade obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(txtCity, "Campo Cidade obrigatório!");
-                        txtName.Focus();
-                        return;
-                    }
-                    else if (student.ValidationBox() == "Campo Estado obrigatório!")
-                    {
-                        MessageBox.Show("Campo Estado obrigatório!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(cbState, "Campo Estado obrigatório!");
-                        txtName.Focus();
-                        return;
-                    }
-                    else if (student.ValidationBox() == "Este CPF já está cadastrado!")
-                    {
-                        MessageBox.Show("Este CPF já está cadastrado!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        error.SetError(txtCEP, "Este CPF já está cadastrado!");
-                        txtName.Focus();
-                        return;
-                    }
+                    FrmGymControl.Instance.PnPageContainer.Controls.Clear();
+                    OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
                 }
-
-                FrmGymControl.Instance.PnPageContainer.Controls.Clear();
-                OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool ValidateFields()
+        {
+            bool theFieldsHaveBeenValidated = false;
+        
+            if (!string.IsNullOrEmpty(student.ValidateFields()))
+            {
+                error.Clear();
+
+                if (student.ValidateFields() == "Campo Nome obrigatório!")
+                {
+                    MessageBox.Show("Campo Nome obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(txtName, "Campo Nome obrigatório!");
+                    txtName.Focus();
+                }
+                else if (student.ValidateFields() == "Campo CPF obrigatório!")
+                {
+                    MessageBox.Show("Campo CPF obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(mkCPF, "Campo CPF obrigatório!");
+                    mkCPF.Focus();
+                }
+                else if (student.ValidateFields() == "Campo CEP obrigatório!")
+                {
+                    MessageBox.Show("Campo CEP obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(mkCEP, "Campo CEP obrigatório!");
+                    mkCEP.Focus();
+                }
+                else if (student.ValidateFields() == "Campo Bairro obrigatório!")
+                {
+                    MessageBox.Show("Campo Bairro obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(txtDistrict, "Campo Bairro obrigatório!");
+                    txtDistrict.Focus();
+                }
+                else if (student.ValidateFields() == "Campo Endereço obrigatório!")
+                {
+                    MessageBox.Show("Campo Endereço obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(txtAddress, "Campo Endereço obrigatório!");
+                    txtAddress.Focus();
+                }
+                else if (student.ValidateFields() == "Campo Cidade obrigatório!")
+                {
+                    MessageBox.Show("Campo Cidade obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(txtCity, "Campo Cidade obrigatório!");
+                    txtCity.Focus();
+                }
+                else if (student.ValidateFields() == "Campo Estado obrigatório!")
+                {
+                    MessageBox.Show("Campo Estado obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(cbState, "Campo Estado obrigatório!");
+                    cbState.Focus();
+                }
+                else if (student.ValidateFields() == "Este CPF já está cadastrado!")
+                {
+                    MessageBox.Show("Este CPF já está cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(mkCPF, "Este CPF já está cadastrado!");
+                    mkCPF.Focus();
+                }
+            }
+            else
+            {
+                theFieldsHaveBeenValidated = true;
+            }
+
+            return theFieldsHaveBeenValidated;
         }
 
         // Verifica se o estudante é de maior idade
@@ -232,19 +241,19 @@ namespace SystemGymControl
 
                 txtId.Location = new Point(57, 54);
                 txtName.Location = new Point(57, 117);
-                txtCPF.Location = new Point(768, 117);
+                mkCPF.Location = new Point(768, 117);
                 dtBirth.Location = new Point(57, 188);
-                txtCEP.Location = new Point(228, 188);
+                mkCEP.Location = new Point(228, 188);
                 txtDistrict.Location = new Point(478, 188);
                 txtAddress.Location = new Point(57, 262);
-                ndNumber.Location = new Point(490, 265);
+                ndNumber.Location = new Point(490, 262);
                 txtCity.Location = new Point(600, 262);
                 cbState.Location = new Point(1009, 263);
-                txtPhone.Location = new Point(57, 330);
+                mkPhone.Location = new Point(57, 330);
 
                 /* Buttons - Location */
-                btnCancel.Location = new Point(990, 373);
-                btnSave.Location = new Point(858, 373);
+                btnCancel.Location = new Point(189, 378);
+                btnSave.Location = new Point(57, 378);
                 btnSearchCep.Location = new Point(355, 187);
                 btnOpenImage.Location = new Point(967, 159);
 
@@ -277,19 +286,19 @@ namespace SystemGymControl
 
                 txtId.Location = new Point(22, 56);
                 txtName.Location = new Point(22, 119);
-                txtCPF.Location = new Point(22, 187);
+                mkCPF.Location = new Point(22, 187);
                 dtBirth.Location = new Point(187, 187);
-                txtCEP.Location = new Point(22, 255);
+                mkCEP.Location = new Point(22, 255);
                 txtDistrict.Location = new Point(272, 255);
                 txtAddress.Location = new Point(22, 323);
-                ndNumber.Location = new Point(462, 325);
+                ndNumber.Location = new Point(462, 323);
                 txtCity.Location = new Point(22, 389);
                 cbState.Location = new Point(460, 390);
-                txtPhone.Location = new Point(22, 456);
+                mkPhone.Location = new Point(22, 456);
 
                 /* Buttons - Location */
-                btnCancel.Location = new Point(440, 479);
-                btnSave.Location = new Point(308, 479);
+                btnCancel.Location = new Point(154, 504);
+                btnSave.Location = new Point(22, 504);
                 btnSearchCep.Location = new Point(149, 254);
                 btnOpenImage.Location = new Point(426, 165);
 
@@ -305,6 +314,7 @@ namespace SystemGymControl
         }
 
         string image = "";
+
         private void btnOpenImage_Click(object sender, EventArgs e)
         {
            var OpenImage = new OpenFileDialog();
@@ -319,7 +329,7 @@ namespace SystemGymControl
 
         private void UsSaveStudent_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtCEP.Text))
+            if (!string.IsNullOrWhiteSpace(mkCEP.Text))
                 if (e.KeyCode == Keys.Enter)
                     btnSearchCep_Click(sender, e);
         }
@@ -330,7 +340,7 @@ namespace SystemGymControl
             {
                 using (var wsMail = new WsMail.AtendeClienteClient())
                 {
-                    var searchCep = wsMail.consultaCEP(txtCEP.Text);
+                    var searchCep = wsMail.consultaCEP(mkCEP.Text);
                     txtAddress.Text = searchCep.end;
                     txtDistrict.Text = searchCep.bairro;
                     txtCity.Text = searchCep.cidade;
@@ -339,7 +349,7 @@ namespace SystemGymControl
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

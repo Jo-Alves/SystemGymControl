@@ -71,5 +71,28 @@ namespace Database
                 throw;
             }
         }
+
+        public bool SearchCPF(string CPF)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT * FROM responsibles_student WHERE cpf = @cpf";
+                    var command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@cpf", CPF);
+                    connection.Open();
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

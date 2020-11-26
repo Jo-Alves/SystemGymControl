@@ -7,3 +7,12 @@ C:\Users\val\Desktop\projects-freela\SystemGymControl\Bussiness\bin\Debug\Databa
 C:\Users\val\Desktop\projects-freela\SystemGymControl\Bussiness\obj\Debug\Bussiness.csproj.CopyComplete
 C:\Users\val\Desktop\projects-freela\SystemGymControl\Bussiness\obj\Debug\Bussiness.dll
 C:\Users\val\Desktop\projects-freela\SystemGymControl\Bussiness\obj\Debug\Bussiness.pdb
+C:\Users\val\Desktop\SystemGymControl\Bussiness\bin\Debug\Bussiness.dll
+C:\Users\val\Desktop\SystemGymControl\Bussiness\bin\Debug\Bussiness.pdb
+C:\Users\val\Desktop\SystemGymControl\Bussiness\bin\Debug\Database.dll
+C:\Users\val\Desktop\SystemGymControl\Bussiness\bin\Debug\Database.pdb
+C:\Users\val\Desktop\SystemGymControl\Bussiness\obj\Debug\Bussiness.csprojAssemblyReference.cache
+C:\Users\val\Desktop\SystemGymControl\Bussiness\obj\Debug\Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\val\Desktop\SystemGymControl\Bussiness\obj\Debug\Bussiness.csproj.CopyComplete
+C:\Users\val\Desktop\SystemGymControl\Bussiness\obj\Debug\Bussiness.dll
+C:\Users\val\Desktop\SystemGymControl\Bussiness\obj\Debug\Bussiness.pdb

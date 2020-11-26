@@ -18,13 +18,13 @@ namespace Bussiness
             set { photo = value; }
         }
 
-        public string ValidationBox()
+        public string ValidateFields()
         {
             string message = null;
 
             if (string.IsNullOrEmpty(this._name))
                 message = "Campo Nome obrigatório!";
-            else if (string.IsNullOrEmpty(this._cpf))
+            else if (this._cpf.Length < 14)
                 message = "Campo CPF obrigatório!";
             else if (string.IsNullOrEmpty(this._cep))
                 message = "Campo CEP obrigatório!";
@@ -36,7 +36,7 @@ namespace Bussiness
                 message = "Campo Cidade obrigatório!";
             else if (string.IsNullOrEmpty(this._state))
                 message = "Campo Estado obrigatório!";
-            else if (student.SearchCPF(this._cpf) && this._id == 0)
+            else if (student.SearchCPF(this._cpf))
                 message = "Este CPF já está cadastrado!";
 
             return message;

@@ -26,6 +26,22 @@ namespace Bussiness
             set { studentID = value; }
         }
 
+        public string ValidateFields()
+        {
+            string message = null;
+
+            if (string.IsNullOrEmpty(this._name))
+                message = "Campo Nome do responsável obrigatório!";
+            else if (this._cpf.Length < 14)
+                message = "Campo CPF obrigatório!"; 
+            else if (string.IsNullOrEmpty(this._kinship))
+                message = "Campo Grau de Parentesco obrigatório!";
+            else if (responsible.SearchCPF(this._cpf))
+                message = "Este CPF já está cadastrado!";
+
+            return message;
+        }
+
         public override void Save()
         {
             responsible._name = this._name;

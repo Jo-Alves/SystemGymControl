@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCEP = new System.Windows.Forms.TextBox();
             this.lblCEP = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -49,35 +48,22 @@
             this.txtDistrict = new System.Windows.Forms.TextBox();
             this.lblDistrict = new System.Windows.Forms.Label();
             this.btnSearchCep = new System.Windows.Forms.Button();
-            this.txtCPF = new System.Windows.Forms.TextBox();
             this.lblCPF = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
+            this.mkCPF = new System.Windows.Forms.MaskedTextBox();
+            this.mkPhone = new System.Windows.Forms.MaskedTextBox();
+            this.mkCEP = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumber)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtCEP
-            // 
-            this.txtCEP.BackColor = System.Drawing.Color.White;
-            this.txtCEP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCEP.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCEP.ForeColor = System.Drawing.Color.Black;
-            this.txtCEP.Location = new System.Drawing.Point(22, 255);
-            this.txtCEP.MaxLength = 10;
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(121, 33);
-            this.txtCEP.TabIndex = 4;
-            this.txtCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCEP.WordWrap = false;
             // 
             // lblCEP
             // 
             this.lblCEP.AutoSize = true;
             this.lblCEP.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCEP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblCEP.ForeColor = System.Drawing.Color.Black;
             this.lblCEP.Location = new System.Drawing.Point(18, 230);
             this.lblCEP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCEP.Name = "lblCEP";
@@ -93,8 +79,8 @@
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(22)))), ((int)(((byte)(27)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(440, 479);
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnCancel.Location = new System.Drawing.Point(154, 504);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 43);
             this.btnCancel.TabIndex = 51;
@@ -105,14 +91,14 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(85)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(308, 479);
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnSave.Location = new System.Drawing.Point(22, 504);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 43);
             this.btnSave.TabIndex = 50;
@@ -139,7 +125,7 @@
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblId.ForeColor = System.Drawing.Color.Black;
             this.lblId.Location = new System.Drawing.Point(18, 30);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
@@ -151,6 +137,7 @@
             // 
             this.cbState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbState.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbState.FormattingEnabled = true;
             this.cbState.Items.AddRange(new object[] {
             "AC",
@@ -182,14 +169,14 @@
             "TO"});
             this.cbState.Location = new System.Drawing.Point(460, 390);
             this.cbState.Name = "cbState";
-            this.cbState.Size = new System.Drawing.Size(111, 30);
+            this.cbState.Size = new System.Drawing.Size(111, 34);
             this.cbState.TabIndex = 10;
             // 
             // lblState
             // 
             this.lblState.AutoSize = true;
             this.lblState.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblState.ForeColor = System.Drawing.Color.Black;
             this.lblState.Location = new System.Drawing.Point(456, 363);
             this.lblState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblState.Name = "lblState";
@@ -213,7 +200,7 @@
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblCity.ForeColor = System.Drawing.Color.Black;
             this.lblCity.Location = new System.Drawing.Point(18, 363);
             this.lblCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCity.Name = "lblCity";
@@ -223,13 +210,13 @@
             // 
             // btnOpenImage
             // 
-            this.btnOpenImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
+            this.btnOpenImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnOpenImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpenImage.FlatAppearance.BorderSize = 0;
-            this.btnOpenImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnOpenImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(85)))));
             this.btnOpenImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenImage.ForeColor = System.Drawing.Color.Black;
+            this.btnOpenImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnOpenImage.Location = new System.Drawing.Point(426, 165);
             this.btnOpenImage.Name = "btnOpenImage";
             this.btnOpenImage.Size = new System.Drawing.Size(140, 33);
@@ -243,7 +230,7 @@
             // 
             this.lblBirth.AutoSize = true;
             this.lblBirth.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblBirth.ForeColor = System.Drawing.Color.Black;
             this.lblBirth.Location = new System.Drawing.Point(183, 161);
             this.lblBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBirth.Name = "lblBirth";
@@ -253,11 +240,13 @@
             // 
             // dtBirth
             // 
+            this.dtBirth.CalendarFont = new System.Drawing.Font("Open Sans", 14F);
+            this.dtBirth.Font = new System.Drawing.Font("Open Sans", 14F);
             this.dtBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtBirth.Location = new System.Drawing.Point(187, 187);
             this.dtBirth.Name = "dtBirth";
             this.dtBirth.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtBirth.Size = new System.Drawing.Size(162, 29);
+            this.dtBirth.Size = new System.Drawing.Size(162, 33);
             this.dtBirth.TabIndex = 3;
             // 
             // pcPhoto
@@ -274,7 +263,7 @@
             // 
             this.lblNumber.AutoSize = true;
             this.lblNumber.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblNumber.ForeColor = System.Drawing.Color.Black;
             this.lblNumber.Location = new System.Drawing.Point(458, 297);
             this.lblNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumber.Name = "lblNumber";
@@ -285,14 +274,15 @@
             // ndNumber
             // 
             this.ndNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ndNumber.Location = new System.Drawing.Point(462, 325);
+            this.ndNumber.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ndNumber.Location = new System.Drawing.Point(462, 323);
             this.ndNumber.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.ndNumber.Name = "ndNumber";
-            this.ndNumber.Size = new System.Drawing.Size(104, 29);
+            this.ndNumber.Size = new System.Drawing.Size(104, 33);
             this.ndNumber.TabIndex = 8;
             this.ndNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -312,7 +302,7 @@
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblAddress.ForeColor = System.Drawing.Color.Black;
             this.lblAddress.Location = new System.Drawing.Point(18, 297);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
@@ -336,7 +326,7 @@
             // 
             this.lblDistrict.AutoSize = true;
             this.lblDistrict.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistrict.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblDistrict.ForeColor = System.Drawing.Color.Black;
             this.lblDistrict.Location = new System.Drawing.Point(268, 229);
             this.lblDistrict.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDistrict.Name = "lblDistrict";
@@ -346,41 +336,27 @@
             // 
             // btnSearchCep
             // 
-            this.btnSearchCep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(168)))), ((int)(((byte)(246)))));
+            this.btnSearchCep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnSearchCep.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchCep.FlatAppearance.BorderSize = 0;
-            this.btnSearchCep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnSearchCep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(85)))));
             this.btnSearchCep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchCep.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchCep.ForeColor = System.Drawing.Color.Black;
+            this.btnSearchCep.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSearchCep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnSearchCep.Location = new System.Drawing.Point(149, 254);
             this.btnSearchCep.Name = "btnSearchCep";
             this.btnSearchCep.Size = new System.Drawing.Size(117, 35);
-            this.btnSearchCep.TabIndex = 33;
+            this.btnSearchCep.TabIndex = 4;
             this.btnSearchCep.TabStop = false;
             this.btnSearchCep.Text = "Buscar CEP";
             this.btnSearchCep.UseVisualStyleBackColor = false;
             this.btnSearchCep.Click += new System.EventHandler(this.btnSearchCep_Click);
             // 
-            // txtCPF
-            // 
-            this.txtCPF.BackColor = System.Drawing.Color.White;
-            this.txtCPF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCPF.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPF.ForeColor = System.Drawing.Color.Black;
-            this.txtCPF.Location = new System.Drawing.Point(22, 187);
-            this.txtCPF.MaxLength = 14;
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(159, 33);
-            this.txtCPF.TabIndex = 2;
-            this.txtCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCPF.WordWrap = false;
-            // 
             // lblCPF
             // 
             this.lblCPF.AutoSize = true;
             this.lblCPF.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblCPF.ForeColor = System.Drawing.Color.Black;
             this.lblCPF.Location = new System.Drawing.Point(18, 161);
             this.lblCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCPF.Name = "lblCPF";
@@ -404,7 +380,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(18, 93);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
@@ -412,24 +388,11 @@
             this.lblName.TabIndex = 29;
             this.lblName.Text = "Nome";
             // 
-            // txtPhone
-            // 
-            this.txtPhone.BackColor = System.Drawing.Color.White;
-            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPhone.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.ForeColor = System.Drawing.Color.Black;
-            this.txtPhone.Location = new System.Drawing.Point(22, 456);
-            this.txtPhone.MaxLength = 15;
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(159, 33);
-            this.txtPhone.TabIndex = 11;
-            this.txtPhone.WordWrap = false;
-            // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblPhone.ForeColor = System.Drawing.Color.Black;
             this.lblPhone.Location = new System.Drawing.Point(18, 430);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
@@ -437,14 +400,48 @@
             this.lblPhone.TabIndex = 54;
             this.lblPhone.Text = "Telefone";
             // 
+            // mkCPF
+            // 
+            this.mkCPF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mkCPF.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mkCPF.Location = new System.Drawing.Point(22, 187);
+            this.mkCPF.Mask = "000,000,000-00";
+            this.mkCPF.Name = "mkCPF";
+            this.mkCPF.Size = new System.Drawing.Size(159, 33);
+            this.mkCPF.TabIndex = 2;
+            this.mkCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // mkPhone
+            // 
+            this.mkPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mkPhone.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mkPhone.Location = new System.Drawing.Point(22, 456);
+            this.mkPhone.Mask = "(99) 99999-9999";
+            this.mkPhone.Name = "mkPhone";
+            this.mkPhone.Size = new System.Drawing.Size(159, 33);
+            this.mkPhone.TabIndex = 11;
+            this.mkPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // mkCEP
+            // 
+            this.mkCEP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mkCEP.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mkCEP.Location = new System.Drawing.Point(22, 255);
+            this.mkCEP.Mask = "00,000-000";
+            this.mkCEP.Name = "mkCEP";
+            this.mkCEP.Size = new System.Drawing.Size(121, 33);
+            this.mkCEP.TabIndex = 4;
+            this.mkCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // UsSaveStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.txtPhone);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.mkCEP);
+            this.Controls.Add(this.mkPhone);
+            this.Controls.Add(this.mkCPF);
             this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.txtCEP);
             this.Controls.Add(this.lblCEP);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -465,7 +462,6 @@
             this.Controls.Add(this.txtDistrict);
             this.Controls.Add(this.lblDistrict);
             this.Controls.Add(this.btnSearchCep);
-            this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
@@ -473,7 +469,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UsSaveStudent";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.Size = new System.Drawing.Size(617, 535);
+            this.Size = new System.Drawing.Size(617, 570);
             this.ClientSizeChanged += new System.EventHandler(this.usSaveStudent_ClientSizeChanged);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UsSaveStudent_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).EndInit();
@@ -484,8 +480,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCEP;
         private System.Windows.Forms.Label lblCEP;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
@@ -506,11 +500,12 @@
         private System.Windows.Forms.TextBox txtDistrict;
         private System.Windows.Forms.Label lblDistrict;
         private System.Windows.Forms.Button btnSearchCep;
-        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.MaskedTextBox mkCPF;
+        private System.Windows.Forms.MaskedTextBox mkPhone;
+        private System.Windows.Forms.MaskedTextBox mkCEP;
     }
 }

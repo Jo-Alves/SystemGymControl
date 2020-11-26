@@ -34,13 +34,11 @@
             // 
             // pcLogo
             // 
-            this.pcLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pcLogo.Image = global::SystemGymControl.Properties.Resources.logo;
-            this.pcLogo.Location = new System.Drawing.Point(61, 48);
+            this.pcLogo.Location = new System.Drawing.Point(0, 0);
             this.pcLogo.Name = "pcLogo";
-            this.pcLogo.Size = new System.Drawing.Size(512, 343);
+            this.pcLogo.Size = new System.Drawing.Size(634, 438);
             this.pcLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcLogo.TabIndex = 2;
             this.pcLogo.TabStop = false;
@@ -49,7 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(634, 438);
             this.Controls.Add(this.pcLogo);
             this.Font = new System.Drawing.Font("Open Sans", 12F);

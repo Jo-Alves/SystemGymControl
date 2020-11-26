@@ -63,7 +63,7 @@ namespace SystemGymControl
                 }
                 else if (dgvDateStudent.CurrentCell.ColumnIndex == 1)
                 {
-                    if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDateStudent.CurrentRow.Cells["name"].Value.ToString()}?", "System Gym Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDateStudent.CurrentRow.Cells["name"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                     {
                         student._id = id;
                         student.Delete();
