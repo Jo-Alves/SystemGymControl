@@ -20,6 +20,7 @@ namespace SystemGymControl
         public string name { get; set; }
         public string cpf { get; set; }
         public string kinship { get; set; }
+        public string phone { get; set; }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -46,6 +47,7 @@ namespace SystemGymControl
             name = txtName.Text.Trim();
             cpf = txtCPF.Text;
             kinship = cbKinship.Text;
+            phone = txtPhone.Text;
             this.Close();
         }
     }

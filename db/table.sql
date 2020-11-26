@@ -8,6 +8,7 @@ CREATE TABLE [dbo].[students]
     [name] VARCHAR(100) NOT NULL, 
     [cpf] VARCHAR(14) NOT NULL UNIQUE, 
     [birth] VARCHAR(10) NULL, 
+    [phone] VARCHAR(15) NOT NULL, 
     [cep] VARCHAR(10) NULL, 
     [district] VARCHAR(100) NULL, 
     [address] VARCHAR(100) NULL, 
@@ -35,15 +36,18 @@ CREATE TABLE [dbo].[situations_student] (
     FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
 );
 
-CREATE TABLE [dbo].[responsibles_student]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-    [name] VARCHAR(100) NULL, 
-    [cpf] VARCHAR(14) NOT NULL, 
-    [kinship] VARCHAR(100) NULL,
-    [student_id] INT NOT NULL,
-    FOREIGN KEY([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
-)
+CREATE TABLE [dbo].[responsibles_student] (
+    [id]         INT           IDENTITY (1, 1) NOT NULL,
+    [name]       VARCHAR (100) NULL,
+    [cpf]        VARCHAR (14)  NOT NULL UNIQUE,
+    [kinship]    VARCHAR (100) NULL,
+    [phone]    VARCHAR (15) NULL,
+    [student_id] INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
+);
+
+
 
 CREATE TABLE modalities(
     [id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),

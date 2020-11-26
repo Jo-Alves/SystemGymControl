@@ -28,6 +28,7 @@ namespace SystemGymControl
                 dgvDateStudent.Rows[coutRow].Cells["name"].Value = dr["name"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["CPF"].Value = dr["cpf"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["birth"].Value = dr["birth"].ToString();
+                dgvDateStudent.Rows[coutRow].Cells["phone"].Value = dr["phone"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["CEP"].Value = dr["cep"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["district"].Value = dr["district"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["address"].Value = dr["address"].ToString();

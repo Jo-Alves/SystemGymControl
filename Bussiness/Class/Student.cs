@@ -9,6 +9,7 @@ namespace Bussiness
         public override int _id { get; set; }
         public override string _name { get; set; }
         public override string _cpf { get; set; }
+        public override string _phone { get; set; }
         private string photo;
 
         public string _photo
@@ -41,11 +42,12 @@ namespace Bussiness
             return message;
         }
 
-        public override void SaveStudent()
+        public override void Save()
         {
             student._id = this._id;
             student._name = this._name;
             student._cpf = this._cpf;
+            student._phone = this._phone;
             student._birth = this._birth;
             student._cep = this._cep;
             student._district = this._district;
@@ -73,6 +75,12 @@ namespace Bussiness
         public DataTable SearchAll()
         {
             return student.SearchAll();
+        }
+
+        public int GetMaxID()
+        {
+            return student.GetMaxId();
+
         }
     }
 }

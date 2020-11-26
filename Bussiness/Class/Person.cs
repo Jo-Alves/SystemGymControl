@@ -7,6 +7,7 @@ namespace Bussiness
         private int id;
         private string name;
         private string cpf;
+        private string phone;
         private string cep;
         private string district;
         private string address;
@@ -20,6 +21,7 @@ namespace Bussiness
         public abstract int _id { get; set; }
         public abstract string _name { get; set; }
         public abstract string _cpf { get; set; }
+        public abstract string _phone { get; set; }
         public string _cep { get; set; }
         public string _district { get; set; }
         public string _address { get; set; }
@@ -28,7 +30,7 @@ namespace Bussiness
         public string _city { get; set; }
         public string _state { get; set; }
 
-        public abstract void SaveStudent();
+        public abstract void Save();
         public abstract DataTable SearchID();
     }
 }

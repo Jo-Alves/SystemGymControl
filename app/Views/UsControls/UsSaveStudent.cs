@@ -14,7 +14,8 @@ namespace SystemGymControl
     public partial class UsSaveStudent : UserControl
     {
 
-        Student student = new Student();
+        Bussiness.Student student = new Bussiness.Student();
+        ResponsibleStudent responsible = new ResponsibleStudent();
 
         public UsSaveStudent()
         {
@@ -32,6 +33,7 @@ namespace SystemGymControl
             txtCPF.Text = student.SearchID().Rows[0]["cpf"].ToString();
             dtBirth.Text = student.SearchID().Rows[0]["birth"].ToString();
             txtCEP.Text = student.SearchID().Rows[0]["cep"].ToString();
+            txtPhone.Text = student.SearchID().Rows[0]["phone"].ToString();
             txtDistrict.Text = student.SearchID().Rows[0]["district"].ToString();
             txtAddress.Text = student.SearchID().Rows[0]["address"].ToString();
             ndNumber.Value = decimal.Parse(student.SearchID().Rows[0]["number"].ToString());
@@ -52,10 +54,11 @@ namespace SystemGymControl
         }
 
         ErrorProvider error = new ErrorProvider();
+        string nameResponsible, cpfResponsible, Kinship, phone;
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string nameResponsible, cpfResponsible, Kinship;
+           
 
             try
             {
@@ -64,6 +67,7 @@ namespace SystemGymControl
 
                 student._name = txtName.Text.Trim();
                 student._cpf = txtCPF.Text.Trim();
+                student._phone = txtPhone.Text;
                 student._birth = dtBirth.Text;
                 student._cep = txtCEP.Text;
                 student._address = txtAddress.Text.Trim();
@@ -77,20 +81,35 @@ namespace SystemGymControl
                 {
                     if (!CheckedHigherStudent())
                     {
-                        var responsible = new FrmResponsiblesStudent();
-                        responsible.ShowDialog();
-                        if(!string.IsNullOrEmpty(responsible.name))
+                        if (student._id == 0)
                         {
-                            nameResponsible = responsible.name;
-                            cpfResponsible = responsible.cpf;
-                            Kinship = responsible.kinship;
+                            var responsible = new FrmResponsiblesStudent();
+                            responsible.ShowDialog();
+                            if (!string.IsNullOrEmpty(responsible.name))
+                            {
+                                nameResponsible = responsible.name;
+                                cpfResponsible = responsible.cpf;
+                                Kinship = responsible.kinship;
+                                phone = responsible.phone;
+                                
+                            }
+                            else
+                                return;
                         }
-
-                        return;
 
                     }
 
-                    student.SaveStudent();
+                    student.Save();
+                    if (!CheckedHigherStudent() && student._id == 0)
+                    {
+                        responsible._name = nameResponsible;
+                        responsible._cpf = cpfResponsible;
+                        responsible._kinship = Kinship;
+                        responsible._phone = phone;
+                        responsible._studentID = student.GetMaxID();
+                        responsible.Save();
+                    }
+                    
                 }
                 else
                 {
@@ -207,6 +226,7 @@ namespace SystemGymControl
                 lblNumber.Location = new Point(486, 236);
                 lblCity.Location = new Point(596, 236);
                 lblState.Location = new Point(1005, 236);
+                lblPhone.Location = new Point(53, 304);
 
                 /* textbox  - Location*/
 
@@ -217,15 +237,15 @@ namespace SystemGymControl
                 txtCEP.Location = new Point(228, 188);
                 txtDistrict.Location = new Point(478, 188);
                 txtAddress.Location = new Point(57, 262);
-                ndNumber.Location = new Point(490, 261);
+                ndNumber.Location = new Point(490, 265);
                 txtCity.Location = new Point(600, 262);
-                cbState.Location = new Point(1009, 260);
-                
+                cbState.Location = new Point(1009, 263);
+                txtPhone.Location = new Point(57, 330);
 
                 /* Buttons - Location */
-                btnCancel.Location = new Point(189, 324);
-                btnSave.Location = new Point(57, 324);
-                btnSearchCep.Location = new Point(355, 183);
+                btnCancel.Location = new Point(990, 373);
+                btnSave.Location = new Point(858, 373);
+                btnSearchCep.Location = new Point(355, 187);
                 btnOpenImage.Location = new Point(967, 159);
 
                 /* pictbox - Location */
@@ -243,14 +263,15 @@ namespace SystemGymControl
 
                 lblId.Location = new Point(18, 30);
                 lblName.Location = new Point(18, 93);
-                lblCPF.Location = new Point(27, 161);
+                lblCPF.Location = new Point(18, 161);
                 lblBirth.Location = new Point(183, 161);
-                lblCEP.Location = new Point(27, 229);
+                lblCEP.Location = new Point(18, 229);
                 lblDistrict.Location = new Point(268, 229);
                 lblAddress.Location = new Point(18, 297);
                 lblNumber.Location = new Point(458, 297);
                 lblCity.Location = new Point(18, 363);
                 lblState.Location = new Point(456, 363);
+                lblPhone.Location = new Point(18, 430);
 
                 /* textbox  - Location*/
 
@@ -261,15 +282,15 @@ namespace SystemGymControl
                 txtCEP.Location = new Point(22, 255);
                 txtDistrict.Location = new Point(272, 255);
                 txtAddress.Location = new Point(22, 323);
-                ndNumber.Location = new Point(462, 321);
+                ndNumber.Location = new Point(462, 325);
                 txtCity.Location = new Point(22, 389);
-                cbState.Location = new Point(460, 387);
-
+                cbState.Location = new Point(460, 390);
+                txtPhone.Location = new Point(22, 456);
 
                 /* Buttons - Location */
-                btnCancel.Location = new Point(154, 445);
-                btnSave.Location = new Point(22, 445);
-                btnSearchCep.Location = new Point(149, 250);
+                btnCancel.Location = new Point(440, 479);
+                btnSave.Location = new Point(308, 479);
+                btnSearchCep.Location = new Point(149, 254);
                 btnOpenImage.Location = new Point(426, 165);
 
                 /* pictbox - Location */
