@@ -30,7 +30,7 @@ namespace Database
             if (_id == 0)
                 _sql = "INSERT INTO responsibles_student VALUES (@name, @cpf, @kinship, @phone, @studentID)";
             else
-                _sql = "UPDATE responsibles_student SET name = @name, cpf = @cpf, phone = @phone, kinship = @kinship, student_id = @studentID WHERE id = @id";
+                _sql = "UPDATE responsibles_student SET name = @name, cpf = @cpf, phone = @phone, kinship = @kinship, student_id = @studentID WHERE student_id = @studentID";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);

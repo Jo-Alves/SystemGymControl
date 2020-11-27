@@ -66,7 +66,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConnectionDataBase.cs" />
-    <Compile Include="Utils\CPF.cs" />
     <Compile Include="Utils\OpenFormAndUser.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Views\Forms\FrmHome.cs">

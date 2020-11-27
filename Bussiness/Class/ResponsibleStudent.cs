@@ -36,14 +36,17 @@ namespace Bussiness
                 message = "Campo CPF obrigatório!"; 
             else if (string.IsNullOrEmpty(this._kinship))
                 message = "Campo Grau de Parentesco obrigatório!";
-            else if (responsible.SearchCPF(this._cpf))
-                message = "Este CPF já está cadastrado!";
+            else if (responsible.SearchCPF(this._cpf) && this._studentID == 0)
+                message = "Este CPF já está cadastrado!"; 
+            else if (!CPF.ValidateCPF(this._cpf))
+                message = "CPF inválido!";
 
             return message;
         }
 
         public override void Save()
         {
+            responsible._id = this._id;
             responsible._name = this._name;
             responsible._cpf = this._cpf;
             responsible._kinship = this._kinship;

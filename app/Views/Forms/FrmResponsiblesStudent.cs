@@ -19,11 +19,34 @@ namespace SystemGymControl
             InitializeComponent();
         }
 
+        public FrmResponsiblesStudent(int studentId)
+        {
+            InitializeComponent();
+
+            responsible._studentID = studentId;
+            var getResponsible = responsible.SearchID();
+
+            if (getResponsible.Rows.Count > 0)
+            {
+                mkCPF.Enabled = false;
+                id = int.Parse(getResponsible.Rows[0]["id"].ToString());
+                stundetID = int.Parse(getResponsible.Rows[0]["student_id"].ToString());
+                txtName.Text = getResponsible.Rows[0]["name"].ToString();
+                mkCPF.Text = getResponsible.Rows[0]["cpf"].ToString();
+                cbKinship.Text = getResponsible.Rows[0]["kinship"].ToString();
+                mkPhone.Text = getResponsible.Rows[0]["phone"].ToString();
+            }
+        }
+
+        public int id { get; set; }
+        public int stundetID { get; set; }
         public string name { get; set; }
         public string cpf { get; set; }
         public string kinship { get; set; }
         public string phone { get; set; }
-      
+
+        ResponsibleStudent responsible = new ResponsibleStudent();
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -50,17 +73,19 @@ namespace SystemGymControl
         {
             if (ValidateFields())
             {
-                if (!CPF.ValidateCPF(mkCPF.Text))
-                {
-                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    mkCPF.Focus();
-                    return;
-                }
-
                 name = txtName.Text.Trim();
-                cpf = mkCPF.Text;
                 kinship = cbKinship.Text;
-                phone = mkPhone.Text;
+
+                if (mkCPF.Text.Length == 14)
+                    cpf = mkCPF.Text;
+                else
+                    cpf = "";
+
+                if (mkPhone.Text.Length == 15)
+                    phone = mkPhone.Text;
+                else
+                    phone = "";
+
                 this.Close();
             }
         }
@@ -70,8 +95,7 @@ namespace SystemGymControl
             error.Clear();
 
             bool theFieldsHaveBeenValidated = false;
-
-            var responsible = new ResponsibleStudent();
+                     
             responsible._name = txtName.Text.Trim();
             responsible._cpf = mkCPF.Text;
             responsible._kinship = cbKinship.Text;
@@ -103,6 +127,11 @@ namespace SystemGymControl
                     error.SetError(mkCPF, "Este CPF já está cadastrado!");
                     mkCPF.Focus();
                 }
+                else if (responsible.ValidateFields() == "CPF inválido!")
+                {
+                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    mkCPF.Focus();
+                }
             }
             else
             {
@@ -124,6 +153,14 @@ namespace SystemGymControl
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

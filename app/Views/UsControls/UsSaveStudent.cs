@@ -14,19 +14,18 @@ namespace SystemGymControl
     public partial class UsSaveStudent : UserControl
     {
 
-        Bussiness.Student student = new Bussiness.Student();
+        Student student = new Student();
         ResponsibleStudent responsible = new ResponsibleStudent();
         bool theDataSelected = false;
-        string dateInitial;
 
         public UsSaveStudent()
         {
             InitializeComponent();
-        } 
+        }
         public UsSaveStudent(int id)
         {
             InitializeComponent();
-            
+
             student._id = id;
             student.SearchID();
 
@@ -52,12 +51,21 @@ namespace SystemGymControl
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FrmGymControl.Instance.PnPageContainer.Controls.Clear();
-            OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+            if (student.SearchAll().Rows.Count > 0)
+            {
+                OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+                FrmGymControl.Instance.PnPageContainer.Controls.Clear();
+            }
+            else
+                OpenFormAndUser.OpenForm(new FrmOptionsSave());
+
         }
 
         ErrorProvider error = new ErrorProvider();
         string nameResponsible, cpfResponsible, Kinship, phone;
+        int idResponsible,studendtIdResponsible;
+        DialogResult dr;
+        bool goSaveResponsible = false;
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -67,23 +75,30 @@ namespace SystemGymControl
                     student._id = int.Parse(txtId.Text);
 
                 student._name = txtName.Text.Trim();
-                student._cpf = mkCPF.Text.Trim();
-                student._phone = mkPhone.Text;
                 student._birth = dtBirth.Text;
-                student._cep = mkCEP.Text;
+
+                if (mkCPF.Text.Length == 14)
+                    student._cpf = mkCPF.Text.Trim();
+                else
+                    student._cpf = "";
+
+                if (mkPhone.Text.Length == 15)
+                    student._phone = mkPhone.Text;
+                else
+                    student._phone = "";
+
+                
+                if (mkCEP.Text.Length == 10)
+                    student._cep = mkCEP.Text;
+                else
+                    student._cep = "";
+
                 student._address = txtAddress.Text.Trim();
                 student._district = txtDistrict.Text.Trim();
                 student._number = int.Parse(ndNumber.Value.ToString());
                 student._city = txtCity.Text.Trim();
                 student._state = cbState.Text.Trim();
-                student._photo = image;
-
-                if (!CPF.ValidateCPF(mkCPF.Text))
-                {
-                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    mkCPF.Focus();
-                    return;
-                }
+                student._photo = image;                
 
                 if (ValidateFields())
                 {
@@ -91,28 +106,58 @@ namespace SystemGymControl
                     {
                         if (student._id == 0)
                         {
-                            var responsible = new FrmResponsiblesStudent();
-                            responsible.ShowDialog();
-                            if (!string.IsNullOrEmpty(responsible.name))
+                            dr = MessageBox.Show("O aluno é menor de idade. Deseja Cadastrar o nome do responsável?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                            if (dr == DialogResult.Yes)
                             {
-                                nameResponsible = responsible.name;
-                                cpfResponsible = responsible.cpf;
-                                Kinship = responsible.kinship;
-                                phone = responsible.phone;
+                                var responsible = new FrmResponsiblesStudent();
+                                responsible.ShowDialog();
+                                if (!string.IsNullOrEmpty(responsible.name))
+                                {
+                                    nameResponsible = responsible.name;
+                                    cpfResponsible = responsible.cpf;
+                                    Kinship = responsible.kinship;
+                                    phone = responsible.phone;
+                                    goSaveResponsible = true;
+                                }
+                                else
+                                    return;
                             }
-                            else
-                                return;
+                        }
+                        else
+                        {
+                            dr = MessageBox.Show("Deseja alterar ou adicionar os dados do responsável?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                            if (dr == DialogResult.Yes)
+                            {
+                                var responsible = new FrmResponsiblesStudent(student._id);
+                                responsible.ShowDialog();
+                                if (!string.IsNullOrEmpty(responsible.name))
+                                {
+                                    nameResponsible = responsible.name;
+                                    cpfResponsible = responsible.cpf;
+                                    Kinship = responsible.kinship;
+                                    phone = responsible.phone;
+                                    idResponsible = responsible.id;
+                                    studendtIdResponsible = responsible.stundetID;
+                                    goSaveResponsible = true;
+                                }
+                                else
+                                    return;
+                            }
                         }
                     }
 
                     student.Save();
-                    if (!CheckedHigherStudent() && student._id == 0)
-                    {
+                    if (!CheckedHigherStudent() && goSaveResponsible)
+                    {  
                         responsible._name = nameResponsible;
                         responsible._cpf = cpfResponsible;
                         responsible._kinship = Kinship;
                         responsible._phone = phone;
-                        responsible._studentID = student.GetMaxID();
+                        responsible._id = idResponsible;
+                        responsible._studentID = studendtIdResponsible;
+                        if(idResponsible == 0)
+                            responsible._studentID = student.GetMaxID();
+
                         responsible.Save();
                     }
 
@@ -129,7 +174,7 @@ namespace SystemGymControl
         private bool ValidateFields()
         {
             bool theFieldsHaveBeenValidated = false;
-        
+
             if (!string.IsNullOrEmpty(student.ValidateFields()))
             {
                 error.Clear();
@@ -145,18 +190,6 @@ namespace SystemGymControl
                     MessageBox.Show("Campo CPF obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     error.SetError(mkCPF, "Campo CPF obrigatório!");
                     mkCPF.Focus();
-                }
-                else if (!theDataSelected)
-                {
-                    MessageBox.Show("Informe a data de nascimento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(dtBirth, "Informe a data de nascimento!");
-                    dtBirth.Focus();
-                }
-                else if (student.ValidateFields() == "Campo CEP obrigatório!")
-                {
-                    MessageBox.Show("Campo CEP obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(mkCEP, "Campo CEP obrigatório!");
-                    mkCEP.Focus();
                 }
                 else if (student.ValidateFields() == "Campo Bairro obrigatório!")
                 {
@@ -182,12 +215,24 @@ namespace SystemGymControl
                     error.SetError(cbState, "Campo Estado obrigatório!");
                     cbState.Focus();
                 }
+                else if (student.ValidateFields() == "CPF inválido!")
+                {
+                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(mkCPF, "CPF inválido!");
+                    mkCPF.Focus();
+                }
                 else if (student.ValidateFields() == "Este CPF já está cadastrado!")
                 {
                     MessageBox.Show("Este CPF já está cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     error.SetError(mkCPF, "Este CPF já está cadastrado!");
                     mkCPF.Focus();
                 }
+            }
+            else if (!theDataSelected)
+            {
+                MessageBox.Show("Informe a data de nascimento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                error.SetError(dtBirth, "Informe a data de nascimento!");
+                dtBirth.Focus();
             }
             else
             {
@@ -216,7 +261,7 @@ namespace SystemGymControl
                 int days = time.Days;
                 int age = days / 365;
 
-                if(age >= 18)
+                if (age >= 18)
                 {
                     isItBigger = true;
                 }
@@ -227,7 +272,7 @@ namespace SystemGymControl
 
         private void usSaveStudent_ClientSizeChanged(object sender, EventArgs e)
         {
-            if(this.Width > 617)
+            if (this.Width > 617)
             {
                 /* labels - Location */
 
@@ -323,15 +368,30 @@ namespace SystemGymControl
 
         private void dtBirth_ValueChanged(object sender, EventArgs e)
         {
-            if(dtBirth.Text != dateInitial)
+            error.Clear();
+            if (dtBirth.Value.ToShortDateString() != DateTime.Now.ToShortDateString())
             {
                 theDataSelected = true;
             }
         }
 
+        private void mkCEP_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSearchCep_Click(sender, e);
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void btnOpenImage_Click(object sender, EventArgs e)
         {
-           var OpenImage = new OpenFileDialog();
+            var OpenImage = new OpenFileDialog();
             OpenImage.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF*";
             if (OpenImage.ShowDialog() == DialogResult.OK)
             {
@@ -339,13 +399,6 @@ namespace SystemGymControl
                 pcPhoto.ImageLocation = image;
                 pcPhoto.Load();
             }
-        }
-
-        private void UsSaveStudent_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(mkCEP.Text))
-                if (e.KeyCode == Keys.Enter)
-                    btnSearchCep_Click(sender, e);
         }
 
         private void btnSearchCep_Click(object sender, EventArgs e)

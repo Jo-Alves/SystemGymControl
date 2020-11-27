@@ -1,4 +1,4 @@
-﻿namespace SystemGymControl
+﻿namespace Bussiness
 {
     class CPF
     {

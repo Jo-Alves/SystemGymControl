@@ -8,6 +8,7 @@ namespace SystemGymControl
     public partial class UsStudent : UserControl
     {
         Student student = new Student();
+        Bussiness.ResponsibleStudent responsibleStudent = new Bussiness.ResponsibleStudent();
 
         public UsStudent()
         {
@@ -35,7 +36,17 @@ namespace SystemGymControl
                 dgvDateStudent.Rows[coutRow].Cells["number"].Value = dr["number"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["city"].Value = dr["city"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["state"].Value = dr["state"].ToString();
-                dgvDateStudent.Rows[coutRow].MinimumHeight = 45;
+
+                responsibleStudent._studentID = int.Parse(dr["id"].ToString());
+                foreach (DataRow drResponsible in responsibleStudent.SearchID().Rows)
+                {
+                    dgvDateStudent.Rows[coutRow].Cells["responsible"].Value = drResponsible["name"].ToString();
+                    dgvDateStudent.Rows[coutRow].Cells["cpfResponsible"].Value = drResponsible["cpf"].ToString();
+                    dgvDateStudent.Rows[coutRow].Cells["kinship"].Value = drResponsible["kinship"].ToString();
+                    dgvDateStudent.Rows[coutRow].Cells["phoneResponsible"].Value = drResponsible["phone"].ToString();
+                }
+
+               dgvDateStudent.Rows[coutRow].MinimumHeight = 45;
 
                 dgvDateStudent.ClearSelection();
             }

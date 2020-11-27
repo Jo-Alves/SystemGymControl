@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bussiness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,7 +107,10 @@ namespace SystemGymControl
 
         private void btnSaveStudent_Click(object sender, EventArgs e)
         {
-            OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+            if(new Student().SearchAll().Rows.Count > 0)
+                OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+            else
+                OpenFormAndUser.OpenUserControl(new UsSaveStudent(), "UsSaveStudent");
         }
     }
 }
