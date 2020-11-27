@@ -164,7 +164,7 @@
             this.panel3.Controls.Add(this.btnMenuClass);
             this.panel3.Controls.Add(this.btnMenuSave);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 159);
+            this.panel3.Location = new System.Drawing.Point(0, 187);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(235, 335);
             this.panel3.TabIndex = 5;
@@ -277,19 +277,19 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.panel1.Controls.Add(this.lblUser);
             this.panel1.Controls.Add(this.pcPerfil);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(235, 159);
+            this.panel1.Size = new System.Drawing.Size(235, 187);
             this.panel1.TabIndex = 4;
             // 
             // lblUser
             // 
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblUser.Location = new System.Drawing.Point(67, 112);
+            this.lblUser.Location = new System.Drawing.Point(67, 133);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(100, 22);
             this.lblUser.TabIndex = 4;
@@ -299,7 +299,7 @@
             // pcPerfil
             // 
             this.pcPerfil.Image = global::SystemGymControl.Properties.Resources.icons8_person_female_50px;
-            this.pcPerfil.Location = new System.Drawing.Point(67, 10);
+            this.pcPerfil.Location = new System.Drawing.Point(67, 31);
             this.pcPerfil.Name = "pcPerfil";
             this.pcPerfil.Size = new System.Drawing.Size(100, 100);
             this.pcPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -308,7 +308,6 @@
             // 
             // pnPage
             // 
-            this.pnPage.AutoScroll = true;
             this.pnPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;

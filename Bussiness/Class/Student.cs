@@ -36,7 +36,7 @@ namespace Bussiness
                 message = "Campo Cidade obrigatório!";
             else if (string.IsNullOrEmpty(this._state))
                 message = "Campo Estado obrigatório!";
-            else if (student.SearchCPF(this._cpf))
+            else if (student.SearchCPF(this._cpf) && this._id == 0)
                 message = "Este CPF já está cadastrado!";
 
             return message;

@@ -16,6 +16,8 @@ namespace SystemGymControl
 
         Bussiness.Student student = new Bussiness.Student();
         ResponsibleStudent responsible = new ResponsibleStudent();
+        bool theDataSelected = false;
+        string dateInitial;
 
         public UsSaveStudent()
         {
@@ -59,8 +61,6 @@ namespace SystemGymControl
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (!string.IsNullOrWhiteSpace(txtId.Text))
@@ -145,6 +145,12 @@ namespace SystemGymControl
                     MessageBox.Show("Campo CPF obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     error.SetError(mkCPF, "Campo CPF obrigatório!");
                     mkCPF.Focus();
+                }
+                else if (!theDataSelected)
+                {
+                    MessageBox.Show("Informe a data de nascimento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    error.SetError(dtBirth, "Informe a data de nascimento!");
+                    dtBirth.Focus();
                 }
                 else if (student.ValidateFields() == "Campo CEP obrigatório!")
                 {
@@ -314,6 +320,14 @@ namespace SystemGymControl
         }
 
         string image = "";
+
+        private void dtBirth_ValueChanged(object sender, EventArgs e)
+        {
+            if(dtBirth.Text != dateInitial)
+            {
+                theDataSelected = true;
+            }
+        }
 
         private void btnOpenImage_Click(object sender, EventArgs e)
         {

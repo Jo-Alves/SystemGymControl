@@ -40,7 +40,6 @@
             this.btnOpenImage = new System.Windows.Forms.Button();
             this.lblBirth = new System.Windows.Forms.Label();
             this.dtBirth = new System.Windows.Forms.DateTimePicker();
-            this.pcPhoto = new System.Windows.Forms.PictureBox();
             this.lblNumber = new System.Windows.Forms.Label();
             this.ndNumber = new System.Windows.Forms.NumericUpDown();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -55,8 +54,9 @@
             this.mkCPF = new System.Windows.Forms.MaskedTextBox();
             this.mkPhone = new System.Windows.Forms.MaskedTextBox();
             this.mkCEP = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).BeginInit();
+            this.pcPhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCEP
@@ -91,13 +91,13 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(85)))));
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(22, 504);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 43);
@@ -210,13 +210,13 @@
             // 
             // btnOpenImage
             // 
-            this.btnOpenImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnOpenImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnOpenImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpenImage.FlatAppearance.BorderSize = 0;
-            this.btnOpenImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(85)))));
+            this.btnOpenImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
             this.btnOpenImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnOpenImage.ForeColor = System.Drawing.Color.White;
             this.btnOpenImage.Location = new System.Drawing.Point(426, 165);
             this.btnOpenImage.Name = "btnOpenImage";
             this.btnOpenImage.Size = new System.Drawing.Size(140, 33);
@@ -248,16 +248,7 @@
             this.dtBirth.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtBirth.Size = new System.Drawing.Size(162, 33);
             this.dtBirth.TabIndex = 3;
-            // 
-            // pcPhoto
-            // 
-            this.pcPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcPhoto.Location = new System.Drawing.Point(430, 24);
-            this.pcPhoto.Name = "pcPhoto";
-            this.pcPhoto.Size = new System.Drawing.Size(130, 135);
-            this.pcPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcPhoto.TabIndex = 40;
-            this.pcPhoto.TabStop = false;
+            this.dtBirth.ValueChanged += new System.EventHandler(this.dtBirth_ValueChanged);
             // 
             // lblNumber
             // 
@@ -336,13 +327,13 @@
             // 
             // btnSearchCep
             // 
-            this.btnSearchCep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnSearchCep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSearchCep.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchCep.FlatAppearance.BorderSize = 0;
-            this.btnSearchCep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(85)))));
+            this.btnSearchCep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
             this.btnSearchCep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchCep.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSearchCep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnSearchCep.ForeColor = System.Drawing.Color.White;
             this.btnSearchCep.Location = new System.Drawing.Point(149, 254);
             this.btnSearchCep.Name = "btnSearchCep";
             this.btnSearchCep.Size = new System.Drawing.Size(117, 35);
@@ -433,10 +424,21 @@
             this.mkCEP.TabIndex = 4;
             this.mkCEP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pcPhoto
+            // 
+            this.pcPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcPhoto.Location = new System.Drawing.Point(430, 24);
+            this.pcPhoto.Name = "pcPhoto";
+            this.pcPhoto.Size = new System.Drawing.Size(130, 135);
+            this.pcPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcPhoto.TabIndex = 40;
+            this.pcPhoto.TabStop = false;
+            // 
             // UsSaveStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
             this.Controls.Add(this.mkCEP);
             this.Controls.Add(this.mkPhone);
@@ -472,8 +474,8 @@
             this.Size = new System.Drawing.Size(617, 570);
             this.ClientSizeChanged += new System.EventHandler(this.usSaveStudent_ClientSizeChanged);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UsSaveStudent_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
