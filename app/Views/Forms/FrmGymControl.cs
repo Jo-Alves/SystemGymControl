@@ -96,12 +96,12 @@ namespace SystemGymControl
 
         private void btnClose_MouseEnter(object sender, EventArgs e)
         {
-            btnClose.Image = Properties.Resources.icons8_close_window_32px_enter;
+            btnClose.Image = Properties.Resources.icons8_close_window_32px_enter1;
         }
 
         private void btnClose_MouseLeave(object sender, EventArgs e)
         {
-            btnClose.Image = Properties.Resources.icons8_close_window_32px_leave;
+            btnClose.Image = Properties.Resources.icons8_close_window_32px_leavee;
         }
 
         private void btnRetoreMaximize_MouseEnter(object sender, EventArgs e)
@@ -115,19 +115,19 @@ namespace SystemGymControl
         private void btnRetoreMaximize_MouseLeave(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
-                btnRetoreMaximize.Image = Properties.Resources.icons8_restore_window_32px_leave;
+                btnRetoreMaximize.Image = Properties.Resources.icons8_restore_window_32px_leave1;
             else if (this.WindowState == FormWindowState.Normal)
                 btnRetoreMaximize.Image = Properties.Resources.icons8_maximize_window_32px_leave;
         }
 
         private void btnMimized_MouseEnter(object sender, EventArgs e)
         {
-            btnMimized.Image = Properties.Resources.icons8_minimize_window_enter;
+            btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_enter;
         }
 
         private void btnMimized_MouseLeave(object sender, EventArgs e)
         {
-            btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_leave;
+            btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_leave1;
         }
 
         private void pnTitle_MouseDown(object sender, MouseEventArgs e)

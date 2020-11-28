@@ -54,7 +54,7 @@ namespace SystemGymControl
 
         private void btnClose_MouseEnter(object sender, EventArgs e)
         {
-            this.btnClose.Image = Properties.Resources.icons8_close_window_32px_enter;
+            this.btnClose.Image = Properties.Resources.icons8_close_window_32px_enter1;
         }
 
         private void btnClose_MouseLeave(object sender, EventArgs e)

@@ -63,6 +63,16 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_about_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_about_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_activity_history_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_activity_history_32px", resourceCulture);
@@ -123,39 +133,9 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_close_window_26px {
+        internal static System.Drawing.Bitmap icons8_close_window_32px_enter1 {
             get {
-                object obj = ResourceManager.GetObject("icons8_close_window_26px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_close_window_32px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_close_window_32px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_close_window_32px_black_leave {
-            get {
-                object obj = ResourceManager.GetObject("icons8_close_window_32px_black_leave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_close_window_32px_enter {
-            get {
-                object obj = ResourceManager.GetObject("icons8_close_window_32px_enter", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_close_window_32px_enter1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +146,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_close_window_32px_leave {
             get {
                 object obj = ResourceManager.GetObject("icons8_close_window_32px_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_window_32px_leavee {
+            get {
+                object obj = ResourceManager.GetObject("icons8_close_window_32px_leavee", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,29 +213,9 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_maximize_window_32px {
+        internal static System.Drawing.Bitmap icons8_maximize_window_32px_9 {
             get {
-                object obj = ResourceManager.GetObject("icons8_maximize_window_32px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_maximize_window_32px_4 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_maximize_window_32px_4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_maximize_window_32px_5 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_maximize_window_32px_5", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_maximize_window_32px_9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,29 +293,9 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_minimize_window_26px {
+        internal static System.Drawing.Bitmap icons8_minimize_window_32px_enter {
             get {
-                object obj = ResourceManager.GetObject("icons8_minimize_window_26px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_minimize_window_32px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_minimize_window_32px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_minimize_window_32px_1 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_minimize_window_32px_1", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_minimize_window_32px_enter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,9 +313,9 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_minimize_window_enter {
+        internal static System.Drawing.Bitmap icons8_minimize_window_32px_leave1 {
             get {
-                object obj = ResourceManager.GetObject("icons8_minimize_window_enter", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_minimize_window_32px_leave1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,6 +353,36 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_window_32px__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8_restore_window_32px__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_window_32px_7 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_restore_window_32px_7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_window_32px_8 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_restore_window_32px_8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_restore_window_32px_enter {
             get {
                 object obj = ResourceManager.GetObject("icons8_restore_window_32px_enter", resourceCulture);
@@ -416,6 +396,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_restore_window_32px_leave {
             get {
                 object obj = ResourceManager.GetObject("icons8_restore_window_32px_leave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restore_window_32px_leave1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_restore_window_32px_leave1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

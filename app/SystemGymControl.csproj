@@ -330,9 +330,6 @@
     <None Include="Resources\icons8_checked_user_male_32px.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_class_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8_client_management_32px.png" />
   </ItemGroup>
   <ItemGroup>
@@ -375,12 +372,6 @@
     <None Include="Resources\icons8_maximize_window_32px_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_maximize_window_32px_9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_maximize_window_32px_leave.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8_menu_1.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -417,19 +408,7 @@
     <None Include="Resources\icons8_person_female_50px.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_report_file_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8_restore_window_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_restore_window_32px_leave.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_save_32px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_settings_32px.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_settings_32px1.png" />
@@ -469,6 +448,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_maximize_window_32px_enter.png" />
+    <None Include="Resources\icons8_maximize_window_32px_9.png" />
+    <None Include="Resources\icons8_close_window_32px_leavee.png" />
+    <None Include="Resources\icons8_close_window_32px_leave1.png" />
+    <None Include="Resources\icons8_restore_window_32px_leave1.png" />
+    <None Include="Resources\icons8_minimize_window_32px_leave1.png" />
+    <None Include="Resources\icons8_restore_window_32px_enter.png" />
+    <None Include="Resources\icons8_minimize_window_32px_enter.png" />
+    <None Include="Resources\icons8_restore_window_32px %282%29.png" />
+    <None Include="Resources\icons8_minimize_window_32px_leave.png" />
+    <None Include="Resources\icons8_restore_window_32px_leave.png" />
+    <None Include="Resources\icons8_maximize_window_32px_leave.png" />
+    <None Include="Resources\icons8_close_window_32px_enter.png" />
+    <None Include="Resources\icons8_close_window_32px_leave.png" />
+    <None Include="Resources\icons8_restore_window_32px_6.png" />
+    <None Include="Resources\icons8_minimize_window_32px_5.png" />
+    <None Include="Resources\icons8_restore_window_32px_7.png" />
+    <None Include="Resources\icons8_close_window_32px_5.png" />
+    <None Include="Resources\icons8_close_window_32px_6.png" />
+    <None Include="Resources\icons8_restore_window_32px_9.png" />
+    <None Include="Resources\icons8_restore_window_32px_8.png" />
+    <None Include="Resources\icons8_minimize_window_32px_9.png" />
+    <None Include="Resources\icons8_minimize_window_32px_8.png" />
+    <None Include="Resources\icons8_settings_32px.png" />
+    <None Include="Resources\icons8_save_32px.png" />
+    <None Include="Resources\icons8_report_file_32px.png" />
+    <None Include="Resources\icons8_class_32px.png" />
+    <None Include="Resources\icons8_about_32px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

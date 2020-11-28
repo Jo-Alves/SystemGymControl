@@ -77,7 +77,7 @@
             // 
             this.lblDateNow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDateNow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.lblDateNow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblDateNow.ForeColor = System.Drawing.Color.White;
             this.lblDateNow.Location = new System.Drawing.Point(211, 9);
             this.lblDateNow.Name = "lblDateNow";
             this.lblDateNow.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -94,7 +94,7 @@
             this.btnRetoreMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRetoreMaximize.FlatAppearance.BorderSize = 0;
             this.btnRetoreMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRetoreMaximize.Image = ((System.Drawing.Image)(resources.GetObject("btnRetoreMaximize.Image")));
+            this.btnRetoreMaximize.Image = global::SystemGymControl.Properties.Resources.icons8_restore_window_32px_leave1;
             this.btnRetoreMaximize.Location = new System.Drawing.Point(781, 4);
             this.btnRetoreMaximize.Name = "btnRetoreMaximize";
             this.btnRetoreMaximize.Size = new System.Drawing.Size(28, 30);
@@ -111,7 +111,7 @@
             this.btnMimized.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMimized.FlatAppearance.BorderSize = 0;
             this.btnMimized.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMimized.Image = global::SystemGymControl.Properties.Resources.icons8_minimize_window_32px_leave;
+            this.btnMimized.Image = global::SystemGymControl.Properties.Resources.icons8_minimize_window_32px_leave1;
             this.btnMimized.Location = new System.Drawing.Point(750, 4);
             this.btnMimized.Name = "btnMimized";
             this.btnMimized.Size = new System.Drawing.Size(25, 30);
@@ -128,7 +128,7 @@
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_close_window_32px_leave;
+            this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_close_window_32px_leavee;
             this.btnClose.Location = new System.Drawing.Point(815, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(25, 30);
@@ -177,7 +177,8 @@
             this.btnSetting.FlatAppearance.BorderSize = 0;
             this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnSetting.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSetting.Location = new System.Drawing.Point(0, 220);
@@ -198,8 +199,9 @@
             this.btnMenuQuestion.FlatAppearance.BorderSize = 0;
             this.btnMenuQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnMenuQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_ask_question_32px;
+            this.btnMenuQuestion.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
+            this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_about_32px;
             this.btnMenuQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuQuestion.Location = new System.Drawing.Point(0, 165);
             this.btnMenuQuestion.Name = "btnMenuQuestion";
@@ -219,7 +221,8 @@
             this.btnMenuReport.FlatAppearance.BorderSize = 0;
             this.btnMenuReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnMenuReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnMenuReport.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuReport.ForeColor = System.Drawing.Color.White;
             this.btnMenuReport.Image = global::SystemGymControl.Properties.Resources.icons8_report_file_32px;
             this.btnMenuReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuReport.Location = new System.Drawing.Point(0, 110);
@@ -240,7 +243,8 @@
             this.btnMenuClass.FlatAppearance.BorderSize = 0;
             this.btnMenuClass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnMenuClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnMenuClass.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuClass.ForeColor = System.Drawing.Color.White;
             this.btnMenuClass.Image = global::SystemGymControl.Properties.Resources.icons8_class_32px;
             this.btnMenuClass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuClass.Location = new System.Drawing.Point(0, 55);
@@ -261,7 +265,8 @@
             this.btnMenuSave.FlatAppearance.BorderSize = 0;
             this.btnMenuSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.btnMenuSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnMenuSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuSave.ForeColor = System.Drawing.Color.White;
             this.btnMenuSave.Image = global::SystemGymControl.Properties.Resources.icons8_save_32px;
             this.btnMenuSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuSave.Location = new System.Drawing.Point(0, 0);
@@ -288,7 +293,7 @@
             // 
             // lblUser
             // 
-            this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
             this.lblUser.Location = new System.Drawing.Point(67, 133);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(100, 22);
