@@ -11,18 +11,18 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class UsSaveStudent : UserControl
+    public partial class FrmSaveStudent : Form
     {
 
         Student student = new Student();
         ResponsibleStudent responsible = new ResponsibleStudent();
         bool theDataSelected = false;
 
-        public UsSaveStudent()
+        public FrmSaveStudent()
         {
             InitializeComponent();
         }
-        public UsSaveStudent(int id)
+        public FrmSaveStudent(int id)
         {
             InitializeComponent();
 
@@ -53,8 +53,7 @@ namespace SystemGymControl
         {
             if (student.SearchAll().Rows.Count > 0)
             {
-                OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
-                FrmGymControl.Instance.PnPageContainer.Controls.Clear();
+                OpenFormAndUser.OpenForm(new FrmStudent());
             }
             else
                 OpenFormAndUser.OpenForm(new FrmOptionsSave());
@@ -63,7 +62,7 @@ namespace SystemGymControl
 
         ErrorProvider error = new ErrorProvider();
         string nameResponsible, cpfResponsible, Kinship, phone;
-        int idResponsible,studendtIdResponsible;
+        int idResponsible, studendtIdResponsible;
         DialogResult dr;
         bool goSaveResponsible = false;
 
@@ -87,7 +86,7 @@ namespace SystemGymControl
                 else
                     student._phone = "";
 
-                
+
                 if (mkCEP.Text.Length == 10)
                     student._cep = mkCEP.Text;
                 else
@@ -98,7 +97,7 @@ namespace SystemGymControl
                 student._number = int.Parse(ndNumber.Value.ToString());
                 student._city = txtCity.Text.Trim();
                 student._state = cbState.Text.Trim();
-                student._photo = image;                
+                student._photo = image;
 
                 if (ValidateFields())
                 {
@@ -148,21 +147,21 @@ namespace SystemGymControl
 
                     student.Save();
                     if (!CheckedHigherStudent() && goSaveResponsible)
-                    {  
+                    {
                         responsible._name = nameResponsible;
                         responsible._cpf = cpfResponsible;
                         responsible._kinship = Kinship;
                         responsible._phone = phone;
                         responsible._id = idResponsible;
                         responsible._studentID = studendtIdResponsible;
-                        if(idResponsible == 0)
+                        if (idResponsible == 0)
                             responsible._studentID = student.GetMaxID();
 
                         responsible.Save();
                     }
 
-                    FrmGymControl.Instance.PnPageContainer.Controls.Clear();
-                    OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+                    this.Close();
+                    OpenFormAndUser.OpenForm(new FrmStudent());
                 }
             }
             catch (Exception ex)
@@ -270,7 +269,7 @@ namespace SystemGymControl
             return isItBigger;
         }
 
-        private void usSaveStudent_ClientSizeChanged(object sender, EventArgs e)
+        private void FrmSaveStudent_ClientSizeChanged(object sender, EventArgs e)
         {
             if (this.Width > 617)
             {

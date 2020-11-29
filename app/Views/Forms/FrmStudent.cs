@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class UsStudent : UserControl
+    public partial class FrmStudent : Form
     {
         Student student = new Student();
         Bussiness.ResponsibleStudent responsibleStudent = new Bussiness.ResponsibleStudent();
 
-        public UsStudent()
+        public FrmStudent()
         {
             InitializeComponent();
             LoadDataStudents();
@@ -20,7 +20,13 @@ namespace SystemGymControl
         {
             dgvDateStudent.Rows.Clear();
 
-            foreach(DataRow dr in student.SearchAll().Rows)
+            DataTable GetSearchStudent;
+            if (string.IsNullOrWhiteSpace(txtSearchName.Text))
+                GetSearchStudent = student.SearchAll();
+            else
+                GetSearchStudent = student.SearchName(txtSearchName.Text.Trim());
+
+            foreach (DataRow dr in GetSearchStudent.Rows)
             {
                 int coutRow = dgvDateStudent.Rows.Add();
                 dgvDateStudent.Rows[coutRow].Cells["edit"].Value = Properties.Resources.icons8_pencil_25px;
@@ -46,7 +52,7 @@ namespace SystemGymControl
                     dgvDateStudent.Rows[coutRow].Cells["phoneResponsible"].Value = drResponsible["phone"].ToString();
                 }
 
-               dgvDateStudent.Rows[coutRow].MinimumHeight = 45;
+                dgvDateStudent.Rows[coutRow].MinimumHeight = 45;
 
                 dgvDateStudent.ClearSelection();
             }
@@ -54,33 +60,43 @@ namespace SystemGymControl
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            FrmGymControl.Instance.PnPageContainer.Controls.Clear();
-            OpenFormAndUser.OpenUserControl(new UsSaveStudent(), "UsSaveStudent");
+            OpenFormAndUser.OpenForm(new FrmSaveStudent());
         }
 
         private void dgvDateStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            try
             {
-                dgvDateStudent.ClearSelection();
-
-                // Ao acionar a célula para editar abre o Form para Editar os dados
-                int id = int.Parse(dgvDateStudent.CurrentRow.Cells["id"].Value.ToString());
-
-                if (dgvDateStudent.CurrentCell.ColumnIndex == 0)
+                if (e.RowIndex > -1)
                 {
-                    FrmGymControl.Instance.PnPageContainer.Controls.Clear();
-                    OpenFormAndUser.OpenUserControl(new UsSaveStudent(id), "UsSaveStudent");
-                }
-                else if (dgvDateStudent.CurrentCell.ColumnIndex == 1)
-                {
-                    if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDateStudent.CurrentRow.Cells["name"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    dgvDateStudent.ClearSelection();
+
+                    // Ao acionar a célula para editar abre o Form para Editar os dados
+                    int id = int.Parse(dgvDateStudent.CurrentRow.Cells["id"].Value.ToString());
+
+                    if (dgvDateStudent.CurrentCell.ColumnIndex == 0)
                     {
-                        student._id = id;
-                        student.Delete();
-                        LoadDataStudents();
+                        OpenFormAndUser.OpenForm(new FrmSaveStudent(id));
+                    }
+                    else if (dgvDateStudent.CurrentCell.ColumnIndex == 1)
+                    {
+                        if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDateStudent.CurrentRow.Cells["name"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        {
+                            student._id = id;
+                            student.Delete();
+                            LoadDataStudents();
+                            if (dgvDateStudent.Rows.Count == 0)
+                            {
+                                this.Close();
+                                OpenFormAndUser.OpenForm(new FrmOptionsSave());
+                            }
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -90,6 +106,11 @@ namespace SystemGymControl
             {
                 dgvDateStudent.ClearSelection();
             }
+        }
+
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
+        {
+            LoadDataStudents();
         }
     }
 }

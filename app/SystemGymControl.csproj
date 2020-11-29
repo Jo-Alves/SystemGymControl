@@ -94,17 +94,17 @@
     <Compile Include="Views\Forms\FrmResponsiblesStudent.Designer.cs">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UsControls\UsSaveStudent.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Views\Forms\FrmSaveStudent.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UsControls\UsSaveStudent.Designer.cs">
-      <DependentUpon>UsSaveStudent.cs</DependentUpon>
+    <Compile Include="Views\Forms\FrmSaveStudent.Designer.cs">
+      <DependentUpon>FrmSaveStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UsControls\UsStudent.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Views\Forms\FrmStudent.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UsControls\UsStudent.Designer.cs">
-      <DependentUpon>UsStudent.cs</DependentUpon>
+    <Compile Include="Views\Forms\FrmStudent.Designer.cs">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Forms\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
@@ -128,11 +128,11 @@
     <EmbeddedResource Include="Views\Forms\FrmResponsiblesStudent.resx">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UsControls\UsSaveStudent.resx">
-      <DependentUpon>UsSaveStudent.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Forms\FrmSaveStudent.resx">
+      <DependentUpon>FrmSaveStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UsControls\UsStudent.resx">
-      <DependentUpon>UsStudent.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Forms\FrmStudent.resx">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\WsMail\AtendeClienteService.wsdl" />
     <None Include="Connected Services\WsMail\SystemGymControl.WsMail.atualizaPagamentoNaEntregaResponse.datasource">
@@ -448,6 +448,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_search_32px.png" />
     <None Include="Resources\icons8_maximize_window_32px_enter.png" />
     <None Include="Resources\icons8_maximize_window_32px_9.png" />
     <None Include="Resources\icons8_close_window_32px_leavee.png" />

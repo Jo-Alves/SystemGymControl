@@ -114,6 +114,25 @@ namespace Database
             }
         } 
         
+        public DataTable SearchName(string name)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                   _sql = $"SELECT * FROM students WHERE name like '%{name}%'";
+                    var adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        } 
+        
         public bool SearchCPF(string CPF)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))

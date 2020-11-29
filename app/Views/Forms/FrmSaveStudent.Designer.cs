@@ -1,6 +1,6 @@
 ﻿namespace SystemGymControl
 {
-    partial class UsSaveStudent
+    partial class FrmSaveStudent
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -77,6 +77,7 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
@@ -95,6 +96,7 @@
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
@@ -214,6 +216,7 @@
             this.btnOpenImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpenImage.FlatAppearance.BorderSize = 0;
             this.btnOpenImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnOpenImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnOpenImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenImage.ForeColor = System.Drawing.Color.White;
@@ -331,6 +334,7 @@
             this.btnSearchCep.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchCep.FlatAppearance.BorderSize = 0;
             this.btnSearchCep.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnSearchCep.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnSearchCep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchCep.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
             this.btnSearchCep.ForeColor = System.Drawing.Color.White;
@@ -436,12 +440,12 @@
             this.pcPhoto.TabIndex = 40;
             this.pcPhoto.TabStop = false;
             // 
-            // UsSaveStudent
+            // FrmSaveStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(601, 567);
             this.Controls.Add(this.mkCEP);
             this.Controls.Add(this.mkPhone);
             this.Controls.Add(this.mkCPF);
@@ -470,11 +474,11 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "UsSaveStudent";
+            this.Name = "FrmSaveStudent";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.Size = new System.Drawing.Size(617, 570);
-            this.ClientSizeChanged += new System.EventHandler(this.usSaveStudent_ClientSizeChanged);
+            this.ClientSizeChanged += new System.EventHandler(this.FrmSaveStudent_ClientSizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.ndNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).EndInit();
             this.ResumeLayout(false);

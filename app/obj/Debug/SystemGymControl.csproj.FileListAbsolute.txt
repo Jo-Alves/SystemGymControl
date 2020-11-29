@@ -53,10 +53,10 @@ C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.Properties.
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmHome.resources
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmOptionsSave.resources
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmResponsiblesStudent.resources
-C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.UsSaveStudent.resources
-C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.UsStudent.resources
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.csproj.GenerateResource.cache
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.csproj.CoreCompileInputs.cache
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.csproj.CopyComplete
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.exe
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.pdb
+C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmSaveStudent.resources
+C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmStudent.resources

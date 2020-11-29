@@ -76,6 +76,7 @@
             this.btnSaveStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveStudent.FlatAppearance.BorderSize = 0;
             this.btnSaveStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnSaveStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnSaveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveStudent.ForeColor = System.Drawing.Color.White;
@@ -125,6 +126,7 @@
             this.btnSavePackage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSavePackage.FlatAppearance.BorderSize = 0;
             this.btnSavePackage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnSavePackage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnSavePackage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSavePackage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSavePackage.ForeColor = System.Drawing.Color.White;
@@ -173,6 +175,7 @@
             this.btnSaveUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveUser.FlatAppearance.BorderSize = 0;
             this.btnSaveUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnSaveUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnSaveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveUser.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUser.ForeColor = System.Drawing.Color.White;

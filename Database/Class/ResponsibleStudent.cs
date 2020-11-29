@@ -27,7 +27,7 @@ namespace Database
         public override void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id == 0)
+            if (_studentID == 0)
                 _sql = "INSERT INTO responsibles_student VALUES (@name, @cpf, @kinship, @phone, @studentID)";
             else
                 _sql = "UPDATE responsibles_student SET name = @name, cpf = @cpf, phone = @phone, kinship = @kinship, student_id = @studentID WHERE student_id = @studentID";

@@ -107,10 +107,11 @@ namespace SystemGymControl
 
         private void btnSaveStudent_Click(object sender, EventArgs e)
         {
-            if(new Student().SearchAll().Rows.Count > 0)
-                OpenFormAndUser.OpenUserControl(new UsStudent(), "UsStudent");
+            if (new Student().SearchAll().Rows.Count > 0)
+                OpenFormAndUser.OpenForm(new FrmStudent());
             else
-                OpenFormAndUser.OpenUserControl(new UsSaveStudent(), "UsSaveStudent");
+                OpenFormAndUser.OpenForm(new FrmSaveStudent());
+
         }
     }
 }
