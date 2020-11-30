@@ -88,11 +88,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Forms\FrmPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\FrmPackage.Designer.cs">
+      <DependentUpon>FrmPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\FrmResponsiblesStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Forms\FrmResponsiblesStudent.Designer.cs">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\FrmSavePackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\FrmSavePackage.Designer.cs">
+      <DependentUpon>FrmSavePackage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\FrmSaveStudent.cs">
       <SubType>Form</SubType>
@@ -124,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\FrmOptionsSave.resx">
       <DependentUpon>FrmOptionsSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\FrmPackage.resx">
+      <DependentUpon>FrmPackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\FrmResponsiblesStudent.resx">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>
@@ -448,6 +463,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_search_23px.png" />
     <None Include="Resources\icons8_search_32px.png" />
     <None Include="Resources\icons8_maximize_window_32px_enter.png" />
     <None Include="Resources\icons8_maximize_window_32px_9.png" />

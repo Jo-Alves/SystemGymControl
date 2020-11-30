@@ -3,12 +3,13 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class Package
+    public class Package
     {
         private int id;
         private string description;
+        private decimal valuePackage;
         private int duration;
-        private int team;
+        private string period;
 
         string _sql;
 
@@ -27,25 +28,31 @@ namespace Database
             get { return duration; }
             set { duration = value; }
         }
-        public int _team
+        public decimal _value
         {
-            get { return team; }
-            set { team = value; }
+            get { return valuePackage; }
+            set { valuePackage = value; }
+        }
+        public string _period
+        {
+            get { return period; }
+            set { period = value; }
         }
 
         public void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             if (_id > 0)
-                _sql = "INSERT INTO packages VALUES (@description, @duration, @team)";
+                _sql = "INSERT INTO packages VALUES (@description, value, @duration, @period)";
             else
-                _sql = "UPDATE packages SET description = @description, duration = @duration, team = @team WHERE id = @id";
+                _sql = "UPDATE packages SET description = @description, value = value, duration = @duration, period = @period WHERE id = @id";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);
             command.Parameters.AddWithValue("@description", _description);
+            command.Parameters.AddWithValue("@value", _value);
             command.Parameters.AddWithValue("@duration", _duration);
-            command.Parameters.AddWithValue("@team", _team);
+            command.Parameters.AddWithValue("@period", _period);
             try
             {
                 connection.Open();
@@ -101,7 +108,7 @@ namespace Database
         }
 
 
-        public void SearchID()
+        public SqlDataReader SearchID()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             try
@@ -111,16 +118,30 @@ namespace Database
                 SqlCommand adapter = new SqlCommand(_sql, connection);
                 adapter.Parameters.AddWithValue("@id", _id);
                 SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
-                {
-                    _description = dr["description"].ToString();
-                    _duration = int.Parse(dr["duration"].ToString());
-                    _team = int.Parse(dr["team"].ToString());
-                }
+                return dr;
             }
             catch
             {
                 throw;
+            }
+        }
+
+        public DataTable SearchDescription(string description)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            { 
+                try
+                {
+                    _sql = $"SELECT * FROM packages WHERE description like '%{description}%'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
     }

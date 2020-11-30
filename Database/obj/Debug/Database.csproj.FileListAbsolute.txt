@@ -10,3 +10,9 @@ C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.csprojAssembly
 C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
 C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.dll
 C:\Users\val\Desktop\SystemGymControl\Database\obj\Debug\Database.pdb
+C:\Users\val\Desktop\clone\SystemGymControl\Database\bin\Debug\Database.dll
+C:\Users\val\Desktop\clone\SystemGymControl\Database\bin\Debug\Database.pdb
+C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.csprojAssemblyReference.cache
+C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
+C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.dll
+C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.pdb

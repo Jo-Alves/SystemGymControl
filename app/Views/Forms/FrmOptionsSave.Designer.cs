@@ -136,6 +136,7 @@
             this.btnSavePackage.TabIndex = 2;
             this.btnSavePackage.Text = "Ir para a tela";
             this.btnSavePackage.UseVisualStyleBackColor = false;
+            this.btnSavePackage.Click += new System.EventHandler(this.btnSavePackage_Click);
             // 
             // pcPackage
             // 

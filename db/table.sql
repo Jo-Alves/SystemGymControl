@@ -73,8 +73,9 @@ CREATE TABLE [dbo].[personal]
 CREATE TABLE [dbo].[packages] (
     [id]          INT             IDENTITY (1, 1) NOT NULL,
     [description] VARCHAR (100)   NOT NULL,
+    [value] DECIMAL (18,2)   NOT NULL,
     [duration]    INT             NOT NULL,
-    [team] INT NOT NULL, 
+    [period] INT NOT NULL, 
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
