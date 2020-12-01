@@ -43,8 +43,7 @@ namespace SystemGymControl
                 dgvDateStudent.Rows[coutRow].Cells["city"].Value = dr["city"].ToString();
                 dgvDateStudent.Rows[coutRow].Cells["state"].Value = dr["state"].ToString();
 
-                responsibleStudent._studentID = int.Parse(dr["id"].ToString());
-                foreach (DataRow drResponsible in responsibleStudent.SearchID().Rows)
+                foreach (DataRow drResponsible in responsibleStudent.SearchID(int.Parse(dr["id"].ToString())).Rows)
                 {
                     dgvDateStudent.Rows[coutRow].Cells["responsible"].Value = drResponsible["name"].ToString();
                     dgvDateStudent.Rows[coutRow].Cells["cpfResponsible"].Value = drResponsible["cpf"].ToString();
@@ -82,8 +81,7 @@ namespace SystemGymControl
                     {
                         if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDateStudent.CurrentRow.Cells["name"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
-                            student._id = id;
-                            student.Delete();
+                            student.Delete(id);
                             LoadDataStudents();
                             if (dgvDateStudent.Rows.Count == 0)
                             {

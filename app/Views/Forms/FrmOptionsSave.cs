@@ -116,7 +116,7 @@ namespace SystemGymControl
 
         private void btnSavePackage_Click(object sender, EventArgs e)
         {
-            if (new Student().SearchAll().Rows.Count > 0)
+            if (new Package().SearchAll().Rows.Count > 0)
                 OpenFormAndUser.OpenForm(new FrmPackage());
             else
                 OpenFormAndUser.OpenForm(new FrmSavePackage());

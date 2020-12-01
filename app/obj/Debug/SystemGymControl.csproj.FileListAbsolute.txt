@@ -84,3 +84,5 @@ C:\Users\val\Desktop\clone\SystemGymControl\app\bin\Debug\Database.dll
 C:\Users\val\Desktop\clone\SystemGymControl\app\bin\Debug\Bussiness.pdb
 C:\Users\val\Desktop\clone\SystemGymControl\app\bin\Debug\Database.pdb
 C:\Users\val\Desktop\clone\SystemGymControl\app\obj\Debug\SystemGymControl.csproj.CopyComplete
+C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmPackage.resources
+C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmSavePackage.resources

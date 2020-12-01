@@ -26,7 +26,7 @@ namespace Bussiness
             set { studentID = value; }
         }
 
-        public string ValidateFields()
+        public string ValidateFieldsandGetMessage()
         {
             string message = null;
 
@@ -36,8 +36,6 @@ namespace Bussiness
                 message = "Campo CPF obrigatório!"; 
             else if (string.IsNullOrEmpty(this._kinship))
                 message = "Campo Grau de Parentesco obrigatório!";
-            else if (responsible.SearchCPF(this._cpf) && this._studentID == 0)
-                message = "Este CPF já está cadastrado!"; 
             else if (!CPF.ValidateCPF(this._cpf))
                 message = "CPF inválido!";
 
@@ -55,9 +53,9 @@ namespace Bussiness
             responsible.Save();
         }
 
-        public override DataTable SearchID()
+        public override DataTable SearchID(int studentID)
         {
-            return responsible.SearchID(this.studentID);
+            return responsible.SearchID(studentID);
         }
     }
 }

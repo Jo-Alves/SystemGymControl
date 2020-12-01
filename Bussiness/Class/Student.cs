@@ -18,7 +18,7 @@ namespace Bussiness
             set { photo = value; }
         }
 
-        public string ValidateFields()
+        public string ValidateFieldsandGetMessage()
         {
             string message = null;
 
@@ -60,15 +60,15 @@ namespace Bussiness
             student.Save();
         }
 
-        public void Delete()
+        public void Delete(int id)
         {
-            student.Delete(this._id);
+            student.Delete(id);
 
         }
 
-        public override DataTable SearchID()
+        public override DataTable SearchID(int id)
         {
-            return student.SearchID(this._id);
+            return student.SearchID(id);
         }
 
 

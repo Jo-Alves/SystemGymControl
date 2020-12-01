@@ -24,11 +24,10 @@ namespace SystemGymControl
             InitializeComponent();
 
             responsible._studentID = studentId;
-            var getResponsible = responsible.SearchID();
+            var getResponsible = responsible.SearchID(studentId);
 
             if (getResponsible.Rows.Count > 0)
             {
-                mkCPF.Enabled = false;
                 id = int.Parse(getResponsible.Rows[0]["id"].ToString());
                 stundetID = int.Parse(getResponsible.Rows[0]["student_id"].ToString());
                 txtName.Text = getResponsible.Rows[0]["name"].ToString();
@@ -101,33 +100,27 @@ namespace SystemGymControl
             responsible._kinship = cbKinship.Text;
             responsible._phone = mkPhone.Text;
 
-            if (!string.IsNullOrEmpty(responsible.ValidateFields()))
+            if (!string.IsNullOrEmpty(responsible.ValidateFieldsandGetMessage()))
             {
-                if (responsible.ValidateFields() == "Campo Nome do responsável obrigatório!")
+                if (responsible.ValidateFieldsandGetMessage() == "Campo Nome do responsável obrigatório!")
                 {
                     MessageBox.Show("Campo 'Nome do responsável' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     error.SetError(txtName, "Campo 'Nome do responsável' obrigatório!");
                     txtName.Focus();
                 }
-                else if (responsible.ValidateFields() == "Campo CPF obrigatório!")
+                else if (responsible.ValidateFieldsandGetMessage() == "Campo CPF obrigatório!")
                 {
                     MessageBox.Show("Campo 'CPF' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     error.SetError(mkCPF, "Campo 'CPF' obrigatório!");
                     mkCPF.Focus();
                 } 
-                else if (responsible.ValidateFields() == "Campo Grau de Parentesco obrigatório!")
+                else if (responsible.ValidateFieldsandGetMessage() == "Campo Grau de Parentesco obrigatório!")
                 {
                     MessageBox.Show("Campo 'Grau de Parentesco' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     error.SetError(cbKinship, "Campo 'Grau de Parentesco' obrigatório!");
                     cbKinship.Focus();
                 }
-                else if (responsible.ValidateFields() == "Este CPF já está cadastrado!")
-                {
-                    MessageBox.Show("Este CPF já está cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(mkCPF, "Este CPF já está cadastrado!");
-                    mkCPF.Focus();
-                }
-                else if (responsible.ValidateFields() == "CPF inválido!")
+                else if (responsible.ValidateFieldsandGetMessage() == "CPF inválido!")
                 {
                     MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     mkCPF.Focus();

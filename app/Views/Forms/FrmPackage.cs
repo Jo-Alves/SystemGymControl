@@ -68,10 +68,9 @@ namespace SystemGymControl
                     }
                     else if (dgvDatePackage.CurrentCell.ColumnIndex == 1)
                     {
-                        if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDatePackage.CurrentRow.Cells["name"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDatePackage.CurrentRow.Cells["description"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
-                            package._id = id;
-                            package.Delete();
+                            package.Delete(id);
                             LoadDataPackages();
                             if (dgvDatePackage.Rows.Count == 0)
                             {

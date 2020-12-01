@@ -31,6 +31,6 @@ namespace Bussiness
         public string _state { get; set; }
 
         public abstract void Save();
-        public abstract DataTable SearchID();
+        public abstract DataTable SearchID(int id);
     }
 }

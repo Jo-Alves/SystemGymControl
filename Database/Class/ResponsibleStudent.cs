@@ -27,7 +27,7 @@ namespace Database
         public override void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_studentID == 0)
+            if (_id == 0)
                 _sql = "INSERT INTO responsibles_student VALUES (@name, @cpf, @kinship, @phone, @studentID)";
             else
                 _sql = "UPDATE responsibles_student SET name = @name, cpf = @cpf, phone = @phone, kinship = @kinship, student_id = @studentID WHERE student_id = @studentID";
@@ -69,29 +69,6 @@ namespace Database
             catch
             {
                 throw;
-            }
-        }
-
-        public bool SearchCPF(string CPF)
-        {
-            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
-            {
-                try
-                {
-                    _sql = "SELECT * FROM responsibles_student WHERE cpf = @cpf";
-                    var command = new SqlCommand(_sql, connection);
-                    command.Parameters.AddWithValue("@cpf", CPF);
-                    connection.Open();
-                    var dataReader = command.ExecuteReader();
-                    if (dataReader.Read())
-                        return true;
-                    else
-                        return false;
-                }
-                catch
-                {
-                    throw;
-                }
             }
         }
     }

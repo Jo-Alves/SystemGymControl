@@ -42,10 +42,10 @@ namespace Database
         public void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO packages VALUES (@description, value, @duration, @period)";
+            if (_id == 0)
+                _sql = "INSERT INTO packages VALUES (@description, @value, @duration, @period)";
             else
-                _sql = "UPDATE packages SET description = @description, value = value, duration = @duration, period = @period WHERE id = @id";
+                _sql = "UPDATE packages SET description = @description, value = @value, duration = @duration, period = @period WHERE id = @id";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);
@@ -68,12 +68,12 @@ namespace Database
             }
         }
 
-        public void Delete()
+        public void Delete(int idPackage)
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             _sql = "DELETE FROM packages WHERE id = @id";
             SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
+            command.Parameters.AddWithValue("@id", idPackage);
             try
             {
                 connection.Open();
@@ -108,7 +108,7 @@ namespace Database
         }
 
 
-        public SqlDataReader SearchID()
+        public SqlDataReader SearchID(int idPackage)
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             try
@@ -116,8 +116,9 @@ namespace Database
                 connection.Open();
                 _sql = "SELECT * FROM packages WHERE id = @id";
                 SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@id", _id);
+                adapter.Parameters.AddWithValue("@id", idPackage);
                 SqlDataReader dr = adapter.ExecuteReader();
+                dr.Read();
                 return dr;
             }
             catch

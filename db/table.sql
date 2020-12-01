@@ -39,7 +39,7 @@ CREATE TABLE [dbo].[situations_student] (
 CREATE TABLE [dbo].[responsibles_student] (
     [id]         INT           IDENTITY (1, 1) NOT NULL,
     [name]       VARCHAR (100) NULL,
-    [cpf]        VARCHAR (14)  NOT NULL UNIQUE,
+    [cpf]        VARCHAR (14)  NOT NULL,
     [kinship]    VARCHAR (100) NULL,
     [phone]    VARCHAR (15) NULL,
     [student_id] INT           NOT NULL,

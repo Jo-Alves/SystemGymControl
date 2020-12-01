@@ -39,14 +39,33 @@ namespace Bussiness
             set { period = value; }
         }
 
-        public void Save()
+        public string ValidateFieldsGetMessage()
         {
-          
+            string message = "";
+            if (string.IsNullOrEmpty(_description))
+                message = "Campo 'Descrição' obrigatório!";
+            else if (_duration == 0)
+                message = "Campo 'Duração' obrigatório!";
+            else if (string.IsNullOrEmpty(_period))
+                message = "Campo 'Período' obrigatório!";
+
+            return message;
         }
 
-        public void Delete()
+        public void Save()
         {
-          
+            package._id = this._id;
+            package._description = this._description;
+            package._duration = this._duration;
+            package._value = this._value;
+            package._period = this._period;
+
+            package.Save();
+        }
+
+        public void Delete(int idPackage)
+        {
+            package.Delete(idPackage);
         }
 
         public DataTable SearchAll()
@@ -60,9 +79,9 @@ namespace Bussiness
         }
 
 
-        //public SqlDataReader SearchID()
-        //{
-          
-        //}
+        public SqlDataReader SearchID(int idPackage)
+        {
+            return package.SearchID(idPackage);
+        }
     }
 }

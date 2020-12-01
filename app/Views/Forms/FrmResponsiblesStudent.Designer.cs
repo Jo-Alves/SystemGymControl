@@ -96,7 +96,7 @@
             "Avó",
             "Tutor",
             "Tutora"});
-            this.cbKinship.Location = new System.Drawing.Point(196, 135);
+            this.cbKinship.Location = new System.Drawing.Point(196, 133);
             this.cbKinship.Name = "cbKinship";
             this.cbKinship.Size = new System.Drawing.Size(158, 34);
             this.cbKinship.TabIndex = 3;
