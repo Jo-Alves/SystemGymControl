@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    static class FormatDecimal
+    static class FormatTextBox
     {
         public static string FormatValueDecimal(string valueDecimal)
         {
@@ -15,7 +15,7 @@ namespace SystemGymControl
             return valueDecimal;
         }
 
-        public static void HandleFormatDecimal(Control textBox, KeyPressEventArgs e)
+        public static void HandleFormatTextBox(Control textBox, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar))
             {

@@ -96,17 +96,17 @@ namespace SystemGymControl
 
         private void pcHome_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmHome());
+            OpenForm.ShowForm(new FrmHome(), this);
         }
 
         private void btnMenuSave_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmOptionsSave());
+            OpenForm.ShowForm(new FrmOptionsSave(), this);
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmHome());
+            OpenForm.ShowForm(new FrmHome(), this);
         }
     }
 }

@@ -107,19 +107,26 @@ namespace SystemGymControl
 
         private void btnSaveStudent_Click(object sender, EventArgs e)
         {
-            if (new Student().SearchAll().Rows.Count > 0)
-                OpenForm.ShowForm(new FrmStudent());
-            else
-                OpenForm.ShowForm(new FrmSaveStudent());
 
+            try
+            {
+               if (new Student().SearchAll().Rows.Count > 0)
+                    OpenForm.ShowForm(new FrmStudent(), this);
+                else
+                    OpenForm.ShowForm(new FrmSaveStudent(), this);
+            }
+            catch
+            {
+                MessageBox.Show("Erro ao acessar o banco de dados. Reinicie o programa.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnSavePackage_Click(object sender, EventArgs e)
-        {
+            private void btnSavePackage_Click(object sender, EventArgs e)
+            {
             if (new Package().SearchAll().Rows.Count > 0)
-                OpenForm.ShowForm(new FrmPackage());
-            else
-                OpenForm.ShowForm(new FrmSavePackage());
+                    OpenForm.ShowForm(new FrmPackage(), this);
+                else
+                    OpenForm.ShowForm(new FrmSavePackage(), this);
+            }
         }
     }
-}

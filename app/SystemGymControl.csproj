@@ -80,9 +80,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Utils\ConnectionDataBase.cs" />
-    <Compile Include="Utils\FormatDecimal.cs" />
-    <Compile Include="Utils\OpenFormAndUser.cs" />
+    <Compile Include="Utils\FormatTextBox.cs" />
+    <Compile Include="Utils\OpenForm.cs" />
     <Compile Include="Utils\Security.cs" />
     <Compile Include="Views\Forms\FrmHome.cs">
       <SubType>Form</SubType>

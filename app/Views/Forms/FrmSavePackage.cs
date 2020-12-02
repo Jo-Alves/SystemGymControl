@@ -38,7 +38,7 @@ namespace SystemGymControl
             try
             {
                 if(!string.IsNullOrWhiteSpace(txtValue.Text))
-                    txtValue.Text = FormatDecimal.FormatValueDecimal(txtValue.Text);
+                    txtValue.Text = FormatTextBox.FormatValueDecimal(txtValue.Text);
             }
             catch 
             {
@@ -48,7 +48,7 @@ namespace SystemGymControl
 
         private void txtValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FormatDecimal.HandleFormatDecimal(txtValue, e);
+            FormatTextBox.HandleFormatTextBox(txtValue, e);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace SystemGymControl
             {
                 package.Save();
                 this.Close();
-                OpenForm.ShowForm(new FrmPackage());
+                OpenForm.ShowForm(new FrmPackage(), this);
             }
         }
 
@@ -103,9 +103,9 @@ namespace SystemGymControl
         {
             this.Close();
             if (new  Package().SearchAll().Rows.Count > 0)
-                OpenForm.ShowForm(new FrmPackage());
+                OpenForm.ShowForm(new FrmPackage(), this);
             else
-                OpenForm.ShowForm(new FrmOptionsSave());
+                OpenForm.ShowForm(new FrmOptionsSave(), this);
         }
 
         private void cbPeriod_SelectedIndexChanged(object sender, EventArgs e)
