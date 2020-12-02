@@ -2,7 +2,7 @@
 
 namespace SystemGymControl
 {
-    public static class OpenFormAndUser
+    public static class OpenForm
     {
         public static void OpenUserControl(UserControl userControl, string nameUserControl)
         {
@@ -15,7 +15,7 @@ namespace SystemGymControl
             FrmGymControl.Instance.PnPageContainer.Controls[nameUserControl].BringToFront();
         }
         
-        public static void OpenForm(Form form)
+        public static void ShowForm(Form form)
         {
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;

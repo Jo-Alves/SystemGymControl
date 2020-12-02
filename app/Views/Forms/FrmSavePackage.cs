@@ -69,7 +69,7 @@ namespace SystemGymControl
             {
                 package.Save();
                 this.Close();
-                OpenFormAndUser.OpenForm(new FrmPackage());
+                OpenForm.ShowForm(new FrmPackage());
             }
         }
 
@@ -102,10 +102,10 @@ namespace SystemGymControl
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            if(new  Package().SearchAll().Rows.Count > 0)
-                OpenFormAndUser.OpenForm(new FrmPackage());
+            if (new  Package().SearchAll().Rows.Count > 0)
+                OpenForm.ShowForm(new FrmPackage());
             else
-                OpenFormAndUser.OpenForm(new FrmOptionsSave());
+                OpenForm.ShowForm(new FrmOptionsSave());
         }
 
         private void cbPeriod_SelectedIndexChanged(object sender, EventArgs e)

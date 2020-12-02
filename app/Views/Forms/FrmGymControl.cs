@@ -16,13 +16,16 @@ namespace SystemGymControl
             gp.AddEllipse(pcPerfil.DisplayRectangle);
             pcPerfil.Region = new Region(gp);
 
-            OpenForm(new FrmHome());
+            ShowForm(new FrmHome());
             _obj = this;
+            this.ClientSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            this.Top = 0;
+            this.Left = 0;
         }
 
         private Form activeForm = null;
 
-        private void OpenForm(Form form)
+        private void ShowForm(Form form)
         {
             if (activeForm != null)
                 activeForm = form;
@@ -56,34 +59,11 @@ namespace SystemGymControl
             set { pnPage = value; }
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-
-        private void btnRetoreMaximize_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-                btnRetoreMaximize.Image = Properties.Resources.icons8_restore_window_32px_leave;
-            }
-            else if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                btnRetoreMaximize.Image = Properties.Resources.icons8_maximize_window_32px_leave;
-            }
-
-            isMaximized = !isMaximized;
-        }
-
+        
         private void timer_Tick(object sender, EventArgs e)
         {
             lblDateNow.Text = $"{DateTime.Now.ToLongDateString()}, {DateTime.Now.ToLongTimeString()}";
@@ -104,22 +84,6 @@ namespace SystemGymControl
             btnClose.Image = Properties.Resources.icons8_close_window_32px_leavee;
         }
 
-        private void btnRetoreMaximize_MouseEnter(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                btnRetoreMaximize.Image = Properties.Resources.icons8_restore_window_32px_enter;
-            else if (this.WindowState == FormWindowState.Normal)
-                btnRetoreMaximize.Image = Properties.Resources.icons8_maximize_window_32px_enter;
-        }
-
-        private void btnRetoreMaximize_MouseLeave(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                btnRetoreMaximize.Image = Properties.Resources.icons8_restore_window_32px_leave1;
-            else if (this.WindowState == FormWindowState.Normal)
-                btnRetoreMaximize.Image = Properties.Resources.icons8_maximize_window_32px_leave;
-        }
-
         private void btnMimized_MouseEnter(object sender, EventArgs e)
         {
             btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_enter;
@@ -130,31 +94,19 @@ namespace SystemGymControl
             btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_leave1;
         }
 
-        private void pnTitle_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
         private void pcHome_Click(object sender, EventArgs e)
         {
-            OpenFormAndUser.OpenForm(new FrmHome());
+            OpenForm.ShowForm(new FrmHome());
         }
 
         private void btnMenuSave_Click(object sender, EventArgs e)
         {
-            OpenFormAndUser.OpenForm(new FrmOptionsSave());
+            OpenForm.ShowForm(new FrmOptionsSave());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            OpenFormAndUser.OpenForm(new FrmHome());
-        }
-
-        private void lblDateNow_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            OpenForm.ShowForm(new FrmHome());
         }
     }
 }

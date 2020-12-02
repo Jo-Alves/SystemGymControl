@@ -108,18 +108,18 @@ namespace SystemGymControl
         private void btnSaveStudent_Click(object sender, EventArgs e)
         {
             if (new Student().SearchAll().Rows.Count > 0)
-                OpenFormAndUser.OpenForm(new FrmStudent());
+                OpenForm.ShowForm(new FrmStudent());
             else
-                OpenFormAndUser.OpenForm(new FrmSaveStudent());
+                OpenForm.ShowForm(new FrmSaveStudent());
 
         }
 
         private void btnSavePackage_Click(object sender, EventArgs e)
         {
             if (new Package().SearchAll().Rows.Count > 0)
-                OpenFormAndUser.OpenForm(new FrmPackage());
+                OpenForm.ShowForm(new FrmPackage());
             else
-                OpenFormAndUser.OpenForm(new FrmSavePackage());
+                OpenForm.ShowForm(new FrmSavePackage());
         }
     }
 }

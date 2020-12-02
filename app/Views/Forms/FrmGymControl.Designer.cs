@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGymControl));
             this.pnTitle = new System.Windows.Forms.Panel();
             this.lblDateNow = new System.Windows.Forms.Label();
-            this.btnRetoreMaximize = new System.Windows.Forms.Button();
             this.btnMimized = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -62,7 +61,6 @@
             // 
             this.pnTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnTitle.Controls.Add(this.lblDateNow);
-            this.pnTitle.Controls.Add(this.btnRetoreMaximize);
             this.pnTitle.Controls.Add(this.btnMimized);
             this.pnTitle.Controls.Add(this.btnClose);
             this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -71,7 +69,6 @@
             this.pnTitle.Name = "pnTitle";
             this.pnTitle.Size = new System.Drawing.Size(852, 40);
             this.pnTitle.TabIndex = 1;
-            this.pnTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnTitle_MouseDown);
             // 
             // lblDateNow
             // 
@@ -86,24 +83,6 @@
             this.lblDateNow.TabIndex = 4;
             this.lblDateNow.Text = "segunda-feira, 20 de novembro de 2020, 16:32:44";
             this.lblDateNow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDateNow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblDateNow_MouseDown);
-            // 
-            // btnRetoreMaximize
-            // 
-            this.btnRetoreMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRetoreMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRetoreMaximize.FlatAppearance.BorderSize = 0;
-            this.btnRetoreMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRetoreMaximize.Image = global::SystemGymControl.Properties.Resources.icons8_restore_window_32px_leave1;
-            this.btnRetoreMaximize.Location = new System.Drawing.Point(781, 4);
-            this.btnRetoreMaximize.Name = "btnRetoreMaximize";
-            this.btnRetoreMaximize.Size = new System.Drawing.Size(28, 30);
-            this.btnRetoreMaximize.TabIndex = 3;
-            this.btnRetoreMaximize.TabStop = false;
-            this.btnRetoreMaximize.UseVisualStyleBackColor = true;
-            this.btnRetoreMaximize.Click += new System.EventHandler(this.btnRetoreMaximize_Click);
-            this.btnRetoreMaximize.MouseEnter += new System.EventHandler(this.btnRetoreMaximize_MouseEnter);
-            this.btnRetoreMaximize.MouseLeave += new System.EventHandler(this.btnRetoreMaximize_MouseLeave);
             // 
             // btnMimized
             // 
@@ -112,7 +91,7 @@
             this.btnMimized.FlatAppearance.BorderSize = 0;
             this.btnMimized.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMimized.Image = global::SystemGymControl.Properties.Resources.icons8_minimize_window_32px_leave1;
-            this.btnMimized.Location = new System.Drawing.Point(750, 4);
+            this.btnMimized.Location = new System.Drawing.Point(784, 3);
             this.btnMimized.Name = "btnMimized";
             this.btnMimized.Size = new System.Drawing.Size(25, 30);
             this.btnMimized.TabIndex = 2;
@@ -366,7 +345,6 @@
             this.Name = "FrmGymControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGymControl";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnTitle.ResumeLayout(false);
             this.pnConjuctMenu.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -379,7 +357,6 @@
         #endregion
         private System.Windows.Forms.Panel pnTitle;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnRetoreMaximize;
         private System.Windows.Forms.Button btnMimized;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel pnConjuctMenu;

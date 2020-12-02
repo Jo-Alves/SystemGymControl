@@ -59,7 +59,7 @@ namespace SystemGymControl
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            OpenFormAndUser.OpenForm(new FrmSaveStudent());
+            OpenForm.ShowForm(new FrmSaveStudent());
         }
 
         private void dgvDateStudent_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -75,7 +75,7 @@ namespace SystemGymControl
 
                     if (dgvDateStudent.CurrentCell.ColumnIndex == 0)
                     {
-                        OpenFormAndUser.OpenForm(new FrmSaveStudent(id));
+                        OpenForm.ShowForm(new FrmSaveStudent(id));
                     }
                     else if (dgvDateStudent.CurrentCell.ColumnIndex == 1)
                     {
@@ -86,7 +86,7 @@ namespace SystemGymControl
                             if (dgvDateStudent.Rows.Count == 0)
                             {
                                 this.Close();
-                                OpenFormAndUser.OpenForm(new FrmOptionsSave());
+                                OpenForm.ShowForm(new FrmOptionsSave());
                             }
                         }
                     }

@@ -63,10 +63,10 @@ namespace SystemGymControl
         {
             if (student.SearchAll().Rows.Count > 0)
             {
-                OpenFormAndUser.OpenForm(new FrmStudent());
+                OpenForm.ShowForm(new FrmStudent());
             }
             else
-                OpenFormAndUser.OpenForm(new FrmOptionsSave());
+                OpenForm.ShowForm(new FrmOptionsSave());
 
         }
 
@@ -191,7 +191,7 @@ namespace SystemGymControl
                     }
 
                     this.Close();
-                    OpenFormAndUser.OpenForm(new FrmStudent());
+                    OpenForm.ShowForm(new FrmStudent());
                 }
             }
             catch (Exception ex)

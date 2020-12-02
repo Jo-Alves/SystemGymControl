@@ -64,7 +64,7 @@ namespace SystemGymControl
 
                     if (dgvDatePackage.CurrentCell.ColumnIndex == 0)
                     {
-                        OpenFormAndUser.OpenForm(new FrmSavePackage(id));
+                        OpenForm.ShowForm(new FrmSavePackage(id));
                     }
                     else if (dgvDatePackage.CurrentCell.ColumnIndex == 1)
                     {
@@ -75,7 +75,7 @@ namespace SystemGymControl
                             if (dgvDatePackage.Rows.Count == 0)
                             {
                                 this.Close();
-                                OpenFormAndUser.OpenForm(new FrmOptionsSave());
+                                OpenForm.ShowForm(new FrmOptionsSave());
                             }
                         }
                     }
@@ -102,7 +102,7 @@ namespace SystemGymControl
 
         private void btnAddPackage_Click(object sender, EventArgs e)
         {
-            OpenFormAndUser.OpenForm(new FrmSavePackage());
+            OpenForm.ShowForm(new FrmSavePackage());
         }
     }
 }
