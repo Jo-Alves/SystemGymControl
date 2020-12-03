@@ -47,8 +47,6 @@ CREATE TABLE [dbo].[responsibles_student] (
     FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
 );
 
-
-
 CREATE TABLE modalities(
     [id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
     [description] VARCHAR(50) NOT NULL,
@@ -89,14 +87,16 @@ CREATE TABLE [dbo].[items_packages]
 	FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE
 )
 
-CREATE TABLE [dbo].[billing_parameters_package]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-    [value_penalty] DECIMAL(18, 2) NULL, 
-    [value_interest] DECIMAL(18, 2) NULL, 
-    [package_id] INT NULL,
-	FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE
-)
+CREATE TABLE [dbo].[billing_parameters_package] (
+    [id]             INT             IDENTITY (1, 1) NOT NULL,
+    [value_penalty]  DECIMAL (18, 2) NULL,
+    [value_interest] DECIMAL (18, 2) NULL,
+	[type_penalty]  VARCHAR (20) NULL,
+    [type_interest] VARCHAR (20) NULL,
+    [package_id]     INT             NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY REFERENCES [dbo].[packages] ON DELETE CASCADE
+);
 
 CREATE TABLE [dbo].[plans]
 (

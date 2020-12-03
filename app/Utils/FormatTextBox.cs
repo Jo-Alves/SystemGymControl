@@ -11,7 +11,11 @@ namespace SystemGymControl
     {
         public static string FormatValueDecimal(string valueDecimal)
         {
-            valueDecimal = Convert.ToDecimal(valueDecimal).ToString("0.00");
+            if (!string.IsNullOrEmpty(valueDecimal))
+            {
+                valueDecimal = Convert.ToDecimal(valueDecimal).ToString("0.00");
+            }
+
             return valueDecimal;
         }
 

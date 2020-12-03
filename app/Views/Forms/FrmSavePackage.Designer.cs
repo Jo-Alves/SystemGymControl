@@ -40,25 +40,24 @@ namespace SystemGymControl
             this.label4 = new System.Windows.Forms.Label();
             this.cbPeriod = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.rbPercentageInterest = new System.Windows.Forms.RadioButton();
+            this.rbValueInterest = new System.Windows.Forms.RadioButton();
+            this.txtValueInterest = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbPercentagePenalty = new System.Windows.Forms.RadioButton();
+            this.rbValuePenalty = new System.Windows.Forms.RadioButton();
+            this.txtValuePenalty = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ndDuration)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(16, 41);
@@ -70,7 +69,6 @@ namespace SystemGymControl
             // 
             // txtDescription
             // 
-            this.txtDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescription.Location = new System.Drawing.Point(21, 71);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
@@ -80,7 +78,6 @@ namespace SystemGymControl
             // 
             // txtValue
             // 
-            this.txtValue.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtValue.Location = new System.Drawing.Point(21, 160);
             this.txtValue.Margin = new System.Windows.Forms.Padding(4);
@@ -93,7 +90,6 @@ namespace SystemGymControl
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(16, 130);
@@ -105,7 +101,6 @@ namespace SystemGymControl
             // 
             // lblDuration
             // 
-            this.lblDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDuration.AutoSize = true;
             this.lblDuration.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
             this.lblDuration.Location = new System.Drawing.Point(293, 131);
@@ -117,7 +112,6 @@ namespace SystemGymControl
             // 
             // ndDuration
             // 
-            this.ndDuration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ndDuration.Enabled = false;
             this.ndDuration.Location = new System.Drawing.Point(298, 160);
             this.ndDuration.Minimum = new decimal(new int[] {
@@ -137,7 +131,6 @@ namespace SystemGymControl
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(69)))), ((int)(((byte)(72)))));
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
@@ -146,7 +139,7 @@ namespace SystemGymControl
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(153, 457);
+            this.btnCancel.Location = new System.Drawing.Point(145, 449);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 43);
             this.btnCancel.TabIndex = 53;
@@ -157,7 +150,6 @@ namespace SystemGymControl
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
@@ -166,7 +158,7 @@ namespace SystemGymControl
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(21, 457);
+            this.btnSave.Location = new System.Drawing.Point(13, 449);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 43);
             this.btnSave.TabIndex = 52;
@@ -177,7 +169,6 @@ namespace SystemGymControl
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(166, 130);
@@ -189,7 +180,6 @@ namespace SystemGymControl
             // 
             // cbPeriod
             // 
-            this.cbPeriod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPeriod.FormattingEnabled = true;
@@ -211,7 +201,6 @@ namespace SystemGymControl
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Location = new System.Drawing.Point(12, 222);
@@ -221,44 +210,11 @@ namespace SystemGymControl
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parâmetros:";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 88);
-            this.panel1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(179, 26);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 33);
-            this.textBox1.TabIndex = 58;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(5, 28);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 26);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Multa p/ atraso";
-            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.radioButton3);
-            this.panel2.Controls.Add(this.radioButton4);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.rbPercentageInterest);
+            this.panel2.Controls.Add(this.rbValueInterest);
+            this.panel2.Controls.Add(this.txtValueInterest);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 117);
@@ -266,15 +222,39 @@ namespace SystemGymControl
             this.panel2.Size = new System.Drawing.Size(597, 81);
             this.panel2.TabIndex = 1;
             // 
-            // textBox2
+            // rbPercentageInterest
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(179, 28);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 33);
-            this.textBox2.TabIndex = 60;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.rbPercentageInterest.AutoSize = true;
+            this.rbPercentageInterest.Location = new System.Drawing.Point(451, 31);
+            this.rbPercentageInterest.Name = "rbPercentageInterest";
+            this.rbPercentageInterest.Size = new System.Drawing.Size(149, 30);
+            this.rbPercentageInterest.TabIndex = 62;
+            this.rbPercentageInterest.Text = "Porcentagem";
+            this.rbPercentageInterest.UseVisualStyleBackColor = true;
+            // 
+            // rbValueInterest
+            // 
+            this.rbValueInterest.AutoSize = true;
+            this.rbValueInterest.Checked = true;
+            this.rbValueInterest.Location = new System.Drawing.Point(334, 31);
+            this.rbValueInterest.Name = "rbValueInterest";
+            this.rbValueInterest.Size = new System.Drawing.Size(111, 30);
+            this.rbValueInterest.TabIndex = 61;
+            this.rbValueInterest.TabStop = true;
+            this.rbValueInterest.Text = "Valor(R$)";
+            this.rbValueInterest.UseVisualStyleBackColor = true;
+            // 
+            // txtValueInterest
+            // 
+            this.txtValueInterest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValueInterest.Location = new System.Drawing.Point(179, 28);
+            this.txtValueInterest.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValueInterest.Name = "txtValueInterest";
+            this.txtValueInterest.Size = new System.Drawing.Size(143, 33);
+            this.txtValueInterest.TabIndex = 60;
+            this.txtValueInterest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValueInterest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValueInterest_KeyPress);
+            this.txtValueInterest.Leave += new System.EventHandler(this.txtValueInterest_Leave);
             // 
             // label5
             // 
@@ -287,49 +267,62 @@ namespace SystemGymControl
             this.label5.TabIndex = 59;
             this.label5.Text = "Juros Diários";
             // 
-            // radioButton1
+            // panel1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(329, 26);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(111, 30);
-            this.radioButton1.TabIndex = 59;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Valor(R$)";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.panel1.Controls.Add(this.rbPercentagePenalty);
+            this.panel1.Controls.Add(this.rbValuePenalty);
+            this.panel1.Controls.Add(this.txtValuePenalty);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 29);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(597, 88);
+            this.panel1.TabIndex = 0;
             // 
-            // radioButton2
+            // rbPercentagePenalty
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(446, 26);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(149, 30);
-            this.radioButton2.TabIndex = 60;
-            this.radioButton2.Text = "Porcentagem";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbPercentagePenalty.AutoSize = true;
+            this.rbPercentagePenalty.Location = new System.Drawing.Point(446, 26);
+            this.rbPercentagePenalty.Name = "rbPercentagePenalty";
+            this.rbPercentagePenalty.Size = new System.Drawing.Size(149, 30);
+            this.rbPercentagePenalty.TabIndex = 60;
+            this.rbPercentagePenalty.Text = "Porcentagem";
+            this.rbPercentagePenalty.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbValuePenalty
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(451, 31);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(149, 30);
-            this.radioButton3.TabIndex = 62;
-            this.radioButton3.Text = "Porcentagem";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbValuePenalty.AutoSize = true;
+            this.rbValuePenalty.Checked = true;
+            this.rbValuePenalty.Location = new System.Drawing.Point(329, 26);
+            this.rbValuePenalty.Name = "rbValuePenalty";
+            this.rbValuePenalty.Size = new System.Drawing.Size(111, 30);
+            this.rbValuePenalty.TabIndex = 59;
+            this.rbValuePenalty.TabStop = true;
+            this.rbValuePenalty.Text = "Valor(R$)";
+            this.rbValuePenalty.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // txtValuePenalty
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Location = new System.Drawing.Point(334, 31);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(111, 30);
-            this.radioButton4.TabIndex = 61;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Valor(R$)";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.txtValuePenalty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValuePenalty.Location = new System.Drawing.Point(179, 26);
+            this.txtValuePenalty.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValuePenalty.Name = "txtValuePenalty";
+            this.txtValuePenalty.Size = new System.Drawing.Size(143, 33);
+            this.txtValuePenalty.TabIndex = 58;
+            this.txtValuePenalty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValuePenalty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValuePenalty_KeyPress);
+            this.txtValuePenalty.Leave += new System.EventHandler(this.txtValuePenalty_Leave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(5, 28);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(165, 26);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Multa p/ atraso";
             // 
             // FrmSavePackage
             // 
@@ -355,10 +348,10 @@ namespace SystemGymControl
             this.Text = "FrmSavePackage";
             ((System.ComponentModel.ISupportInitialize)(this.ndDuration)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,14 +371,14 @@ namespace SystemGymControl
         private System.Windows.Forms.ComboBox cbPeriod;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.RadioButton rbPercentageInterest;
+        private System.Windows.Forms.RadioButton rbValueInterest;
+        private System.Windows.Forms.TextBox txtValueInterest;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton rbPercentagePenalty;
+        private System.Windows.Forms.RadioButton rbValuePenalty;
+        private System.Windows.Forms.TextBox txtValuePenalty;
         private System.Windows.Forms.Label label3;
     }
 }

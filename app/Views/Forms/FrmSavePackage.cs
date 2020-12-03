@@ -14,23 +14,50 @@ namespace SystemGymControl
     public partial class FrmSavePackage : Form
     {
         Package package = new Package();
+        BillingParametersPackage parametersPackage = new BillingParametersPackage();
         int idPackage;
 
         public FrmSavePackage()
         {
             InitializeComponent();
-        } 
+        }
 
         public FrmSavePackage(int id)
         {
             InitializeComponent();
             idPackage = id;
-            var searchPackage = package.SearchID(id);
 
-            txtDescription.Text = searchPackage["description"].ToString();
-            txtValue.Text = searchPackage["value"].ToString();
-            ndDuration.Value = decimal.Parse(searchPackage["duration"].ToString());
-            cbPeriod.Text = searchPackage["period"].ToString();
+            try
+            {
+                var searchPackage = package.SearchID(id);
+
+                txtDescription.Text = searchPackage["description"].ToString();
+                txtValue.Text = searchPackage["value"].ToString();
+                ndDuration.Value = decimal.Parse(searchPackage["duration"].ToString());
+                cbPeriod.Text = searchPackage["period"].ToString();
+                GetParametersPackage(idPackage);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM System", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GetParametersPackage(int idPackage)
+        {
+            var drParameters = parametersPackage.SearchID(idPackage);
+            txtValuePenalty.Text = drParameters["value_penalty"].ToString();
+            txtValueInterest.Text = drParameters["value_interest"].ToString();
+           
+            if (drParameters["type_penalty"].ToString().Equals("money"))
+                rbValuePenalty.Checked = true;
+            else
+                rbPercentagePenalty.Checked = true;
+            
+            if (drParameters["type_interest"].ToString().Equals("money"))
+                rbValueInterest.Checked = true;
+            else
+                rbPercentageInterest.Checked = true;
         }
 
         private void txtValue_Leave(object sender, EventArgs e)
@@ -68,6 +95,40 @@ namespace SystemGymControl
             if (ValidateFields())
             {
                 package.Save();
+                if(string.IsNullOrWhiteSpace(txtValueInterest.Text))
+                    parametersPackage._valueInterest = 0.00m;
+                else 
+                    parametersPackage._valueInterest = decimal.Parse(txtValueInterest.Text);
+
+                if(string.IsNullOrWhiteSpace(txtValuePenalty.Text))
+                    parametersPackage._valuePenalty = 0.00m;
+                else
+                    parametersPackage._valuePenalty = decimal.Parse(txtValuePenalty.Text);
+            
+                if (rbPercentageInterest.Checked)
+                {
+                    parametersPackage._typeInterest = "percentage";
+                }
+                else if (rbValueInterest.Checked)
+                {
+                    parametersPackage._typeInterest = "money";
+                }
+                if (rbPercentagePenalty.Checked)
+                {
+                    parametersPackage._typePenalty = "percentage";
+                }
+                else if (rbValuePenalty.Checked)
+                {
+                    parametersPackage._typePenalty = "money";
+                }
+              
+                if (idPackage == 0)
+                    parametersPackage._packageID = package.GetMaxId();
+                else
+                    parametersPackage._packageID = idPackage;
+
+                parametersPackage.Save();
+                
                 this.Close();
                 OpenForm.ShowForm(new FrmPackage(), this);
             }
@@ -158,6 +219,40 @@ namespace SystemGymControl
             }
 
             ndDuration.Enabled = false;
+        }
+
+        private void txtValuePenalty_Leave(object sender, EventArgs e)
+        {
+            txtValuePenalty.Text = FormatTextBox.FormatValueDecimal(txtValuePenalty.Text);
+        }
+
+        private void txtValuePenalty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                FormatTextBox.HandleFormatTextBox(txtValuePenalty, e);
+            }
+            catch
+            {
+                MessageBox.Show("Erro no valor de entrada. Digite o valor válido.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtValueInterest_Leave(object sender, EventArgs e)
+        {
+            txtValueInterest.Text = FormatTextBox.FormatValueDecimal(txtValueInterest.Text);
+        }
+
+        private void txtValueInterest_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                FormatTextBox.HandleFormatTextBox(txtValueInterest, e);
+            }
+            catch
+            {
+                MessageBox.Show("Erro no valor de entrada. Digite o valor válido.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

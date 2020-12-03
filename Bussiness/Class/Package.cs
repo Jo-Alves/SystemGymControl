@@ -78,10 +78,14 @@ namespace Bussiness
             return package.SearchDescription(description);
         }
 
-
         public SqlDataReader SearchID(int idPackage)
         {
             return package.SearchID(idPackage);
+        }
+
+        public int GetMaxId()
+        {
+            return package.GetMaxId();
         }
     }
 }

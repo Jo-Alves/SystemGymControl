@@ -145,5 +145,28 @@ namespace Database
                 }
             }
         }
+
+        public int GetMaxId()
+        {
+            int maxId = 0;
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT MAX(id) as maxID FROM packages";
+                    var command = new SqlCommand(_sql, connection);
+                    connection.Open();
+                    var dr = command.ExecuteReader();
+                    if (dr.Read())
+                        maxId = int.Parse(dr["maxID"].ToString());
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return maxId;
+        }
     }
 }
