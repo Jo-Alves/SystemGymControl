@@ -32,7 +32,6 @@ namespace SystemGymControl
                 dgvDatePackage.Rows[coutRow].Cells["delete"].Value = Properties.Resources.icons8_trash_25px;
                 dgvDatePackage.Rows[coutRow].Cells["id"].Value = dr["id"].ToString();
                 dgvDatePackage.Rows[coutRow].Cells["description"].Value = dr["description"].ToString();
-                dgvDatePackage.Rows[coutRow].Cells["value"].Value = dr["value"].ToString();
                 dgvDatePackage.Rows[coutRow].Cells["duration"].Value = dr["duration"].ToString();
                 dgvDatePackage.Rows[coutRow].Cells["period"].Value = dr["period"].ToString();
 

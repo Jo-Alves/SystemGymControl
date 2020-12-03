@@ -7,7 +7,6 @@ namespace Database
     {
         private int id;
         private string description;
-        private decimal valuePackage;
         private int duration;
         private string period;
 
@@ -28,11 +27,6 @@ namespace Database
             get { return duration; }
             set { duration = value; }
         }
-        public decimal _value
-        {
-            get { return valuePackage; }
-            set { valuePackage = value; }
-        }
         public string _period
         {
             get { return period; }
@@ -43,14 +37,13 @@ namespace Database
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             if (_id == 0)
-                _sql = "INSERT INTO packages VALUES (@description, @value, @duration, @period)";
+                _sql = "INSERT INTO packages VALUES (@description, @duration, @period)";
             else
-                _sql = "UPDATE packages SET description = @description, value = @value, duration = @duration, period = @period WHERE id = @id";
+                _sql = "UPDATE packages SET description = @description, duration = @duration, period = @period WHERE id = @id";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);
             command.Parameters.AddWithValue("@description", _description);
-            command.Parameters.AddWithValue("@value", _value);
             command.Parameters.AddWithValue("@duration", _duration);
             command.Parameters.AddWithValue("@period", _period);
             try

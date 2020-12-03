@@ -7,7 +7,6 @@ namespace Bussiness
     {
         private int id;
         private string description;
-        private decimal valuePackage;
         private int duration;
         private string period;
 
@@ -27,11 +26,6 @@ namespace Bussiness
         {
             get { return duration; }
             set { duration = value; }
-        }
-        public decimal _value
-        {
-            get { return valuePackage; }
-            set { valuePackage = value; }
         }
         public string _period
         {
@@ -57,7 +51,6 @@ namespace Bussiness
             package._id = this._id;
             package._description = this._description;
             package._duration = this._duration;
-            package._value = this._value;
             package._period = this._period;
 
             package.Save();

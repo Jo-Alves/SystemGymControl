@@ -28,24 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddPackage = new System.Windows.Forms.Button();
             this.dgvDatePackage = new System.Windows.Forms.DataGridView();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.period = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearchDescription = new System.Windows.Forms.TextBox();
             this.lblPackage = new System.Windows.Forms.Label();
             this.pcPackage = new System.Windows.Forms.PictureBox();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.period = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatePackage)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,14 +77,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDatePackage.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDatePackage.BackgroundColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatePackage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatePackage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatePackage.ColumnHeadersHeight = 30;
             this.dgvDatePackage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDatePackage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -94,7 +92,6 @@
             this.delete,
             this.id,
             this.Description,
-            this.value,
             this.duration,
             this.period});
             this.dgvDatePackage.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -103,83 +100,22 @@
             this.dgvDatePackage.MultiSelect = false;
             this.dgvDatePackage.Name = "dgvDatePackage";
             this.dgvDatePackage.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatePackage.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatePackage.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDatePackage.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            this.dgvDatePackage.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            this.dgvDatePackage.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDatePackage.Size = new System.Drawing.Size(636, 232);
             this.dgvDatePackage.TabIndex = 6;
             this.dgvDatePackage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatePackage_CellClick);
             this.dgvDatePackage.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatePackage_CellDoubleClick);
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.HeaderText = "Editar";
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.edit.Width = 80;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.delete.HeaderText = "Excluir";
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 85;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.HeaderText = "Código";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 88;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.HeaderText = "Descrição";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // value
-            // 
-            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.value.DefaultCellStyle = dataGridViewCellStyle6;
-            this.value.HeaderText = "Valor";
-            this.value.Name = "value";
-            this.value.ReadOnly = true;
-            this.value.Width = 75;
-            // 
-            // duration
-            // 
-            this.duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.duration.HeaderText = "Duração";
-            this.duration.Name = "duration";
-            this.duration.ReadOnly = true;
-            // 
-            // period
-            // 
-            this.period.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.period.HeaderText = "Período";
-            this.period.Name = "period";
-            this.period.ReadOnly = true;
-            this.period.Width = 95;
             // 
             // groupBox1
             // 
@@ -241,6 +177,56 @@
             this.pcPackage.TabIndex = 8;
             this.pcPackage.TabStop = false;
             // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.HeaderText = "Editar";
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.edit.Width = 80;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.delete.HeaderText = "Excluir";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.Width = 85;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.HeaderText = "Código";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 88;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.HeaderText = "Descrição";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // duration
+            // 
+            this.duration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.duration.HeaderText = "Duração";
+            this.duration.Name = "duration";
+            this.duration.ReadOnly = true;
+            // 
+            // period
+            // 
+            this.period.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.period.HeaderText = "Período";
+            this.period.Name = "period";
+            this.period.ReadOnly = true;
+            this.period.Width = 95;
+            // 
             // FrmPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
@@ -273,14 +259,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSearchDescription;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblPackage;
+        private System.Windows.Forms.PictureBox pcPackage;
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn value;
         private System.Windows.Forms.DataGridViewTextBoxColumn duration;
         private System.Windows.Forms.DataGridViewTextBoxColumn period;
-        private System.Windows.Forms.Label lblPackage;
-        private System.Windows.Forms.PictureBox pcPackage;
     }
 }

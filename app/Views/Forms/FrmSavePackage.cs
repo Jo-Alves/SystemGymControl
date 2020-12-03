@@ -32,7 +32,6 @@ namespace SystemGymControl
                 var searchPackage = package.SearchID(id);
 
                 txtDescription.Text = searchPackage["description"].ToString();
-                txtValue.Text = searchPackage["value"].ToString();
                 ndDuration.Value = decimal.Parse(searchPackage["duration"].ToString());
                 cbPeriod.Text = searchPackage["period"].ToString();
                 GetParametersPackage(idPackage);
@@ -88,7 +87,6 @@ namespace SystemGymControl
           
             package._id = idPackage;
             package._description = txtDescription.Text.Trim();
-            package._value = decimal.Parse(txtValue.Text);
             package._duration = int.Parse(ndDuration.Value.ToString());
             package._period = cbPeriod.Text;
 
@@ -253,6 +251,33 @@ namespace SystemGymControl
             {
                 MessageBox.Show("Erro no valor de entrada. Digite o valor válido.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (ValidateFieldsFormOfPayments())
+            {
+                dgvFormOfPagament.Rows.Add(Properties.Resources.icons8_pencil_25px, Properties.Resources.icons8_trash_25px, cbFormOfPayement.Text, $"R$ {txtValue.Text}");
+                dgvFormOfPagament.ClearSelection();
+            }
+        }
+
+        private bool ValidateFieldsFormOfPayments()
+        {
+            if (string.IsNullOrWhiteSpace(txtValue.Text))
+            {
+                MessageBox.Show("Informe o valor!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtValue.Focus();
+                return false;
+            }
+            else if (cbFormOfPayement.SelectedIndex == -1)
+            {
+                MessageBox.Show("Informe a forma de pagamento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cbFormOfPayement.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }
