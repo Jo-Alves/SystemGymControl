@@ -71,7 +71,6 @@ CREATE TABLE [dbo].[personal]
 CREATE TABLE [dbo].[packages] (
     [id]          INT             IDENTITY (1, 1) NOT NULL,
     [description] VARCHAR (100)   NOT NULL,
-    [value] DECIMAL (18,2)   NOT NULL,
     [duration]    INT             NOT NULL,
     [period] INT NOT NULL, 
     PRIMARY KEY CLUSTERED ([id] ASC)
@@ -80,7 +79,7 @@ CREATE TABLE [dbo].[packages] (
 
 CREATE TABLE [dbo].[items_packages]
 (
-	[id] INT NOT NULL PRIMARY KEY, 
+	[id] INT NOT NULL PRIMARY KEY IDENTITY (1, 1), 
     [formOfPayment] VARCHAR(50) NOT NULL, 
     [value] DECIMAL(18, 2) NOT NULL, 
     [package_id] INT NOT NULL,

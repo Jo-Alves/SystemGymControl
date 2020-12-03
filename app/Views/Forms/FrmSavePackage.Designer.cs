@@ -29,10 +29,10 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblDuration = new System.Windows.Forms.Label();
@@ -55,11 +55,12 @@ namespace SystemGymControl
             this.dgvFormOfPagament = new System.Windows.Forms.DataGridView();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsert = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbFormOfPayement = new System.Windows.Forms.ComboBox();
+            this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
             this.txtValue = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ndDuration)).BeginInit();
@@ -86,7 +87,7 @@ namespace SystemGymControl
             this.txtDescription.Location = new System.Drawing.Point(21, 71);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(601, 33);
+            this.txtDescription.Size = new System.Drawing.Size(576, 33);
             this.txtDescription.TabIndex = 1;
             // 
             // lblDuration
@@ -111,7 +112,7 @@ namespace SystemGymControl
             0});
             this.ndDuration.Name = "ndDuration";
             this.ndDuration.Size = new System.Drawing.Size(120, 33);
-            this.ndDuration.TabIndex = 5;
+            this.ndDuration.TabIndex = 3;
             this.ndDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ndDuration.Value = new decimal(new int[] {
             1,
@@ -132,7 +133,7 @@ namespace SystemGymControl
             this.btnCancel.Location = new System.Drawing.Point(153, 405);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 43);
-            this.btnCancel.TabIndex = 53;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -151,7 +152,7 @@ namespace SystemGymControl
             this.btnSave.Location = new System.Drawing.Point(21, 405);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 43);
-            this.btnSave.TabIndex = 52;
+            this.btnSave.TabIndex = 13;
             this.btnSave.TabStop = false;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -186,7 +187,7 @@ namespace SystemGymControl
             this.cbPeriod.Location = new System.Drawing.Point(21, 147);
             this.cbPeriod.Name = "cbPeriod";
             this.cbPeriod.Size = new System.Drawing.Size(147, 34);
-            this.cbPeriod.TabIndex = 54;
+            this.cbPeriod.TabIndex = 2;
             this.cbPeriod.SelectedIndexChanged += new System.EventHandler(this.cbPeriod_SelectedIndexChanged);
             // 
             // groupBox1
@@ -195,7 +196,7 @@ namespace SystemGymControl
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Location = new System.Drawing.Point(19, 187);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(598, 207);
+            this.groupBox1.Size = new System.Drawing.Size(578, 207);
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parâmetros:";
@@ -209,16 +210,16 @@ namespace SystemGymControl
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 117);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(592, 81);
+            this.panel2.Size = new System.Drawing.Size(572, 81);
             this.panel2.TabIndex = 1;
             // 
             // rbPercentageInterest
             // 
             this.rbPercentageInterest.AutoSize = true;
-            this.rbPercentageInterest.Location = new System.Drawing.Point(451, 31);
+            this.rbPercentageInterest.Location = new System.Drawing.Point(423, 31);
             this.rbPercentageInterest.Name = "rbPercentageInterest";
             this.rbPercentageInterest.Size = new System.Drawing.Size(149, 30);
-            this.rbPercentageInterest.TabIndex = 62;
+            this.rbPercentageInterest.TabIndex = 9;
             this.rbPercentageInterest.Text = "Porcentagem";
             this.rbPercentageInterest.UseVisualStyleBackColor = true;
             // 
@@ -226,11 +227,10 @@ namespace SystemGymControl
             // 
             this.rbValueInterest.AutoSize = true;
             this.rbValueInterest.Checked = true;
-            this.rbValueInterest.Location = new System.Drawing.Point(334, 31);
+            this.rbValueInterest.Location = new System.Drawing.Point(306, 31);
             this.rbValueInterest.Name = "rbValueInterest";
             this.rbValueInterest.Size = new System.Drawing.Size(111, 30);
-            this.rbValueInterest.TabIndex = 61;
-            this.rbValueInterest.TabStop = true;
+            this.rbValueInterest.TabIndex = 8;
             this.rbValueInterest.Text = "Valor(R$)";
             this.rbValueInterest.UseVisualStyleBackColor = true;
             // 
@@ -240,8 +240,8 @@ namespace SystemGymControl
             this.txtValueInterest.Location = new System.Drawing.Point(179, 28);
             this.txtValueInterest.Margin = new System.Windows.Forms.Padding(4);
             this.txtValueInterest.Name = "txtValueInterest";
-            this.txtValueInterest.Size = new System.Drawing.Size(143, 33);
-            this.txtValueInterest.TabIndex = 60;
+            this.txtValueInterest.Size = new System.Drawing.Size(110, 33);
+            this.txtValueInterest.TabIndex = 7;
             this.txtValueInterest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValueInterest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValueInterest_KeyPress);
             this.txtValueInterest.Leave += new System.EventHandler(this.txtValueInterest_Leave);
@@ -266,16 +266,16 @@ namespace SystemGymControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(592, 88);
+            this.panel1.Size = new System.Drawing.Size(572, 88);
             this.panel1.TabIndex = 0;
             // 
             // rbPercentagePenalty
             // 
             this.rbPercentagePenalty.AutoSize = true;
-            this.rbPercentagePenalty.Location = new System.Drawing.Point(446, 26);
+            this.rbPercentagePenalty.Location = new System.Drawing.Point(418, 26);
             this.rbPercentagePenalty.Name = "rbPercentagePenalty";
             this.rbPercentagePenalty.Size = new System.Drawing.Size(149, 30);
-            this.rbPercentagePenalty.TabIndex = 60;
+            this.rbPercentagePenalty.TabIndex = 6;
             this.rbPercentagePenalty.Text = "Porcentagem";
             this.rbPercentagePenalty.UseVisualStyleBackColor = true;
             // 
@@ -283,11 +283,10 @@ namespace SystemGymControl
             // 
             this.rbValuePenalty.AutoSize = true;
             this.rbValuePenalty.Checked = true;
-            this.rbValuePenalty.Location = new System.Drawing.Point(329, 26);
+            this.rbValuePenalty.Location = new System.Drawing.Point(301, 26);
             this.rbValuePenalty.Name = "rbValuePenalty";
             this.rbValuePenalty.Size = new System.Drawing.Size(111, 30);
-            this.rbValuePenalty.TabIndex = 59;
-            this.rbValuePenalty.TabStop = true;
+            this.rbValuePenalty.TabIndex = 5;
             this.rbValuePenalty.Text = "Valor(R$)";
             this.rbValuePenalty.UseVisualStyleBackColor = true;
             // 
@@ -297,8 +296,8 @@ namespace SystemGymControl
             this.txtValuePenalty.Location = new System.Drawing.Point(179, 26);
             this.txtValuePenalty.Margin = new System.Windows.Forms.Padding(4);
             this.txtValuePenalty.Name = "txtValuePenalty";
-            this.txtValuePenalty.Size = new System.Drawing.Size(143, 33);
-            this.txtValuePenalty.TabIndex = 58;
+            this.txtValuePenalty.Size = new System.Drawing.Size(110, 33);
+            this.txtValuePenalty.TabIndex = 4;
             this.txtValuePenalty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValuePenalty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValuePenalty_KeyPress);
             this.txtValuePenalty.Leave += new System.EventHandler(this.txtValuePenalty_Leave);
@@ -320,41 +319,46 @@ namespace SystemGymControl
             this.dgvFormOfPagament.AllowUserToDeleteRows = false;
             this.dgvFormOfPagament.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFormOfPagament.BackgroundColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 14F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormOfPagament.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormOfPagament.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFormOfPagament.ColumnHeadersHeight = 30;
             this.dgvFormOfPagament.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvFormOfPagament.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.edit,
             this.delete,
+            this.id,
             this.formOfPayment,
             this.value});
             this.dgvFormOfPagament.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvFormOfPagament.EnableHeadersVisualStyles = false;
-            this.dgvFormOfPagament.Location = new System.Drawing.Point(630, 71);
+            this.dgvFormOfPagament.Location = new System.Drawing.Point(604, 71);
             this.dgvFormOfPagament.MultiSelect = false;
             this.dgvFormOfPagament.Name = "dgvFormOfPagament";
             this.dgvFormOfPagament.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Open Sans", 14F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormOfPagament.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 14F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormOfPagament.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFormOfPagament.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            this.dgvFormOfPagament.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvFormOfPagament.Size = new System.Drawing.Size(480, 257);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            this.dgvFormOfPagament.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvFormOfPagament.Size = new System.Drawing.Size(506, 257);
             this.dgvFormOfPagament.TabIndex = 57;
+            this.dgvFormOfPagament.TabStop = false;
+            this.dgvFormOfPagament.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormOfPagament_CellClick);
+            this.dgvFormOfPagament.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormOfPagament_CellDoubleClick);
             // 
             // edit
             // 
@@ -364,7 +368,7 @@ namespace SystemGymControl
             this.edit.ReadOnly = true;
             this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.edit.Width = 91;
+            this.edit.Width = 80;
             // 
             // delete
             // 
@@ -374,7 +378,16 @@ namespace SystemGymControl
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 97;
+            this.delete.Width = 85;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 54;
             // 
             // formOfPayment
             // 
@@ -382,18 +395,18 @@ namespace SystemGymControl
             this.formOfPayment.HeaderText = "Forma de Pagamento";
             this.formOfPayment.Name = "formOfPayment";
             this.formOfPayment.ReadOnly = true;
-            this.formOfPayment.Width = 230;
+            this.formOfPayment.Width = 198;
             // 
             // value
             // 
             this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.value.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.value.DefaultCellStyle = dataGridViewCellStyle2;
             this.value.HeaderText = "Valor";
             this.value.Name = "value";
             this.value.ReadOnly = true;
-            this.value.Width = 83;
+            this.value.Width = 75;
             // 
             // btnInsert
             // 
@@ -405,10 +418,10 @@ namespace SystemGymControl
             this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsert.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInsert.ForeColor = System.Drawing.Color.White;
-            this.btnInsert.Location = new System.Drawing.Point(630, 405);
+            this.btnInsert.Location = new System.Drawing.Point(610, 405);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(126, 43);
-            this.btnInsert.TabIndex = 58;
+            this.btnInsert.TabIndex = 1;
             this.btnInsert.TabStop = false;
             this.btnInsert.Text = "Inserir";
             this.btnInsert.UseVisualStyleBackColor = false;
@@ -418,35 +431,37 @@ namespace SystemGymControl
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(775, 331);
+            this.label6.Location = new System.Drawing.Point(755, 331);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(224, 26);
             this.label6.TabIndex = 62;
             this.label6.Text = "Forma de pagamento";
             // 
-            // cbFormOfPayement
+            // cbFormOfPayment
             // 
-            this.cbFormOfPayement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFormOfPayement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbFormOfPayement.FormattingEnabled = true;
-            this.cbFormOfPayement.Items.AddRange(new object[] {
-            "Dinheiro",
+            this.cbFormOfPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFormOfPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbFormOfPayment.FormattingEnabled = true;
+            this.cbFormOfPayment.Items.AddRange(new object[] {
             "Cartão de Crédito",
-            "Cartão de Débito"});
-            this.cbFormOfPayement.Location = new System.Drawing.Point(780, 361);
-            this.cbFormOfPayement.Name = "cbFormOfPayement";
-            this.cbFormOfPayement.Size = new System.Drawing.Size(330, 34);
-            this.cbFormOfPayement.TabIndex = 61;
+            "Cartão de Débito",
+            "Cheque",
+            "Dinheiro"});
+            this.cbFormOfPayment.Location = new System.Drawing.Point(760, 361);
+            this.cbFormOfPayment.Name = "cbFormOfPayment";
+            this.cbFormOfPayment.Size = new System.Drawing.Size(330, 34);
+            this.cbFormOfPayment.Sorted = true;
+            this.cbFormOfPayment.TabIndex = 11;
             // 
             // txtValue
             // 
             this.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValue.Location = new System.Drawing.Point(630, 361);
+            this.txtValue.Location = new System.Drawing.Point(610, 361);
             this.txtValue.Margin = new System.Windows.Forms.Padding(4);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(143, 33);
-            this.txtValue.TabIndex = 60;
+            this.txtValue.TabIndex = 10;
             this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValue_KeyPress);
             this.txtValue.Leave += new System.EventHandler(this.txtValue_Leave);
@@ -455,7 +470,7 @@ namespace SystemGymControl
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(625, 331);
+            this.label7.Location = new System.Drawing.Point(605, 331);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 26);
@@ -469,7 +484,7 @@ namespace SystemGymControl
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1131, 468);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbFormOfPayement);
+            this.Controls.Add(this.cbFormOfPayment);
             this.Controls.Add(this.txtValue);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnInsert);
@@ -522,14 +537,15 @@ namespace SystemGymControl
         private System.Windows.Forms.TextBox txtValuePenalty;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvFormOfPagament;
-        private System.Windows.Forms.DataGridViewImageColumn edit;
-        private System.Windows.Forms.DataGridViewImageColumn delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formOfPayment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn value;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbFormOfPayement;
+        private System.Windows.Forms.ComboBox cbFormOfPayment;
         private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewImageColumn edit;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formOfPayment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn value;
     }
 }

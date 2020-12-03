@@ -73,7 +73,6 @@ namespace SystemGymControl
                             LoadDataPackages();
                             if (dgvDatePackage.Rows.Count == 0)
                             {
-                                this.Close();
                                 OpenForm.ShowForm(new FrmOptionsSave(), this);
                             }
                         }

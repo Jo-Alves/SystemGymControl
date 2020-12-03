@@ -17,6 +17,7 @@ namespace SystemGymControl
         public FrmResponsiblesStudent()
         {
             InitializeComponent();
+            txtName.Focus();
         }
 
         public FrmResponsiblesStudent(int studentId)
@@ -66,8 +67,6 @@ namespace SystemGymControl
             this.Close();
         }
 
-        ErrorProvider error = new ErrorProvider();
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateFields())
@@ -91,8 +90,6 @@ namespace SystemGymControl
 
         private bool ValidateFields()
         {
-            error.Clear();
-
             bool theFieldsHaveBeenValidated = false;
                      
             responsible._name = txtName.Text.Trim();
@@ -105,19 +102,16 @@ namespace SystemGymControl
                 if (responsible.ValidateFieldsandGetMessage() == "Campo Nome do responsável obrigatório!")
                 {
                     MessageBox.Show("Campo 'Nome do responsável' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(txtName, "Campo 'Nome do responsável' obrigatório!");
                     txtName.Focus();
                 }
                 else if (responsible.ValidateFieldsandGetMessage() == "Campo CPF obrigatório!")
                 {
                     MessageBox.Show("Campo 'CPF' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(mkCPF, "Campo 'CPF' obrigatório!");
                     mkCPF.Focus();
                 } 
                 else if (responsible.ValidateFieldsandGetMessage() == "Campo Grau de Parentesco obrigatório!")
                 {
                     MessageBox.Show("Campo 'Grau de Parentesco' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(cbKinship, "Campo 'Grau de Parentesco' obrigatório!");
                     cbKinship.Focus();
                 }
                 else if (responsible.ValidateFieldsandGetMessage() == "CPF inválido!")

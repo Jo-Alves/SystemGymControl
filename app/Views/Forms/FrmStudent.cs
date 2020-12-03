@@ -85,7 +85,6 @@ namespace SystemGymControl
                             LoadDataStudents();
                             if (dgvDateStudent.Rows.Count == 0)
                             {
-                                this.Close();
                                 OpenForm.ShowForm(new FrmOptionsSave(), this);
                             }
                         }

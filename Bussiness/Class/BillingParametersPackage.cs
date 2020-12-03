@@ -15,8 +15,6 @@ namespace Bussiness
 
         Database.BillingParametersPackage parametersPackage = new Database.BillingParametersPackage();
 
-        string _sql;
-
         public int _id
         {
             get { return id; }

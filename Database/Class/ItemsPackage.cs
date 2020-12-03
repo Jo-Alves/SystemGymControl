@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class ItemsPpackage
+    public class ItemsPackage
     {
         private int id;
         private string formOfPayment;
@@ -36,51 +36,68 @@ namespace Database
 
         public void Save()
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO items_package VALUES (@formOfPayment, @valuePackage, @packageID)";
-            else
-                _sql = "UPDATE items_package SET formOfPayment = @formOfPayment, value = @valuePackage, package_id = @packageID WHERE id = @id";
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO items_package VALUES (@formOfPayment, @valuePackage, @packageID)";
+                else
+                    _sql = "UPDATE items_package SET formOfPayment = @formOfPayment, value = @valuePackage, package_id = @packageID WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@formOfPayment", _formOfPayment);
-            command.Parameters.AddWithValue("@valuePackage", _valuePackage);
-            command.Parameters.AddWithValue("@packageID", _packageID);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@formOfPayment", _formOfPayment);
+                command.Parameters.AddWithValue("@valuePackage", _valuePackage);
+                command.Parameters.AddWithValue("@packageID", _packageID);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
-            catch
+        }
+        
+        public void Delete(int idItemsPackage)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                 _sql = "DELETE FROM items_package WHERE id = @id";
+
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", idItemsPackage);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public void SearchID()
+        public DataTable SearchID(int idItemsPackage)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            try
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                _sql = "SELECT * FROM items_package WHERE id = @id";
-                SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@id", _id);
-                SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _formOfPayment = dr["formOfPayment"].ToString();
-                    _valuePackage = decimal.Parse(dr["value"].ToString());
+                    connection.Open();
+                    _sql = "SELECT * FROM items_package WHERE Package_id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idItemsPackage);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
-            }
-            catch
-            {
-                throw;
+                catch
+                {
+                    throw;
+                }
             }
         }
     }

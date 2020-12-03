@@ -18,7 +18,6 @@ namespace SystemGymControl
         Student student = new Student();
         ResponsibleStudent responsible = new ResponsibleStudent();
         bool theDataSelected = false, hasResponsible;
-        ErrorProvider error = new ErrorProvider();
         string nameResponsible, cpfResponsible, Kinship, phone;
         int idResponsible, studendtIdResponsible, id;
         DialogResult dr;
@@ -27,6 +26,7 @@ namespace SystemGymControl
         public FrmSaveStudent()
         {
             InitializeComponent();
+            txtName.Focus();
         }
         public FrmSaveStudent(int id)
         {
@@ -190,7 +190,6 @@ namespace SystemGymControl
                         responsible.Save();
                     }
 
-                    this.Close();
                     OpenForm.ShowForm(new FrmStudent(), this);
                 }
             }
@@ -223,61 +222,50 @@ namespace SystemGymControl
 
             if (!string.IsNullOrEmpty(student.ValidateFieldsandGetMessage()))
             {
-                error.Clear();
-
                 if (student.ValidateFieldsandGetMessage() == "Campo Nome obrigatório!")
                 {
-                    MessageBox.Show("Campo Nome obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(txtName, "Campo Nome obrigatório!");
+                    MessageBox.Show("Campo Nome obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtName.Focus();
                 }
                 else if (student.ValidateFieldsandGetMessage() == "Campo CPF obrigatório!")
                 {
-                    MessageBox.Show("Campo CPF obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(mkCPF, "Campo CPF obrigatório!");
+                    MessageBox.Show("Campo CPF obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     mkCPF.Focus();
                 }
                 else if (student.ValidateFieldsandGetMessage() == "Campo Bairro obrigatório!")
                 {
-                    MessageBox.Show("Campo Bairro obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(txtDistrict, "Campo Bairro obrigatório!");
+                    MessageBox.Show("Campo Bairro obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtDistrict.Focus();
                 }
                 else if (student.ValidateFieldsandGetMessage() == "Campo Endereço obrigatório!")
                 {
-                    MessageBox.Show("Campo Endereço obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(txtAddress, "Campo Endereço obrigatório!");
+                    MessageBox.Show("Campo Endereço obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtAddress.Focus();
                 }
                 else if (student.ValidateFieldsandGetMessage() == "Campo Cidade obrigatório!")
                 {
-                    MessageBox.Show("Campo Cidade obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(txtCity, "Campo Cidade obrigatório!");
+                    MessageBox.Show("Campo Cidade obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtCity.Focus();
                 }
                 else if (student.ValidateFieldsandGetMessage() == "Campo Estado obrigatório!")
                 {
-                    MessageBox.Show("Campo Estado obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(cbState, "Campo Estado obrigatório!");
+                    MessageBox.Show("Campo Estado obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     cbState.Focus();
                 }
                 else if (student.ValidateFieldsandGetMessage() == "CPF inválido!")
                 {
-                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(mkCPF, "CPF inválido!");
+                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     mkCPF.Focus();
                 }
                 else if (student.ValidateFieldsandGetMessage() == "Este CPF já está cadastrado!")
                 {
-                    MessageBox.Show("Este CPF já está cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    error.SetError(mkCPF, "Este CPF já está cadastrado!");
+                    MessageBox.Show("Este CPF já está cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     mkCPF.Focus();
                 }
             }
             else if (!theDataSelected)
             {
-                MessageBox.Show("Informe a data de nascimento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                error.SetError(dtBirth, "Informe a data de nascimento!");
+                MessageBox.Show("Informe a data de nascimento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
                 dtBirth.Focus();
             }
             else
@@ -414,7 +402,6 @@ namespace SystemGymControl
 
         private void dtBirth_ValueChanged(object sender, EventArgs e)
         {
-            error.Clear();
             if (dtBirth.Value.ToShortDateString() != DateTime.Now.ToShortDateString())
             {
                 theDataSelected = true;
