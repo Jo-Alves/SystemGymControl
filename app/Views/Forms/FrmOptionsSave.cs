@@ -110,23 +110,46 @@ namespace SystemGymControl
 
             try
             {
-               if (new Student().SearchAll().Rows.Count > 0)
+                if (new Student().SearchAll().Rows.Count > 0)
                     OpenForm.ShowForm(new FrmStudent(), this);
                 else
                     OpenForm.ShowForm(new FrmSaveStudent(), this);
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao acessar o banco de dados. Reinicie o programa.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-            private void btnSavePackage_Click(object sender, EventArgs e)
+        private void btnSavePackage_Click(object sender, EventArgs e)
+        {
+            try
             {
-            if (new Package().SearchAll().Rows.Count > 0)
+                if (new Package().SearchAll().Rows.Count > 0)
                     OpenForm.ShowForm(new FrmPackage(), this);
                 else
                     OpenForm.ShowForm(new FrmSavePackage(), this);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSaveUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (new User().SearchAll().Rows.Count > 0)
+                    OpenForm.ShowForm(new FrmUser(), this);
+                else
+                    OpenForm.ShowForm(new FrmSaveUser(), this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
+}

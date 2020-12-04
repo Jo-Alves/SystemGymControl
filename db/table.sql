@@ -137,7 +137,7 @@ CREATE TABLE [dbo].[forms_of_payment]
 CREATE TABLE [dbo].[users]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[user] VARCHAR(50) NOT NULL UNIQUE,
+	[name_user] VARCHAR(50) NOT NULL UNIQUE,
 	[password] VARCHAR(MAX) NOT NULL,
 	[question] VARCHAR(100) NOT NULL,
 	[answer] VARCHAR(100) NOT NULL,

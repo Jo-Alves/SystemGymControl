@@ -186,6 +186,7 @@
             this.btnSaveUser.TabIndex = 2;
             this.btnSaveUser.Text = "Ir para a tela";
             this.btnSaveUser.UseVisualStyleBackColor = false;
+            this.btnSaveUser.Click += new System.EventHandler(this.btnSaveUser_Click);
             // 
             // pcUser
             // 

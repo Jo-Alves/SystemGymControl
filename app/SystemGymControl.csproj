@@ -127,11 +127,23 @@
     <Compile Include="Views\Forms\FrmSaveStudent.Designer.cs">
       <DependentUpon>FrmSaveStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\FrmSaveUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\FrmSaveUser.Designer.cs">
+      <DependentUpon>FrmSaveUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\FrmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Forms\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\FrmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Forms\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
@@ -164,8 +176,14 @@
     <EmbeddedResource Include="Views\Forms\FrmSaveStudent.resx">
       <DependentUpon>FrmSaveStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\FrmSaveUser.resx">
+      <DependentUpon>FrmSaveUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\FrmStudent.resx">
       <DependentUpon>FrmStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\WsMail\AtendeClienteService.wsdl" />
     <None Include="Connected Services\WsMail\SystemGymControl.WsMail.atualizaPagamentoNaEntregaResponse.datasource">
@@ -481,6 +499,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\ver 32x32.png" />
+    <None Include="Resources\ocultar 32x32.png" />
     <None Include="Resources\icons8_search_23px.png" />
     <None Include="Resources\icons8_search_32px.png" />
     <None Include="Resources\icons8_maximize_window_32px_enter.png" />

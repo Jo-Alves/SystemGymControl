@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class User
+    public class User
     {
         private int id;
         private string user;
@@ -54,101 +54,113 @@ namespace Database
 
         public void Save()
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO users VALUES (@user, @password, @question, @answer, @avatar, @dateRegistion)";
-            else
-                _sql = "UPDATE users SET user = @user, password = @password, question = @question, answer = @answer, avatar = @avatar, dateRegistion = @dateRegistion WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO users VALUES (@user, @password, @question, @answer, @avatar, @dateRegistion)";
+                else
+                    _sql = "UPDATE users SET name_user = @user, password = @password, question = @question, answer = @answer, avatar = @avatar, dateRegistion = @dateRegistion WHERE user = @user AND password = @password";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@user", _user);
-            command.Parameters.AddWithValue("@question", _question);
-            command.Parameters.AddWithValue("@answer", _answer);
-            command.Parameters.AddWithValue("@avatar", _avatar);
-            command.Parameters.AddWithValue("@password", _password);
-            command.Parameters.AddWithValue("@dateRegistion", _dateRegistion);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@user", _user);
+                command.Parameters.AddWithValue("@question", _question);
+                command.Parameters.AddWithValue("@answer", _answer);
+                command.Parameters.AddWithValue("@avatar", _avatar);
+                command.Parameters.AddWithValue("@password", _password);
+                command.Parameters.AddWithValue("@dateRegistion", _dateRegistion);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public void Delete()
+        public void Delete(int idUser)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            _sql = "DELETE FROM users WHERE user = @user and password = @password";
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@user", _user);
-            command.Parameters.AddWithValue("@password", _password);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                _sql = "DELETE FROM users WHERE id = @id";
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", idUser);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
         public DataTable SearchAll()
         {
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-                _sql = "SELECT * FROM users";
-                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
+                try
+                {
+                    _sql = "SELECT * FROM users";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
             }
-            catch
+        } 
+        public DataTable SearchUser(string user)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                throw;
+                try
+                {
+                    _sql = $"SELECT * FROM users WHERE name_user LIKE '%{user}%'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public bool SearchUser()
+        public bool Logout(string user, string password)
         {
             bool existUser = false;
 
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
- 
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                _sql = "SELECT * FROM users WHERE user = @user and password = @password";
-                SqlCommand command = new SqlCommand(_sql, connection);
-                command.Parameters.AddWithValue("@user", _user);
-                command.Parameters.AddWithValue("@password", _password);
-                connection.Open();
-                SqlDataReader dr = command.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _id = int.Parse(dr["id"].ToString());
-                    existUser = true;
+                    _sql = "SELECT * FROM users WHERE name_user = @user and password = @password";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@user", user);
+                    command.Parameters.AddWithValue("@password", password);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        _id = int.Parse(dr["id"].ToString());
+                        existUser = true;
+                    }
                 }
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                catch
+                {
+                    throw;
+                }
             }
 
             return existUser;
