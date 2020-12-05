@@ -59,7 +59,7 @@ namespace Database
                 if (_id == 0)
                     _sql = "INSERT INTO users VALUES (@user, @password, @question, @answer, @avatar, @dateRegistion)";
                 else
-                    _sql = "UPDATE users SET name_user = @user, password = @password, question = @question, answer = @answer, avatar = @avatar, dateRegistion = @dateRegistion WHERE user = @user AND password = @password";
+                    _sql = "UPDATE users SET name_user = @user, password = @password, question = @question, answer = @answer, avatar = @avatar, date_registion = @dateRegistion WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
@@ -118,6 +118,7 @@ namespace Database
                 }
             }
         } 
+
         public DataTable SearchUser(string user)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -128,6 +129,49 @@ namespace Database
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+        
+        public bool CheckedNameUserExist(string nameUser)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM users WHERE name_user  = @user";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@user", nameUser);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+        
+        public DataTable SearchID(int idUser)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT * FROM users WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idUser);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);                    
                     return table;
                 }
                 catch

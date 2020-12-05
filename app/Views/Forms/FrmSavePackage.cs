@@ -143,6 +143,8 @@ namespace SystemGymControl
             }
         }
 
+        // A função RemoveDollarSignGetValue() remover o Cifrão e retorna somente o valor
+
         private string RemoveDollarSignGetValue(string value)
         {
             int lenghtValue = value.Length;
@@ -189,34 +191,34 @@ namespace SystemGymControl
 
         private bool ValidateFields()
         {
+            bool theFieldsHaveBeenValidated = false;
+
             string messageValidationPackage = package.ValidateFieldsGetMessage();
 
             if (messageValidationPackage == "Campo 'Descrição' obrigatório!")
             {
                 MessageBox.Show(messageValidationPackage, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDescription.Focus();
-                return false;
             }
             else if (messageValidationPackage == "Campo 'Duração' obrigatório!")
             {
                 MessageBox.Show(messageValidationPackage, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ndDuration.Focus();
-                return false;
             }
             else if (messageValidationPackage == "Campo 'Período' obrigatório!")
             {
                 MessageBox.Show(messageValidationPackage, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cbPeriod.Focus();
-                return false;
             }
-            else if(dgvFormOfPagament.Rows.Count == 0)
+            else if (dgvFormOfPagament.Rows.Count == 0)
             {
                 MessageBox.Show("Informe o valor do pacote e a forma de pagamento", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtValue.Focus();
-                return false;
             }
             else
-                return true;
+                theFieldsHaveBeenValidated = true;
+
+                return theFieldsHaveBeenValidated;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

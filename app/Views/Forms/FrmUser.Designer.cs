@@ -159,6 +159,7 @@ namespace SystemGymControl
             this.question,
             this.answer,
             this.registion});
+            this.dgvdataUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvdataUser.EnableHeadersVisualStyles = false;
             this.dgvdataUser.Location = new System.Drawing.Point(11, 196);
             this.dgvdataUser.Name = "dgvdataUser";

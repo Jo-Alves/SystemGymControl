@@ -18,7 +18,7 @@ namespace Bussiness
             set { photo = value; }
         }
 
-        public string ValidateFieldsandGetMessage()
+        public string ValidateFieldsAndGetMessage()
         {
             string message = null;
 

@@ -70,7 +70,7 @@ namespace SystemGymControl
 
         }
 
-        string path = @"C:\System-GYM-Control\Galery";
+        string path = @"C:\System-GYM-Control\Galery\Students";
 
         private void CreateDirectory()
         {
@@ -219,47 +219,48 @@ namespace SystemGymControl
         private bool ValidateFields()
         {
             bool theFieldsHaveBeenValidated = false;
+            string messageValidateFields = student.ValidateFieldsAndGetMessage();
 
-            if (!string.IsNullOrEmpty(student.ValidateFieldsandGetMessage()))
+            if (!string.IsNullOrEmpty(messageValidateFields))
             {
-                if (student.ValidateFieldsandGetMessage() == "Campo Nome obrigatório!")
+                if (messageValidateFields == "Campo Nome obrigatório!")
                 {
-                    MessageBox.Show("Campo Nome obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtName.Focus();
                 }
-                else if (student.ValidateFieldsandGetMessage() == "Campo CPF obrigatório!")
+                else if (messageValidateFields == "Campo CPF obrigatório!")
                 {
-                    MessageBox.Show("Campo CPF obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     mkCPF.Focus();
                 }
-                else if (student.ValidateFieldsandGetMessage() == "Campo Bairro obrigatório!")
+                else if (messageValidateFields == "Campo Bairro obrigatório!")
                 {
-                    MessageBox.Show("Campo Bairro obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtDistrict.Focus();
                 }
-                else if (student.ValidateFieldsandGetMessage() == "Campo Endereço obrigatório!")
+                else if (messageValidateFields == "Campo Endereço obrigatório!")
                 {
-                    MessageBox.Show("Campo Endereço obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtAddress.Focus();
                 }
-                else if (student.ValidateFieldsandGetMessage() == "Campo Cidade obrigatório!")
+                else if (messageValidateFields == "Campo Cidade obrigatório!")
                 {
-                    MessageBox.Show("Campo Cidade obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     txtCity.Focus();
                 }
-                else if (student.ValidateFieldsandGetMessage() == "Campo Estado obrigatório!")
+                else if (messageValidateFields == "Campo Estado obrigatório!")
                 {
-                    MessageBox.Show("Campo Estado obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     cbState.Focus();
                 }
-                else if (student.ValidateFieldsandGetMessage() == "CPF inválido!")
+                else if (messageValidateFields == "CPF inválido!")
                 {
-                    MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     mkCPF.Focus();
                 }
-                else if (student.ValidateFieldsandGetMessage() == "Este CPF já está cadastrado!")
+                else if (messageValidateFields == "Este CPF já está cadastrado!")
                 {
-                    MessageBox.Show("Este CPF já está cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     mkCPF.Focus();
                 }
             }

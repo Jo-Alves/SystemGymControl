@@ -97,24 +97,24 @@ namespace SystemGymControl
             responsible._kinship = cbKinship.Text;
             responsible._phone = mkPhone.Text;
 
-            if (!string.IsNullOrEmpty(responsible.ValidateFieldsandGetMessage()))
+            if (!string.IsNullOrEmpty(responsible.ValidateFieldsAndGetMessage()))
             {
-                if (responsible.ValidateFieldsandGetMessage() == "Campo Nome do responsável obrigatório!")
+                if (responsible.ValidateFieldsAndGetMessage() == "Campo Nome do responsável obrigatório!")
                 {
                     MessageBox.Show("Campo 'Nome do responsável' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtName.Focus();
                 }
-                else if (responsible.ValidateFieldsandGetMessage() == "Campo CPF obrigatório!")
+                else if (responsible.ValidateFieldsAndGetMessage() == "Campo CPF obrigatório!")
                 {
                     MessageBox.Show("Campo 'CPF' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     mkCPF.Focus();
                 } 
-                else if (responsible.ValidateFieldsandGetMessage() == "Campo Grau de Parentesco obrigatório!")
+                else if (responsible.ValidateFieldsAndGetMessage() == "Campo Grau de Parentesco obrigatório!")
                 {
                     MessageBox.Show("Campo 'Grau de Parentesco' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     cbKinship.Focus();
                 }
-                else if (responsible.ValidateFieldsandGetMessage() == "CPF inválido!")
+                else if (responsible.ValidateFieldsAndGetMessage() == "CPF inválido!")
                 {
                     MessageBox.Show("CPF inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     mkCPF.Focus();

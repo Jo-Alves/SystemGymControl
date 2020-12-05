@@ -26,7 +26,7 @@ namespace Bussiness
             set { studentID = value; }
         }
 
-        public string ValidateFieldsandGetMessage()
+        public string ValidateFieldsAndGetMessage()
         {
             string message = null;
 

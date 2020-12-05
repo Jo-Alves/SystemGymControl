@@ -1,5 +1,4 @@
-﻿using Database;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Bussiness
@@ -13,7 +12,6 @@ namespace Bussiness
         private string answer;
         private string avatar;
         private string dateRegistion;
-
 
         public int _id
         {
@@ -51,6 +49,25 @@ namespace Bussiness
             set { dateRegistion = value; }
         }
 
+        public string ValidateFieldsAndGetMessage()
+        {
+            string message = "";
+
+            if (string.IsNullOrEmpty(this._user))
+                message = "Campo 'Usuário' obrigatório!";
+            else if (new Database.User().CheckedNameUserExist(this._user) && this.id == 0)
+                message = "O nome de usuário já existe!";
+            else if (string.IsNullOrEmpty(this._password))
+                message = "Campo 'Senha' obrigatório!";
+            else if (this._password.Length < 5)
+                message = "A senha deve ter no mínimo 5 cararacteres!";
+            else if (string.IsNullOrEmpty(this._question))
+                message = "Campo 'Pergunta de Segurança' obrigatório!";
+            else if (string.IsNullOrEmpty(this._answer))
+                message = "Campo 'Resposta de Segurança' obrigatório!";
+
+            return message;
+        }
 
         public void Save()
         {
@@ -78,6 +95,11 @@ namespace Bussiness
         public DataTable SearchUser(string user)
         {
             return new Database.User().SearchUser(user);
+        }
+
+        public DataTable SearchID(int idUser)
+        {
+            return new Database.User().SearchID(idUser);
         }
     }
 }
