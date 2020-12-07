@@ -6,7 +6,9 @@ namespace Bussiness
     public class User
     {
         private int id;
+        private string name;
         private string user;
+        private string email;
         private string password;
         private string question;
         private string answer;
@@ -22,6 +24,16 @@ namespace Bussiness
         {
             get { return user; }
             set { user = value; }
+        }
+        public string _name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public string _email
+        {
+            get { return email; }
+            set { email = value; }
         }
         public string _password
         {
@@ -53,10 +65,14 @@ namespace Bussiness
         {
             string message = "";
 
-            if (string.IsNullOrEmpty(this._user))
+            if (string.IsNullOrEmpty(this._name))
+                message = "Campo 'Nome' obrigatório!";
+            else if (string.IsNullOrEmpty(this._user))
                 message = "Campo 'Usuário' obrigatório!";
             else if (new Database.User().CheckedNameUserExist(this._user) && this.id == 0)
                 message = "O nome de usuário já existe!";
+            else if (!ValidateEmail.Validate(this._email))
+                message = "Email inválido!";
             else if (string.IsNullOrEmpty(this._password))
                 message = "Campo 'Senha' obrigatório!";
             else if (this._password.Length < 5)
@@ -73,6 +89,8 @@ namespace Bussiness
         {
             Database.User user = new Database.User();
             user._id = this._id;
+            user._name = this._name;
+            user._email = this._email;
             user._user = this._user;
             user._password = this._password;
             user._question = this._question;

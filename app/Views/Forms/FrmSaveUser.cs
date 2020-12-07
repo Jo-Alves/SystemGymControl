@@ -18,7 +18,7 @@ namespace SystemGymControl
 
         User user = new User();
         int idUser;
-        string dateRegistion;
+        string dateRegistion, nameUser;
 
         DialogResult dr;
 
@@ -35,8 +35,13 @@ namespace SystemGymControl
             try
             {
                 var dataUser = user.SearchID(id);
+                txtUser.Enabled = false;
                 idUser = int.Parse(dataUser.Rows[0]["id"].ToString());
+                txtName.Text = dataUser.Rows[0]["name"].ToString();
+                txtEmail.Text = dataUser.Rows[0]["email"].ToString();
                 txtUser.Text = dataUser.Rows[0]["name_user"].ToString();
+                txtPassword1.Text = dataUser.Rows[0]["password"].ToString();
+                txtPassword2.Text = txtPassword1.Text;
                 cbQuestion.Text = dataUser.Rows[0]["question"].ToString();
                 txtAnswer.Text = dataUser.Rows[0]["answer"].ToString();
                 dateRegistion = dataUser.Rows[0]["date_registion"].ToString();
@@ -86,6 +91,8 @@ namespace SystemGymControl
             {
                 user._id = idUser;
                 user._user = txtUser.Text.Trim();
+                user._name = txtName.Text.Trim();
+                user._email = txtEmail.Text.Trim();
                 user._password = txtPassword1.Text.Trim();
                 user._question = cbQuestion.Text.Trim();
                 user._answer = txtAnswer.Text.Trim();
@@ -133,7 +140,12 @@ namespace SystemGymControl
 
             if (!string.IsNullOrEmpty(messageValidateFields))
             {
-                if (messageValidateFields == "Campo 'Usuário' obrigatório!")
+                if (messageValidateFields == "Campo 'Nome' obrigatório!")
+                {
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtName.Focus();
+                }
+                else if (messageValidateFields == "Campo 'Usuário' obrigatório!")
                 {
                     MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtUser.Focus();
@@ -142,6 +154,11 @@ namespace SystemGymControl
                 {
                     MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtUser.Focus();
+                }
+                else if (messageValidateFields == "Email inválido!")
+                {
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtEmail.Focus();
                 }
                 else if (messageValidateFields == "Campo 'Senha' obrigatório!")
                 {
@@ -179,100 +196,6 @@ namespace SystemGymControl
 
             return theFieldsHaveBeenValidated;
         }
-
-        //private void FrmSaveStudent_ClientSizeChanged(object sender, EventArgs e)
-        //{
-        //    //if (this.Width > 617)
-        //    //{
-        //    //    /* labels - Location */
-
-        //    //    lblId.Location = new Point(53, 28);
-        //    //    lblUser.Location = new Point(53, 91);
-        //    //    lblCPF.Location = new Point(773, 91);
-        //    //    lblBirth.Location = new Point(53, 159);
-        //    //    lblCEP.Location = new Point(233, 162);
-        //    //    lblDistrict.Location = new Point(474, 162);
-        //    //    lblAddress.Location = new Point(53, 236);
-        //    //    lblNumber.Location = new Point(486, 236);
-        //    //    lblCity.Location = new Point(596, 236);
-        //    //    lblState.Location = new Point(1005, 236);
-        //    //    lblPhone.Location = new Point(53, 304);
-
-        //    //    /* textbox  - Location*/
-
-        //    //    txtId.Location = new Point(57, 54);
-        //    //    txtUser.Location = new Point(57, 117);
-        //    //    mkCPF.Location = new Point(768, 117);
-        //    //    dtBirth.Location = new Point(57, 188);
-        //    //    mkCEP.Location = new Point(228, 188);
-        //    //    txtDistrict.Location = new Point(478, 188);
-        //    //    txtAddress.Location = new Point(57, 262);
-        //    //    ndNumber.Location = new Point(490, 262);
-        //    //    txtCity.Location = new Point(600, 262);
-        //    //    cbState.Location = new Point(1009, 263);
-        //    //    mkPhone.Location = new Point(57, 330);
-
-        //    //    /* Buttons - Location */
-        //    //    btnCancel.Location = new Point(189, 378);
-        //    //    btnSave.Location = new Point(57, 378);
-        //    //    btnSearchCep.Location = new Point(355, 187);
-        //    //    btnOpenAvatar.Location = new Point(967, 159);
-
-        //    //    /* pictbox - Location */
-        //    //    pcPhoto.Location = new Point(971, 18);
-
-        //    //    /* textbox  - Size*/
-
-        //    //    txtUser.Size = new Size(693, 26);
-        //    //    txtDistrict.Size = new Size(449, 26);
-        //    //    txtCity.Size = new Size(403, 26);
-        //    //}
-        //    //else
-        //    //{
-        //    //    /* labels - Location */
-
-        //    //    lblId.Location = new Point(18, 30);
-        //    //    lblUser.Location = new Point(18, 93);
-        //    //    lblCPF.Location = new Point(18, 161);
-        //    //    lblBirth.Location = new Point(183, 161);
-        //    //    lblCEP.Location = new Point(18, 229);
-        //    //    lblDistrict.Location = new Point(268, 229);
-        //    //    lblAddress.Location = new Point(18, 297);
-        //    //    lblNumber.Location = new Point(458, 297);
-        //    //    lblCity.Location = new Point(18, 363);
-        //    //    lblState.Location = new Point(456, 363);
-        //    //    lblPhone.Location = new Point(18, 430);
-
-        //    //    /* textbox  - Location*/
-
-        //    //    txtId.Location = new Point(22, 56);
-        //    //    txtUser.Location = new Point(22, 119);
-        //    //    mkCPF.Location = new Point(22, 187);
-        //    //    dtBirth.Location = new Point(187, 187);
-        //    //    mkCEP.Location = new Point(22, 255);
-        //    //    txtDistrict.Location = new Point(272, 255);
-        //    //    txtAddress.Location = new Point(22, 323);
-        //    //    ndNumber.Location = new Point(462, 323);
-        //    //    txtCity.Location = new Point(22, 389);
-        //    //    cbState.Location = new Point(460, 390);
-        //    //    mkPhone.Location = new Point(22, 456);
-
-        //    //    /* Buttons - Location */
-        //    //    btnCancel.Location = new Point(154, 504);
-        //    //    btnSave.Location = new Point(22, 504);
-        //    //    btnSearchCep.Location = new Point(149, 254);
-        //    //    btnOpenAvatar.Location = new Point(426, 165);
-
-        //    //    /* pictbox - Location */
-        //    //    pcPhoto.Location = new Point(430, 24);
-
-        //    //    /* textbox  - Size*/
-
-        //    //    txtUser.Size = new Size(378, 26);
-        //    //    txtDistrict.Size = new Size(294, 26);
-        //    //    txtCity.Size = new Size(427, 26);
-        //    //}
-        //}
 
         string avatar = "";
 
