@@ -93,3 +93,4 @@ C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmSaveUser
 C:\Users\val\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.FrmUser.resources
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmSaveUser.resources
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmUser.resources
+C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmOptionsPlan.resources

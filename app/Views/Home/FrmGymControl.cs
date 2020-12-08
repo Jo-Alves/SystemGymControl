@@ -104,9 +104,14 @@ namespace SystemGymControl
             OpenForm.ShowForm(new FrmOptionsSave(), this);
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void btnMenuHome_Click(object sender, EventArgs e)
         {
             OpenForm.ShowForm(new FrmHome(), this);
+        }
+
+        private void btnMenuPlan_Click(object sender, EventArgs e)
+        {
+            OpenForm.ShowForm(new FrmOptionsPlan(), this);
         }
     }
 }

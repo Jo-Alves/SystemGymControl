@@ -59,16 +59,16 @@ namespace SystemGymControl
             this.lblStudent.BackColor = System.Drawing.Color.Transparent;
             this.lblStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.lblStudent.Location = new System.Drawing.Point(17, 84);
+            this.lblStudent.Location = new System.Drawing.Point(5, 84);
             this.lblStudent.Name = "lblStudent";
-            this.lblStudent.Size = new System.Drawing.Size(59, 22);
+            this.lblStudent.Size = new System.Drawing.Size(77, 22);
             this.lblStudent.TabIndex = 13;
-            this.lblStudent.Text = "Aluno";
+            this.lblStudent.Text = "Usuário";
             // 
             // pcStudent
             // 
             this.pcStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.pcStudent.Image = global::SystemGymControl.Properties.Resources.icons8_client_management_64px_1;
+            this.pcStudent.Image = global::SystemGymControl.Properties.Resources.icons8_user_64px;
             this.pcStudent.Location = new System.Drawing.Point(11, 13);
             this.pcStudent.Name = "pcStudent";
             this.pcStudent.Size = new System.Drawing.Size(64, 64);

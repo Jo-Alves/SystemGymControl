@@ -163,6 +163,26 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_floor_plan_32px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_floor_plan_32px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_floor_plan_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_floor_plan_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_frequency_32px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_frequency_32px_1", resourceCulture);
@@ -206,6 +226,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_home_page_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_home_page_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_home_page_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_home_page_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,6 +373,16 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_registration_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_registration_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_report_file_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_report_file_32px", resourceCulture);
@@ -406,6 +446,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_restore_window_32px_leave1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_restore_window_32px_leave1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_sale_price_tag_32px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_sale_price_tag_32px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

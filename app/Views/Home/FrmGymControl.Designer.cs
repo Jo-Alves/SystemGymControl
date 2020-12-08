@@ -40,8 +40,11 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnMenuQuestion = new System.Windows.Forms.Button();
             this.btnMenuReport = new System.Windows.Forms.Button();
+            this.btnMenuSales = new System.Windows.Forms.Button();
             this.btnMenuClass = new System.Windows.Forms.Button();
+            this.btnMenuRegistration = new System.Windows.Forms.Button();
             this.btnMenuSave = new System.Windows.Forms.Button();
+            this.btnMenuHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.pcPerfil = new System.Windows.Forms.PictureBox();
@@ -132,7 +135,7 @@
             this.pnConjuctMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnConjuctMenu.Location = new System.Drawing.Point(0, 40);
             this.pnConjuctMenu.Name = "pnConjuctMenu";
-            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 570);
+            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 588);
             this.pnConjuctMenu.TabIndex = 8;
             // 
             // panel3
@@ -140,12 +143,15 @@
             this.panel3.Controls.Add(this.btnSetting);
             this.panel3.Controls.Add(this.btnMenuQuestion);
             this.panel3.Controls.Add(this.btnMenuReport);
+            this.panel3.Controls.Add(this.btnMenuSales);
             this.panel3.Controls.Add(this.btnMenuClass);
+            this.panel3.Controls.Add(this.btnMenuRegistration);
             this.panel3.Controls.Add(this.btnMenuSave);
+            this.panel3.Controls.Add(this.btnMenuHome);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 187);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(235, 335);
+            this.panel3.Size = new System.Drawing.Size(235, 380);
             this.panel3.TabIndex = 5;
             // 
             // btnSetting
@@ -160,11 +166,11 @@
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSetting.Location = new System.Drawing.Point(0, 220);
+            this.btnSetting.Location = new System.Drawing.Point(0, 343);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnSetting.Size = new System.Drawing.Size(235, 55);
-            this.btnSetting.TabIndex = 14;
+            this.btnSetting.Size = new System.Drawing.Size(235, 49);
+            this.btnSetting.TabIndex = 33;
             this.btnSetting.TabStop = false;
             this.btnSetting.Text = "Configurações";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,11 +188,11 @@
             this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
             this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_about_32px;
             this.btnMenuQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 165);
+            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 294);
             this.btnMenuQuestion.Name = "btnMenuQuestion";
             this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuQuestion.Size = new System.Drawing.Size(235, 55);
-            this.btnMenuQuestion.TabIndex = 13;
+            this.btnMenuQuestion.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuQuestion.TabIndex = 32;
             this.btnMenuQuestion.TabStop = false;
             this.btnMenuQuestion.Text = "Sobre";
             this.btnMenuQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -204,15 +210,37 @@
             this.btnMenuReport.ForeColor = System.Drawing.Color.White;
             this.btnMenuReport.Image = global::SystemGymControl.Properties.Resources.icons8_report_file_32px;
             this.btnMenuReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuReport.Location = new System.Drawing.Point(0, 110);
+            this.btnMenuReport.Location = new System.Drawing.Point(0, 245);
             this.btnMenuReport.Name = "btnMenuReport";
             this.btnMenuReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuReport.Size = new System.Drawing.Size(235, 55);
-            this.btnMenuReport.TabIndex = 12;
+            this.btnMenuReport.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuReport.TabIndex = 31;
             this.btnMenuReport.TabStop = false;
             this.btnMenuReport.Text = "Relatório";
             this.btnMenuReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuReport.UseVisualStyleBackColor = false;
+            // 
+            // btnMenuSales
+            // 
+            this.btnMenuSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMenuSales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuSales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSales.FlatAppearance.BorderSize = 0;
+            this.btnMenuSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuSales.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuSales.ForeColor = System.Drawing.Color.White;
+            this.btnMenuSales.Image = global::SystemGymControl.Properties.Resources.icons8_sale_price_tag_32px_1;
+            this.btnMenuSales.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuSales.Location = new System.Drawing.Point(0, 196);
+            this.btnMenuSales.Name = "btnMenuSales";
+            this.btnMenuSales.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMenuSales.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuSales.TabIndex = 30;
+            this.btnMenuSales.TabStop = false;
+            this.btnMenuSales.Text = "Vendas";
+            this.btnMenuSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuSales.UseVisualStyleBackColor = false;
             // 
             // btnMenuClass
             // 
@@ -226,15 +254,38 @@
             this.btnMenuClass.ForeColor = System.Drawing.Color.White;
             this.btnMenuClass.Image = global::SystemGymControl.Properties.Resources.icons8_class_32px;
             this.btnMenuClass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuClass.Location = new System.Drawing.Point(0, 55);
+            this.btnMenuClass.Location = new System.Drawing.Point(0, 147);
             this.btnMenuClass.Name = "btnMenuClass";
             this.btnMenuClass.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuClass.Size = new System.Drawing.Size(235, 55);
-            this.btnMenuClass.TabIndex = 11;
+            this.btnMenuClass.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuClass.TabIndex = 26;
             this.btnMenuClass.TabStop = false;
             this.btnMenuClass.Text = "Aula";
             this.btnMenuClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuClass.UseVisualStyleBackColor = false;
+            // 
+            // btnMenuRegistration
+            // 
+            this.btnMenuRegistration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMenuRegistration.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuRegistration.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuRegistration.FlatAppearance.BorderSize = 0;
+            this.btnMenuRegistration.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuRegistration.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuRegistration.ForeColor = System.Drawing.Color.White;
+            this.btnMenuRegistration.Image = global::SystemGymControl.Properties.Resources.icons8_floor_plan_32px_1;
+            this.btnMenuRegistration.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuRegistration.Location = new System.Drawing.Point(0, 98);
+            this.btnMenuRegistration.Name = "btnMenuRegistration";
+            this.btnMenuRegistration.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMenuRegistration.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuRegistration.TabIndex = 25;
+            this.btnMenuRegistration.TabStop = false;
+            this.btnMenuRegistration.Text = "Plano";
+            this.btnMenuRegistration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuRegistration.UseVisualStyleBackColor = false;
+            this.btnMenuRegistration.Click += new System.EventHandler(this.btnMenuPlan_Click);
             // 
             // btnMenuSave
             // 
@@ -248,16 +299,39 @@
             this.btnMenuSave.ForeColor = System.Drawing.Color.White;
             this.btnMenuSave.Image = global::SystemGymControl.Properties.Resources.icons8_save_32px;
             this.btnMenuSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuSave.Location = new System.Drawing.Point(0, 0);
+            this.btnMenuSave.Location = new System.Drawing.Point(0, 49);
             this.btnMenuSave.Name = "btnMenuSave";
             this.btnMenuSave.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuSave.Size = new System.Drawing.Size(235, 55);
-            this.btnMenuSave.TabIndex = 10;
+            this.btnMenuSave.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuSave.TabIndex = 20;
             this.btnMenuSave.TabStop = false;
             this.btnMenuSave.Text = "Cadastro";
             this.btnMenuSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuSave.UseVisualStyleBackColor = false;
             this.btnMenuSave.Click += new System.EventHandler(this.btnMenuSave_Click);
+            // 
+            // btnMenuHome
+            // 
+            this.btnMenuHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMenuHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuHome.FlatAppearance.BorderSize = 0;
+            this.btnMenuHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuHome.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuHome.ForeColor = System.Drawing.Color.White;
+            this.btnMenuHome.Image = global::SystemGymControl.Properties.Resources.icons8_home_page_32px;
+            this.btnMenuHome.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuHome.Location = new System.Drawing.Point(0, 0);
+            this.btnMenuHome.Name = "btnMenuHome";
+            this.btnMenuHome.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMenuHome.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuHome.TabIndex = 15;
+            this.btnMenuHome.TabStop = false;
+            this.btnMenuHome.Text = "Início";
+            this.btnMenuHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuHome.UseVisualStyleBackColor = false;
+            this.btnMenuHome.Click += new System.EventHandler(this.btnMenuHome_Click);
             // 
             // panel1
             // 
@@ -297,7 +371,7 @@
             this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPage.Location = new System.Drawing.Point(235, 40);
             this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(617, 570);
+            this.pnPage.Size = new System.Drawing.Size(617, 588);
             this.pnPage.TabIndex = 11;
             // 
             // panel2
@@ -333,7 +407,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(852, 610);
+            this.ClientSize = new System.Drawing.Size(852, 628);
             this.Controls.Add(this.pnPage);
             this.Controls.Add(this.pnConjuctMenu);
             this.Controls.Add(this.pnTitle);
@@ -367,13 +441,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.PictureBox pcPerfil;
-        private System.Windows.Forms.Button btnSetting;
-        private System.Windows.Forms.Button btnMenuQuestion;
-        private System.Windows.Forms.Button btnMenuReport;
-        private System.Windows.Forms.Button btnMenuClass;
-        private System.Windows.Forms.Button btnMenuSave;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
         private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lblDateNow;
+        private System.Windows.Forms.Button btnMenuHome;
+        private System.Windows.Forms.Button btnMenuSave;
+        private System.Windows.Forms.Button btnMenuRegistration;
+        private System.Windows.Forms.Button btnMenuClass;
+        private System.Windows.Forms.Button btnMenuSales;
+        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Button btnMenuQuestion;
+        private System.Windows.Forms.Button btnMenuReport;
     }
 }
