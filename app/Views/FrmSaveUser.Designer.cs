@@ -48,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnClearImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcUpdateFormatPassword)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@
             this.btnCancel.Location = new System.Drawing.Point(153, 305);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 43);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -84,7 +85,7 @@
             this.btnSave.Location = new System.Drawing.Point(21, 305);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 43);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 7;
             this.btnSave.TabStop = false;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -100,7 +101,7 @@
             this.txtAnswer.MaxLength = 100;
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(427, 33);
-            this.txtAnswer.TabIndex = 4;
+            this.txtAnswer.TabIndex = 6;
             this.txtAnswer.WordWrap = false;
             // 
             // lblCity
@@ -125,10 +126,10 @@
             this.btnOpenImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenImage.ForeColor = System.Drawing.Color.White;
-            this.btnOpenImage.Location = new System.Drawing.Point(961, 160);
+            this.btnOpenImage.Location = new System.Drawing.Point(953, 160);
             this.btnOpenImage.Name = "btnOpenImage";
-            this.btnOpenImage.Size = new System.Drawing.Size(140, 33);
-            this.btnOpenImage.TabIndex = 7;
+            this.btnOpenImage.Size = new System.Drawing.Size(156, 33);
+            this.btnOpenImage.TabIndex = 9;
             this.btnOpenImage.TabStop = false;
             this.btnOpenImage.Text = "Abrir Imagem";
             this.btnOpenImage.UseVisualStyleBackColor = false;
@@ -155,7 +156,7 @@
             this.txtPassword1.Location = new System.Drawing.Point(23, 188);
             this.txtPassword1.Name = "txtPassword1";
             this.txtPassword1.Size = new System.Drawing.Size(416, 33);
-            this.txtPassword1.TabIndex = 2;
+            this.txtPassword1.TabIndex = 3;
             this.txtPassword1.UseSystemPasswordChar = true;
             this.txtPassword1.WordWrap = false;
             // 
@@ -181,7 +182,7 @@
             this.txtUser.MaxLength = 50;
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(480, 33);
-            this.txtUser.TabIndex = 1;
+            this.txtUser.TabIndex = 2;
             this.txtUser.WordWrap = false;
             // 
             // lblUser
@@ -215,7 +216,7 @@
             this.txtPassword2.Location = new System.Drawing.Point(445, 188);
             this.txtPassword2.Name = "txtPassword2";
             this.txtPassword2.Size = new System.Drawing.Size(340, 33);
-            this.txtPassword2.TabIndex = 2;
+            this.txtPassword2.TabIndex = 4;
             this.txtPassword2.UseSystemPasswordChar = true;
             this.txtPassword2.WordWrap = false;
             // 
@@ -244,7 +245,7 @@
             this.cbQuestion.MaxLength = 100;
             this.cbQuestion.Name = "cbQuestion";
             this.cbQuestion.Size = new System.Drawing.Size(416, 30);
-            this.cbQuestion.TabIndex = 3;
+            this.cbQuestion.TabIndex = 5;
             // 
             // pcUpdateFormatPassword
             // 
@@ -274,7 +275,7 @@
             this.txtName.MaxLength = 100;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(902, 33);
-            this.txtName.TabIndex = 59;
+            this.txtName.TabIndex = 0;
             this.txtName.WordWrap = false;
             // 
             // label2
@@ -299,7 +300,7 @@
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(416, 33);
-            this.txtEmail.TabIndex = 61;
+            this.txtEmail.TabIndex = 1;
             this.txtEmail.WordWrap = false;
             // 
             // label3
@@ -314,12 +315,32 @@
             this.label3.TabIndex = 62;
             this.label3.Text = "Email";
             // 
+            // btnClearImage
+            // 
+            this.btnClearImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(69)))), ((int)(((byte)(72)))));
+            this.btnClearImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearImage.FlatAppearance.BorderSize = 0;
+            this.btnClearImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClearImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnClearImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearImage.ForeColor = System.Drawing.Color.White;
+            this.btnClearImage.Location = new System.Drawing.Point(953, 199);
+            this.btnClearImage.Name = "btnClearImage";
+            this.btnClearImage.Size = new System.Drawing.Size(156, 33);
+            this.btnClearImage.TabIndex = 63;
+            this.btnClearImage.TabStop = false;
+            this.btnClearImage.Text = "Limpar Imagem";
+            this.btnClearImage.UseVisualStyleBackColor = false;
+            this.btnClearImage.Click += new System.EventHandler(this.btnClearImage_Click);
+            // 
             // FrmSaveUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1131, 365);
+            this.Controls.Add(this.btnClearImage);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtName);
@@ -372,5 +393,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnClearImage;
     }
 }

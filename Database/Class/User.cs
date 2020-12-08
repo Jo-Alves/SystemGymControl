@@ -203,9 +203,10 @@ namespace Database
             {
                 try
                 {
-                    _sql = "SELECT * FROM users WHERE name_user = @user and password = @password";
+                    _sql = "SELECT * FROM users WHERE email = @email or name_user = @user and password = @password";
                     SqlCommand command = new SqlCommand(_sql, connection);
                     command.Parameters.AddWithValue("@user", user);
+                    command.Parameters.AddWithValue("@email", email);
                     command.Parameters.AddWithValue("@password", password);
                     connection.Open();
                     SqlDataReader dr = command.ExecuteReader();

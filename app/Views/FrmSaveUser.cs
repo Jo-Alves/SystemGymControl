@@ -214,6 +214,12 @@ namespace SystemGymControl
         bool isPasswordHidden;
         ToolTip tool = new ToolTip();
 
+        private void btnClearImage_Click(object sender, EventArgs e)
+        {
+            avatar = "";
+            pcAvatar.Image = null;
+        }
+
         private void pcUpdateFormatPassword_Click(object sender, EventArgs e)
         {
             isPasswordHidden = !isPasswordHidden;

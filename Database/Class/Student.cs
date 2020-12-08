@@ -12,8 +12,15 @@ namespace Database
         public override string _name { get; set; }
         public override string _cpf { get; set; }
         public override string _phone { get; set; }
+       
         private string photo;
+        private string email;
         
+        public string _email
+        {
+            get { return email; }
+            set { email = value; }
+        }
         public string _photo
         {
             get { return photo; }
@@ -25,9 +32,9 @@ namespace Database
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO students VALUES (@name, @cpf, @birth, @phone, @cep, @district, @address, @number, @city, @state, @photo)";
+                    _sql = "INSERT INTO students VALUES (@name, @cpf, @birth, @phone, @cep, @district, @address, @number, @city, @state, @email, @photo)";
                 else
-                    _sql = "UPDATE students SET name = @name, phone = @phone, cep = @cep, district = @district, address = @address, number = @number, birth = @birth, city = @city, state = @state, photo = @photo WHERE id = @id";
+                    _sql = "UPDATE students SET name = @name, phone = @phone, cep = @cep, district = @district, address = @address, number = @number, birth = @birth, city = @city, state = @state, email = @email, photo = @photo WHERE id = @id";
 
                 var command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
@@ -41,6 +48,7 @@ namespace Database
                 command.Parameters.AddWithValue("@birth", _birth);
                 command.Parameters.AddWithValue("@city", _city);
                 command.Parameters.AddWithValue("@state", _state);
+                command.Parameters.AddWithValue("@email", _email);
                 command.Parameters.AddWithValue("@photo", _photo);
                 try
                 {

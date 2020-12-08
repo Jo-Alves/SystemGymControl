@@ -15,6 +15,7 @@ CREATE TABLE [dbo].[students]
     [number] INT NULL, 
     [city] VARCHAR(50) NULL, 
     [state] VARCHAR(50) NULL,
+    [email] VARCHAR(100) NULL,
     [photo] VARCHAR(100) NULL    
 )
 
@@ -137,7 +138,9 @@ CREATE TABLE [dbo].[forms_of_payment]
 CREATE TABLE [dbo].[users]
 (
 	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[name] VARCHAR(100) NOT NULL,
 	[name_user] VARCHAR(50) NOT NULL UNIQUE,
+    [email] VARCHAR(100) NOT NULL,
 	[password] VARCHAR(MAX) NOT NULL,
 	[question] VARCHAR(100) NOT NULL,
 	[answer] VARCHAR(100) NOT NULL,

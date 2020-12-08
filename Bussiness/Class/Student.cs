@@ -11,6 +11,13 @@ namespace Bussiness
         public override string _cpf { get; set; }
         public override string _phone { get; set; }
         private string photo;
+        private string email;
+
+        public string _email
+        {
+            get { return email; }
+            set { email = value; }
+        }
 
         public string _photo
         {
@@ -25,7 +32,7 @@ namespace Bussiness
             if (string.IsNullOrEmpty(this._name))
                 message = "Campo Nome obrigatório!";
             else if (this._cpf.Length < 14)
-                message = "Campo CPF obrigatório!";           
+                message = "Campo CPF obrigatório!";
             else if (string.IsNullOrEmpty(this._district))
                 message = "Campo Bairro obrigatório!";
             else if (string.IsNullOrEmpty(this._address))
@@ -34,6 +41,11 @@ namespace Bussiness
                 message = "Campo Cidade obrigatório!";
             else if (string.IsNullOrEmpty(this._state))
                 message = "Campo Estado obrigatório!";
+            else if (!string.IsNullOrEmpty(this._email))
+            {
+                if (!ValidateEmail.Validate(this._email))
+                    message = "Email inválido!";
+            }
             else if (student.SearchCPF(this._cpf) && this._id == 0)
                 message = "Este CPF já está cadastrado!";
             else if (!CPF.ValidateCPF(this._cpf) && this._id == 0)
@@ -55,6 +67,7 @@ namespace Bussiness
             student._number = this._number;
             student._city = this._city;
             student._state = this._state;
+            student._email = this._email;
             student._photo = this.photo;
 
             student.Save();

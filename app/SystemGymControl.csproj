@@ -83,69 +83,69 @@
     <Compile Include="Utils\FormatTextBox.cs" />
     <Compile Include="Utils\OpenForm.cs" />
     <Compile Include="Utils\Security.cs" />
-    <Compile Include="Views\Forms\FrmHome.cs">
+    <Compile Include="Views\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmHome.Designer.cs">
+    <Compile Include="Views\FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmOptionsSave.cs">
+    <Compile Include="Views\FrmOptionsSave.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmOptionsSave.Designer.cs">
+    <Compile Include="Views\FrmOptionsSave.Designer.cs">
       <DependentUpon>FrmOptionsSave.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmGymControl.cs">
+    <Compile Include="Views\FrmGymControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmGymControl.Designer.cs">
+    <Compile Include="Views\FrmGymControl.Designer.cs">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Forms\FrmPackage.cs">
+    <Compile Include="Views\FrmPackage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmPackage.Designer.cs">
+    <Compile Include="Views\FrmPackage.Designer.cs">
       <DependentUpon>FrmPackage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmResponsiblesStudent.cs">
+    <Compile Include="Views\FrmResponsiblesStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmResponsiblesStudent.Designer.cs">
+    <Compile Include="Views\FrmResponsiblesStudent.Designer.cs">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmSavePackage.cs">
+    <Compile Include="Views\FrmSavePackage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmSavePackage.Designer.cs">
+    <Compile Include="Views\FrmSavePackage.Designer.cs">
       <DependentUpon>FrmSavePackage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmSaveStudent.cs">
+    <Compile Include="Views\FrmSaveStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmSaveStudent.Designer.cs">
+    <Compile Include="Views\FrmSaveStudent.Designer.cs">
       <DependentUpon>FrmSaveStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmSaveUser.cs">
+    <Compile Include="Views\FrmSaveUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmSaveUser.Designer.cs">
+    <Compile Include="Views\FrmSaveUser.Designer.cs">
       <DependentUpon>FrmSaveUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmStudent.cs">
+    <Compile Include="Views\FrmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmStudent.Designer.cs">
+    <Compile Include="Views\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\FrmUser.cs">
+    <Compile Include="Views\FrmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\FrmUser.Designer.cs">
+    <Compile Include="Views\FrmUser.Designer.cs">
       <DependentUpon>FrmUser.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Forms\FrmGymControl.resx">
+    <EmbeddedResource Include="Views\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -158,31 +158,31 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\Forms\FrmHome.resx">
+    <EmbeddedResource Include="Views\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmOptionsSave.resx">
+    <EmbeddedResource Include="Views\FrmOptionsSave.resx">
       <DependentUpon>FrmOptionsSave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmPackage.resx">
+    <EmbeddedResource Include="Views\FrmPackage.resx">
       <DependentUpon>FrmPackage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmResponsiblesStudent.resx">
+    <EmbeddedResource Include="Views\FrmResponsiblesStudent.resx">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmSavePackage.resx">
+    <EmbeddedResource Include="Views\FrmSavePackage.resx">
       <DependentUpon>FrmSavePackage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmSaveStudent.resx">
+    <EmbeddedResource Include="Views\FrmSaveStudent.resx">
       <DependentUpon>FrmSaveStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmSaveUser.resx">
+    <EmbeddedResource Include="Views\FrmSaveUser.resx">
       <DependentUpon>FrmSaveUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmStudent.resx">
+    <EmbeddedResource Include="Views\FrmStudent.resx">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\FrmUser.resx">
+    <EmbeddedResource Include="Views\FrmUser.resx">
       <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\WsMail\AtendeClienteService.wsdl" />

@@ -46,6 +46,7 @@ namespace SystemGymControl
             ndNumber.Value = decimal.Parse(DataStudent.Rows[0]["number"].ToString());
             txtCity.Text = DataStudent.Rows[0]["city"].ToString();
             cbState.Text = DataStudent.Rows[0]["state"].ToString();
+            txtEmail.Text = DataStudent.Rows[0]["email"].ToString();
             if (!string.IsNullOrEmpty(DataStudent.Rows[0]["photo"].ToString()))
             {
                 image = DataStudent.Rows[0]["photo"].ToString();
@@ -111,6 +112,7 @@ namespace SystemGymControl
                 student._number = int.Parse(ndNumber.Value.ToString());
                 student._city = txtCity.Text.Trim();
                 student._state = cbState.Text.Trim();
+                student._email = txtEmail.Text.Trim();
                
                 if (ValidateFields())
                 {
@@ -253,6 +255,11 @@ namespace SystemGymControl
                     MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
                     cbState.Focus();
                 }
+                else if (messageValidateFields == "Email inválido!")
+                {
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    txtEmail.Focus();
+                }
                 else if (messageValidateFields == "CPF inválido!")
                 {
                     MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
@@ -305,98 +312,10 @@ namespace SystemGymControl
             return isItBigger;
         }
 
-        private void FrmSaveStudent_ClientSizeChanged(object sender, EventArgs e)
+        private void btnClearImage_Click(object sender, EventArgs e)
         {
-            if (this.Width > 617)
-            {
-                /* labels - Location */
-
-                lblId.Location = new Point(53, 28);
-                lblName.Location = new Point(53, 91);
-                lblCPF.Location = new Point(773, 91);
-                lblBirth.Location = new Point(53, 159);
-                lblCEP.Location = new Point(233, 162);
-                lblDistrict.Location = new Point(474, 162);
-                lblAddress.Location = new Point(53, 236);
-                lblNumber.Location = new Point(486, 236);
-                lblCity.Location = new Point(596, 236);
-                lblState.Location = new Point(1005, 236);
-                lblPhone.Location = new Point(53, 304);
-
-                /* textbox  - Location*/
-
-                txtId.Location = new Point(57, 54);
-                txtName.Location = new Point(57, 117);
-                mkCPF.Location = new Point(768, 117);
-                dtBirth.Location = new Point(57, 188);
-                mkCEP.Location = new Point(228, 188);
-                txtDistrict.Location = new Point(478, 188);
-                txtAddress.Location = new Point(57, 262);
-                ndNumber.Location = new Point(490, 262);
-                txtCity.Location = new Point(600, 262);
-                cbState.Location = new Point(1009, 263);
-                mkPhone.Location = new Point(57, 330);
-
-                /* Buttons - Location */
-                btnCancel.Location = new Point(189, 378);
-                btnSave.Location = new Point(57, 378);
-                btnSearchCep.Location = new Point(355, 187);
-                btnOpenImage.Location = new Point(967, 159);
-
-                /* pictbox - Location */
-                pcPhoto.Location = new Point(971, 18);
-
-                /* textbox  - Size*/
-
-                txtName.Size = new Size(693, 26);
-                txtDistrict.Size = new Size(449, 26);
-                txtCity.Size = new Size(403, 26);
-            }
-            else
-            {
-                /* labels - Location */
-
-                lblId.Location = new Point(18, 30);
-                lblName.Location = new Point(18, 93);
-                lblCPF.Location = new Point(18, 161);
-                lblBirth.Location = new Point(183, 161);
-                lblCEP.Location = new Point(18, 229);
-                lblDistrict.Location = new Point(268, 229);
-                lblAddress.Location = new Point(18, 297);
-                lblNumber.Location = new Point(458, 297);
-                lblCity.Location = new Point(18, 363);
-                lblState.Location = new Point(456, 363);
-                lblPhone.Location = new Point(18, 430);
-
-                /* textbox  - Location*/
-
-                txtId.Location = new Point(22, 56);
-                txtName.Location = new Point(22, 119);
-                mkCPF.Location = new Point(22, 187);
-                dtBirth.Location = new Point(187, 187);
-                mkCEP.Location = new Point(22, 255);
-                txtDistrict.Location = new Point(272, 255);
-                txtAddress.Location = new Point(22, 323);
-                ndNumber.Location = new Point(462, 323);
-                txtCity.Location = new Point(22, 389);
-                cbState.Location = new Point(460, 390);
-                mkPhone.Location = new Point(22, 456);
-
-                /* Buttons - Location */
-                btnCancel.Location = new Point(154, 504);
-                btnSave.Location = new Point(22, 504);
-                btnSearchCep.Location = new Point(149, 254);
-                btnOpenImage.Location = new Point(426, 165);
-
-                /* pictbox - Location */
-                pcPhoto.Location = new Point(430, 24);
-
-                /* textbox  - Size*/
-
-                txtName.Size = new Size(378, 26);
-                txtDistrict.Size = new Size(294, 26);
-                txtCity.Size = new Size(427, 26);
-            }
+            image = "";
+            pcPhoto.Image = null;
         }
 
         string image = "";
