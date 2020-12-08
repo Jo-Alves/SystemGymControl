@@ -22,10 +22,10 @@ namespace SystemGymControl
         {
             try
             {
-                if (new Student().SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmStudent(), this);
-                else
-                    OpenForm.ShowForm(new FrmSaveStudent(), this);
+                //if (new Student().SearchAll().Rows.Count > 0)
+                    OpenForm.ShowForm(new FrmPlan(), this);
+                //else
+                //    OpenForm.ShowForm(new FrmSaveStudent(), this);
             }
             catch (Exception ex)
             {
@@ -37,10 +37,10 @@ namespace SystemGymControl
         {
             try
             {
-                if (new Package().SearchAll().Rows.Count > 0)
+                //if (new Package().SearchAll().Rows.Count > 0)
                     OpenForm.ShowForm(new FrmPackage(), this);
-                else
-                    OpenForm.ShowForm(new FrmSavePackage(), this);
+                //else
+                    //OpenForm.ShowForm(new FrmSavePackage(), this);
             }
             catch (Exception ex)
             {

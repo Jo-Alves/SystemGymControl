@@ -2,15 +2,18 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace SystemGymControl
 {
-    public partial class FrmStudent : Form
+    public partial class FrmSearchStudent : Form
     {
         Student student = new Student();
         Bussiness.ResponsibleStudent responsibleStudent = new Bussiness.ResponsibleStudent();
+        public int idStudent { get; set; }
+        public string nameStudent { get; set; }
 
-        public FrmStudent()
+        public FrmSearchStudent()
         {
             InitializeComponent();
             LoadDataStudents();
@@ -29,8 +32,6 @@ namespace SystemGymControl
             foreach (DataRow dr in GetSearchStudent.Rows)
             {
                 int coutRow = dgvDataStudent.Rows.Add();
-                dgvDataStudent.Rows[coutRow].Cells["edit"].Value = Properties.Resources.icons8_pencil_25px;
-                dgvDataStudent.Rows[coutRow].Cells["delete"].Value = Properties.Resources.icons8_trash_25px;
                 dgvDataStudent.Rows[coutRow].Cells["id"].Value = dr["id"].ToString();
                 dgvDataStudent.Rows[coutRow].Cells["name"].Value = dr["name"].ToString();
                 dgvDataStudent.Rows[coutRow].Cells["CPF"].Value = dr["cpf"].ToString();
@@ -51,63 +52,54 @@ namespace SystemGymControl
                     dgvDataStudent.Rows[coutRow].Cells["phoneResponsible"].Value = drResponsible["phone"].ToString();
                 }
 
-                dgvDataStudent.Rows[coutRow].MinimumHeight = 45;
+                dgvDataStudent.Rows[coutRow].MinimumHeight = 30;
 
                 dgvDataStudent.ClearSelection();
             }
-        }
-
-        private void btnAddStudent_Click(object sender, EventArgs e)
-        {
-            OpenForm.ShowForm(new FrmSaveStudent(), this);
         }
 
         private void dgvDataStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                if (e.RowIndex > -1)
-                {
-                    dgvDataStudent.ClearSelection();
-
-                    // Ao acionar a célula para editar abre o Form para Editar os dados
-                    int id = int.Parse(dgvDataStudent.CurrentRow.Cells["id"].Value.ToString());
-
-                    if (dgvDataStudent.CurrentCell.ColumnIndex == 0)
-                    {
-                        OpenForm.ShowForm(new FrmSaveStudent(id), this);
-                    }
-                    else if (dgvDataStudent.CurrentCell.ColumnIndex == 1)
-                    {
-                        if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDataStudent.CurrentRow.Cells["name"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                        {
-                            student.Delete(id);
-                            LoadDataStudents();
-                            if (dgvDataStudent.Rows.Count == 0)
-                            {
-                                OpenForm.ShowForm(new FrmOptionsSave(), this);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgvDataStudent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
             if (e.RowIndex > -1)
             {
-                dgvDataStudent.ClearSelection();
+                idStudent = int.Parse(dgvDataStudent.CurrentRow.Cells["id"].Value.ToString());
+                nameStudent = dgvDataStudent.CurrentRow.Cells["name"].Value.ToString();
+                this.Close();
             }
         }
 
         private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
             LoadDataStudents();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClose_MouseEnter(object sender, EventArgs e)
+        {
+            this.btnClose.Image = Properties.Resources.icons8_close_window_32px_enter1;
+        }
+
+        private void btnClose_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnClose.Image = Properties.Resources.icons8_close_window_32px_leavee;
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void FrmSearchStudent_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

@@ -80,5 +80,10 @@ namespace Bussiness
         {
             return package.GetMaxId();
         }
+
+        public DataTable SearchAllItemsAndPackage()
+        {
+            return package.SearchAllItemsAndPackage();
+        }
     }
 }

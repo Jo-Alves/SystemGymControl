@@ -1,6 +1,6 @@
 ﻿namespace SystemGymControl
 {
-    partial class FrmStudent
+    partial class FrmSearchStudent
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -31,16 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudent));
-            this.btnAddStudent = new System.Windows.Forms.Button();
             this.dgvDataStudent = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.lblStudent = new System.Windows.Forms.Label();
             this.pcStudent = new System.Windows.Forms.PictureBox();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnClose = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,27 +55,8 @@
             this.phoneResponsible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcStudent)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnAddStudent
-            // 
-            this.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddStudent.FlatAppearance.BorderSize = 0;
-            this.btnAddStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnAddStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
-            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddStudent.ForeColor = System.Drawing.Color.White;
-            this.btnAddStudent.Location = new System.Drawing.Point(94, 24);
-            this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(168, 42);
-            this.btnAddStudent.TabIndex = 5;
-            this.btnAddStudent.Text = "Novo";
-            this.btnAddStudent.UseVisualStyleBackColor = false;
-            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // dgvDataStudent
             // 
@@ -89,20 +66,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDataStudent.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvDataStudent.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvDataStudent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDataStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDataStudent.ColumnHeadersHeight = 30;
             this.dgvDataStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.edit,
-            this.delete,
             this.id,
             this.name,
             this.CPF,
@@ -119,13 +94,14 @@
             this.cpfResponsible,
             this.kinship,
             this.phoneResponsible});
-            this.dgvDataStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvDataStudent.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvDataStudent.EnableHeadersVisualStyles = false;
             this.dgvDataStudent.Location = new System.Drawing.Point(12, 194);
             this.dgvDataStudent.MultiSelect = false;
             this.dgvDataStudent.Name = "dgvDataStudent";
             this.dgvDataStudent.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -137,46 +113,35 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             this.dgvDataStudent.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDataStudent.Size = new System.Drawing.Size(577, 234);
+            this.dgvDataStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDataStudent.Size = new System.Drawing.Size(1076, 419);
             this.dgvDataStudent.TabIndex = 6;
             this.dgvDataStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataStudent_CellClick);
-            this.dgvDataStudent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataStudent_CellDoubleClick);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtSearchName);
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(577, 80);
+            this.groupBox1.Size = new System.Drawing.Size(1076, 80);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(450, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // txtSearchName
             // 
             this.txtSearchName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchName.BackColor = System.Drawing.Color.Silver;
+            this.txtSearchName.BackColor = System.Drawing.Color.White;
             this.txtSearchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchName.Font = new System.Drawing.Font("Open Sans", 14F);
             this.txtSearchName.Location = new System.Drawing.Point(109, 37);
             this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(340, 33);
+            this.txtSearchName.Size = new System.Drawing.Size(839, 33);
             this.txtSearchName.TabIndex = 9;
             this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
@@ -185,7 +150,7 @@
             this.lblStudent.AutoSize = true;
             this.lblStudent.BackColor = System.Drawing.Color.Transparent;
             this.lblStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.lblStudent.ForeColor = System.Drawing.Color.White;
             this.lblStudent.Location = new System.Drawing.Point(18, 83);
             this.lblStudent.Name = "lblStudent";
             this.lblStudent.Size = new System.Drawing.Size(59, 22);
@@ -194,7 +159,7 @@
             // 
             // pcStudent
             // 
-            this.pcStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.pcStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.pcStudent.Image = global::SystemGymControl.Properties.Resources.icons8_client_management_64px_1;
             this.pcStudent.Location = new System.Drawing.Point(12, 12);
             this.pcStudent.Name = "pcStudent";
@@ -203,23 +168,22 @@
             this.pcStudent.TabIndex = 8;
             this.pcStudent.TabStop = false;
             // 
-            // edit
+            // btnClose
             // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.HeaderText = "Editar";
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.Width = 61;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.delete.HeaderText = "Excluir";
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 66;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_close_window_32px_leavee;
+            this.btnClose.Location = new System.Drawing.Point(1067, 1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(25, 30);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.TabStop = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
+            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
             // 
             // id
             // 
@@ -365,25 +329,26 @@
             this.phoneResponsible.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.phoneResponsible.Width = 65;
             // 
-            // FrmStudent
+            // FrmSearchStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(601, 440);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ClientSize = new System.Drawing.Size(1100, 625);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblStudent);
             this.Controls.Add(this.pcStudent);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDataStudent);
-            this.Controls.Add(this.btnAddStudent);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmStudent";
+            this.Name = "FrmSearchStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmSearchStudent_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataStudent)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -391,16 +356,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAddStudent;
         private System.Windows.Forms.DataGridView dgvDataStudent;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSearchName;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblStudent;
         private System.Windows.Forms.PictureBox pcStudent;
-        private System.Windows.Forms.DataGridViewImageColumn edit;
-        private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;

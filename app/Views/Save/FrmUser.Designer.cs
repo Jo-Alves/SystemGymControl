@@ -42,7 +42,9 @@ namespace SystemGymControl
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.question = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,7 +156,9 @@ namespace SystemGymControl
             this.edit,
             this.delete,
             this.id,
+            this.name,
             this.nameUser,
+            this.email,
             this.password,
             this.question,
             this.answer,
@@ -180,7 +184,6 @@ namespace SystemGymControl
             this.edit.Name = "edit";
             this.edit.ReadOnly = true;
             this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // delete
             // 
@@ -194,7 +197,17 @@ namespace SystemGymControl
             this.id.HeaderText = "Código";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 88;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 69;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.name.HeaderText = "Nome";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.name.Width = 62;
             // 
             // nameUser
             // 
@@ -202,7 +215,17 @@ namespace SystemGymControl
             this.nameUser.HeaderText = "Usuário";
             this.nameUser.Name = "nameUser";
             this.nameUser.ReadOnly = true;
-            this.nameUser.Width = 95;
+            this.nameUser.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.nameUser.Width = 76;
+            // 
+            // email
+            // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.email.Width = 57;
             // 
             // password
             // 
@@ -210,7 +233,8 @@ namespace SystemGymControl
             this.password.HeaderText = "Senha";
             this.password.Name = "password";
             this.password.ReadOnly = true;
-            this.password.Width = 82;
+            this.password.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.password.Width = 63;
             // 
             // question
             // 
@@ -218,7 +242,8 @@ namespace SystemGymControl
             this.question.HeaderText = "Pergunta de Segurança";
             this.question.Name = "question";
             this.question.ReadOnly = true;
-            this.question.Width = 212;
+            this.question.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.question.Width = 193;
             // 
             // answer
             // 
@@ -226,7 +251,8 @@ namespace SystemGymControl
             this.answer.HeaderText = "Resposta de Segurança";
             this.answer.Name = "answer";
             this.answer.ReadOnly = true;
-            this.answer.Width = 212;
+            this.answer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.answer.Width = 193;
             // 
             // registion
             // 
@@ -234,7 +260,8 @@ namespace SystemGymControl
             this.registion.HeaderText = "Data de Registro";
             this.registion.Name = "registion";
             this.registion.ReadOnly = true;
-            this.registion.Width = 161;
+            this.registion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.registion.Width = 142;
             // 
             // FrmUser
             // 
@@ -274,7 +301,9 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn question;
         private System.Windows.Forms.DataGridViewTextBoxColumn answer;

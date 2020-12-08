@@ -99,6 +99,24 @@ namespace Database
                 throw;
             }
         }
+        
+        public DataTable SearchAllItemsAndPackage()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
+                _sql = "SELECT * FROM packages as pc INNER JOIN items_package as ip ON  ip.package_id = pc.id ORDER BY description ASC";
+                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
 
         public SqlDataReader SearchID(int idPackage)

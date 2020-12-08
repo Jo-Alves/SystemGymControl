@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddPackage = new System.Windows.Forms.Button();
-            this.dgvDatePackage = new System.Windows.Forms.DataGridView();
+            this.dgvDataPackage = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearchDescription = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.period = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatePackage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataPackage)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcPackage)).BeginInit();
@@ -68,15 +68,15 @@
             this.btnAddPackage.UseVisualStyleBackColor = false;
             this.btnAddPackage.Click += new System.EventHandler(this.btnAddPackage_Click);
             // 
-            // dgvDatePackage
+            // dgvDataPackage
             // 
-            this.dgvDatePackage.AllowUserToAddRows = false;
-            this.dgvDatePackage.AllowUserToDeleteRows = false;
-            this.dgvDatePackage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvDataPackage.AllowUserToAddRows = false;
+            this.dgvDataPackage.AllowUserToDeleteRows = false;
+            this.dgvDataPackage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDatePackage.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvDatePackage.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgvDataPackage.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDataPackage.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -84,38 +84,38 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatePackage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDatePackage.ColumnHeadersHeight = 30;
-            this.dgvDatePackage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvDatePackage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDataPackage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDataPackage.ColumnHeadersHeight = 30;
+            this.dgvDataPackage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDataPackage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.edit,
             this.delete,
             this.id,
             this.Description,
             this.duration,
             this.period});
-            this.dgvDatePackage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvDatePackage.EnableHeadersVisualStyles = false;
-            this.dgvDatePackage.Location = new System.Drawing.Point(12, 196);
-            this.dgvDatePackage.MultiSelect = false;
-            this.dgvDatePackage.Name = "dgvDatePackage";
-            this.dgvDatePackage.ReadOnly = true;
+            this.dgvDataPackage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvDataPackage.EnableHeadersVisualStyles = false;
+            this.dgvDataPackage.Location = new System.Drawing.Point(12, 196);
+            this.dgvDataPackage.MultiSelect = false;
+            this.dgvDataPackage.Name = "dgvDataPackage";
+            this.dgvDataPackage.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatePackage.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDatePackage.RowHeadersVisible = false;
+            this.dgvDataPackage.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDataPackage.RowHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            this.dgvDatePackage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDatePackage.Size = new System.Drawing.Size(636, 232);
-            this.dgvDatePackage.TabIndex = 6;
-            this.dgvDatePackage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatePackage_CellClick);
-            this.dgvDatePackage.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatePackage_CellDoubleClick);
+            this.dgvDataPackage.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDataPackage.Size = new System.Drawing.Size(636, 232);
+            this.dgvDataPackage.TabIndex = 6;
+            this.dgvDataPackage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPackage_CellClick);
+            this.dgvDataPackage.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPackage_CellDoubleClick);
             // 
             // groupBox1
             // 
@@ -184,8 +184,7 @@
             this.edit.Name = "edit";
             this.edit.ReadOnly = true;
             this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.edit.Width = 80;
+            this.edit.Width = 61;
             // 
             // delete
             // 
@@ -194,8 +193,7 @@
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 85;
+            this.delete.Width = 66;
             // 
             // id
             // 
@@ -203,7 +201,8 @@
             this.id.HeaderText = "Código";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 88;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 69;
             // 
             // Description
             // 
@@ -211,6 +210,7 @@
             this.Description.HeaderText = "Descrição";
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
+            this.Description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // duration
             // 
@@ -218,6 +218,8 @@
             this.duration.HeaderText = "Duração";
             this.duration.Name = "duration";
             this.duration.ReadOnly = true;
+            this.duration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.duration.Width = 81;
             // 
             // period
             // 
@@ -225,7 +227,8 @@
             this.period.HeaderText = "Período";
             this.period.Name = "period";
             this.period.ReadOnly = true;
-            this.period.Width = 95;
+            this.period.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.period.Width = 76;
             // 
             // FrmPackage
             // 
@@ -236,13 +239,13 @@
             this.Controls.Add(this.lblPackage);
             this.Controls.Add(this.pcPackage);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvDatePackage);
+            this.Controls.Add(this.dgvDataPackage);
             this.Controls.Add(this.btnAddPackage);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPackage";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatePackage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataPackage)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -255,7 +258,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnAddPackage;
-        private System.Windows.Forms.DataGridView dgvDatePackage;
+        private System.Windows.Forms.DataGridView dgvDataPackage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSearchDescription;
         private System.Windows.Forms.PictureBox pictureBox1;
