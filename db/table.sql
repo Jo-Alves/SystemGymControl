@@ -75,15 +75,6 @@ CREATE TABLE [dbo].[items_package] (
     [id]            INT             IDENTITY (1, 1) NOT NULL,
     [value]         DECIMAL (18, 2) NOT NULL,
     [package_id]    INT             NOT NULL,
-    [formOfPayment_id]    INT             NOT NULL,
-    PRIMARY KEY CLUSTERED ([id] ASC),
-    FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages] ([id]) ON DELETE CASCADE
-);
-
-CREATE TABLE [dbo].[modalities] (
-    [id]          INT          IDENTITY (1, 1) NOT NULL,
-    [description] VARCHAR (50) NOT NULL,
-    [package_id]  INT          NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
     FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages] ([id]) ON DELETE CASCADE
 );
@@ -107,16 +98,24 @@ CREATE TABLE [dbo].[forms_of_payment] (
     FOREIGN KEY ([items_package_id]) REFERENCES [dbo].[items_package] ([id]) ON DELETE CASCADE
 );
 
-CREATE TABLE [dbo].[plans]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-	[number_portions] INT NOT NULL,
-    [date_purchase_plan] VARCHAR NOT NULL,
-    [package_id] INT NOT NULL, 
-    [student_id] INT NOT NULL,
-	FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE,
-	FOREIGN KEY ([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
-)
+CREATE TABLE [dbo].[plans] (
+    [id]                 INT         IDENTITY (1, 1) NOT NULL,
+    [date_purchase_plan] VARCHAR (10) NOT NULL,
+    [time_purchase_plan] VARCHAR (8) NOT NULL,
+    [items_package_id]   INT         NOT NULL,
+    [student_id]         INT         NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([items_package_id]) REFERENCES [dbo].[items_package]([id]) ON DELETE CASCADE,
+    FOREIGN KEY ([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
+);
+
+CREATE TABLE [dbo].[modalities] (
+    [id]          INT          IDENTITY (1, 1) NOT NULL,
+    [description] VARCHAR (50) NOT NULL,
+    [plan_id]  INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans] ([id]) ON DELETE CASCADE
+);
 
 CREATE TABLE [dbo].[situations_plan] (
     [id]         INT          NOT NULL Identity,

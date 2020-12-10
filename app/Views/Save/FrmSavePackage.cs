@@ -18,7 +18,7 @@ namespace SystemGymControl
         ItemsPackage itemsPackage = new ItemsPackage();
         FormsOfPayment formsOfPayment = new FormsOfPayment();
 
-        int idPackage, idParametersPackage, idItemsPackage, idMaxPackage, indexRowSelected = -1, idItemsPackage;
+        int idPackage, idParametersPackage, idItemsPackage, idMaxPackage, indexRowSelected = -1;
 
         public FrmSavePackage()
         {
@@ -49,19 +49,23 @@ namespace SystemGymControl
 
         private void GetItemsPackage(int idPackage)
         {
+           
             foreach(DataRow dr in itemsPackage.SearchID(idPackage).Rows)
             {
                 int countRow = dgvFormOfPagament.Rows.Add();
                 dgvFormOfPagament.Rows[countRow].Cells["edit"].Value = Properties.Resources.icons8_pencil_25px;
                 dgvFormOfPagament.Rows[countRow].Cells["delete"].Value = Properties.Resources.icons8_trash_25px;
                 dgvFormOfPagament.Rows[countRow].Cells["id"].Value = dr["id"].ToString();
-                dgvFormOfPagament.Rows[countRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
                 dgvFormOfPagament.Rows[countRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
+
+                var dataFormsPackage = formsOfPayment.SearchItemsPackageID(int.Parse(dr["id"].ToString()));
+                dgvFormOfPagament.Rows[countRow].Cells["formOfPayment"].Value = dataFormsPackage.Rows[0]["description"].ToString();
+                dgvFormOfPagament.Rows[countRow].Cells["idFormsOfPayment"].Value = dataFormsPackage.Rows[0]["id"].ToString();
 
                 dgvFormOfPagament.Rows[countRow].MinimumHeight = 45;
                 dgvFormOfPagament.ClearSelection();
 
-                //// Mecher aqui
+                
             }
         }
 
@@ -140,12 +144,19 @@ namespace SystemGymControl
                     itemsPackage._packageID = idMaxPackage;
                 else
                     itemsPackage._packageID = idPackage;
+               
                 itemsPackage._id = int.Parse(row.Cells["id"].Value.ToString());
                 itemsPackage.Save();
 
-                idItemsPackage = itemsPackage.GetMaxId();
+                int idFormsPayment = int.Parse(row.Cells["idFormsOfPayment"].Value.ToString());
+                formsOfPayment._id = idFormsPayment;
                 formsOfPayment._description = row.Cells["formOfPayment"].Value.ToString();
-                formsOfPayment._itemsPackageID = idItemsPackage;
+
+                if(itemsPackage._id == 0)
+                    formsOfPayment._itemsPackageID = itemsPackage.GetMaxId();
+                else
+                    formsOfPayment._itemsPackageID = itemsPackage._id;
+
                 formsOfPayment.Save();
             }
         }
@@ -359,7 +370,7 @@ namespace SystemGymControl
             {
                 if (indexRowSelected == -1)
                 {
-                    dgvFormOfPagament.Rows.Add(Properties.Resources.icons8_pencil_25px, Properties.Resources.icons8_trash_25px, "0", cbFormOfPayment.Text, $"R$ {txtValue.Text}");
+                    dgvFormOfPagament.Rows.Add(Properties.Resources.icons8_pencil_25px, Properties.Resources.icons8_trash_25px, "0", "0", cbFormOfPayment.Text, $"R$ {txtValue.Text}");
                     dgvFormOfPagament.Rows[dgvFormOfPagament.Rows.Count - 1].MinimumHeight = 45;
                 }
                 else

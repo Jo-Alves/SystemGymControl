@@ -44,8 +44,10 @@
     <Compile Include="Class\BillingParametersPackage.cs" />
     <Compile Include="Class\FormsOfPayment.cs" />
     <Compile Include="Class\ItemsPackage.cs" />
+    <Compile Include="Class\Modality.cs" />
     <Compile Include="Class\Package.cs" />
     <Compile Include="Class\Person.cs" />
+    <Compile Include="Class\Plan.cs" />
     <Compile Include="Class\ResponsibleStudent.cs" />
     <Compile Include="Class\Student.cs" />
     <Compile Include="Class\User.cs" />

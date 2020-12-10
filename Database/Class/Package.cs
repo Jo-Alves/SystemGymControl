@@ -105,7 +105,7 @@ namespace Database
             try
             {
                 SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-                _sql = "SELECT * FROM packages as pc INNER JOIN items_package as ip ON  ip.package_id = pc.id ORDER BY description, formOfPayment, ip.value ASC";
+                _sql = "SELECT pc.id, pc.description, pc.duration, pc.period, ip.id as idItems, ip.value, fp.description as formOfPayment FROM packages as pc INNER JOIN items_package as ip ON  ip.package_id = pc.id INNER JOIN forms_of_Payment AS fp ON fp.items_package_id = ip.id ORDER BY pc.description, fp.description, ip.value ASC";
                 SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                 adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
                 DataTable table = new DataTable();

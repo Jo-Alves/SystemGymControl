@@ -36,9 +36,14 @@ namespace Bussiness
             formsOfPayment.Save();
         }
 
-        public DataTable SearchID(int idItemsPackage)
+        public DataTable SearchID(int id)
         {
-            return formsOfPayment.SearchID(idItemsPackage);
+            return formsOfPayment.SearchID(id);
+        } 
+        
+        public DataTable SearchItemsPackageID(int idItemsPackage)
+        {
+            return formsOfPayment.SearchItemsPackageID(idItemsPackage);
         }
 
         public DataTable SearchAll()

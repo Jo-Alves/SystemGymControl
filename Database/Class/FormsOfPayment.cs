@@ -54,7 +54,7 @@ namespace Database
             }
         }
 
-        public DataTable SearchID(int idItemsPackage)
+        public DataTable SearchID(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -63,7 +63,28 @@ namespace Database
                     connection.Open();
                     _sql = "SELECT * FROM forms_of_payment WHERE id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                    adapter.SelectCommand.Parameters.AddWithValue("@id", idItemsPackage);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public DataTable SearchItemsPackageID(int idItemsPackage)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+                    _sql = "SELECT * FROM forms_of_payment WHERE items_package_id = @itemsPackageID";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@itemsPackageID", idItemsPackage);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     return table;

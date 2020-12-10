@@ -3,11 +3,11 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class modality
+    public class Modality
     {
         private int id;
         private string description;
-        private int student_id;
+        private int planID;
 
         string _sql;
 
@@ -21,57 +21,55 @@ namespace Database
             get { return description; }
             set { description = value; }
         }
-        public int _studentID
+        public int _planID
         {
-            get { return student_id; }
-            set { student_id = value; }
+            get { return planID; }
+            set { planID = value; }
         }
 
         public void Save()
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO modalities VALUES (@description, @student_id, @studentID)";
-            else
-                _sql = "UPDATE modalities SET description = @description, student_id = @studentID, student_id = @studentID WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO modalities VALUES (@description, @planID)";
+                else
+                    _sql = "UPDATE modalities SET description = @description, plan_id = @planID WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@description", _description);
-            command.Parameters.AddWithValue("@studentID", _studentID);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@description", _description);
+                command.Parameters.AddWithValue("@planID", _planID);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public void SearchID()
+        public DataTable SearchPlanID(int planID)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                _sql = "SELECT * FROM modalities WHERE student_id = @studentID";
-                SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@studentID", _studentID);
-                SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _description = dr["description"].ToString();
+                    connection.Open();
+                    _sql = "SELECT * FROM modalities WHERE plan_id = @planID";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@planID", planID);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
-            }
-            catch
-            {
-                throw;
+                catch
+                {
+                    throw;
+                }
             }
         }
     }

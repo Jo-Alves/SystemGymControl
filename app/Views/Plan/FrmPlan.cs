@@ -14,6 +14,8 @@ namespace SystemGymControl
     public partial class FrmPlan : Form
     {
         Package package = new Package();
+        Modality modality = new Modality();
+        Plan plan = new Plan();
         Student student = new Student();
 
         public FrmPlan()
@@ -35,19 +37,22 @@ namespace SystemGymControl
                 dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
                 dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
 
                 dgvDataPlan.Rows[addRow].MinimumHeight = 30;
             }
+
             dgvDataPlan.ClearSelection();
         }
 
-        public decimal valuePackage { get; set; }
+        int idItems;
 
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex > -1)
             {
-                valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
+                idItems = int.Parse(dgvDataPlan.CurrentRow.Cells["idItemsPackage"].Value.ToString());
             }
         }
 
@@ -72,21 +77,70 @@ namespace SystemGymControl
             OpenForm.ShowForm(new FrmOptionsPlan(), this);
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnPurchasePlan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNameStudent.Text))
+            try
             {
-                MessageBox.Show("Infome o Aluno que irá adquirir o plano!", "Systeme GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                if (string.IsNullOrWhiteSpace(txtCodigoStudent.Text))
+                {
+                    MessageBox.Show("Informe os dados do aluno!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtNameStudent.Focus();
+                    return;
+                }
+                else if (!checkedDgvSelected())
+                {
+                    MessageBox.Show("Selecione o plano que o aluno irá adquirir!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else if (cbModalities.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Selecione a modalidade!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cbModalities.Focus();
+                    return;
+                }
+
+                SavePlan();
+
+                SaveModality();
+
+                OpenForm.ShowForm(new FrmOptionsPlan(), this);
             }
-            else if (valuePackage == 0)
+            catch(Exception ex)
             {
-                MessageBox.Show("Selecione o Pacote!", "Systeme GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SavePlan()
+        {
+            plan._datePurchasePlan = DateTime.Now.ToShortDateString();
+            plan._timePurchasePlan = DateTime.Now.ToShortTimeString();
+            plan._itemsPackageID = idItems;
+            plan._studentID = int.Parse(txtCodigoStudent.Text);
+            plan.Save();
+        }
+
+        private void SaveModality()
+        {
+            modality._description = cbModalities.Text;
+            modality._planID = plan.GetMaxId();
+            modality.Save();
+        }
+
+        private bool checkedDgvSelected()
+        {
+            bool isDgvSelected = false;
+
+            foreach(DataGridViewRow row in dgvDataPlan.Rows)
+            {
+                if (row.Selected)
+                {
+                    isDgvSelected = true;
+                    break;
+                }
             }
 
-            FrmCashInPayment cashInPayment = new FrmCashInPayment(valuePackage);
-            cashInPayment.ShowDialog();
+            return isDgvSelected;
         }
     }
 }

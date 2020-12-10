@@ -61,6 +61,7 @@ namespace SystemGymControl
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idFormsOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ndDuration)).BeginInit();
@@ -335,6 +336,7 @@ namespace SystemGymControl
             this.edit,
             this.delete,
             this.id,
+            this.idFormsOfPayment,
             this.formOfPayment,
             this.value});
             this.dgvFormOfPagament.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -459,6 +461,13 @@ namespace SystemGymControl
             this.id.Visible = false;
             this.id.Width = 35;
             // 
+            // idFormsOfPayment
+            // 
+            this.idFormsOfPayment.HeaderText = "id";
+            this.idFormsOfPayment.Name = "idFormsOfPayment";
+            this.idFormsOfPayment.ReadOnly = true;
+            this.idFormsOfPayment.Visible = false;
+            // 
             // formOfPayment
             // 
             this.formOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -547,6 +556,7 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFormsOfPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn formOfPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
     }
