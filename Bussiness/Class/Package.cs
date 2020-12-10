@@ -85,5 +85,10 @@ namespace Bussiness
         {
             return package.SearchAllItemsAndPackage();
         }
+
+        public DataTable SearchDescriptionPackageAndItems(string description)
+        {
+            return package.SearchDescriptionPackageAndItems(description);
+        }
     }
 }

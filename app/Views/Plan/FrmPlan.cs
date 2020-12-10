@@ -26,22 +26,29 @@ namespace SystemGymControl
 
         private void LoadDataPackages()
         {
-            var DataPackages = package.SearchAllItemsAndPackage();
+            dgvDataPlan.Rows.Clear();
 
-            foreach(DataRow dr in DataPackages.Rows)
-            {
-                int addRow = dgvDataPlan.Rows.Add();
-                dgvDataPlan.Rows[addRow].Cells["id"].Value = dr["id"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["description"].Value = dr["description"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["duration"].Value = dr["duration"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
-                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
+            DataTable DataPackages;
+         
+            if (string.IsNullOrEmpty(txtSearch.Text))
+                DataPackages = package.SearchAllItemsAndPackage();
+            else
+                DataPackages = package.SearchDescriptionPackageAndItems(txtSearch.Text);
 
-                dgvDataPlan.Rows[addRow].MinimumHeight = 30;
-            }
+                foreach (DataRow dr in DataPackages.Rows)
+                {
+                    int addRow = dgvDataPlan.Rows.Add();
+                    dgvDataPlan.Rows[addRow].Cells["id"].Value = dr["id"].ToString();
+                    dgvDataPlan.Rows[addRow].Cells["description"].Value = dr["description"].ToString();
+                    dgvDataPlan.Rows[addRow].Cells["duration"].Value = dr["duration"].ToString();
+                    dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
+                    dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
+                    dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
+                    dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
+                    dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
+
+                    dgvDataPlan.Rows[addRow].MinimumHeight = 30;
+                }
 
             dgvDataPlan.ClearSelection();
         }
@@ -69,7 +76,7 @@ namespace SystemGymControl
                 }
             }
             else
-                MessageBox.Show("Não há aluno cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Não há aluno(a) cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -114,7 +121,7 @@ namespace SystemGymControl
         private void SavePlan()
         {
             plan._datePurchasePlan = DateTime.Now.ToShortDateString();
-            plan._timePurchasePlan = DateTime.Now.ToShortTimeString();
+            plan._timePurchasePlan = DateTime.Now.ToLongTimeString();
             plan._itemsPackageID = idItems;
             plan._studentID = int.Parse(txtCodigoStudent.Text);
             plan.Save();
@@ -141,6 +148,11 @@ namespace SystemGymControl
             }
 
             return isDgvSelected;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadDataPackages();
         }
     }
 }

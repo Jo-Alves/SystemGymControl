@@ -22,10 +22,10 @@ namespace SystemGymControl
         {
             try
             {
-                //if (new Student().SearchAll().Rows.Count > 0)
+                if (new Package().SearchAll().Rows.Count > 0)
                     OpenForm.ShowForm(new FrmPlan(), this);
-                //else
-                //    OpenForm.ShowForm(new FrmSaveStudent(), this);
+                else
+                    MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {
