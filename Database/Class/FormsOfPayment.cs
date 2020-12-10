@@ -3,11 +3,11 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class FormsOfPayments
+    public class FormsOfPayment
     {
         private int id;
         private string description;
-        private int paymentID;
+        private int itemsPackageID;
 
         string _sql;
 
@@ -16,29 +16,29 @@ namespace Database
             get { return id; }
             set { id = value; }
         }
-         public string _description
+        public string _description
         {
             get { return description; }
             set { description = value; }
         }
-        public int _paymentID
+        public int _itemsPackageID
         {
-            get { return paymentID; }
-            set { paymentID = value; }
+            get { return itemsPackageID; }
+            set { itemsPackageID = value; }
         }
 
         public void Save()
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO forms_of_payment VALUES (@description, @paymentID)";
+            if (_id == 0)
+                _sql = "INSERT INTO forms_of_payment VALUES (@description, @itemsPackageID)";
             else
-                _sql = "UPDATE forms_of_payment SET description = @description, payment_id = @paymentID WHERE id = @id";
+                _sql = "UPDATE forms_of_payment SET description = @description, items_package_id = @itemsPackageID WHERE id = @id";
 
             SqlCommand command = new SqlCommand(_sql, connection);
             command.Parameters.AddWithValue("@id", _id);
             command.Parameters.AddWithValue("@description", _description);
-            command.Parameters.AddWithValue("@paymentID", _paymentID);
+            command.Parameters.AddWithValue("@itemsPackageID", _itemsPackageID);
             try
             {
                 connection.Open();
@@ -54,28 +54,24 @@ namespace Database
             }
         }
 
-        public void SearchID()
+        public DataTable SearchID(int idItemsPackage)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                _sql = "SELECT * FROM forms_of_payment WHERE id = @id";
-                SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@id", _id);
-                SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _description = dr["description"].ToString();
+                    connection.Open();
+                    _sql = "SELECT * FROM forms_of_payment WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idItemsPackage);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                catch
+                {
+                    throw;
+                }
             }
         }
 
@@ -84,9 +80,8 @@ namespace Database
             try
             {
                 SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-                _sql = "SELECT * FROM forms_of_payment WHERE id = @id";
+                _sql = "SELECT * FROM forms_of_payment";
                 SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 return table;

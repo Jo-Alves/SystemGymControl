@@ -59,6 +59,12 @@ namespace SystemGymControl
             set { pnPage = value; }
         }
 
+        public Label _lblTitle
+        {
+            get { return lblTitle; }
+            set { lblTitle = value; }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -94,23 +100,21 @@ namespace SystemGymControl
             btnMimized.Image = Properties.Resources.icons8_minimize_window_32px_leave1;
         }
 
-        private void pcHome_Click(object sender, EventArgs e)
-        {
-            OpenForm.ShowForm(new FrmHome(), this);
-        }
-
         private void btnMenuSave_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "";
             OpenForm.ShowForm(new FrmOptionsSave(), this);
         }
 
         private void btnMenuHome_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "";
             OpenForm.ShowForm(new FrmHome(), this);
         }
 
         private void btnMenuPlan_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "";
             OpenForm.ShowForm(new FrmOptionsPlan(), this);
         }
     }

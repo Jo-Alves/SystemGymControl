@@ -16,8 +16,9 @@ namespace SystemGymControl
         Package package = new Package();
         BillingParametersPackage parametersPackage = new BillingParametersPackage();
         ItemsPackage itemsPackage = new ItemsPackage();
+        FormsOfPayment formsOfPayment = new FormsOfPayment();
 
-        int idPackage, idParametersPackage, idItemsPackage, idMaxPackage, indexRowSelected = -1;
+        int idPackage, idParametersPackage, idItemsPackage, idMaxPackage, indexRowSelected = -1, idItemsPackage;
 
         public FrmSavePackage()
         {
@@ -59,6 +60,8 @@ namespace SystemGymControl
 
                 dgvFormOfPagament.Rows[countRow].MinimumHeight = 45;
                 dgvFormOfPagament.ClearSelection();
+
+                //// Mecher aqui
             }
         }
 
@@ -132,23 +135,19 @@ namespace SystemGymControl
             foreach(DataGridViewRow row in dgvFormOfPagament.Rows)
             {
                 
-                itemsPackage._formOfPayment = row.Cells["formOfPayment"].Value.ToString();
-                itemsPackage._valuePackage = decimal.Parse(RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
+                itemsPackage._valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
                 if (idPackage == 0)
                     itemsPackage._packageID = idMaxPackage;
                 else
                     itemsPackage._packageID = idPackage;
                 itemsPackage._id = int.Parse(row.Cells["id"].Value.ToString());
                 itemsPackage.Save();
+
+                idItemsPackage = itemsPackage.GetMaxId();
+                formsOfPayment._description = row.Cells["formOfPayment"].Value.ToString();
+                formsOfPayment._itemsPackageID = idItemsPackage;
+                formsOfPayment.Save();
             }
-        }
-
-        // A função RemoveDollarSignGetValue() remover o Cifrão e retorna somente o valor
-
-        private string RemoveDollarSignGetValue(string value)
-        {
-            int lenghtValue = value.Length;
-            return value.Substring(3, lenghtValue - 3);
         }
 
         private void SaveParametersPackage()
@@ -323,7 +322,7 @@ namespace SystemGymControl
 
                 if (dgvFormOfPagament.CurrentCell.ColumnIndex == 0)
                 {
-                    txtValue.Text = RemoveDollarSignGetValue(dgvFormOfPagament.CurrentRow.Cells["value"].Value.ToString());
+                    txtValue.Text = FormatValueDecimal.RemoveDollarSignGetValue(dgvFormOfPagament.CurrentRow.Cells["value"].Value.ToString());
                     cbFormOfPayment.Text = dgvFormOfPagament.CurrentRow.Cells["formOfPayment"].Value.ToString();
                     indexRowSelected = dgvFormOfPagament.CurrentRow.Index;
                 }

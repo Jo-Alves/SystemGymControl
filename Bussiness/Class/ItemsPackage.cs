@@ -7,7 +7,6 @@ namespace Bussiness
     public class ItemsPackage
     {
         private int id;
-        private string formOfPayment;
         private decimal valuePackage;
         private int packageID;
         Database.ItemsPackage itemsPackage = new Database.ItemsPackage();
@@ -16,11 +15,6 @@ namespace Bussiness
         {
             get { return id; }
             set { id = value; }
-        }
-        public string _formOfPayment
-        {
-            get { return formOfPayment; }
-            set { formOfPayment = value; }
         }
         public decimal _valuePackage
         {
@@ -36,7 +30,6 @@ namespace Bussiness
         public void Save()
         {
             itemsPackage._id = this._id;
-            itemsPackage._formOfPayment = this._formOfPayment;
             itemsPackage._valuePackage = this._valuePackage;
             itemsPackage._packageID = this._packageID;
             itemsPackage.Save();
@@ -50,6 +43,11 @@ namespace Bussiness
         public void Delete(int idItemsPackage)
         {
             itemsPackage.Delete(idItemsPackage);
+        }
+
+        public int GetMaxId()
+        {
+            return itemsPackage.GetMaxId();
         }
     }
 }

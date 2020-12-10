@@ -6,10 +6,8 @@ namespace Database
     public class ItemsPackage
     {
         private int id;
-        private string formOfPayment;
         private decimal valuePackage;
         private int packageID;
-
 
         string _sql;
 
@@ -17,11 +15,6 @@ namespace Database
         {
             get { return id; }
             set { id = value; }
-        }
-        public string _formOfPayment
-        {
-            get { return formOfPayment; }
-            set { formOfPayment = value; }
         }
         public decimal _valuePackage
         {
@@ -39,13 +32,12 @@ namespace Database
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO items_package VALUES (@formOfPayment, @valuePackage, @packageID)";
+                    _sql = "INSERT INTO items_package VALUES (@valuePackage, @packageID)";
                 else
-                    _sql = "UPDATE items_package SET formOfPayment = @formOfPayment, value = @valuePackage, package_id = @packageID WHERE id = @id";
+                    _sql = "UPDATE items_package SET  value = @valuePackage, package_id = @packageID WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
-                command.Parameters.AddWithValue("@formOfPayment", _formOfPayment);
                 command.Parameters.AddWithValue("@valuePackage", _valuePackage);
                 command.Parameters.AddWithValue("@packageID", _packageID);
                 try
@@ -99,6 +91,29 @@ namespace Database
                     throw;
                 }
             }
+        }
+
+        public int GetMaxId()
+        {
+            int maxId = 0;
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT MAX(id) as maxID FROM items_package";
+                    var command = new SqlCommand(_sql, connection);
+                    connection.Open();
+                    var dr = command.ExecuteReader();
+                    if (dr.Read())
+                        maxId = int.Parse(dr["maxID"].ToString());
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return maxId;
         }
     }
 }

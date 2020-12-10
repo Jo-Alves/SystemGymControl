@@ -41,11 +41,13 @@ namespace SystemGymControl
             dgvDataPlan.ClearSelection();
         }
 
+        public decimal valuePackage { get; set; }
+
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex > -1)
             {
-                
+                valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
             }
         }
 
@@ -68,6 +70,23 @@ namespace SystemGymControl
         private void btnCancel_Click(object sender, EventArgs e)
         {
             OpenForm.ShowForm(new FrmOptionsPlan(), this);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNameStudent.Text))
+            {
+                MessageBox.Show("Infome o Aluno que irá adquirir o plano!", "Systeme GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (valuePackage == 0)
+            {
+                MessageBox.Show("Selecione o Pacote!", "Systeme GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            FrmCashInPayment cashInPayment = new FrmCashInPayment(valuePackage);
+            cashInPayment.ShowDialog();
         }
     }
 }

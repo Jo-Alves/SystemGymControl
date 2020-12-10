@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGymControl));
             this.pnTitle = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblDateNow = new System.Windows.Forms.Label();
             this.btnMimized = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.btnMenuQuestion = new System.Windows.Forms.Button();
             this.btnMenuReport = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnMenuClass = new System.Windows.Forms.Button();
             this.btnMenuRegistration = new System.Windows.Forms.Button();
             this.btnMenuSave = new System.Windows.Forms.Button();
@@ -63,6 +65,7 @@
             // pnTitle
             // 
             this.pnTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnTitle.Controls.Add(this.lblTitle);
             this.pnTitle.Controls.Add(this.lblDateNow);
             this.pnTitle.Controls.Add(this.btnMimized);
             this.pnTitle.Controls.Add(this.btnClose);
@@ -72,6 +75,15 @@
             this.pnTitle.Name = "pnTitle";
             this.pnTitle.Size = new System.Drawing.Size(852, 40);
             this.pnTitle.TabIndex = 1;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(12, 7);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(0, 22);
+            this.lblTitle.TabIndex = 5;
             // 
             // lblDateNow
             // 
@@ -135,7 +147,7 @@
             this.pnConjuctMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnConjuctMenu.Location = new System.Drawing.Point(0, 40);
             this.pnConjuctMenu.Name = "pnConjuctMenu";
-            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 588);
+            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 656);
             this.pnConjuctMenu.TabIndex = 8;
             // 
             // panel3
@@ -144,6 +156,7 @@
             this.panel3.Controls.Add(this.btnMenuQuestion);
             this.panel3.Controls.Add(this.btnMenuReport);
             this.panel3.Controls.Add(this.btnMenuSales);
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btnMenuClass);
             this.panel3.Controls.Add(this.btnMenuRegistration);
             this.panel3.Controls.Add(this.btnMenuSave);
@@ -151,7 +164,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 187);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(235, 380);
+            this.panel3.Size = new System.Drawing.Size(235, 457);
             this.panel3.TabIndex = 5;
             // 
             // btnSetting
@@ -166,11 +179,11 @@
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSetting.Location = new System.Drawing.Point(0, 343);
+            this.btnSetting.Location = new System.Drawing.Point(0, 392);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnSetting.Size = new System.Drawing.Size(235, 49);
-            this.btnSetting.TabIndex = 33;
+            this.btnSetting.TabIndex = 39;
             this.btnSetting.TabStop = false;
             this.btnSetting.Text = "Configurações";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,11 +201,11 @@
             this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
             this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_about_32px;
             this.btnMenuQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 294);
+            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 343);
             this.btnMenuQuestion.Name = "btnMenuQuestion";
             this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuQuestion.Size = new System.Drawing.Size(235, 49);
-            this.btnMenuQuestion.TabIndex = 32;
+            this.btnMenuQuestion.TabIndex = 37;
             this.btnMenuQuestion.TabStop = false;
             this.btnMenuQuestion.Text = "Sobre";
             this.btnMenuQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -210,11 +223,11 @@
             this.btnMenuReport.ForeColor = System.Drawing.Color.White;
             this.btnMenuReport.Image = global::SystemGymControl.Properties.Resources.icons8_report_file_32px;
             this.btnMenuReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuReport.Location = new System.Drawing.Point(0, 245);
+            this.btnMenuReport.Location = new System.Drawing.Point(0, 294);
             this.btnMenuReport.Name = "btnMenuReport";
             this.btnMenuReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuReport.Size = new System.Drawing.Size(235, 49);
-            this.btnMenuReport.TabIndex = 31;
+            this.btnMenuReport.TabIndex = 36;
             this.btnMenuReport.TabStop = false;
             this.btnMenuReport.Text = "Relatório";
             this.btnMenuReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -232,15 +245,37 @@
             this.btnMenuSales.ForeColor = System.Drawing.Color.White;
             this.btnMenuSales.Image = global::SystemGymControl.Properties.Resources.icons8_sale_price_tag_32px_1;
             this.btnMenuSales.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuSales.Location = new System.Drawing.Point(0, 196);
+            this.btnMenuSales.Location = new System.Drawing.Point(0, 245);
             this.btnMenuSales.Name = "btnMenuSales";
             this.btnMenuSales.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuSales.Size = new System.Drawing.Size(235, 49);
-            this.btnMenuSales.TabIndex = 30;
+            this.btnMenuSales.TabIndex = 35;
             this.btnMenuSales.TabStop = false;
             this.btnMenuSales.Text = "Vendas";
             this.btnMenuSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuSales.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::SystemGymControl.Properties.Resources.icons8_card_payment_32px;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(0, 196);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button1.Size = new System.Drawing.Size(235, 49);
+            this.button1.TabIndex = 34;
+            this.button1.TabStop = false;
+            this.button1.Text = "Pagamento";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnMenuClass
             // 
@@ -371,7 +406,7 @@
             this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPage.Location = new System.Drawing.Point(235, 40);
             this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(617, 588);
+            this.pnPage.Size = new System.Drawing.Size(617, 656);
             this.pnPage.TabIndex = 11;
             // 
             // panel2
@@ -407,7 +442,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(852, 628);
+            this.ClientSize = new System.Drawing.Size(852, 696);
             this.Controls.Add(this.pnPage);
             this.Controls.Add(this.pnConjuctMenu);
             this.Controls.Add(this.pnTitle);
@@ -420,6 +455,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGymControl";
             this.pnTitle.ResumeLayout(false);
+            this.pnTitle.PerformLayout();
             this.pnConjuctMenu.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -448,9 +484,11 @@
         private System.Windows.Forms.Button btnMenuSave;
         private System.Windows.Forms.Button btnMenuRegistration;
         private System.Windows.Forms.Button btnMenuClass;
-        private System.Windows.Forms.Button btnMenuSales;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnMenuQuestion;
         private System.Windows.Forms.Button btnMenuReport;
+        private System.Windows.Forms.Button btnMenuSales;
+        private System.Windows.Forms.Button button1;
     }
 }

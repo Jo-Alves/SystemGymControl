@@ -27,6 +27,8 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmStudent(), this);
                 else
                     OpenForm.ShowForm(new FrmSaveStudent(), this);
+            
+                FrmGymControl.Instance._lblTitle.Text = "Cadastro - Aluno";
             }
             catch (Exception ex)
             {
@@ -42,6 +44,8 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmPackage(), this);
                 else
                     OpenForm.ShowForm(new FrmSavePackage(), this);
+            
+                FrmGymControl.Instance._lblTitle.Text = "Cadastro - Pacote";
             }
             catch (Exception ex)
             {
@@ -57,6 +61,8 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmUser(), this);
                 else
                     OpenForm.ShowForm(new FrmSaveUser(), this);
+                    
+                FrmGymControl.Instance._lblTitle.Text = "Cadastro - Usuário";
             }
             catch (Exception ex)
             {

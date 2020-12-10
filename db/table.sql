@@ -48,13 +48,6 @@ CREATE TABLE [dbo].[responsibles_student] (
     FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
 );
 
-CREATE TABLE modalities(
-    [id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-    [description] VARCHAR(50) NOT NULL,
-    [student_id] INT NOT NULL,
-    FOREIGN KEY([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
-)
-
 CREATE TABLE [dbo].[personal]
 (
 	[id] INT NOT NULL PRIMARY KEY, 
@@ -73,19 +66,27 @@ CREATE TABLE [dbo].[packages] (
     [id]          INT             IDENTITY (1, 1) NOT NULL,
     [description] VARCHAR (100)   NOT NULL,
     [duration]    INT             NOT NULL,
-    [period] INT NOT NULL, 
+    [period] VARCHAR(20) NOT NULL, 
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
 
-CREATE TABLE [dbo].[items_packages]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY (1, 1), 
-    [formOfPayment] VARCHAR(50) NOT NULL, 
-    [value] DECIMAL(18, 2) NOT NULL, 
-    [package_id] INT NOT NULL,
-	FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE
-)
+CREATE TABLE [dbo].[items_package] (
+    [id]            INT             IDENTITY (1, 1) NOT NULL,
+    [value]         DECIMAL (18, 2) NOT NULL,
+    [package_id]    INT             NOT NULL,
+    [formOfPayment_id]    INT             NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages] ([id]) ON DELETE CASCADE
+);
+
+CREATE TABLE [dbo].[modalities] (
+    [id]          INT          IDENTITY (1, 1) NOT NULL,
+    [description] VARCHAR (50) NOT NULL,
+    [package_id]  INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages] ([id]) ON DELETE CASCADE
+);
 
 CREATE TABLE [dbo].[billing_parameters_package] (
     [id]             INT             IDENTITY (1, 1) NOT NULL,
@@ -95,7 +96,15 @@ CREATE TABLE [dbo].[billing_parameters_package] (
     [type_interest] VARCHAR (20) NULL,
     [package_id]     INT             NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
-    FOREIGN KEY REFERENCES [dbo].[packages] ON DELETE CASCADE
+    FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages]([id]) ON DELETE CASCADE
+);
+
+CREATE TABLE [dbo].[forms_of_payment] (
+    [Id]               INT          IDENTITY (1, 1) NOT NULL,
+    [description]      VARCHAR (50) NOT NULL,
+    [items_package_id] INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([items_package_id]) REFERENCES [dbo].[items_package] ([id]) ON DELETE CASCADE
 );
 
 CREATE TABLE [dbo].[plans]
@@ -125,14 +134,6 @@ CREATE TABLE [dbo].[payments]
 	[payday] VARCHAR(10) NULL,
     [plan_id] INT NULL,	
 	FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans]([id]) ON DELETE CASCADE
-)
-
-CREATE TABLE [dbo].[forms_of_payment]
-(
-	[Id] INT NOT NULL PRIMARY KEY,
-	[description] VARCHAR(50) NOT NULL,
-	payment_id INT NOT NULL,
-	FOREIGN KEY ([payment_id]) REFERENCES [dbo].[payments]([id]) ON DELETE CASCADE
 )
 
 CREATE TABLE [dbo].[users]

@@ -461,12 +461,11 @@ namespace SystemGymControl
             // 
             // formOfPayment
             // 
-            this.formOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.formOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.formOfPayment.HeaderText = "Forma de Pagamento";
             this.formOfPayment.Name = "formOfPayment";
             this.formOfPayment.ReadOnly = true;
             this.formOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.formOfPayment.Width = 211;
             // 
             // value
             // 
