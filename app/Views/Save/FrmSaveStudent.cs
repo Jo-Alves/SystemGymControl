@@ -62,13 +62,22 @@ namespace SystemGymControl
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (student.SearchAll().Rows.Count > 0)
+            try
             {
-                OpenForm.ShowForm(new FrmStudent(), this);
+                if (student.SearchAll().Rows.Count > 0)
+                {
+                    OpenForm.ShowForm(new FrmStudent(), this);
+                }
+                else
+                {
+                    FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA";
+                    OpenForm.ShowForm(new FrmOptionsSave(), this);
+                }
             }
-            else
-                OpenForm.ShowForm(new FrmOptionsSave(), this);
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         string path = @"C:\System-GYM-Control\Galery\Students";

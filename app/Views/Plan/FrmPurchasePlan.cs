@@ -82,7 +82,7 @@ namespace SystemGymControl
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmOptionsPlan(), this);
+            OpenForm.ShowForm(new FrmHome(), this);
         }
 
         private void btnPurchasePlan_Click(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace SystemGymControl
 
                 SaveSituationPlan();
 
-                OpenForm.ShowForm(new FrmOptionsPlan(), this);
+                OpenForm.ShowForm(new FrmPlan(), this);
             }
             catch(Exception ex)
             {

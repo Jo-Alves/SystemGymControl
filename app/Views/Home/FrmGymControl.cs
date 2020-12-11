@@ -7,8 +7,6 @@ namespace SystemGymControl
 {
     public partial class FrmGymControl : Form
     {
-        bool isMaximized;
-
         public FrmGymControl()
         {
             InitializeComponent();
@@ -17,6 +15,7 @@ namespace SystemGymControl
             pcPerfil.Region = new Region(gp);
 
             ShowForm(new FrmHome());
+            lblTitle.Text = "EXPLOSION ACADEMIA";
             _obj = this;
             this.ClientSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
             this.Top = 0;
@@ -69,7 +68,7 @@ namespace SystemGymControl
         {
             Application.Exit();
         }
-        
+
         private void timer_Tick(object sender, EventArgs e)
         {
             lblDateNow.Text = $"{DateTime.Now.ToLongDateString()}, {DateTime.Now.ToLongTimeString()}";
@@ -102,20 +101,36 @@ namespace SystemGymControl
 
         private void btnMenuSave_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = "";
+            lblTitle.Text = "EXPLOSION ACADEMIA";
             OpenForm.ShowForm(new FrmOptionsSave(), this);
         }
 
         private void btnMenuHome_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = "";
+            lblTitle.Text = "EXPLOSION ACADEMIA";
             OpenForm.ShowForm(new FrmHome(), this);
         }
 
         private void btnMenuPlan_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = "";
-            OpenForm.ShowForm(new FrmOptionsPlan(), this);
+            try
+            {
+                if (new Bussiness.Plan().SearchAll().Rows.Count > 0)
+                    OpenForm.ShowForm(new FrmPlan(), this);
+                else
+                {
+                    if (new Bussiness.Package().SearchAll().Rows.Count > 0)
+                        OpenForm.ShowForm(new FrmPurchasePlan(), this);
+                    else
+                        MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            lblTitle.Text += " - Plano";
         }
     }
 }

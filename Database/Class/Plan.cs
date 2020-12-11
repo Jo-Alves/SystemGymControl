@@ -100,6 +100,68 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, " +
+                        "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
+                        "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
+                        "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
+                        "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
+                        "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
+                        "idSituationPlan, situations_plan.situation, situations_plan.observation FROM " +
+                        "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
+                        "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +
+                        "situations_plan.plan_id = plans.id INNER JOIN items_package " +
+                        "ON items_package.id = plans.items_package_id" +
+                        " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
+                        "INNER JOIN packages ON packages.id = items_package.package_id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        } 
+        
+        public DataTable SearchPlanNameStudent(string name)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, " +
+                        "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
+                        "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
+                        "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
+                        "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
+                        "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
+                        "idSituationPlan, situations_plan.situation, situations_plan.observation FROM " +
+                        "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
+                        "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +
+                        "situations_plan.plan_id = plans.id INNER JOIN items_package " +
+                        "ON items_package.id = plans.items_package_id" +
+                        " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
+                        $"INNER JOIN packages ON packages.id = items_package.package_id WHERE students.name LIKE '%{name}%'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable SearchPlansId(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
                     _sql = "SELECT * FROM plans INNER JOIN situations_plan ON situations_plan.plan_id = plans.id WHERE plans.id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", _id);

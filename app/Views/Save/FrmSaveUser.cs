@@ -67,7 +67,10 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmUser(), this);
                 }
                 else
+                {
+                    FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA";
                     OpenForm.ShowForm(new FrmOptionsSave(), this);
+                }
             }
             catch (Exception ex)
             {
@@ -237,7 +240,6 @@ namespace SystemGymControl
                     txtPassword2.UseSystemPasswordChar = true;
                     pcUpdateFormatPassword.Image = Properties.Resources.ver_32x32;
                     metroToolTip.SetToolTip(pcUpdateFormatPassword, "Ver");
-                    break;
                     break;
             }
 

@@ -29,28 +29,33 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlan));
             this.dgvDataPlan = new System.Windows.Forms.DataGridView();
-            this.showDetails = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionformOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.situationPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPlan = new System.Windows.Forms.Label();
             this.pcPlan = new System.Windows.Forms.PictureBox();
             this.btnPlan = new System.Windows.Forms.Button();
+            this.showDetails = new System.Windows.Forms.DataGridViewImageColumn();
+            this.idStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idItemsPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idFormOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSituationPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionformOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -65,149 +70,56 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDataPlan.BackgroundColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDataPlan.ColumnHeadersHeight = 30;
             this.dgvDataPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataPlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.showDetails,
             this.idStudent,
+            this.idPlan,
+            this.idModality,
+            this.idItemsPackage,
+            this.idPackage,
+            this.idFormOfPayment,
+            this.idSituationPlan,
             this.name,
-            this.id,
             this.descriptionModality,
             this.valuePlan,
             this.descriptionformOfPayment,
             this.descriptionPackage,
             this.datePurchasePlan,
             this.timePurchasePlan,
-            this.situationPlan});
+            this.situation});
+            this.dgvDataPlan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDataPlan.EnableHeadersVisualStyles = false;
             this.dgvDataPlan.Location = new System.Drawing.Point(28, 215);
             this.dgvDataPlan.MultiSelect = false;
             this.dgvDataPlan.Name = "dgvDataPlan";
             this.dgvDataPlan.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataPlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataPlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDataPlan.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDataPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataPlan.Size = new System.Drawing.Size(987, 218);
             this.dgvDataPlan.TabIndex = 17;
             this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
-            // 
-            // showDetails
-            // 
-            this.showDetails.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.showDetails.HeaderText = "Exibir Detalhes";
-            this.showDetails.Name = "showDetails";
-            this.showDetails.ReadOnly = true;
-            this.showDetails.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.showDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.showDetails.Width = 148;
-            // 
-            // idStudent
-            // 
-            this.idStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idStudent.HeaderText = "Código";
-            this.idStudent.Name = "idStudent";
-            this.idStudent.ReadOnly = true;
-            this.idStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.idStudent.Width = 88;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.name.HeaderText = "Nome";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.name.Width = 81;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.HeaderText = "Código";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 69;
-            // 
-            // descriptionModality
-            // 
-            this.descriptionModality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.descriptionModality.HeaderText = "Modalidade";
-            this.descriptionModality.Name = "descriptionModality";
-            this.descriptionModality.ReadOnly = true;
-            this.descriptionModality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionModality.Width = 105;
-            // 
-            // valuePlan
-            // 
-            this.valuePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.valuePlan.HeaderText = "Valor";
-            this.valuePlan.Name = "valuePlan";
-            this.valuePlan.ReadOnly = true;
-            this.valuePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valuePlan.Width = 56;
-            // 
-            // descriptionformOfPayment
-            // 
-            this.descriptionformOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.descriptionformOfPayment.HeaderText = "Forma de Pagamento";
-            this.descriptionformOfPayment.Name = "descriptionformOfPayment";
-            this.descriptionformOfPayment.ReadOnly = true;
-            this.descriptionformOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionformOfPayment.Width = 179;
-            // 
-            // descriptionPackage
-            // 
-            this.descriptionPackage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.descriptionPackage.HeaderText = "Pacote";
-            this.descriptionPackage.Name = "descriptionPackage";
-            this.descriptionPackage.ReadOnly = true;
-            this.descriptionPackage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionPackage.Width = 68;
-            // 
-            // datePurchasePlan
-            // 
-            this.datePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.datePurchasePlan.HeaderText = "Data do plano";
-            this.datePurchasePlan.Name = "datePurchasePlan";
-            this.datePurchasePlan.ReadOnly = true;
-            this.datePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.datePurchasePlan.Width = 123;
-            // 
-            // timePurchasePlan
-            // 
-            this.timePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.timePurchasePlan.HeaderText = "Hora do Plano";
-            this.timePurchasePlan.Name = "timePurchasePlan";
-            this.timePurchasePlan.ReadOnly = true;
-            this.timePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.timePurchasePlan.Width = 125;
-            // 
-            // situationPlan
-            // 
-            this.situationPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.situationPlan.HeaderText = "Situação do Plano";
-            this.situationPlan.Name = "situationPlan";
-            this.situationPlan.ReadOnly = true;
-            this.situationPlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.situationPlan.Width = 152;
+            this.dgvDataPlan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
             // 
             // txtSearch
             // 
@@ -284,6 +196,144 @@ namespace SystemGymControl
             this.btnPlan.TabIndex = 26;
             this.btnPlan.Text = "Realizar novo plano";
             this.btnPlan.UseVisualStyleBackColor = false;
+            this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
+            // 
+            // showDetails
+            // 
+            this.showDetails.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.showDetails.HeaderText = "Exibir Detalhes";
+            this.showDetails.Name = "showDetails";
+            this.showDetails.ReadOnly = true;
+            this.showDetails.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.showDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.showDetails.Width = 148;
+            // 
+            // idStudent
+            // 
+            this.idStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idStudent.HeaderText = "idStudent";
+            this.idStudent.Name = "idStudent";
+            this.idStudent.ReadOnly = true;
+            this.idStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.idStudent.Visible = false;
+            this.idStudent.Width = 109;
+            // 
+            // idPlan
+            // 
+            this.idPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idPlan.HeaderText = "idPlan";
+            this.idPlan.Name = "idPlan";
+            this.idPlan.ReadOnly = true;
+            this.idPlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idPlan.Visible = false;
+            this.idPlan.Width = 63;
+            // 
+            // idModality
+            // 
+            this.idModality.HeaderText = "idModality";
+            this.idModality.Name = "idModality";
+            this.idModality.ReadOnly = true;
+            this.idModality.Visible = false;
+            // 
+            // idItemsPackage
+            // 
+            this.idItemsPackage.HeaderText = "idItemsPackage";
+            this.idItemsPackage.Name = "idItemsPackage";
+            this.idItemsPackage.ReadOnly = true;
+            this.idItemsPackage.Visible = false;
+            // 
+            // idPackage
+            // 
+            this.idPackage.HeaderText = "idPackage";
+            this.idPackage.Name = "idPackage";
+            this.idPackage.ReadOnly = true;
+            this.idPackage.Visible = false;
+            // 
+            // idFormOfPayment
+            // 
+            this.idFormOfPayment.HeaderText = "idFormOfPayment";
+            this.idFormOfPayment.Name = "idFormOfPayment";
+            this.idFormOfPayment.ReadOnly = true;
+            this.idFormOfPayment.Visible = false;
+            // 
+            // idSituationPlan
+            // 
+            this.idSituationPlan.HeaderText = "idSituationPlan";
+            this.idSituationPlan.Name = "idSituationPlan";
+            this.idSituationPlan.ReadOnly = true;
+            this.idSituationPlan.Visible = false;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.name.HeaderText = "Nome";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.name.Width = 81;
+            // 
+            // descriptionModality
+            // 
+            this.descriptionModality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.descriptionModality.HeaderText = "Modalidade";
+            this.descriptionModality.Name = "descriptionModality";
+            this.descriptionModality.ReadOnly = true;
+            this.descriptionModality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.descriptionModality.Width = 105;
+            // 
+            // valuePlan
+            // 
+            this.valuePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valuePlan.HeaderText = "Valor";
+            this.valuePlan.Name = "valuePlan";
+            this.valuePlan.ReadOnly = true;
+            this.valuePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valuePlan.Width = 56;
+            // 
+            // descriptionformOfPayment
+            // 
+            this.descriptionformOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.descriptionformOfPayment.HeaderText = "Forma de Pagamento";
+            this.descriptionformOfPayment.Name = "descriptionformOfPayment";
+            this.descriptionformOfPayment.ReadOnly = true;
+            this.descriptionformOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.descriptionformOfPayment.Width = 179;
+            // 
+            // descriptionPackage
+            // 
+            this.descriptionPackage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.descriptionPackage.HeaderText = "Pacote";
+            this.descriptionPackage.Name = "descriptionPackage";
+            this.descriptionPackage.ReadOnly = true;
+            this.descriptionPackage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.descriptionPackage.Width = 68;
+            // 
+            // datePurchasePlan
+            // 
+            this.datePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.datePurchasePlan.HeaderText = "Data do plano";
+            this.datePurchasePlan.Name = "datePurchasePlan";
+            this.datePurchasePlan.ReadOnly = true;
+            this.datePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.datePurchasePlan.Width = 123;
+            // 
+            // timePurchasePlan
+            // 
+            this.timePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.timePurchasePlan.HeaderText = "Hora do Plano";
+            this.timePurchasePlan.Name = "timePurchasePlan";
+            this.timePurchasePlan.ReadOnly = true;
+            this.timePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.timePurchasePlan.Width = 125;
+            // 
+            // situation
+            // 
+            this.situation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.situation.HeaderText = "Situação do Plano";
+            this.situation.Name = "situation";
+            this.situation.ReadOnly = true;
+            this.situation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.situation.Width = 152;
             // 
             // FrmPlan
             // 
@@ -318,17 +368,22 @@ namespace SystemGymControl
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblPlan;
         private System.Windows.Forms.PictureBox pcPlan;
+        private System.Windows.Forms.Button btnPlan;
         private System.Windows.Forms.DataGridViewImageColumn showDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn idStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idModality;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idItemsPackage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPackage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFormOfPayment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSituationPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionModality;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionformOfPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionPackage;
         private System.Windows.Forms.DataGridViewTextBoxColumn datePurchasePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn timePurchasePlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn situationPlan;
-        private System.Windows.Forms.Button btnPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn situation;
     }
 }

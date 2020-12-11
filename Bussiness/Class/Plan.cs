@@ -65,6 +65,11 @@ namespace Bussiness
             return plan.SearchAll();
         }
         
+        public DataTable SearchPlanNameStudent(string name)
+        {
+            return plan.SearchPlanNameStudent(name);
+        }
+
         public int GetMaxId()
         {
             return plan.GetMaxId();

@@ -233,10 +233,20 @@ namespace SystemGymControl
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (new  Package().SearchAll().Rows.Count > 0)
-                OpenForm.ShowForm(new FrmPackage(), this);
-            else
-                OpenForm.ShowForm(new FrmOptionsSave(), this);
+            try
+            {
+                if (new Package().SearchAll().Rows.Count > 0)
+                    OpenForm.ShowForm(new FrmPackage(), this);
+                else
+                {
+                    FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA";
+                    OpenForm.ShowForm(new FrmOptionsSave(), this);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cbPeriod_SelectedIndexChanged(object sender, EventArgs e)

@@ -21,37 +21,45 @@ namespace SystemGymControl
         public FrmPlan()
         {
             InitializeComponent();
-            //LoadDataPackages();
+            LoadDataPackages();
         }
 
-        //private void LoadDataPackages()
-        //{
-        //    //dgvDataPlan.Rows.Clear();
+        private void LoadDataPackages()
+        {
+            dgvDataPlan.Rows.Clear();
 
-        //    //DataTable DataPackages;
-         
-        //    //if (string.IsNullOrEmpty(txtSearch.Text))
-        //    //    DataPackages = package.SearchAllItemsAndPackage();
-        //    //else
-        //    //    DataPackages = package.SearchDescriptionPackageAndItems(txtSearch.Text);
+            DataTable dataPlan;
 
-        //    //    foreach (DataRow dr in DataPackages.Rows)
-        //    //    {
-        //    //        int addRow = dgvDataPlan.Rows.Add();
-        //    //        dgvDataPlan.Rows[addRow].Cells["id"].Value = dr["id"].ToString();
-        //    //        dgvDataPlan.Rows[addRow].Cells["description"].Value = dr["description"].ToString();
-        //    //        dgvDataPlan.Rows[addRow].Cells["duration"].Value = dr["duration"].ToString();
-        //    //        dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
-        //    //        dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
-        //    //        dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-        //    //        dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-        //    //        dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
+            if (string.IsNullOrEmpty(txtSearch.Text))
+                dataPlan = plan.SearchAll();
+            else
+                dataPlan = plan.SearchPlanNameStudent(txtSearch.Text);
 
-        //    //        dgvDataPlan.Rows[addRow].MinimumHeight = 30;
-        //    //    }
+            foreach (DataRow dr in dataPlan.Rows)
+            {
+                int addRow = dgvDataPlan.Rows.Add();
+                dgvDataPlan.Rows[addRow].Cells["showDetails"].Value = Properties.Resources.icons8_details_32px;
+                dgvDataPlan.Rows[addRow].Cells["idPlan"].Value = dr["idPlan"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["datePurchasePlan"].Value = dr["date_purchase_plan"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["timePurchasePlan"].Value = dr["time_purchase_plan"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["idStudent"].Value = dr["idStudent"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["name"].Value = dr["name"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["idModality"].Value = dr["idModality"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["descriptionModality"].Value = dr["descriptionModality"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItemsPackage"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["valuePlan"].Value = $"R$ {dr["valueItemsPackage"].ToString()}";
+                dgvDataPlan.Rows[addRow].Cells["idFormOfPayment"].Value = dr["idFormOfPayment"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["descriptionFormOfPayment"].Value = dr["descriptionFormOfPayment"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["IdPackage"].Value = dr["IdPackage"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["descriptionPackage"].Value = dr["descriptionPackage"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["idSituationPlan"].Value = dr["idSituationPlan"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["situation"].Value = dr["situation"].ToString();
 
-        //    //dgvDataPlan.ClearSelection();
-        //}
+                dgvDataPlan.Rows[addRow].MinimumHeight = 45;
+            }
+
+            dgvDataPlan.ClearSelection();
+        }
 
         //int idItems;
 
@@ -60,12 +68,27 @@ namespace SystemGymControl
             if(e.RowIndex > -1)
             {
                 //idItems = int.Parse(dgvDataPlan.CurrentRow.Cells["idItemsPackage"].Value.ToString());
+                dgvDataPlan.ClearSelection();
             }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            //LoadDataPackages();
+            LoadDataPackages();
+        }
+
+        private void dgvDataPlan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+                dgvDataPlan.ClearSelection();
+        }
+
+        private void btnPlan_Click(object sender, EventArgs e)
+        {
+            if (new Bussiness.Package().SearchAll().Rows.Count > 0)
+                OpenForm.ShowForm(new FrmPurchasePlan(), this);
+            else
+                MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }
