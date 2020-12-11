@@ -49,6 +49,7 @@
     <Compile Include="Class\Person.cs" />
     <Compile Include="Class\Plan.cs" />
     <Compile Include="Class\ResponsibleStudent.cs" />
+    <Compile Include="Class\SituationsPlan.cs" />
     <Compile Include="Class\Student.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

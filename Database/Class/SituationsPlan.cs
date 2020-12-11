@@ -3,10 +3,11 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class SituationsPlan
+    public class SituationsPlan
     {
         private int id;
         private string situation;
+        private string observation;
         private int planID;
 
 
@@ -22,6 +23,11 @@ namespace Database
             get { return situation; }
             set { situation = value; }
         }
+        public string _observation
+        {
+            get { return observation; }
+            set { observation = value; }
+        }
         public int _planID
         {
             get { return planID; }
@@ -30,49 +36,48 @@ namespace Database
 
         public void Save()
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO situations_plan VALUES (@situation, @planID)";
-            else
-                _sql = "UPDATE situations_plan SET situation = @situation WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO situations_plan VALUES (@situation, @observation, @planID)";
+                else
+                    _sql = "UPDATE situations_plan SET situation = @situation, observation = @observation WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@situation", _situation);
-            command.Parameters.AddWithValue("@planID", _planID);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@situation", _situation);
+                command.Parameters.AddWithValue("@observation", _observation);
+                command.Parameters.AddWithValue("@planID", _planID);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public void SearchID()
+        public DataTable SearchID(int id)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                _sql = "SELECT * FROM situations_plan WHERE id = @id";
-                SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@id", _id);
-                SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _situation = dr["situation"].ToString();
+                    connection.Open();
+                    _sql = "SELECT * FROM situations_plan WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
-            }
-            catch
-            {
-                throw;
+                catch
+                {
+                    throw;
+                }
             }
         }
     }

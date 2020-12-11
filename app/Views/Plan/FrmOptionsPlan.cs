@@ -23,7 +23,7 @@ namespace SystemGymControl
             try
             {
                 if (new Package().SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmPlan(), this);
+                    OpenForm.ShowForm(new FrmPurchasePlan(), this);
                 else
                     MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

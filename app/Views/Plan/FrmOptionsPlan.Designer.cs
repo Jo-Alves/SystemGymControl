@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOptionsPlan));
             this.pnPlan = new System.Windows.Forms.Panel();
             this.lblPlan = new System.Windows.Forms.Label();
             this.btnPlan = new System.Windows.Forms.Button();
@@ -134,7 +135,7 @@
             // 
             // pcPausedPlan
             // 
-            this.pcPausedPlan.Image = global::SystemGymControl.Properties.Resources.icons8_handle_with_care_64px_1;
+            this.pcPausedPlan.Image = ((System.Drawing.Image)(resources.GetObject("pcPausedPlan.Image")));
             this.pcPausedPlan.Location = new System.Drawing.Point(102, 28);
             this.pcPausedPlan.Name = "pcPausedPlan";
             this.pcPausedPlan.Size = new System.Drawing.Size(64, 64);
