@@ -98,3 +98,4 @@ C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymCon
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmSearchStudent.resources
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmCashInPayment.resources
 C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmPurchasePlan.resources
+C:\Users\val\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmDetailsPlan.resources

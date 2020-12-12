@@ -96,6 +96,12 @@
     <Compile Include="Views\Plan\FrmCashInPayment.Designer.cs">
       <DependentUpon>FrmCashInPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Plan\FrmDetailsPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Plan\FrmDetailsPlan.Designer.cs">
+      <DependentUpon>FrmDetailsPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Plan\FrmOptionsPlan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan\FrmCashInPayment.resx">
       <DependentUpon>FrmCashInPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Plan\FrmDetailsPlan.resx">
+      <DependentUpon>FrmDetailsPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan\FrmOptionsPlan.resx">
       <DependentUpon>FrmOptionsPlan.cs</DependentUpon>
@@ -545,6 +554,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_flow_32px_1.png" />
+    <None Include="Resources\icons8_close_window_32px_4.png" />
     <None Include="Resources\icons8_details_32px.png" />
     <None Include="Resources\icons8_card_payment_32px.png" />
     <None Include="Resources\icons8_floor_plan_64px.png" />

@@ -67,7 +67,13 @@ namespace SystemGymControl
         {
             if(e.RowIndex > -1)
             {
-                //idItems = int.Parse(dgvDataPlan.CurrentRow.Cells["idItemsPackage"].Value.ToString());
+                if(dgvDataPlan.CurrentCell.ColumnIndex == 0)
+                {
+                    int idPlan = int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString());
+                    int idStudent = int.Parse(dgvDataPlan.CurrentRow.Cells["idStudent"].Value.ToString());
+                    OpenForm.ShowForm(new FrmDetailsPlan(idPlan, idStudent), this);
+                }
+
                 dgvDataPlan.ClearSelection();
             }
         }

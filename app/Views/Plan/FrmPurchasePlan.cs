@@ -82,7 +82,17 @@ namespace SystemGymControl
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmHome(), this);
+            try
+            {
+                if (plan.SearchAll().Rows.Count > 0)
+                    OpenForm.ShowForm(new FrmPlan(), this);
+                else
+                    OpenForm.ShowForm(new FrmHome(), this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnPurchasePlan_Click(object sender, EventArgs e)
