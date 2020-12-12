@@ -30,26 +30,26 @@ namespace SystemGymControl
             dgvDataPlan.Rows.Clear();
 
             DataTable DataPackages;
-         
+
             if (string.IsNullOrEmpty(txtSearch.Text))
                 DataPackages = package.SearchAllItemsAndPackage();
             else
                 DataPackages = package.SearchDescriptionPackageAndItems(txtSearch.Text);
 
-                foreach (DataRow dr in DataPackages.Rows)
-                {
-                    int addRow = dgvDataPlan.Rows.Add();
-                    dgvDataPlan.Rows[addRow].Cells["id"].Value = dr["id"].ToString();
-                    dgvDataPlan.Rows[addRow].Cells["description"].Value = dr["description"].ToString();
-                    dgvDataPlan.Rows[addRow].Cells["duration"].Value = dr["duration"].ToString();
-                    dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
-                    dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
-                    dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-                    dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-                    dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
+            foreach (DataRow dr in DataPackages.Rows)
+            {
+                int addRow = dgvDataPlan.Rows.Add();
+                dgvDataPlan.Rows[addRow].Cells["id"].Value = dr["id"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["description"].Value = dr["description"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["duration"].Value = dr["duration"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
+                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
 
-                    dgvDataPlan.Rows[addRow].MinimumHeight = 30;
-                }
+                dgvDataPlan.Rows[addRow].MinimumHeight = 30;
+            }
 
             dgvDataPlan.ClearSelection();
         }
@@ -58,7 +58,7 @@ namespace SystemGymControl
 
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 idItems = int.Parse(dgvDataPlan.CurrentRow.Cells["idItemsPackage"].Value.ToString());
             }
@@ -99,23 +99,14 @@ namespace SystemGymControl
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtCodigoStudent.Text))
-                {
-                    MessageBox.Show("Informe os dados do aluno!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtNameStudent.Focus();
+                if (!ValidateFields())
                     return;
-                }
-                else if (!checkedDgvSelected())
-                {
-                    MessageBox.Show("Selecione o plano que o aluno irá adquirir!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                else if (cbModalities.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Selecione a modalidade!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    cbModalities.Focus();
-                    return;
-                }
+
+                FrmCashInPayment cashInPayment = new FrmCashInPayment(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString())));
+                
+                cashInPayment.ShowDialog();
+
+                if (!cashInPayment.paymentCancel) return;
 
                 SavePlan();
 
@@ -127,10 +118,34 @@ namespace SystemGymControl
 
                 OpenForm.ShowForm(new FrmPlan(), this);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool ValidateFields()
+        {
+            bool isValited = false;
+
+            if (string.IsNullOrWhiteSpace(txtCodigoStudent.Text))
+            {
+                MessageBox.Show("Informe os dados do aluno!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNameStudent.Focus();
+            }
+            else if (!checkedDgvSelected())
+            {
+                MessageBox.Show("Selecione o plano que o aluno irá adquirir!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (cbModalities.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione a modalidade!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cbModalities.Focus();
+            }
+            else
+                isValited = true;
+
+            return isValited;
         }
 
         int idMaxPlan;

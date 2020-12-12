@@ -130,8 +130,9 @@ CREATE TABLE [dbo].[payments]
 (
 	[id] INT NOT NULL PRIMARY KEY,
     [portion] int NOT NULL, 
-	[dueDate] VARCHAR(10) NOT NULL,
-	[payday] VARCHAR(10) NULL,
+	[dueDate] VARCHAR(10) NOT NULL, -- venciment0
+	[payday] VARCHAR(10) NULL, -- data do pagamento
+	[payment_time] VARCHAR(8) NULL, -- hora do pagamento
     [plan_id] INT NULL,	
 	FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans]([id]) ON DELETE CASCADE
 )

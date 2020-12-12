@@ -13,11 +13,13 @@ namespace SystemGymControl
 {
     public partial class FrmCashInPayment : Form
     {
+        decimal valuePackage;
+        public bool paymentCancel { get; set; }
+
         public FrmCashInPayment()
         {
             InitializeComponent();
         }
-        decimal valuePackage;
 
         public FrmCashInPayment(decimal valuePackage)
         {
@@ -84,6 +86,13 @@ namespace SystemGymControl
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnFinish_Click(object sender, EventArgs e)
+        {
+            paymentCancel = true;
+
+            this.Close();
         }
     }
 }
