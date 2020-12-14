@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Class\BillingParametersPackage.cs" />
     <Compile Include="Class\CashFlow.cs" />
+    <Compile Include="Class\CardPayment.cs" />
     <Compile Include="Class\FormsOfPayment.cs" />
     <Compile Include="Class\FrequenciesStudent.cs" />
     <Compile Include="Class\IcomingCashFlow.cs" />
@@ -50,7 +51,7 @@
     <Compile Include="Class\Modality.cs" />
     <Compile Include="Class\OutgoingCashFlow.cs" />
     <Compile Include="Class\Package.cs" />
-    <Compile Include="Class\Payment.cs" />
+    <Compile Include="Class\CashPayment.cs" />
     <Compile Include="Class\Person.cs" />
     <Compile Include="Class\Plan.cs" />
     <Compile Include="Class\ResponsibleStudent.cs" />

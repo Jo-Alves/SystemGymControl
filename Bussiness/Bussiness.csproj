@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\BillingParametersPackage.cs" />
+    <Compile Include="Class\CardPayment.cs" />
+    <Compile Include="Class\CashPayment.cs" />
     <Compile Include="Class\FormsOfPayment.cs" />
     <Compile Include="Class\ItemsPackage.cs" />
     <Compile Include="Class\Modality.cs" />

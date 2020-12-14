@@ -3,13 +3,14 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    public class Payment
+    public class CardPayment
     {
         private int id;
-        private int portion;
-        private string dueDate;
+        private decimal numberPortion;
+        private decimal valuePortion;
         private string payday;
         private string paymentTime;
+        private string dueDate;
         private int planID;
 
         string _sql;
@@ -19,16 +20,16 @@ namespace Database
             get { return id; }
             set { id = value; }
         }
-        public int _portion
+        public decimal _numberPortion
         {
-            get { return portion; }
-            set { portion = value; }
+            get { return numberPortion; }
+            set { numberPortion = value; }
         }
-        public string _dueDate
+        public decimal _valuePortion
         {
-            get { return dueDate; }
-            set { dueDate = value; }
-        }
+            get { return valuePortion; }
+            set { valuePortion = value; }
+        }       
         public string _payday
         {
             get { return payday; }
@@ -38,6 +39,11 @@ namespace Database
         {
             get { return paymentTime; }
             set { paymentTime = value; }
+        } 
+        public string _dueDate
+        {
+            get { return dueDate; }
+            set { dueDate = value; }
         }
         public int _planID
         {
@@ -50,16 +56,17 @@ namespace Database
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO payments VALUES (@portion, @dueDate, @payday, @paymentTime, @planID)";
+                    _sql = "INSERT INTO card_payments VALUES (@numberPortion, @valueportion, @payday, @paymentTime, @dueDate, @planID)";
                 else
-                    _sql = "UPDATE payments SET portions = @portion, dueDate = @dueDate, payday = @payday, payment_time = @paymentTime, plan_id = @planID WHERE id = @id";
+                    _sql = "UPDATE card_payments SET value_portion = @valuePortion, number_portion = @numberPortion, payday = @payday, payment_time = @paymentTime, due_date = @duedate, plan_id = @planID WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
-                command.Parameters.AddWithValue("@portion", _portion);
-                command.Parameters.AddWithValue("@dueDate", _dueDate);
+                command.Parameters.AddWithValue("@valueportion", _valuePortion);
+                command.Parameters.AddWithValue("@numberPortion", _numberPortion);
                 command.Parameters.AddWithValue("@payday", _payday);
                 command.Parameters.AddWithValue("@paymentTime", _paymentTime);
+                command.Parameters.AddWithValue("@dueDate", _dueDate);
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
@@ -80,7 +87,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT * FROM payments WHERE id = @id";
+                    _sql = "SELECT * FROM card_payments WHERE id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", id);
                     DataTable table = new DataTable();
@@ -100,7 +107,7 @@ namespace Database
             {
                 try
                 {
-                    _sql = "SELECT * FROM payments WHERE id = @id";
+                    _sql = "SELECT * FROM card_payments WHERE id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
                     DataTable table = new DataTable();
