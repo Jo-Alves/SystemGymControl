@@ -102,11 +102,17 @@ namespace SystemGymControl
                 if (!ValidateFields())
                     return;
 
-                FrmCashInPayment cashInPayment = new FrmCashInPayment(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString())));
-                
-                cashInPayment.ShowDialog();
+                if (dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "dinheiro" || dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "cheque")
+                {
+                    FrmCashInPayment cashInPayment = new FrmCashInPayment(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString())));
 
-                if (!cashInPayment.paymentCancel) return;
+                    cashInPayment.ShowDialog();
+
+                    if (!cashInPayment.paymentCancel) return;
+                }
+
+                return;
+               
 
                 SavePlan();
 

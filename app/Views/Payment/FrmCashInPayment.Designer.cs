@@ -73,7 +73,10 @@ namespace SystemGymControl
             this.txtPaidOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtPaidOut.Name = "txtPaidOut";
             this.txtPaidOut.Size = new System.Drawing.Size(148, 29);
-            this.txtPaidOut.TabIndex = 12;
+            this.txtPaidOut.TabIndex = 0;
+            this.txtPaidOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPaidOut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaidOut_KeyPress);
+            this.txtPaidOut.Leave += new System.EventHandler(this.txtPaidOut_Leave);
             // 
             // label1
             // 
@@ -99,8 +102,7 @@ namespace SystemGymControl
             this.btnDiscount.Location = new System.Drawing.Point(24, 108);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(148, 40);
-            this.btnDiscount.TabIndex = 19;
-            this.btnDiscount.TabStop = false;
+            this.btnDiscount.TabIndex = 0;
             this.btnDiscount.Text = "Desconto";
             this.btnDiscount.UseVisualStyleBackColor = false;
             this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
@@ -123,8 +125,13 @@ namespace SystemGymControl
             this.txtDiscountPercentage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDiscountPercentage.Name = "txtDiscountPercentage";
             this.txtDiscountPercentage.Size = new System.Drawing.Size(148, 29);
-            this.txtDiscountPercentage.TabIndex = 20;
+            this.txtDiscountPercentage.TabIndex = 1;
+            this.txtDiscountPercentage.Text = "0,00";
+            this.txtDiscountPercentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDiscountPercentage.Visible = false;
+            this.txtDiscountPercentage.Click += new System.EventHandler(this.txtDiscountPercentage_Click);
+            this.txtDiscountPercentage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscountPercentage_KeyPress);
+            this.txtDiscountPercentage.Leave += new System.EventHandler(this.txtDiscountPercentage_Leave);
             // 
             // lblDiscountMoney
             // 
@@ -144,8 +151,12 @@ namespace SystemGymControl
             this.txtDiscountMoney.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDiscountMoney.Name = "txtDiscountMoney";
             this.txtDiscountMoney.Size = new System.Drawing.Size(148, 29);
-            this.txtDiscountMoney.TabIndex = 22;
+            this.txtDiscountMoney.TabIndex = 2;
+            this.txtDiscountMoney.Text = "0,00";
+            this.txtDiscountMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDiscountMoney.Visible = false;
+            this.txtDiscountMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscountMoney_KeyPress);
+            this.txtDiscountMoney.Leave += new System.EventHandler(this.txtDiscountMoney_Leave);
             // 
             // lblValueWithDiscount
             // 
@@ -166,7 +177,9 @@ namespace SystemGymControl
             this.txtValueWithDiscount.Name = "txtValueWithDiscount";
             this.txtValueWithDiscount.ReadOnly = true;
             this.txtValueWithDiscount.Size = new System.Drawing.Size(148, 29);
-            this.txtValueWithDiscount.TabIndex = 24;
+            this.txtValueWithDiscount.TabIndex = 3;
+            this.txtValueWithDiscount.TabStop = false;
+            this.txtValueWithDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValueWithDiscount.Visible = false;
             // 
             // label5
@@ -187,7 +200,9 @@ namespace SystemGymControl
             this.txtChange.Name = "txtChange";
             this.txtChange.ReadOnly = true;
             this.txtChange.Size = new System.Drawing.Size(148, 29);
-            this.txtChange.TabIndex = 26;
+            this.txtChange.TabIndex = 4;
+            this.txtChange.TabStop = false;
+            this.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnFinish
             // 
@@ -203,7 +218,7 @@ namespace SystemGymControl
             this.btnFinish.Location = new System.Drawing.Point(24, 245);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(148, 40);
-            this.btnFinish.TabIndex = 28;
+            this.btnFinish.TabIndex = 5;
             this.btnFinish.TabStop = false;
             this.btnFinish.Text = "Finalizar";
             this.btnFinish.UseVisualStyleBackColor = false;
@@ -223,7 +238,7 @@ namespace SystemGymControl
             this.btnGenerateReceipt.Location = new System.Drawing.Point(179, 245);
             this.btnGenerateReceipt.Name = "btnGenerateReceipt";
             this.btnGenerateReceipt.Size = new System.Drawing.Size(148, 40);
-            this.btnGenerateReceipt.TabIndex = 29;
+            this.btnGenerateReceipt.TabIndex = 6;
             this.btnGenerateReceipt.TabStop = false;
             this.btnGenerateReceipt.Text = "Gerar Recibo";
             this.btnGenerateReceipt.UseVisualStyleBackColor = false;
@@ -241,7 +256,7 @@ namespace SystemGymControl
             this.btnCancel.Location = new System.Drawing.Point(335, 245);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 40);
-            this.btnCancel.TabIndex = 30;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
