@@ -23,6 +23,7 @@ namespace SystemGymControl
         {
             InitializeComponent();
             LoadDataPackages();
+            lblDateInitialPlan.Text += DateTime.Now.ToShortDateString();
         }
 
         private void LoadDataPackages()
@@ -55,13 +56,69 @@ namespace SystemGymControl
         }
 
         int idItems;
+        
 
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
                 idItems = int.Parse(dgvDataPlan.CurrentRow.Cells["idItemsPackage"].Value.ToString());
+                SetTerminalPeriod(dgvDataPlan.CurrentRow.Cells["period"].Value.ToString());
             }
+        }
+
+
+
+        private void SetTerminalPeriod(string periodPackage)
+        {
+            string dateTerminalPlan = "";
+            DateTime dateNow = DateTime.Parse(DateTime.Now.ToShortDateString());
+            lblDateTerminalPlan.Visible = true;
+            TimeSpan time;
+
+            switch (periodPackage.ToLower())
+            {
+                case "diário":
+                    dateTerminalPlan += dateNow.ToShortDateString();
+                    break;
+
+                case "mensal":
+                    time = dateNow.AddMonths(1) - dateNow;
+                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    break;
+                
+                case "bimestral":
+                    time = dateNow.AddMonths(2) - dateNow;
+                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    break;
+
+                case "trimestral":
+                    time = dateNow.AddMonths(3) - dateNow;
+                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    break;
+
+                case "semestral":
+                    time = dateNow.AddMonths(6) - dateNow;
+                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    break;
+
+                case "anual":
+                    time = dateNow.AddYears(1) - dateNow;
+                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    break;
+
+                case "quinzena":
+                    time = dateNow.AddDays(15) - dateNow;
+                    dateTerminalPlan += dateNow.AddDays(time.TotalDays).ToShortDateString();
+                    break;
+
+                case "quarentena":
+                    time = dateNow.AddDays(40) - dateNow;
+                    dateTerminalPlan += dateNow.AddDays(time.TotalDays).ToShortDateString();
+                    break;
+            }
+
+            lblDateTerminalPlan.Text = $"Data de término do plano: {dateTerminalPlan}";
         }
 
         private void btnSearchStudent_Click(object sender, EventArgs e)

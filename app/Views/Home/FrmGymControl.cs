@@ -130,7 +130,7 @@ namespace SystemGymControl
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            lblTitle.Text = " - Plano";
+            lblTitle.Text = "EXPLOSION ACADEMIA - Plano";
         }
     }
 }
