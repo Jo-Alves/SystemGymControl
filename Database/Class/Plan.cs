@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -112,6 +113,34 @@ namespace Database
                     throw;
                 }
             }
+        }
+
+        public bool ModalitiesBeforePlanTerminalCurrentEqual(int id, string description)
+        {
+            bool planTerminal = false;
+            try
+            {
+                using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    connection.Open();
+                    _sql = "SELECT * FROM plans INNER JOIN students ON students.id = plans.student_id INNER JOIN modalities ON modalities.plan_id = plans.id WHERE students.id = @id AND CONVERT(DATE, @dateCurrent, 103) <= CONVERT(DATE, date_terminal_plan, 103) AND modalities.description = @description";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@dateCurrent", DateTime.Now.ToShortDateString());
+                    command.Parameters.AddWithValue("@description", description);
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        planTerminal = true;
+                    }
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+            return planTerminal;
         }
 
         public DataTable SearchAll()

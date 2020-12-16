@@ -73,7 +73,7 @@ namespace SystemGymControl
             this.dgvDataPlan.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -107,14 +107,14 @@ namespace SystemGymControl
             this.dgvDataPlan.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDataPlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDataPlan.RowHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDataPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -129,7 +129,7 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.BackColor = System.Drawing.SystemColors.Control;
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
             this.txtSearch.Location = new System.Drawing.Point(133, 21);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(693, 29);
@@ -153,7 +153,7 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 144);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(987, 65);
@@ -164,7 +164,7 @@ namespace SystemGymControl
             // lblPlan
             // 
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
             this.lblPlan.ForeColor = System.Drawing.Color.Black;
             this.lblPlan.Location = new System.Drawing.Point(34, 99);
             this.lblPlan.Name = "lblPlan";
@@ -190,7 +190,7 @@ namespace SystemGymControl
             this.btnPlan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
             this.btnPlan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlan.ForeColor = System.Drawing.Color.White;
             this.btnPlan.Location = new System.Drawing.Point(113, 38);
             this.btnPlan.Name = "btnPlan";
@@ -356,7 +356,7 @@ namespace SystemGymControl
             this.Controls.Add(this.pcPlan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDataPlan);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmPlan";

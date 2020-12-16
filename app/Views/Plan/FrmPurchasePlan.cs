@@ -24,7 +24,6 @@ namespace SystemGymControl
         {
             InitializeComponent();
             LoadDataPackages();
-            lblDateTerminalPlan.Text = $"Data de término do plano: {DateTime.Now.ToShortDateString()}";
         }
 
         private void LoadDataPackages()
@@ -155,6 +154,7 @@ namespace SystemGymControl
 
 
         FrmCashInPayment cashInPayment;
+        FrmCardInPayment cardInPayment;
         string datePlan = DateTime.Now.ToShortDateString(), timePlan = DateTime.Now.ToLongTimeString();
         private void btnPurchasePlan_Click(object sender, EventArgs e)
         {
@@ -164,16 +164,28 @@ namespace SystemGymControl
                 if (!ValidateFields())
                     return;
 
-                if (dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "dinheiro" || dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "cheque")
+                decimal valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
+
+                if (plan.ModalitiesBeforePlanTerminalCurrentEqual(int.Parse(txtCodigoStudent.Text), cbModalities.Text))
                 {
-                    cashInPayment = new FrmCashInPayment(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString())));
+                    MessageBox.Show("O aluno não pode fazer a mesma modalidade antes do fim do plano!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "dinheiro")
+                {
+                    cashInPayment = new FrmCashInPayment(valuePackage);
 
                     cashInPayment.ShowDialog();
 
                     if (!cashInPayment.paymentCancel) return;
+                }
+                else
+                {
+                    cardInPayment = new FrmCardInPayment(valuePackage);
+                    cardInPayment.ShowDialog();
 
-
-
+                    if (!cardInPayment.paymentCancel) return;
                 }
 
                 SavePlan();

@@ -134,7 +134,7 @@ namespace SystemGymControl
             this.groupBox2.Controls.Add(this.lblCPF);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.lblName);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(24, 40);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1095, 148);
@@ -145,7 +145,7 @@ namespace SystemGymControl
             // txtBirth
             // 
             this.txtBirth.BackColor = System.Drawing.Color.White;
-            this.txtBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBirth.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBirth.Location = new System.Drawing.Point(779, 109);
             this.txtBirth.Name = "txtBirth";
             this.txtBirth.ReadOnly = true;
@@ -156,7 +156,7 @@ namespace SystemGymControl
             // txtCPF
             // 
             this.txtCPF.BackColor = System.Drawing.Color.White;
-            this.txtCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPF.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPF.Location = new System.Drawing.Point(611, 108);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
@@ -178,7 +178,7 @@ namespace SystemGymControl
             // 
             this.txtId.BackColor = System.Drawing.Color.White;
             this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.Color.Black;
             this.txtId.Location = new System.Drawing.Point(25, 54);
             this.txtId.Name = "txtId";
@@ -191,7 +191,7 @@ namespace SystemGymControl
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.Color.Black;
             this.lblId.Location = new System.Drawing.Point(21, 28);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -203,7 +203,7 @@ namespace SystemGymControl
             // lblBirth
             // 
             this.lblBirth.AutoSize = true;
-            this.lblBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirth.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBirth.ForeColor = System.Drawing.Color.Black;
             this.lblBirth.Location = new System.Drawing.Point(772, 83);
             this.lblBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -215,7 +215,7 @@ namespace SystemGymControl
             // lblCPF
             // 
             this.lblCPF.AutoSize = true;
-            this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPF.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCPF.ForeColor = System.Drawing.Color.Black;
             this.lblCPF.Location = new System.Drawing.Point(607, 83);
             this.lblCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -228,7 +228,7 @@ namespace SystemGymControl
             // 
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.Black;
             this.txtName.Location = new System.Drawing.Point(25, 109);
             this.txtName.Name = "txtName";
@@ -241,7 +241,7 @@ namespace SystemGymControl
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(21, 83);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -289,7 +289,7 @@ namespace SystemGymControl
             this.groupBox1.Controls.Add(this.lblAddress);
             this.groupBox1.Controls.Add(this.txtDistrict);
             this.groupBox1.Controls.Add(this.lblDistrict);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(24, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1095, 259);
@@ -300,7 +300,7 @@ namespace SystemGymControl
             // txtState
             // 
             this.txtState.BackColor = System.Drawing.Color.White;
-            this.txtState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtState.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtState.Location = new System.Drawing.Point(830, 157);
             this.txtState.Name = "txtState";
             this.txtState.ReadOnly = true;
@@ -311,7 +311,7 @@ namespace SystemGymControl
             // txtNumber
             // 
             this.txtNumber.BackColor = System.Drawing.Color.White;
-            this.txtNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Location = new System.Drawing.Point(827, 103);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.ReadOnly = true;
@@ -322,7 +322,7 @@ namespace SystemGymControl
             // txtPhone
             // 
             this.txtPhone.BackColor = System.Drawing.Color.White;
-            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(18, 213);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.ReadOnly = true;
@@ -333,7 +333,7 @@ namespace SystemGymControl
             // txtCEP
             // 
             this.txtCEP.BackColor = System.Drawing.Color.White;
-            this.txtCEP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCEP.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCEP.Location = new System.Drawing.Point(18, 49);
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.ReadOnly = true;
@@ -344,7 +344,7 @@ namespace SystemGymControl
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(182, 188);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -356,7 +356,7 @@ namespace SystemGymControl
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(186, 213);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
@@ -367,7 +367,7 @@ namespace SystemGymControl
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.ForeColor = System.Drawing.Color.Black;
             this.lblPhone.Location = new System.Drawing.Point(17, 187);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -379,7 +379,7 @@ namespace SystemGymControl
             // lblCEP
             // 
             this.lblCEP.AutoSize = true;
-            this.lblCEP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCEP.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCEP.ForeColor = System.Drawing.Color.Black;
             this.lblCEP.Location = new System.Drawing.Point(14, 24);
             this.lblCEP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -391,7 +391,7 @@ namespace SystemGymControl
             // lblState
             // 
             this.lblState.AutoSize = true;
-            this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblState.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblState.ForeColor = System.Drawing.Color.Black;
             this.lblState.Location = new System.Drawing.Point(828, 132);
             this.lblState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -404,7 +404,7 @@ namespace SystemGymControl
             // 
             this.txtCity.BackColor = System.Drawing.Color.White;
             this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCity.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCity.ForeColor = System.Drawing.Color.Black;
             this.txtCity.Location = new System.Drawing.Point(18, 158);
             this.txtCity.Name = "txtCity";
@@ -417,7 +417,7 @@ namespace SystemGymControl
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCity.ForeColor = System.Drawing.Color.Black;
             this.lblCity.Location = new System.Drawing.Point(17, 132);
             this.lblCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -429,7 +429,7 @@ namespace SystemGymControl
             // lblNumber
             // 
             this.lblNumber.AutoSize = true;
-            this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumber.ForeColor = System.Drawing.Color.Black;
             this.lblNumber.Location = new System.Drawing.Point(823, 77);
             this.lblNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -442,7 +442,7 @@ namespace SystemGymControl
             // 
             this.txtAddress.BackColor = System.Drawing.Color.White;
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.Location = new System.Drawing.Point(18, 103);
             this.txtAddress.Name = "txtAddress";
@@ -455,7 +455,7 @@ namespace SystemGymControl
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.ForeColor = System.Drawing.Color.Black;
             this.lblAddress.Location = new System.Drawing.Point(14, 78);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -468,7 +468,7 @@ namespace SystemGymControl
             // 
             this.txtDistrict.BackColor = System.Drawing.Color.White;
             this.txtDistrict.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistrict.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDistrict.ForeColor = System.Drawing.Color.Black;
             this.txtDistrict.Location = new System.Drawing.Point(145, 49);
             this.txtDistrict.Name = "txtDistrict";
@@ -481,7 +481,7 @@ namespace SystemGymControl
             // lblDistrict
             // 
             this.lblDistrict.AutoSize = true;
-            this.lblDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDistrict.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDistrict.ForeColor = System.Drawing.Color.Black;
             this.lblDistrict.Location = new System.Drawing.Point(141, 23);
             this.lblDistrict.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -516,7 +516,7 @@ namespace SystemGymControl
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtDatePurchasePlan);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(24, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1095, 233);
@@ -547,7 +547,7 @@ namespace SystemGymControl
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(4, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -559,7 +559,7 @@ namespace SystemGymControl
             // txtObservation
             // 
             this.txtObservation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtObservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservation.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservation.Location = new System.Drawing.Point(8, 28);
             this.txtObservation.Multiline = true;
             this.txtObservation.Name = "txtObservation";
@@ -586,7 +586,7 @@ namespace SystemGymControl
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(27, 47);
             this.btnSave.Name = "btnSave";
@@ -625,7 +625,7 @@ namespace SystemGymControl
             // 
             this.txtPackage.BackColor = System.Drawing.Color.White;
             this.txtPackage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPackage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPackage.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPackage.ForeColor = System.Drawing.Color.Black;
             this.txtPackage.Location = new System.Drawing.Point(308, 56);
             this.txtPackage.Name = "txtPackage";
@@ -639,7 +639,7 @@ namespace SystemGymControl
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(809, 30);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -652,7 +652,7 @@ namespace SystemGymControl
             // 
             this.txtFormOfPayment.BackColor = System.Drawing.Color.White;
             this.txtFormOfPayment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFormOfPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFormOfPayment.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFormOfPayment.ForeColor = System.Drawing.Color.Black;
             this.txtFormOfPayment.Location = new System.Drawing.Point(630, 56);
             this.txtFormOfPayment.Name = "txtFormOfPayment";
@@ -666,7 +666,7 @@ namespace SystemGymControl
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(626, 30);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -679,7 +679,7 @@ namespace SystemGymControl
             // 
             this.txtValue.BackColor = System.Drawing.Color.White;
             this.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValue.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue.ForeColor = System.Drawing.Color.Black;
             this.txtValue.Location = new System.Drawing.Point(500, 56);
             this.txtValue.Name = "txtValue";
@@ -693,7 +693,7 @@ namespace SystemGymControl
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(496, 30);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -706,7 +706,7 @@ namespace SystemGymControl
             // 
             this.txtModality.BackColor = System.Drawing.Color.White;
             this.txtModality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtModality.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModality.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModality.ForeColor = System.Drawing.Color.Black;
             this.txtModality.Location = new System.Drawing.Point(808, 56);
             this.txtModality.Name = "txtModality";
@@ -720,7 +720,7 @@ namespace SystemGymControl
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(304, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -733,7 +733,7 @@ namespace SystemGymControl
             // 
             this.txtTimePurchasePlan.BackColor = System.Drawing.Color.White;
             this.txtTimePurchasePlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTimePurchasePlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimePurchasePlan.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimePurchasePlan.ForeColor = System.Drawing.Color.Black;
             this.txtTimePurchasePlan.Location = new System.Drawing.Point(163, 56);
             this.txtTimePurchasePlan.Name = "txtTimePurchasePlan";
@@ -747,7 +747,7 @@ namespace SystemGymControl
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(159, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -760,7 +760,7 @@ namespace SystemGymControl
             // 
             this.txtDatePurchasePlan.BackColor = System.Drawing.Color.White;
             this.txtDatePurchasePlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDatePurchasePlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatePurchasePlan.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDatePurchasePlan.ForeColor = System.Drawing.Color.Black;
             this.txtDatePurchasePlan.Location = new System.Drawing.Point(18, 56);
             this.txtDatePurchasePlan.Name = "txtDatePurchasePlan";
@@ -774,7 +774,7 @@ namespace SystemGymControl
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(14, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -791,7 +791,7 @@ namespace SystemGymControl
             // 
             this.txtDateTerminalPlan.BackColor = System.Drawing.Color.White;
             this.txtDateTerminalPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateTerminalPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateTerminalPlan.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDateTerminalPlan.ForeColor = System.Drawing.Color.Black;
             this.txtDateTerminalPlan.Location = new System.Drawing.Point(18, 138);
             this.txtDateTerminalPlan.Name = "txtDateTerminalPlan";
@@ -805,7 +805,7 @@ namespace SystemGymControl
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(14, 112);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -824,7 +824,7 @@ namespace SystemGymControl
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnMoreDetailsStudent);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmDetailsPlan";

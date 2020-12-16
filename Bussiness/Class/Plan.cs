@@ -82,5 +82,10 @@ namespace Bussiness
         {
             return plan.GetMaxId();
         }
+
+        public bool ModalitiesBeforePlanTerminalCurrentEqual(int id, string description)
+        {
+            return plan.ModalitiesBeforePlanTerminalCurrentEqual(id, description);
+        }
     }
 }

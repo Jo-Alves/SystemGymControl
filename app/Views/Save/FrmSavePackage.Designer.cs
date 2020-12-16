@@ -78,7 +78,7 @@ namespace SystemGymControl
             this.label1.Location = new System.Drawing.Point(16, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 26);
+            this.label1.Size = new System.Drawing.Size(103, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descrição";
             // 
@@ -88,7 +88,7 @@ namespace SystemGymControl
             this.txtDescription.Location = new System.Drawing.Point(21, 71);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(576, 33);
+            this.txtDescription.Size = new System.Drawing.Size(576, 29);
             this.txtDescription.TabIndex = 1;
             // 
             // lblDuration
@@ -98,7 +98,7 @@ namespace SystemGymControl
             this.lblDuration.Location = new System.Drawing.Point(169, 118);
             this.lblDuration.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(95, 26);
+            this.lblDuration.Size = new System.Drawing.Size(88, 24);
             this.lblDuration.TabIndex = 4;
             this.lblDuration.Text = "Duração";
             // 
@@ -112,7 +112,7 @@ namespace SystemGymControl
             0,
             0});
             this.ndDuration.Name = "ndDuration";
-            this.ndDuration.Size = new System.Drawing.Size(120, 33);
+            this.ndDuration.Size = new System.Drawing.Size(120, 29);
             this.ndDuration.TabIndex = 3;
             this.ndDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ndDuration.Value = new decimal(new int[] {
@@ -166,7 +166,7 @@ namespace SystemGymControl
             this.label4.Location = new System.Drawing.Point(16, 118);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 26);
+            this.label4.Size = new System.Drawing.Size(83, 24);
             this.label4.TabIndex = 55;
             this.label4.Text = "Período";
             // 
@@ -187,7 +187,7 @@ namespace SystemGymControl
             "Outros"});
             this.cbPeriod.Location = new System.Drawing.Point(21, 147);
             this.cbPeriod.Name = "cbPeriod";
-            this.cbPeriod.Size = new System.Drawing.Size(147, 34);
+            this.cbPeriod.Size = new System.Drawing.Size(147, 32);
             this.cbPeriod.TabIndex = 2;
             this.cbPeriod.SelectedIndexChanged += new System.EventHandler(this.cbPeriod_SelectedIndexChanged);
             // 
@@ -209,7 +209,7 @@ namespace SystemGymControl
             this.panel2.Controls.Add(this.txtValueInterest);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 117);
+            this.panel2.Location = new System.Drawing.Point(3, 113);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(572, 81);
             this.panel2.TabIndex = 1;
@@ -219,7 +219,7 @@ namespace SystemGymControl
             this.rbPercentageInterest.AutoSize = true;
             this.rbPercentageInterest.Location = new System.Drawing.Point(423, 31);
             this.rbPercentageInterest.Name = "rbPercentageInterest";
-            this.rbPercentageInterest.Size = new System.Drawing.Size(149, 30);
+            this.rbPercentageInterest.Size = new System.Drawing.Size(141, 28);
             this.rbPercentageInterest.TabIndex = 9;
             this.rbPercentageInterest.Text = "Porcentagem";
             this.rbPercentageInterest.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@ namespace SystemGymControl
             this.rbValueInterest.Checked = true;
             this.rbValueInterest.Location = new System.Drawing.Point(306, 31);
             this.rbValueInterest.Name = "rbValueInterest";
-            this.rbValueInterest.Size = new System.Drawing.Size(111, 30);
+            this.rbValueInterest.Size = new System.Drawing.Size(107, 28);
             this.rbValueInterest.TabIndex = 8;
             this.rbValueInterest.TabStop = true;
             this.rbValueInterest.Text = "Valor(R$)";
@@ -242,7 +242,7 @@ namespace SystemGymControl
             this.txtValueInterest.Location = new System.Drawing.Point(179, 28);
             this.txtValueInterest.Margin = new System.Windows.Forms.Padding(4);
             this.txtValueInterest.Name = "txtValueInterest";
-            this.txtValueInterest.Size = new System.Drawing.Size(110, 33);
+            this.txtValueInterest.Size = new System.Drawing.Size(110, 29);
             this.txtValueInterest.TabIndex = 7;
             this.txtValueInterest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValueInterest.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValueInterest_KeyPress);
@@ -255,7 +255,7 @@ namespace SystemGymControl
             this.label5.Location = new System.Drawing.Point(11, 28);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 26);
+            this.label5.Size = new System.Drawing.Size(131, 24);
             this.label5.TabIndex = 59;
             this.label5.Text = "Juros Diários";
             // 
@@ -266,7 +266,7 @@ namespace SystemGymControl
             this.panel1.Controls.Add(this.txtValuePenalty);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 29);
+            this.panel1.Location = new System.Drawing.Point(3, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(572, 88);
             this.panel1.TabIndex = 0;
@@ -276,7 +276,7 @@ namespace SystemGymControl
             this.rbPercentagePenalty.AutoSize = true;
             this.rbPercentagePenalty.Location = new System.Drawing.Point(418, 26);
             this.rbPercentagePenalty.Name = "rbPercentagePenalty";
-            this.rbPercentagePenalty.Size = new System.Drawing.Size(149, 30);
+            this.rbPercentagePenalty.Size = new System.Drawing.Size(141, 28);
             this.rbPercentagePenalty.TabIndex = 6;
             this.rbPercentagePenalty.Text = "Porcentagem";
             this.rbPercentagePenalty.UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@ namespace SystemGymControl
             this.rbValuePenalty.Checked = true;
             this.rbValuePenalty.Location = new System.Drawing.Point(301, 26);
             this.rbValuePenalty.Name = "rbValuePenalty";
-            this.rbValuePenalty.Size = new System.Drawing.Size(111, 30);
+            this.rbValuePenalty.Size = new System.Drawing.Size(107, 28);
             this.rbValuePenalty.TabIndex = 5;
             this.rbValuePenalty.TabStop = true;
             this.rbValuePenalty.Text = "Valor(R$)";
@@ -299,7 +299,7 @@ namespace SystemGymControl
             this.txtValuePenalty.Location = new System.Drawing.Point(179, 26);
             this.txtValuePenalty.Margin = new System.Windows.Forms.Padding(4);
             this.txtValuePenalty.Name = "txtValuePenalty";
-            this.txtValuePenalty.Size = new System.Drawing.Size(110, 33);
+            this.txtValuePenalty.Size = new System.Drawing.Size(110, 29);
             this.txtValuePenalty.TabIndex = 4;
             this.txtValuePenalty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValuePenalty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValuePenalty_KeyPress);
@@ -312,7 +312,7 @@ namespace SystemGymControl
             this.label3.Location = new System.Drawing.Point(5, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 26);
+            this.label3.Size = new System.Drawing.Size(146, 24);
             this.label3.TabIndex = 57;
             this.label3.Text = "Multa p/ atraso";
             // 
@@ -371,7 +371,7 @@ namespace SystemGymControl
             this.edit.Name = "edit";
             this.edit.ReadOnly = true;
             this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.Width = 72;
+            this.edit.Width = 64;
             // 
             // delete
             // 
@@ -380,7 +380,7 @@ namespace SystemGymControl
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 78;
+            this.delete.Width = 74;
             // 
             // id
             // 
@@ -390,7 +390,7 @@ namespace SystemGymControl
             this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.id.Visible = false;
-            this.id.Width = 35;
+            this.id.Width = 31;
             // 
             // idFormsOfPayment
             // 
@@ -417,7 +417,7 @@ namespace SystemGymControl
             this.value.Name = "value";
             this.value.ReadOnly = true;
             this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.value.Width = 64;
+            this.value.Width = 60;
             // 
             // btnInsert
             // 
@@ -445,7 +445,7 @@ namespace SystemGymControl
             this.label6.Location = new System.Drawing.Point(755, 331);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(224, 26);
+            this.label6.Size = new System.Drawing.Size(210, 24);
             this.label6.TabIndex = 62;
             this.label6.Text = "Forma de pagamento";
             // 
@@ -457,11 +457,10 @@ namespace SystemGymControl
             this.cbFormOfPayment.Items.AddRange(new object[] {
             "Cartão de Crédito",
             "Cartão de Débito",
-            "Cheque",
             "Dinheiro"});
             this.cbFormOfPayment.Location = new System.Drawing.Point(760, 361);
             this.cbFormOfPayment.Name = "cbFormOfPayment";
-            this.cbFormOfPayment.Size = new System.Drawing.Size(330, 34);
+            this.cbFormOfPayment.Size = new System.Drawing.Size(330, 32);
             this.cbFormOfPayment.Sorted = true;
             this.cbFormOfPayment.TabIndex = 11;
             // 
@@ -471,7 +470,7 @@ namespace SystemGymControl
             this.txtValue.Location = new System.Drawing.Point(610, 361);
             this.txtValue.Margin = new System.Windows.Forms.Padding(4);
             this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(143, 33);
+            this.txtValue.Size = new System.Drawing.Size(143, 29);
             this.txtValue.TabIndex = 10;
             this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValue_KeyPress);
@@ -484,13 +483,13 @@ namespace SystemGymControl
             this.label7.Location = new System.Drawing.Point(605, 331);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 26);
+            this.label7.Size = new System.Drawing.Size(59, 24);
             this.label7.TabIndex = 59;
             this.label7.Text = "Valor";
             // 
             // FrmSavePackage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1131, 468);
