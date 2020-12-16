@@ -19,6 +19,7 @@ namespace SystemGymControl
         Student student = new Student();
         SituationsPlan situationsPlan = new SituationsPlan();
         CashPayment cashPayment = new CashPayment();
+        CardPayment cardPayment = new CardPayment();
 
         public FrmPurchasePlan()
         {
@@ -56,13 +57,14 @@ namespace SystemGymControl
         }
 
         int idItems;
-        
+        string formPayment;
 
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
                 idItems = int.Parse(dgvDataPlan.CurrentRow.Cells["idItemsPackage"].Value.ToString());
+                formPayment = dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString();
                 SetTerminalPeriod(dgvDataPlan.CurrentRow.Cells["period"].Value.ToString());
             }
         }
@@ -172,7 +174,7 @@ namespace SystemGymControl
                     return;
                 }
 
-                if (dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "dinheiro")
+                if (formPayment.ToLower() == "dinheiro")
                 {
                     cashInPayment = new FrmCashInPayment(valuePackage);
 
@@ -182,7 +184,7 @@ namespace SystemGymControl
                 }
                 else
                 {
-                    cardInPayment = new FrmCardInPayment(valuePackage);
+                    cardInPayment = new FrmCardInPayment(valuePackage, int.Parse(dgvDataPlan.CurrentRow.Cells["duration"].Value.ToString()));
                     cardInPayment.ShowDialog();
 
                     if (!cardInPayment.paymentCancel) return;
@@ -195,13 +197,30 @@ namespace SystemGymControl
                 SaveModality();
 
                 SaveSituationPlan();
+                if (formPayment.ToLower() == "dinheiro")
+                    SaveCashPayment(cashInPayment.DiscountMoney, cashInPayment.valueDiscount);
+                else
+                    SaveCardPayment(cardInPayment.dataPortion);
 
-                SaveCashPayment(cashInPayment.DiscountMoney, cashInPayment.valueDiscount);
                 OpenForm.ShowForm(new FrmPlan(), this);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveCardPayment(DataTable dataPortion)
+        {
+            foreach(DataRow dr in dataPortion.Rows)
+            {
+                cardPayment._numberPortion = int.Parse(dr["portion"].ToString());
+                cardPayment._dueDate = dr["dueDate"].ToString();
+                cardPayment._valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
+                cardPayment._payday = "";
+                cardPayment._paymentTime = "";
+                cardPayment._planID = idMaxPlan;
+                cardPayment.Save();
             }
         }
 
