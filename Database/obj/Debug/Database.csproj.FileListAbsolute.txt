@@ -16,3 +16,9 @@ C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.csprojAs
 C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
 C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.dll
 C:\Users\val\Desktop\clone\SystemGymControl\Database\obj\Debug\Database.pdb
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\Database\bin\Debug\Database.dll
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\Database\bin\Debug\Database.pdb
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Database.csprojAssemblyReference.cache
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Database.dll
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\Database\obj\Debug\Database.pdb

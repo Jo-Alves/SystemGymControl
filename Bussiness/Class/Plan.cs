@@ -8,6 +8,7 @@ namespace Bussiness
         private int id;
         private int numberPortions;
         private string datePurchasePlan;
+        private string dateTerminalPlan;
         private string timePurchasePlan;
         private int itemsPackageID;
         private int studentID;
@@ -33,6 +34,12 @@ namespace Bussiness
         {
             get { return datePurchasePlan; }
             set { datePurchasePlan = value; }
+        } 
+        
+        public string _dateTerminalPlan
+        {
+            get { return dateTerminalPlan; }
+            set { dateTerminalPlan = value; }
         }
         public int _itemsPackageID
         {
@@ -49,6 +56,7 @@ namespace Bussiness
         {
             plan._id = this.id;
             plan._datePurchasePlan = this._datePurchasePlan;
+            plan._dateTerminalPlan = this._dateTerminalPlan;
             plan._timePurchasePlan = this._timePurchasePlan;
             plan._itemsPackageID = this._itemsPackageID;
             plan._studentID = this._studentID;

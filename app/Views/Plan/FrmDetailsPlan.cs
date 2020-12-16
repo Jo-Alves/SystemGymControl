@@ -68,6 +68,7 @@ namespace SystemGymControl
             txtPackage.Text = dataPlan.Rows[0]["descriptionPackage"].ToString();
             txtValue.Text = $"R$ {dataPlan.Rows[0]["valueItemsPackage"].ToString()}";
             txtFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
+            txtDateTerminalPlan.Text = dataPlan.Rows[0]["date_terminal_plan"].ToString();
             situationPlan = dataPlan.Rows[0]["situation"].ToString();
             if (situationPlan.ToLower() == "ativo")
             {

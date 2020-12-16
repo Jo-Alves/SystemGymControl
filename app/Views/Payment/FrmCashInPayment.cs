@@ -16,9 +16,9 @@ namespace SystemGymControl
         decimal valuePackage;
         public bool paymentCancel { get; set; }
         public decimal valuePaidOut { get; set; }
-        public decimal valueDiscount { get; set; }
+        public decimal valueDiscount = 0.00m;
         public decimal change { get; set; }
-        public decimal DiscountMoney { get; set; }
+        public decimal DiscountMoney = 0.00m;
         decimal ValorDescontoPorcento, DiscountPercentage;
 
         public FrmCashInPayment()

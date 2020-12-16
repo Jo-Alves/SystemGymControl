@@ -9,6 +9,7 @@ namespace Database
         private int numberPortions;
         private string datePurchasePlan;
         private string timePurchasePlan;
+        private string dateTerminalPlan;
         private int itemsPackageID;
         private int studentID;
 
@@ -29,6 +30,12 @@ namespace Database
         {
             get { return datePurchasePlan; }
             set { datePurchasePlan = value; }
+        }
+        
+        public string _dateTerminalPlan
+        {
+            get { return dateTerminalPlan; }
+            set { dateTerminalPlan = value; }
         }
         public string _timePurchasePlan
         {
@@ -51,13 +58,14 @@ namespace Database
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO plans VALUES (@datePurchasePlan, @timePurchasePlan, @itemsPackageID, @studentID)";
+                    _sql = "INSERT INTO plans VALUES (@datePurchasePlan, @timePurchasePlan, @dateTerminalPlan, @itemsPackageID, @studentID)";
                 else
-                    _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, time_purchase_plan = @timePurchasePlan, itemns_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
+                    _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, date_terminal_plan = @dateTerminalPlan, time_purchase_plan = @timePurchasePlan, itemns_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@datePurchasePlan", _datePurchasePlan);
+                command.Parameters.AddWithValue("@dateTerminalPlan", _dateTerminalPlan);
                 command.Parameters.AddWithValue("@timePurchasePlan", _timePurchasePlan);
                 command.Parameters.AddWithValue("@itemsPackageID", _itemsPackageID);
                 command.Parameters.AddWithValue("@studentID", _studentID);
@@ -80,7 +88,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
@@ -112,7 +120,7 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
@@ -143,7 +151,7 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +

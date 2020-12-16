@@ -71,7 +71,7 @@ namespace SystemGymControl
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            lblDateNow.Text = $"{DateTime.Now.ToLongDateString()}, {DateTime.Now.ToLongTimeString()}";
+            lblDateNow.Text = $"{DateTime.Now.ToLongDateString()}, {DateTime.Now.ToLongTimeString()}".ToUpper();
         }
 
         private void btnMimized_Click(object sender, EventArgs e)

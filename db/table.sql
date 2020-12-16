@@ -102,6 +102,7 @@ CREATE TABLE [dbo].[plans] (
     [id]                 INT         IDENTITY (1, 1) NOT NULL,
     [date_purchase_plan] VARCHAR (10) NOT NULL,
     [time_purchase_plan] VARCHAR (8) NOT NULL,
+    [date_terminal_plan] VARCHAR (10) NOT NULL,
     [items_package_id]   INT         NOT NULL,
     [student_id]         INT         NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
@@ -128,7 +129,7 @@ CREATE TABLE [dbo].[situations_plan] (
 
 CREATE TABLE [dbo].[cash_payments]
 (
-	[id] INT NOT NULL PRIMARY KEY,
+	[id] INT NOT NULL PRIMARY KEY IDENTITY,
 	[value_total] DECIMAL(18,2) NOT NULL, 
 	[value_discount] DECIMAL (18,2) NOT NULL,
     [payday] VARCHAR(10) NULL, -- data do pagamento

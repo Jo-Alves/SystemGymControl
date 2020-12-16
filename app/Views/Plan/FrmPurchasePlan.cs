@@ -18,12 +18,13 @@ namespace SystemGymControl
         Plan plan = new Plan();
         Student student = new Student();
         SituationsPlan situationsPlan = new SituationsPlan();
+        CashPayment cashPayment = new CashPayment();
 
         public FrmPurchasePlan()
         {
             InitializeComponent();
             LoadDataPackages();
-            lblDateInitialPlan.Text += DateTime.Now.ToShortDateString();
+            lblDateTerminalPlan.Text = $"Data de término do plano: {DateTime.Now.ToShortDateString()}";
         }
 
         private void LoadDataPackages()
@@ -67,11 +68,10 @@ namespace SystemGymControl
             }
         }
 
-
+        string dateTerminalPlan = "";
 
         private void SetTerminalPeriod(string periodPackage)
         {
-            string dateTerminalPlan = "";
             DateTime dateNow = DateTime.Parse(DateTime.Now.ToShortDateString());
             lblDateTerminalPlan.Visible = true;
             TimeSpan time;
@@ -79,42 +79,42 @@ namespace SystemGymControl
             switch (periodPackage.ToLower())
             {
                 case "diário":
-                    dateTerminalPlan += dateNow.ToShortDateString();
+                    dateTerminalPlan = dateNow.ToShortDateString();
                     break;
 
                 case "mensal":
                     time = dateNow.AddMonths(1) - dateNow;
-                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
                     break;
                 
                 case "bimestral":
                     time = dateNow.AddMonths(2) - dateNow;
-                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
                     break;
 
                 case "trimestral":
                     time = dateNow.AddMonths(3) - dateNow;
-                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
                     break;
 
                 case "semestral":
                     time = dateNow.AddMonths(6) - dateNow;
-                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
                     break;
 
                 case "anual":
                     time = dateNow.AddYears(1) - dateNow;
-                    dateTerminalPlan += dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
+                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
                     break;
 
                 case "quinzena":
                     time = dateNow.AddDays(15) - dateNow;
-                    dateTerminalPlan += dateNow.AddDays(time.TotalDays).ToShortDateString();
+                    dateTerminalPlan = dateNow.AddDays(time.TotalDays).ToShortDateString();
                     break;
 
                 case "quarentena":
                     time = dateNow.AddDays(40) - dateNow;
-                    dateTerminalPlan += dateNow.AddDays(time.TotalDays).ToShortDateString();
+                    dateTerminalPlan = dateNow.AddDays(time.TotalDays).ToShortDateString();
                     break;
             }
 
@@ -152,24 +152,29 @@ namespace SystemGymControl
             }
         }
 
+
+
+        FrmCashInPayment cashInPayment;
+        string datePlan = DateTime.Now.ToShortDateString(), timePlan = DateTime.Now.ToLongTimeString();
         private void btnPurchasePlan_Click(object sender, EventArgs e)
         {
             try
             {
+
                 if (!ValidateFields())
                     return;
 
                 if (dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "dinheiro" || dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString().ToLower() == "cheque")
                 {
-                    FrmCashInPayment cashInPayment = new FrmCashInPayment(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString())));
+                    cashInPayment = new FrmCashInPayment(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString())));
 
                     cashInPayment.ShowDialog();
 
                     if (!cashInPayment.paymentCancel) return;
-                }
 
-                return;
-               
+
+
+                }
 
                 SavePlan();
 
@@ -179,12 +184,23 @@ namespace SystemGymControl
 
                 SaveSituationPlan();
 
+                SaveCashPayment(cashInPayment.DiscountMoney, cashInPayment.valueDiscount);
                 OpenForm.ShowForm(new FrmPlan(), this);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void SaveCashPayment(decimal discountMoney, decimal valueDiscount)
+        {
+            cashPayment._valueTotal = valueDiscount;
+            cashPayment._valueDiscount = discountMoney;
+            cashPayment._payday = datePlan;
+            cashPayment._paymentTime = timePlan;
+            cashPayment._planID = idMaxPlan;
+            cashPayment.Save();
         }
 
         private bool ValidateFields()
@@ -215,8 +231,9 @@ namespace SystemGymControl
 
         private void SavePlan()
         {
-            plan._datePurchasePlan = DateTime.Now.ToShortDateString();
-            plan._timePurchasePlan = DateTime.Now.ToLongTimeString();
+            plan._datePurchasePlan = datePlan;
+            plan._timePurchasePlan = timePlan;
+            plan._dateTerminalPlan = dateTerminalPlan;
             plan._itemsPackageID = idItems;
             plan._studentID = int.Parse(txtCodigoStudent.Text);
             plan.Save();

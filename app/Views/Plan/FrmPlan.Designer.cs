@@ -29,9 +29,9 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlan));
             this.dgvDataPlan = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@ namespace SystemGymControl
             this.descriptionPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTerminalPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,14 +71,14 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDataPlan.BackgroundColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDataPlan.ColumnHeadersHeight = 30;
             this.dgvDataPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataPlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -96,6 +97,7 @@ namespace SystemGymControl
             this.descriptionPackage,
             this.datePurchasePlan,
             this.timePurchasePlan,
+            this.dateTerminalPlan,
             this.situation});
             this.dgvDataPlan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDataPlan.EnableHeadersVisualStyles = false;
@@ -103,18 +105,18 @@ namespace SystemGymControl
             this.dgvDataPlan.MultiSelect = false;
             this.dgvDataPlan.Name = "dgvDataPlan";
             this.dgvDataPlan.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataPlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataPlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDataPlan.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDataPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataPlan.Size = new System.Drawing.Size(987, 218);
             this.dgvDataPlan.TabIndex = 17;
@@ -127,10 +129,10 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.BackColor = System.Drawing.SystemColors.Control;
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.txtSearch.Location = new System.Drawing.Point(133, 21);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(693, 33);
+            this.txtSearch.Size = new System.Drawing.Size(693, 29);
             this.txtSearch.TabIndex = 9;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -151,7 +153,7 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 144);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(987, 65);
@@ -162,11 +164,11 @@ namespace SystemGymControl
             // lblPlan
             // 
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblPlan.ForeColor = System.Drawing.Color.Black;
             this.lblPlan.Location = new System.Drawing.Point(34, 99);
             this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(58, 22);
+            this.lblPlan.Size = new System.Drawing.Size(54, 20);
             this.lblPlan.TabIndex = 25;
             this.lblPlan.Text = "Plano";
             // 
@@ -188,7 +190,7 @@ namespace SystemGymControl
             this.btnPlan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
             this.btnPlan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlan.ForeColor = System.Drawing.Color.White;
             this.btnPlan.Location = new System.Drawing.Point(113, 38);
             this.btnPlan.Name = "btnPlan";
@@ -206,7 +208,7 @@ namespace SystemGymControl
             this.showDetails.ReadOnly = true;
             this.showDetails.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.showDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.showDetails.Width = 148;
+            this.showDetails.Width = 140;
             // 
             // idStudent
             // 
@@ -216,7 +218,7 @@ namespace SystemGymControl
             this.idStudent.ReadOnly = true;
             this.idStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.idStudent.Visible = false;
-            this.idStudent.Width = 109;
+            this.idStudent.Width = 103;
             // 
             // idPlan
             // 
@@ -226,7 +228,7 @@ namespace SystemGymControl
             this.idPlan.ReadOnly = true;
             this.idPlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idPlan.Visible = false;
-            this.idPlan.Width = 63;
+            this.idPlan.Width = 58;
             // 
             // idModality
             // 
@@ -270,7 +272,7 @@ namespace SystemGymControl
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.name.Width = 81;
+            this.name.Width = 76;
             // 
             // descriptionModality
             // 
@@ -279,7 +281,7 @@ namespace SystemGymControl
             this.descriptionModality.Name = "descriptionModality";
             this.descriptionModality.ReadOnly = true;
             this.descriptionModality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionModality.Width = 105;
+            this.descriptionModality.Width = 97;
             // 
             // valuePlan
             // 
@@ -288,7 +290,7 @@ namespace SystemGymControl
             this.valuePlan.Name = "valuePlan";
             this.valuePlan.ReadOnly = true;
             this.valuePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valuePlan.Width = 56;
+            this.valuePlan.Width = 52;
             // 
             // descriptionformOfPayment
             // 
@@ -297,7 +299,7 @@ namespace SystemGymControl
             this.descriptionformOfPayment.Name = "descriptionformOfPayment";
             this.descriptionformOfPayment.ReadOnly = true;
             this.descriptionformOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionformOfPayment.Width = 179;
+            this.descriptionformOfPayment.Width = 169;
             // 
             // descriptionPackage
             // 
@@ -306,7 +308,7 @@ namespace SystemGymControl
             this.descriptionPackage.Name = "descriptionPackage";
             this.descriptionPackage.ReadOnly = true;
             this.descriptionPackage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionPackage.Width = 68;
+            this.descriptionPackage.Width = 65;
             // 
             // datePurchasePlan
             // 
@@ -315,7 +317,7 @@ namespace SystemGymControl
             this.datePurchasePlan.Name = "datePurchasePlan";
             this.datePurchasePlan.ReadOnly = true;
             this.datePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.datePurchasePlan.Width = 123;
+            this.datePurchasePlan.Width = 115;
             // 
             // timePurchasePlan
             // 
@@ -324,7 +326,15 @@ namespace SystemGymControl
             this.timePurchasePlan.Name = "timePurchasePlan";
             this.timePurchasePlan.ReadOnly = true;
             this.timePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.timePurchasePlan.Width = 125;
+            this.timePurchasePlan.Width = 116;
+            // 
+            // dateTerminalPlan
+            // 
+            this.dateTerminalPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dateTerminalPlan.HeaderText = "Data do Término do Plano";
+            this.dateTerminalPlan.Name = "dateTerminalPlan";
+            this.dateTerminalPlan.ReadOnly = true;
+            this.dateTerminalPlan.Width = 218;
             // 
             // situation
             // 
@@ -333,11 +343,11 @@ namespace SystemGymControl
             this.situation.Name = "situation";
             this.situation.ReadOnly = true;
             this.situation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.situation.Width = 152;
+            this.situation.Width = 144;
             // 
             // FrmPlan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1027, 462);
@@ -346,7 +356,7 @@ namespace SystemGymControl
             this.Controls.Add(this.pcPlan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDataPlan);
-            this.Font = new System.Drawing.Font("Open Sans", 12F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmPlan";
@@ -384,6 +394,7 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionPackage;
         private System.Windows.Forms.DataGridViewTextBoxColumn datePurchasePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn timePurchasePlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn situation;
     }
 }

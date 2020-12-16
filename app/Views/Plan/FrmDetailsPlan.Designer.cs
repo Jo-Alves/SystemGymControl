@@ -83,6 +83,8 @@ namespace SystemGymControl
             this.txtDatePurchasePlan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.htmlToolTip = new MetroFramework.Drawing.Html.HtmlToolTip();
+            this.txtDateTerminalPlan = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).BeginInit();
@@ -132,7 +134,7 @@ namespace SystemGymControl
             this.groupBox2.Controls.Add(this.lblCPF);
             this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.lblName);
-            this.groupBox2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(24, 40);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1095, 148);
@@ -189,36 +191,36 @@ namespace SystemGymControl
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.Color.Black;
             this.lblId.Location = new System.Drawing.Point(21, 28);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(69, 22);
+            this.lblId.Size = new System.Drawing.Size(65, 20);
             this.lblId.TabIndex = 65;
             this.lblId.Text = "Código";
             // 
             // lblBirth
             // 
             this.lblBirth.AutoSize = true;
-            this.lblBirth.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBirth.ForeColor = System.Drawing.Color.Black;
             this.lblBirth.Location = new System.Drawing.Point(772, 83);
             this.lblBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBirth.Name = "lblBirth";
-            this.lblBirth.Size = new System.Drawing.Size(156, 22);
+            this.lblBirth.Size = new System.Drawing.Size(147, 20);
             this.lblBirth.TabIndex = 64;
             this.lblBirth.Text = "Data Nascimento";
             // 
             // lblCPF
             // 
             this.lblCPF.AutoSize = true;
-            this.lblCPF.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCPF.ForeColor = System.Drawing.Color.Black;
             this.lblCPF.Location = new System.Drawing.Point(607, 83);
             this.lblCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(41, 22);
+            this.lblCPF.Size = new System.Drawing.Size(43, 20);
             this.lblCPF.TabIndex = 63;
             this.lblCPF.Text = "CPF";
             // 
@@ -239,12 +241,12 @@ namespace SystemGymControl
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(21, 83);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(60, 22);
+            this.lblName.Size = new System.Drawing.Size(55, 20);
             this.lblName.TabIndex = 62;
             this.lblName.Text = "Nome";
             // 
@@ -253,7 +255,7 @@ namespace SystemGymControl
             this.linkMoreDetails.AutoSize = true;
             this.linkMoreDetails.Location = new System.Drawing.Point(20, 191);
             this.linkMoreDetails.Name = "linkMoreDetails";
-            this.linkMoreDetails.Size = new System.Drawing.Size(116, 22);
+            this.linkMoreDetails.Size = new System.Drawing.Size(110, 20);
             this.linkMoreDetails.TabIndex = 58;
             this.linkMoreDetails.TabStop = true;
             this.linkMoreDetails.Text = "Mais Detalhes";
@@ -287,7 +289,7 @@ namespace SystemGymControl
             this.groupBox1.Controls.Add(this.lblAddress);
             this.groupBox1.Controls.Add(this.txtDistrict);
             this.groupBox1.Controls.Add(this.lblDistrict);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(24, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1095, 259);
@@ -342,12 +344,12 @@ namespace SystemGymControl
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(182, 188);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 22);
+            this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 89;
             this.label1.Text = "Email";
             // 
@@ -365,36 +367,36 @@ namespace SystemGymControl
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.ForeColor = System.Drawing.Color.Black;
             this.lblPhone.Location = new System.Drawing.Point(17, 187);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(83, 22);
+            this.lblPhone.Size = new System.Drawing.Size(79, 20);
             this.lblPhone.TabIndex = 88;
             this.lblPhone.Text = "Telefone";
             // 
             // lblCEP
             // 
             this.lblCEP.AutoSize = true;
-            this.lblCEP.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCEP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCEP.ForeColor = System.Drawing.Color.Black;
             this.lblCEP.Location = new System.Drawing.Point(14, 24);
             this.lblCEP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCEP.Name = "lblCEP";
-            this.lblCEP.Size = new System.Drawing.Size(42, 22);
+            this.lblCEP.Size = new System.Drawing.Size(44, 20);
             this.lblCEP.TabIndex = 87;
             this.lblCEP.Text = "CEP";
             // 
             // lblState
             // 
             this.lblState.AutoSize = true;
-            this.lblState.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblState.ForeColor = System.Drawing.Color.Black;
             this.lblState.Location = new System.Drawing.Point(828, 132);
             this.lblState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(68, 22);
+            this.lblState.Size = new System.Drawing.Size(66, 20);
             this.lblState.TabIndex = 86;
             this.lblState.Text = "Estado";
             // 
@@ -415,24 +417,24 @@ namespace SystemGymControl
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCity.ForeColor = System.Drawing.Color.Black;
             this.lblCity.Location = new System.Drawing.Point(17, 132);
             this.lblCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(68, 22);
+            this.lblCity.Size = new System.Drawing.Size(65, 20);
             this.lblCity.TabIndex = 85;
             this.lblCity.Text = "Cidade";
             // 
             // lblNumber
             // 
             this.lblNumber.AutoSize = true;
-            this.lblNumber.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumber.ForeColor = System.Drawing.Color.Black;
             this.lblNumber.Location = new System.Drawing.Point(823, 77);
             this.lblNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(79, 22);
+            this.lblNumber.Size = new System.Drawing.Size(71, 20);
             this.lblNumber.TabIndex = 84;
             this.lblNumber.Text = "Número";
             // 
@@ -453,12 +455,12 @@ namespace SystemGymControl
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.ForeColor = System.Drawing.Color.Black;
             this.lblAddress.Location = new System.Drawing.Point(14, 78);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(110, 22);
+            this.lblAddress.Size = new System.Drawing.Size(101, 20);
             this.lblAddress.TabIndex = 83;
             this.lblAddress.Text = "Logradouro";
             // 
@@ -479,12 +481,12 @@ namespace SystemGymControl
             // lblDistrict
             // 
             this.lblDistrict.AutoSize = true;
-            this.lblDistrict.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDistrict.ForeColor = System.Drawing.Color.Black;
             this.lblDistrict.Location = new System.Drawing.Point(141, 23);
             this.lblDistrict.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDistrict.Name = "lblDistrict";
-            this.lblDistrict.Size = new System.Drawing.Size(63, 22);
+            this.lblDistrict.Size = new System.Drawing.Size(57, 20);
             this.lblDistrict.TabIndex = 82;
             this.lblDistrict.Text = "Bairro";
             // 
@@ -499,6 +501,8 @@ namespace SystemGymControl
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtDateTerminalPlan);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.txtPackage);
             this.groupBox3.Controls.Add(this.label7);
@@ -512,7 +516,7 @@ namespace SystemGymControl
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtDatePurchasePlan);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(24, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1095, 233);
@@ -524,9 +528,9 @@ namespace SystemGymControl
             // 
             this.groupBox4.Controls.Add(this.pnObservation);
             this.groupBox4.Controls.Add(this.panel4);
-            this.groupBox4.Location = new System.Drawing.Point(18, 86);
+            this.groupBox4.Location = new System.Drawing.Point(163, 90);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1071, 137);
+            this.groupBox4.Size = new System.Drawing.Size(864, 137);
             this.groupBox4.TabIndex = 78;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Situação";
@@ -535,21 +539,20 @@ namespace SystemGymControl
             // 
             this.pnObservation.Controls.Add(this.label8);
             this.pnObservation.Controls.Add(this.txtObservation);
-            this.pnObservation.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnObservation.Location = new System.Drawing.Point(201, 25);
+            this.pnObservation.Location = new System.Drawing.Point(216, 22);
             this.pnObservation.Name = "pnObservation";
-            this.pnObservation.Size = new System.Drawing.Size(438, 109);
+            this.pnObservation.Size = new System.Drawing.Size(638, 109);
             this.pnObservation.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(4, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 22);
+            this.label8.Size = new System.Drawing.Size(104, 20);
             this.label8.TabIndex = 85;
             this.label8.Text = "Observação";
             // 
@@ -557,10 +560,10 @@ namespace SystemGymControl
             // 
             this.txtObservation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtObservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservation.Location = new System.Drawing.Point(8, 25);
+            this.txtObservation.Location = new System.Drawing.Point(8, 28);
             this.txtObservation.Multiline = true;
             this.txtObservation.Name = "txtObservation";
-            this.txtObservation.Size = new System.Drawing.Size(419, 78);
+            this.txtObservation.Size = new System.Drawing.Size(622, 78);
             this.txtObservation.TabIndex = 84;
             this.txtObservation.TextChanged += new System.EventHandler(this.txtObservation_TextChanged);
             // 
@@ -569,8 +572,7 @@ namespace SystemGymControl
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.rbActive);
             this.panel4.Controls.Add(this.rbInactive);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(3, 25);
+            this.panel4.Location = new System.Drawing.Point(12, 22);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(198, 109);
             this.panel4.TabIndex = 0;
@@ -584,7 +586,7 @@ namespace SystemGymControl
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(27, 47);
             this.btnSave.Name = "btnSave";
@@ -600,7 +602,7 @@ namespace SystemGymControl
             this.rbActive.AutoSize = true;
             this.rbActive.Location = new System.Drawing.Point(9, 15);
             this.rbActive.Name = "rbActive";
-            this.rbActive.Size = new System.Drawing.Size(71, 26);
+            this.rbActive.Size = new System.Drawing.Size(67, 24);
             this.rbActive.TabIndex = 80;
             this.rbActive.TabStop = true;
             this.rbActive.Text = "Ativo";
@@ -612,7 +614,7 @@ namespace SystemGymControl
             this.rbInactive.AutoSize = true;
             this.rbInactive.Location = new System.Drawing.Point(86, 15);
             this.rbInactive.Name = "rbInactive";
-            this.rbInactive.Size = new System.Drawing.Size(86, 26);
+            this.rbInactive.Size = new System.Drawing.Size(81, 24);
             this.rbInactive.TabIndex = 81;
             this.rbInactive.TabStop = true;
             this.rbInactive.Text = "Inativo";
@@ -637,12 +639,12 @@ namespace SystemGymControl
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(809, 30);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 22);
+            this.label7.Size = new System.Drawing.Size(101, 20);
             this.label7.TabIndex = 77;
             this.label7.Text = "Modalidade";
             // 
@@ -664,12 +666,12 @@ namespace SystemGymControl
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(626, 30);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(153, 22);
+            this.label6.Size = new System.Drawing.Size(145, 20);
             this.label6.TabIndex = 75;
             this.label6.Text = "F/ de pagamento";
             // 
@@ -691,12 +693,12 @@ namespace SystemGymControl
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(496, 30);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 22);
+            this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 73;
             this.label5.Text = "Valor";
             // 
@@ -718,12 +720,12 @@ namespace SystemGymControl
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(304, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 22);
+            this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 71;
             this.label4.Text = "Pacote";
             // 
@@ -745,12 +747,12 @@ namespace SystemGymControl
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(159, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 22);
+            this.label3.Size = new System.Drawing.Size(122, 20);
             this.label3.TabIndex = 69;
             this.label3.Text = "Hora do plano";
             // 
@@ -772,12 +774,12 @@ namespace SystemGymControl
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(14, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 22);
+            this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 67;
             this.label2.Text = "Data do plano";
             // 
@@ -785,9 +787,36 @@ namespace SystemGymControl
             // 
             this.htmlToolTip.OwnerDraw = true;
             // 
+            // txtDateTerminalPlan
+            // 
+            this.txtDateTerminalPlan.BackColor = System.Drawing.Color.White;
+            this.txtDateTerminalPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDateTerminalPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateTerminalPlan.ForeColor = System.Drawing.Color.Black;
+            this.txtDateTerminalPlan.Location = new System.Drawing.Point(18, 138);
+            this.txtDateTerminalPlan.Name = "txtDateTerminalPlan";
+            this.txtDateTerminalPlan.ReadOnly = true;
+            this.txtDateTerminalPlan.Size = new System.Drawing.Size(139, 29);
+            this.txtDateTerminalPlan.TabIndex = 79;
+            this.txtDateTerminalPlan.TabStop = false;
+            this.txtDateTerminalPlan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDateTerminalPlan.WordWrap = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(14, 112);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(147, 20);
+            this.label9.TabIndex = 80;
+            this.label9.Text = "Término do plano";
+            // 
             // FrmDetailsPlan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
@@ -795,7 +824,7 @@ namespace SystemGymControl
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnMoreDetailsStudent);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmDetailsPlan";
@@ -876,5 +905,7 @@ namespace SystemGymControl
         private System.Windows.Forms.Button btnClose;
         private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtDateTerminalPlan;
+        private System.Windows.Forms.Label label9;
     }
 }
