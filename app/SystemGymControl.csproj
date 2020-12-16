@@ -563,6 +563,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_back_arrow_32px.png" />
     <None Include="Resources\icons8_flow_32px_1.png" />
     <None Include="Resources\icons8_close_window_32px_4.png" />
     <None Include="Resources\icons8_details_32px.png" />

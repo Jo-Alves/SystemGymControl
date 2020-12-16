@@ -62,6 +62,8 @@ namespace SystemGymControl
             this.lblDistrict = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDateTerminalPlan = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pnObservation = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -83,8 +85,6 @@ namespace SystemGymControl
             this.txtDatePurchasePlan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.htmlToolTip = new MetroFramework.Drawing.Html.HtmlToolTip();
-            this.txtDateTerminalPlan = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).BeginInit();
@@ -105,7 +105,7 @@ namespace SystemGymControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1114, 222);
+            this.panel1.Size = new System.Drawing.Size(1131, 222);
             this.panel1.TabIndex = 0;
             // 
             // btnClose
@@ -113,13 +113,13 @@ namespace SystemGymControl
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_close_window_32px_4;
+            this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_back_arrow_32px;
             this.btnClose.Location = new System.Drawing.Point(24, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(28, 30);
             this.btnClose.TabIndex = 60;
             this.btnClose.TabStop = false;
-            this.htmlToolTip.SetToolTip(this.btnClose, "Fechar janela atual");
+            this.htmlToolTip.SetToolTip(this.btnClose, "Voltar para a janela anterior");
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -149,7 +149,7 @@ namespace SystemGymControl
             this.txtBirth.Location = new System.Drawing.Point(779, 109);
             this.txtBirth.Name = "txtBirth";
             this.txtBirth.ReadOnly = true;
-            this.txtBirth.Size = new System.Drawing.Size(159, 29);
+            this.txtBirth.Size = new System.Drawing.Size(159, 33);
             this.txtBirth.TabIndex = 91;
             this.txtBirth.TabStop = false;
             // 
@@ -160,7 +160,7 @@ namespace SystemGymControl
             this.txtCPF.Location = new System.Drawing.Point(611, 108);
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.ReadOnly = true;
-            this.txtCPF.Size = new System.Drawing.Size(159, 29);
+            this.txtCPF.Size = new System.Drawing.Size(159, 33);
             this.txtCPF.TabIndex = 90;
             this.txtCPF.TabStop = false;
             // 
@@ -183,7 +183,7 @@ namespace SystemGymControl
             this.txtId.Location = new System.Drawing.Point(25, 54);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(139, 29);
+            this.txtId.Size = new System.Drawing.Size(139, 33);
             this.txtId.TabIndex = 58;
             this.txtId.TabStop = false;
             this.txtId.WordWrap = false;
@@ -196,7 +196,7 @@ namespace SystemGymControl
             this.lblId.Location = new System.Drawing.Point(21, 28);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(65, 20);
+            this.lblId.Size = new System.Drawing.Size(69, 22);
             this.lblId.TabIndex = 65;
             this.lblId.Text = "Código";
             // 
@@ -208,7 +208,7 @@ namespace SystemGymControl
             this.lblBirth.Location = new System.Drawing.Point(772, 83);
             this.lblBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBirth.Name = "lblBirth";
-            this.lblBirth.Size = new System.Drawing.Size(147, 20);
+            this.lblBirth.Size = new System.Drawing.Size(156, 22);
             this.lblBirth.TabIndex = 64;
             this.lblBirth.Text = "Data Nascimento";
             // 
@@ -220,7 +220,7 @@ namespace SystemGymControl
             this.lblCPF.Location = new System.Drawing.Point(607, 83);
             this.lblCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(43, 20);
+            this.lblCPF.Size = new System.Drawing.Size(41, 22);
             this.lblCPF.TabIndex = 63;
             this.lblCPF.Text = "CPF";
             // 
@@ -233,7 +233,7 @@ namespace SystemGymControl
             this.txtName.Location = new System.Drawing.Point(25, 109);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(580, 29);
+            this.txtName.Size = new System.Drawing.Size(580, 33);
             this.txtName.TabIndex = 59;
             this.txtName.TabStop = false;
             this.txtName.WordWrap = false;
@@ -246,7 +246,7 @@ namespace SystemGymControl
             this.lblName.Location = new System.Drawing.Point(21, 83);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(55, 20);
+            this.lblName.Size = new System.Drawing.Size(60, 22);
             this.lblName.TabIndex = 62;
             this.lblName.Text = "Nome";
             // 
@@ -255,7 +255,7 @@ namespace SystemGymControl
             this.linkMoreDetails.AutoSize = true;
             this.linkMoreDetails.Location = new System.Drawing.Point(20, 191);
             this.linkMoreDetails.Name = "linkMoreDetails";
-            this.linkMoreDetails.Size = new System.Drawing.Size(110, 20);
+            this.linkMoreDetails.Size = new System.Drawing.Size(116, 22);
             this.linkMoreDetails.TabIndex = 58;
             this.linkMoreDetails.TabStop = true;
             this.linkMoreDetails.Text = "Mais Detalhes";
@@ -267,7 +267,7 @@ namespace SystemGymControl
             this.pnMoreDetailsStudent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMoreDetailsStudent.Location = new System.Drawing.Point(0, 222);
             this.pnMoreDetailsStudent.Name = "pnMoreDetailsStudent";
-            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1114, 288);
+            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1131, 288);
             this.pnMoreDetailsStudent.TabIndex = 1;
             this.pnMoreDetailsStudent.Visible = false;
             // 
@@ -304,7 +304,7 @@ namespace SystemGymControl
             this.txtState.Location = new System.Drawing.Point(830, 157);
             this.txtState.Name = "txtState";
             this.txtState.ReadOnly = true;
-            this.txtState.Size = new System.Drawing.Size(111, 29);
+            this.txtState.Size = new System.Drawing.Size(111, 33);
             this.txtState.TabIndex = 94;
             this.txtState.TabStop = false;
             // 
@@ -315,7 +315,7 @@ namespace SystemGymControl
             this.txtNumber.Location = new System.Drawing.Point(827, 103);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.ReadOnly = true;
-            this.txtNumber.Size = new System.Drawing.Size(111, 29);
+            this.txtNumber.Size = new System.Drawing.Size(111, 33);
             this.txtNumber.TabIndex = 93;
             this.txtNumber.TabStop = false;
             // 
@@ -326,7 +326,7 @@ namespace SystemGymControl
             this.txtPhone.Location = new System.Drawing.Point(18, 213);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.ReadOnly = true;
-            this.txtPhone.Size = new System.Drawing.Size(162, 29);
+            this.txtPhone.Size = new System.Drawing.Size(162, 33);
             this.txtPhone.TabIndex = 92;
             this.txtPhone.TabStop = false;
             // 
@@ -337,7 +337,7 @@ namespace SystemGymControl
             this.txtCEP.Location = new System.Drawing.Point(18, 49);
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.ReadOnly = true;
-            this.txtCEP.Size = new System.Drawing.Size(121, 29);
+            this.txtCEP.Size = new System.Drawing.Size(121, 33);
             this.txtCEP.TabIndex = 91;
             this.txtCEP.TabStop = false;
             // 
@@ -349,7 +349,7 @@ namespace SystemGymControl
             this.label1.Location = new System.Drawing.Point(182, 188);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.Size = new System.Drawing.Size(56, 22);
             this.label1.TabIndex = 89;
             this.label1.Text = "Email";
             // 
@@ -360,7 +360,7 @@ namespace SystemGymControl
             this.txtEmail.Location = new System.Drawing.Point(186, 213);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(638, 29);
+            this.txtEmail.Size = new System.Drawing.Size(638, 33);
             this.txtEmail.TabIndex = 81;
             this.txtEmail.TabStop = false;
             // 
@@ -372,7 +372,7 @@ namespace SystemGymControl
             this.lblPhone.Location = new System.Drawing.Point(17, 187);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(79, 20);
+            this.lblPhone.Size = new System.Drawing.Size(83, 22);
             this.lblPhone.TabIndex = 88;
             this.lblPhone.Text = "Telefone";
             // 
@@ -384,7 +384,7 @@ namespace SystemGymControl
             this.lblCEP.Location = new System.Drawing.Point(14, 24);
             this.lblCEP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCEP.Name = "lblCEP";
-            this.lblCEP.Size = new System.Drawing.Size(44, 20);
+            this.lblCEP.Size = new System.Drawing.Size(42, 22);
             this.lblCEP.TabIndex = 87;
             this.lblCEP.Text = "CEP";
             // 
@@ -396,7 +396,7 @@ namespace SystemGymControl
             this.lblState.Location = new System.Drawing.Point(828, 132);
             this.lblState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(66, 20);
+            this.lblState.Size = new System.Drawing.Size(68, 22);
             this.lblState.TabIndex = 86;
             this.lblState.Text = "Estado";
             // 
@@ -409,7 +409,7 @@ namespace SystemGymControl
             this.txtCity.Location = new System.Drawing.Point(18, 158);
             this.txtCity.Name = "txtCity";
             this.txtCity.ReadOnly = true;
-            this.txtCity.Size = new System.Drawing.Size(806, 29);
+            this.txtCity.Size = new System.Drawing.Size(806, 33);
             this.txtCity.TabIndex = 78;
             this.txtCity.TabStop = false;
             this.txtCity.WordWrap = false;
@@ -422,7 +422,7 @@ namespace SystemGymControl
             this.lblCity.Location = new System.Drawing.Point(17, 132);
             this.lblCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(65, 20);
+            this.lblCity.Size = new System.Drawing.Size(68, 22);
             this.lblCity.TabIndex = 85;
             this.lblCity.Text = "Cidade";
             // 
@@ -434,7 +434,7 @@ namespace SystemGymControl
             this.lblNumber.Location = new System.Drawing.Point(823, 77);
             this.lblNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(71, 20);
+            this.lblNumber.Size = new System.Drawing.Size(79, 22);
             this.lblNumber.TabIndex = 84;
             this.lblNumber.Text = "Número";
             // 
@@ -447,7 +447,7 @@ namespace SystemGymControl
             this.txtAddress.Location = new System.Drawing.Point(18, 103);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(803, 29);
+            this.txtAddress.Size = new System.Drawing.Size(803, 33);
             this.txtAddress.TabIndex = 76;
             this.txtAddress.TabStop = false;
             this.txtAddress.WordWrap = false;
@@ -460,7 +460,7 @@ namespace SystemGymControl
             this.lblAddress.Location = new System.Drawing.Point(14, 78);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(101, 20);
+            this.lblAddress.Size = new System.Drawing.Size(110, 22);
             this.lblAddress.TabIndex = 83;
             this.lblAddress.Text = "Logradouro";
             // 
@@ -473,7 +473,7 @@ namespace SystemGymControl
             this.txtDistrict.Location = new System.Drawing.Point(145, 49);
             this.txtDistrict.Name = "txtDistrict";
             this.txtDistrict.ReadOnly = true;
-            this.txtDistrict.Size = new System.Drawing.Size(676, 29);
+            this.txtDistrict.Size = new System.Drawing.Size(676, 33);
             this.txtDistrict.TabIndex = 75;
             this.txtDistrict.TabStop = false;
             this.txtDistrict.WordWrap = false;
@@ -486,7 +486,7 @@ namespace SystemGymControl
             this.lblDistrict.Location = new System.Drawing.Point(141, 23);
             this.lblDistrict.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDistrict.Name = "lblDistrict";
-            this.lblDistrict.Size = new System.Drawing.Size(57, 20);
+            this.lblDistrict.Size = new System.Drawing.Size(63, 22);
             this.lblDistrict.TabIndex = 82;
             this.lblDistrict.Text = "Bairro";
             // 
@@ -496,7 +496,7 @@ namespace SystemGymControl
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 510);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1114, 245);
+            this.panel3.Size = new System.Drawing.Size(1131, 245);
             this.panel3.TabIndex = 2;
             // 
             // groupBox3
@@ -523,6 +523,33 @@ namespace SystemGymControl
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Plano";
+            // 
+            // txtDateTerminalPlan
+            // 
+            this.txtDateTerminalPlan.BackColor = System.Drawing.Color.White;
+            this.txtDateTerminalPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDateTerminalPlan.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateTerminalPlan.ForeColor = System.Drawing.Color.Black;
+            this.txtDateTerminalPlan.Location = new System.Drawing.Point(18, 138);
+            this.txtDateTerminalPlan.Name = "txtDateTerminalPlan";
+            this.txtDateTerminalPlan.ReadOnly = true;
+            this.txtDateTerminalPlan.Size = new System.Drawing.Size(139, 33);
+            this.txtDateTerminalPlan.TabIndex = 79;
+            this.txtDateTerminalPlan.TabStop = false;
+            this.txtDateTerminalPlan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDateTerminalPlan.WordWrap = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(14, 112);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(161, 22);
+            this.label9.TabIndex = 80;
+            this.label9.Text = "Término do plano";
             // 
             // groupBox4
             // 
@@ -552,7 +579,7 @@ namespace SystemGymControl
             this.label8.Location = new System.Drawing.Point(4, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 20);
+            this.label8.Size = new System.Drawing.Size(110, 22);
             this.label8.TabIndex = 85;
             this.label8.Text = "Observação";
             // 
@@ -602,7 +629,7 @@ namespace SystemGymControl
             this.rbActive.AutoSize = true;
             this.rbActive.Location = new System.Drawing.Point(9, 15);
             this.rbActive.Name = "rbActive";
-            this.rbActive.Size = new System.Drawing.Size(67, 24);
+            this.rbActive.Size = new System.Drawing.Size(71, 26);
             this.rbActive.TabIndex = 80;
             this.rbActive.TabStop = true;
             this.rbActive.Text = "Ativo";
@@ -614,7 +641,7 @@ namespace SystemGymControl
             this.rbInactive.AutoSize = true;
             this.rbInactive.Location = new System.Drawing.Point(86, 15);
             this.rbInactive.Name = "rbInactive";
-            this.rbInactive.Size = new System.Drawing.Size(81, 24);
+            this.rbInactive.Size = new System.Drawing.Size(86, 26);
             this.rbInactive.TabIndex = 81;
             this.rbInactive.TabStop = true;
             this.rbInactive.Text = "Inativo";
@@ -630,7 +657,7 @@ namespace SystemGymControl
             this.txtPackage.Location = new System.Drawing.Point(308, 56);
             this.txtPackage.Name = "txtPackage";
             this.txtPackage.ReadOnly = true;
-            this.txtPackage.Size = new System.Drawing.Size(186, 29);
+            this.txtPackage.Size = new System.Drawing.Size(186, 33);
             this.txtPackage.TabIndex = 76;
             this.txtPackage.TabStop = false;
             this.txtPackage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -644,7 +671,7 @@ namespace SystemGymControl
             this.label7.Location = new System.Drawing.Point(809, 30);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 20);
+            this.label7.Size = new System.Drawing.Size(109, 22);
             this.label7.TabIndex = 77;
             this.label7.Text = "Modalidade";
             // 
@@ -657,7 +684,7 @@ namespace SystemGymControl
             this.txtFormOfPayment.Location = new System.Drawing.Point(630, 56);
             this.txtFormOfPayment.Name = "txtFormOfPayment";
             this.txtFormOfPayment.ReadOnly = true;
-            this.txtFormOfPayment.Size = new System.Drawing.Size(172, 29);
+            this.txtFormOfPayment.Size = new System.Drawing.Size(172, 33);
             this.txtFormOfPayment.TabIndex = 74;
             this.txtFormOfPayment.TabStop = false;
             this.txtFormOfPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -671,7 +698,7 @@ namespace SystemGymControl
             this.label6.Location = new System.Drawing.Point(626, 30);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 20);
+            this.label6.Size = new System.Drawing.Size(153, 22);
             this.label6.TabIndex = 75;
             this.label6.Text = "F/ de pagamento";
             // 
@@ -684,7 +711,7 @@ namespace SystemGymControl
             this.txtValue.Location = new System.Drawing.Point(500, 56);
             this.txtValue.Name = "txtValue";
             this.txtValue.ReadOnly = true;
-            this.txtValue.Size = new System.Drawing.Size(124, 29);
+            this.txtValue.Size = new System.Drawing.Size(124, 33);
             this.txtValue.TabIndex = 72;
             this.txtValue.TabStop = false;
             this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -698,7 +725,7 @@ namespace SystemGymControl
             this.label5.Location = new System.Drawing.Point(496, 30);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 20);
+            this.label5.Size = new System.Drawing.Size(55, 22);
             this.label5.TabIndex = 73;
             this.label5.Text = "Valor";
             // 
@@ -711,7 +738,7 @@ namespace SystemGymControl
             this.txtModality.Location = new System.Drawing.Point(808, 56);
             this.txtModality.Name = "txtModality";
             this.txtModality.ReadOnly = true;
-            this.txtModality.Size = new System.Drawing.Size(275, 29);
+            this.txtModality.Size = new System.Drawing.Size(275, 33);
             this.txtModality.TabIndex = 70;
             this.txtModality.TabStop = false;
             this.txtModality.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -725,7 +752,7 @@ namespace SystemGymControl
             this.label4.Location = new System.Drawing.Point(304, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.Size = new System.Drawing.Size(68, 22);
             this.label4.TabIndex = 71;
             this.label4.Text = "Pacote";
             // 
@@ -738,7 +765,7 @@ namespace SystemGymControl
             this.txtTimePurchasePlan.Location = new System.Drawing.Point(163, 56);
             this.txtTimePurchasePlan.Name = "txtTimePurchasePlan";
             this.txtTimePurchasePlan.ReadOnly = true;
-            this.txtTimePurchasePlan.Size = new System.Drawing.Size(139, 29);
+            this.txtTimePurchasePlan.Size = new System.Drawing.Size(139, 33);
             this.txtTimePurchasePlan.TabIndex = 68;
             this.txtTimePurchasePlan.TabStop = false;
             this.txtTimePurchasePlan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -752,7 +779,7 @@ namespace SystemGymControl
             this.label3.Location = new System.Drawing.Point(159, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.Size = new System.Drawing.Size(132, 22);
             this.label3.TabIndex = 69;
             this.label3.Text = "Hora do plano";
             // 
@@ -765,7 +792,7 @@ namespace SystemGymControl
             this.txtDatePurchasePlan.Location = new System.Drawing.Point(18, 56);
             this.txtDatePurchasePlan.Name = "txtDatePurchasePlan";
             this.txtDatePurchasePlan.ReadOnly = true;
-            this.txtDatePurchasePlan.Size = new System.Drawing.Size(139, 29);
+            this.txtDatePurchasePlan.Size = new System.Drawing.Size(139, 33);
             this.txtDatePurchasePlan.TabIndex = 66;
             this.txtDatePurchasePlan.TabStop = false;
             this.txtDatePurchasePlan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -779,7 +806,7 @@ namespace SystemGymControl
             this.label2.Location = new System.Drawing.Point(14, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 20);
+            this.label2.Size = new System.Drawing.Size(130, 22);
             this.label2.TabIndex = 67;
             this.label2.Text = "Data do plano";
             // 
@@ -787,40 +814,13 @@ namespace SystemGymControl
             // 
             this.htmlToolTip.OwnerDraw = true;
             // 
-            // txtDateTerminalPlan
-            // 
-            this.txtDateTerminalPlan.BackColor = System.Drawing.Color.White;
-            this.txtDateTerminalPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateTerminalPlan.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateTerminalPlan.ForeColor = System.Drawing.Color.Black;
-            this.txtDateTerminalPlan.Location = new System.Drawing.Point(18, 138);
-            this.txtDateTerminalPlan.Name = "txtDateTerminalPlan";
-            this.txtDateTerminalPlan.ReadOnly = true;
-            this.txtDateTerminalPlan.Size = new System.Drawing.Size(139, 29);
-            this.txtDateTerminalPlan.TabIndex = 79;
-            this.txtDateTerminalPlan.TabStop = false;
-            this.txtDateTerminalPlan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDateTerminalPlan.WordWrap = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(14, 112);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(147, 20);
-            this.label9.TabIndex = 80;
-            this.label9.Text = "Término do plano";
-            // 
             // FrmDetailsPlan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 733);
+            this.ClientSize = new System.Drawing.Size(1148, 733);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnMoreDetailsStudent);
             this.Controls.Add(this.panel1);

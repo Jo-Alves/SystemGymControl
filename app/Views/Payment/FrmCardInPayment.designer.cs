@@ -37,14 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumberPortions = new System.Windows.Forms.TextBox();
             this.dgvPortions = new System.Windows.Forms.DataGridView();
+            this.portion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuePortion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblvalueTotal = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.portion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuePortion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbParcelas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPortions)).BeginInit();
             this.SuspendLayout();
@@ -113,12 +113,47 @@
             this.dgvPortions.RowHeadersVisible = false;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dgvPortions.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPortions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPortions.Size = new System.Drawing.Size(497, 199);
             this.dgvPortions.TabIndex = 315;
             this.dgvPortions.TabStop = false;
+            // 
+            // portion
+            // 
+            this.portion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.portion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.portion.HeaderText = "Nº da parcela";
+            this.portion.Name = "portion";
+            this.portion.ReadOnly = true;
+            this.portion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.portion.Width = 130;
+            // 
+            // dueDate
+            // 
+            this.dueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dueDate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dueDate.HeaderText = "Vencimento";
+            this.dueDate.Name = "dueDate";
+            this.dueDate.ReadOnly = true;
+            this.dueDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dueDate.Width = 117;
+            // 
+            // valuePortion
+            // 
+            this.valuePortion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.valuePortion.DefaultCellStyle = dataGridViewCellStyle4;
+            this.valuePortion.HeaderText = "Valor da Parcela";
+            this.valuePortion.Name = "valuePortion";
+            this.valuePortion.ReadOnly = true;
+            this.valuePortion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // lblvalueTotal
             // 
@@ -198,40 +233,6 @@
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
             this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
-            // 
-            // portion
-            // 
-            this.portion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.portion.DefaultCellStyle = dataGridViewCellStyle2;
-            this.portion.HeaderText = "Nº da parcela";
-            this.portion.Name = "portion";
-            this.portion.ReadOnly = true;
-            this.portion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.portion.Width = 130;
-            // 
-            // dueDate
-            // 
-            this.dueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dueDate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dueDate.HeaderText = "Vencimento";
-            this.dueDate.Name = "dueDate";
-            this.dueDate.ReadOnly = true;
-            this.dueDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dueDate.Width = 117;
-            // 
-            // valuePortion
-            // 
-            this.valuePortion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.valuePortion.DefaultCellStyle = dataGridViewCellStyle4;
-            this.valuePortion.HeaderText = "Valor da Parcela";
-            this.valuePortion.Name = "valuePortion";
-            this.valuePortion.ReadOnly = true;
-            this.valuePortion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // FrmCardInPayment
             // 

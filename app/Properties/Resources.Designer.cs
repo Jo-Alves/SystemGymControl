@@ -93,6 +93,16 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_back_arrow_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_back_arrow_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_card_payment_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_card_payment_32px", resourceCulture);
