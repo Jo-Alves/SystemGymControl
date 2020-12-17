@@ -119,10 +119,12 @@ CREATE TABLE [dbo].[modalities] (
 );
 
 CREATE TABLE [dbo].[situations_plan] (
-    [id]        INT          IDENTITY (1, 1) NOT NULL,
-    [situation] VARCHAR (10) NOT NULL,
-    [observation] VARCHAR (MAX) NOT NULL,
-    [plan_id]   INT          NOT NULL,
+    [id]              INT           IDENTITY (1, 1) NOT NULL,
+    [situation]       VARCHAR (10)  NOT NULL,
+    [observation]     VARCHAR (MAX) NOT NULL,
+    [time_inactivated] INT           NULL,
+	[deactivation_date] VARCHAR(10) NULL,
+    [plan_id]         INT           NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
     FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans] ([id]) ON DELETE CASCADE
 );

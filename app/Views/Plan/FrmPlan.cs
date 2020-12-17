@@ -7,15 +7,40 @@ namespace SystemGymControl
 {
     public partial class FrmPlan : Form
     {
-        Package package = new Package();
-        Modality modality = new Modality();
         Plan plan = new Plan();
-        Student student = new Student();
+        SituationsPlan situationsPlan = new SituationsPlan();
 
         public FrmPlan()
         {
             InitializeComponent();
             LoadDataPackages();
+            UpdateTimeInactivated();
+        }
+
+        // atualiza a coluna da tabela timeInactivated incrementado se o plano estiver inativado
+        private void UpdateTimeInactivated()
+        {
+            TimeSpan time;
+
+            foreach(DataGridViewRow dgv in dgvDataPlan.Rows)
+            {
+                if(dgv.Cells["situation"].Value.ToString() == "Inativo")
+                {
+                    DateTime dateTerminal = Convert.ToDateTime(dgv.Cells["dateTerminalPlan"].Value.ToString()) , deactivationDate = Convert.ToDateTime(dgv.Cells["deactivationDate"].Value.ToString());
+                    time = DateTime.Now.Subtract(deactivationDate);
+                    situationsPlan._timeInactivated = time.Days;
+                    int idSituation = int.Parse(dgv.Cells["idSituationPlan"].Value.ToString());
+                    plan._dateTerminalPlan = dateTerminal.AddDays(time.Days).ToShortDateString();
+                    situationsPlan.updateTimeInactivated(idSituation);
+                    plan.UpdateTerminalPlan(int.Parse(dgv.Cells["idPlan"].Value.ToString()));
+                   if(time.Days == 1)
+                    {
+                        dgv.Cells["timeInactivated"].Value = $"{time.Days} dia";
+                    }
+                   else
+                        dgv.Cells["timeInactivated"].Value = $"{time.Days} dias";
+                }
+            }
         }
 
         private void LoadDataPackages()
@@ -49,7 +74,8 @@ namespace SystemGymControl
                 dgvDataPlan.Rows[addRow].Cells["descriptionPackage"].Value = dr["descriptionPackage"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["idSituationPlan"].Value = dr["idSituationPlan"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["situation"].Value = dr["situation"].ToString();
-
+                dgvDataPlan.Rows[addRow].Cells["deactivationDate"].Value = dr["deactivation_date"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["timeInactivated"].Value = dr["time_inactivated"].ToString();
                 dgvDataPlan.Rows[addRow].MinimumHeight = 45;
             }
 

@@ -276,6 +276,7 @@ namespace SystemGymControl
             situationsPlan._situation = "Ativo";
             situationsPlan._observation = "";
             situationsPlan._planID = idMaxPlan;
+            situationsPlan._deactivationDate = "";
             situationsPlan.Save();
         }
 

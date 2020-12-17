@@ -82,6 +82,27 @@ namespace Database
             }
         }
 
+        public void UpdateTerminalPlan(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                _sql = "UPDATE plans SET date_terminal_plan = @dateTerminalPlan WHERE id = @id";
+
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@dateTerminalPlan", _dateTerminalPlan);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
         public DataTable SearchID(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -95,7 +116,7 @@ namespace Database
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
                         "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
                         "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
-                        "idSituationPlan, situations_plan.situation, situations_plan.observation FROM " +
+                        "idSituationPlan, situations_plan.situation, situations_plan.observation, situations_plan.deactivation_date, situations_plan.time_inactivated FROM " +
                         "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
                         "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +
                         "situations_plan.plan_id = plans.id INNER JOIN items_package " +
@@ -155,7 +176,7 @@ namespace Database
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
                         "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
                         "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
-                        "idSituationPlan, situations_plan.situation, situations_plan.observation FROM " +
+                        "idSituationPlan, situations_plan.situation, situations_plan.observation, situations_plan.deactivation_date, situations_plan.time_inactivated FROM " +
                         "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
                         "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +
                         "situations_plan.plan_id = plans.id INNER JOIN items_package " +
@@ -186,7 +207,7 @@ namespace Database
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
                         "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
                         "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
-                        "idSituationPlan, situations_plan.situation, situations_plan.observation FROM " +
+                        "idSituationPlan, situations_plan.situation, situations_plan.observation, situations_plan.deactivation_date, situations_plan.time_inactivated FROM " +
                         "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
                         "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +
                         "situations_plan.plan_id = plans.id INNER JOIN items_package " +

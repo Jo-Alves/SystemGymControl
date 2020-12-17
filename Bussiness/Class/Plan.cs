@@ -71,6 +71,12 @@ namespace Bussiness
         {
             return plan.SearchAll();
         }
+        
+        public void UpdateTerminalPlan(int id)
+        {
+            plan._dateTerminalPlan = this._dateTerminalPlan;
+            plan.UpdateTerminalPlan(id);
+        }
 
         public DataTable SearchPlanNameStudent(string name)
         {

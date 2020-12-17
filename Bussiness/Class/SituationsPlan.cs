@@ -8,6 +8,8 @@ namespace Bussiness
         private int id;
         private string situation;
         private string observation;
+        private string deactivationDate;
+        private int timeInactivated;
         private int planID;
 
         public int _id
@@ -25,6 +27,16 @@ namespace Bussiness
             get { return observation; }
             set { observation = value; }
         }
+        public string _deactivationDate
+        {
+            get { return deactivationDate; }
+            set { deactivationDate = value; }
+        }
+        public int _timeInactivated
+        {
+            get { return timeInactivated; }
+            set { timeInactivated = value; }
+        }
         public int _planID
         {
             get { return planID; }
@@ -37,7 +49,14 @@ namespace Bussiness
             situationsPlan._situation = this._situation;
             situationsPlan._observation = this._observation;
             situationsPlan._planID = this._planID;
+            situationsPlan._deactivationDate = this._deactivationDate;
             situationsPlan.Save();
+        }
+
+        public void updateTimeInactivated(int id)
+        {
+            situationsPlan._timeInactivated = this._timeInactivated;
+            situationsPlan.updateTimeInactive(id);
         }
 
         public DataTable SearchID(int id)

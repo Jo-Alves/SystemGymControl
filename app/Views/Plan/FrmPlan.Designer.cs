@@ -57,6 +57,8 @@ namespace SystemGymControl
             this.timePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTerminalPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeInactivated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deactivationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,7 +100,9 @@ namespace SystemGymControl
             this.datePurchasePlan,
             this.timePurchasePlan,
             this.dateTerminalPlan,
-            this.situation});
+            this.situation,
+            this.timeInactivated,
+            this.deactivationDate});
             this.dgvDataPlan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDataPlan.EnableHeadersVisualStyles = false;
             this.dgvDataPlan.Location = new System.Drawing.Point(28, 215);
@@ -132,7 +136,7 @@ namespace SystemGymControl
             this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
             this.txtSearch.Location = new System.Drawing.Point(133, 21);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(693, 29);
+            this.txtSearch.Size = new System.Drawing.Size(693, 33);
             this.txtSearch.TabIndex = 9;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -168,7 +172,7 @@ namespace SystemGymControl
             this.lblPlan.ForeColor = System.Drawing.Color.Black;
             this.lblPlan.Location = new System.Drawing.Point(34, 99);
             this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(54, 20);
+            this.lblPlan.Size = new System.Drawing.Size(58, 22);
             this.lblPlan.TabIndex = 25;
             this.lblPlan.Text = "Plano";
             // 
@@ -208,7 +212,7 @@ namespace SystemGymControl
             this.showDetails.ReadOnly = true;
             this.showDetails.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.showDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.showDetails.Width = 140;
+            this.showDetails.Width = 148;
             // 
             // idStudent
             // 
@@ -218,7 +222,7 @@ namespace SystemGymControl
             this.idStudent.ReadOnly = true;
             this.idStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.idStudent.Visible = false;
-            this.idStudent.Width = 103;
+            this.idStudent.Width = 109;
             // 
             // idPlan
             // 
@@ -228,7 +232,7 @@ namespace SystemGymControl
             this.idPlan.ReadOnly = true;
             this.idPlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.idPlan.Visible = false;
-            this.idPlan.Width = 58;
+            this.idPlan.Width = 63;
             // 
             // idModality
             // 
@@ -272,7 +276,7 @@ namespace SystemGymControl
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.name.Width = 76;
+            this.name.Width = 81;
             // 
             // descriptionModality
             // 
@@ -281,7 +285,7 @@ namespace SystemGymControl
             this.descriptionModality.Name = "descriptionModality";
             this.descriptionModality.ReadOnly = true;
             this.descriptionModality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionModality.Width = 97;
+            this.descriptionModality.Width = 105;
             // 
             // valuePlan
             // 
@@ -290,7 +294,7 @@ namespace SystemGymControl
             this.valuePlan.Name = "valuePlan";
             this.valuePlan.ReadOnly = true;
             this.valuePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valuePlan.Width = 52;
+            this.valuePlan.Width = 56;
             // 
             // descriptionformOfPayment
             // 
@@ -299,7 +303,7 @@ namespace SystemGymControl
             this.descriptionformOfPayment.Name = "descriptionformOfPayment";
             this.descriptionformOfPayment.ReadOnly = true;
             this.descriptionformOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionformOfPayment.Width = 169;
+            this.descriptionformOfPayment.Width = 179;
             // 
             // descriptionPackage
             // 
@@ -308,7 +312,7 @@ namespace SystemGymControl
             this.descriptionPackage.Name = "descriptionPackage";
             this.descriptionPackage.ReadOnly = true;
             this.descriptionPackage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionPackage.Width = 65;
+            this.descriptionPackage.Width = 68;
             // 
             // datePurchasePlan
             // 
@@ -317,7 +321,7 @@ namespace SystemGymControl
             this.datePurchasePlan.Name = "datePurchasePlan";
             this.datePurchasePlan.ReadOnly = true;
             this.datePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.datePurchasePlan.Width = 115;
+            this.datePurchasePlan.Width = 123;
             // 
             // timePurchasePlan
             // 
@@ -326,7 +330,7 @@ namespace SystemGymControl
             this.timePurchasePlan.Name = "timePurchasePlan";
             this.timePurchasePlan.ReadOnly = true;
             this.timePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.timePurchasePlan.Width = 116;
+            this.timePurchasePlan.Width = 125;
             // 
             // dateTerminalPlan
             // 
@@ -334,7 +338,7 @@ namespace SystemGymControl
             this.dateTerminalPlan.HeaderText = "Data do Término do Plano";
             this.dateTerminalPlan.Name = "dateTerminalPlan";
             this.dateTerminalPlan.ReadOnly = true;
-            this.dateTerminalPlan.Width = 218;
+            this.dateTerminalPlan.Width = 234;
             // 
             // situation
             // 
@@ -343,11 +347,28 @@ namespace SystemGymControl
             this.situation.Name = "situation";
             this.situation.ReadOnly = true;
             this.situation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.situation.Width = 144;
+            this.situation.Width = 152;
+            // 
+            // timeInactivated
+            // 
+            this.timeInactivated.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.timeInactivated.HeaderText = "Tempo do plano desativado";
+            this.timeInactivated.Name = "timeInactivated";
+            this.timeInactivated.ReadOnly = true;
+            this.timeInactivated.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.timeInactivated.Width = 227;
+            // 
+            // deactivationDate
+            // 
+            this.deactivationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.deactivationDate.HeaderText = "Data da desativação do plano";
+            this.deactivationDate.Name = "deactivationDate";
+            this.deactivationDate.ReadOnly = true;
+            this.deactivationDate.Width = 259;
             // 
             // FrmPlan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1027, 462);
@@ -396,5 +417,7 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn timePurchasePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn situation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeInactivated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deactivationDate;
     }
 }

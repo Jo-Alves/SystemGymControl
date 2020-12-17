@@ -116,8 +116,11 @@ namespace SystemGymControl
             if (rbActive.Checked)
                 situations._situation = rbActive.Text;
             else
+            {
                 situations._situation = rbInactive.Text;
-
+                situations._deactivationDate = DateTime.Now.ToShortDateString();
+            }
+           
             situations.Save();
 
             if (rbInactive.Checked)
