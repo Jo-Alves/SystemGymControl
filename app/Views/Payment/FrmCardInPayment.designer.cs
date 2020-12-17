@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbParcelas = new System.Windows.Forms.GroupBox();
+            this.ndNumberPortions = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPortions = new System.Windows.Forms.DataGridView();
             this.portion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,10 +45,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ndNumberPortions = new System.Windows.Forms.NumericUpDown();
             this.gbParcelas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPortions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberPortions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPortions)).BeginInit();
             this.SuspendLayout();
             // 
             // gbParcelas
@@ -64,6 +64,15 @@
             this.gbParcelas.TabStop = false;
             this.gbParcelas.Text = "Parcelas";
             // 
+            // ndNumberPortions
+            // 
+            this.ndNumberPortions.Location = new System.Drawing.Point(20, 47);
+            this.ndNumberPortions.Name = "ndNumberPortions";
+            this.ndNumberPortions.Size = new System.Drawing.Size(120, 29);
+            this.ndNumberPortions.TabIndex = 317;
+            this.ndNumberPortions.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndNumberPortions.ValueChanged += new System.EventHandler(this.ndNumberPortions_ValueChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -79,14 +88,14 @@
             this.dgvPortions.AllowUserToDeleteRows = false;
             this.dgvPortions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.dgvPortions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPortions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPortions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPortions.ColumnHeadersHeight = 30;
             this.dgvPortions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvPortions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -99,11 +108,11 @@
             this.dgvPortions.Name = "dgvPortions";
             this.dgvPortions.ReadOnly = true;
             this.dgvPortions.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dgvPortions.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.dgvPortions.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPortions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPortions.Size = new System.Drawing.Size(497, 199);
             this.dgvPortions.TabIndex = 315;
@@ -112,8 +121,8 @@
             // portion
             // 
             this.portion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.portion.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.portion.DefaultCellStyle = dataGridViewCellStyle2;
             this.portion.HeaderText = "Nº da parcela";
             this.portion.Name = "portion";
             this.portion.ReadOnly = true;
@@ -123,8 +132,8 @@
             // dueDate
             // 
             this.dueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.dueDate.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dueDate.DefaultCellStyle = dataGridViewCellStyle3;
             this.dueDate.HeaderText = "Vencimento";
             this.dueDate.Name = "dueDate";
             this.dueDate.ReadOnly = true;
@@ -134,10 +143,10 @@
             // valuePortion
             // 
             this.valuePortion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Format = "C2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.valuePortion.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.valuePortion.DefaultCellStyle = dataGridViewCellStyle4;
             this.valuePortion.HeaderText = "Valor da Parcela";
             this.valuePortion.Name = "valuePortion";
             this.valuePortion.ReadOnly = true;
@@ -159,11 +168,11 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Open Sans", 12F);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(209, 30);
+            this.label10.Location = new System.Drawing.Point(230, 31);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(171, 22);
+            this.label10.Size = new System.Drawing.Size(121, 22);
             this.label10.TabIndex = 317;
-            this.label10.Text = "Valor Total da Venda:";
+            this.label10.Text = "Valor do plano";
             // 
             // btnCancel
             // 
@@ -222,15 +231,6 @@
             this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
             this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
             // 
-            // ndNumberPortions
-            // 
-            this.ndNumberPortions.Location = new System.Drawing.Point(20, 47);
-            this.ndNumberPortions.Name = "ndNumberPortions";
-            this.ndNumberPortions.Size = new System.Drawing.Size(120, 29);
-            this.ndNumberPortions.TabIndex = 317;
-            this.ndNumberPortions.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ndNumberPortions.ValueChanged += new System.EventHandler(this.ndNumberPortions_ValueChanged);
-            // 
             // FrmCardInPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -253,8 +253,8 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmCardInPayment_MouseDown);
             this.gbParcelas.ResumeLayout(false);
             this.gbParcelas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPortions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberPortions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPortions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
