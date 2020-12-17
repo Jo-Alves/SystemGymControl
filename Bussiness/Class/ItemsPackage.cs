@@ -1,6 +1,4 @@
-﻿using Database;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data;
 
 namespace Bussiness
 {
@@ -39,7 +37,7 @@ namespace Bussiness
         {
             return itemsPackage.SearchID(idItemsPackage);
         }
-        
+
         public void Delete(int idItemsPackage)
         {
             itemsPackage.Delete(idItemsPackage);

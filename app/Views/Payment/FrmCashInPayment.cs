@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace SystemGymControl
 {
@@ -139,7 +132,7 @@ namespace SystemGymControl
                         txtDiscountMoney.Text = FormatTextBox.FormatValueDecimal(txtDiscountMoney.Text);
                         txtValueWithDiscount.Text = (valuePackage - DiscountMoney).ToString();
 
-                        if(!string.IsNullOrWhiteSpace(txtPaidOut.Text))
+                        if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
                             txtChange.Text = (valuePaidOut - decimal.Parse(txtValueWithDiscount.Text)).ToString();
 
                         valueDiscount = decimal.Parse(txtValueWithDiscount.Text);

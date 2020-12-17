@@ -1,13 +1,6 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -33,7 +26,7 @@ namespace SystemGymControl
             InitializeComponent();
 
             var DataStudent = student.SearchID(id);
-            
+
             mkCPF.Enabled = false;
             txtId.Text = id.ToString();
             txtName.Text = DataStudent.Rows[0]["name"].ToString();
@@ -54,7 +47,7 @@ namespace SystemGymControl
                 pcPhoto.Load();
             }
 
-            if(responsible.SearchID(id).Rows.Count > 0)
+            if (responsible.SearchID(id).Rows.Count > 0)
             {
                 hasResponsible = true;
             }
@@ -122,7 +115,7 @@ namespace SystemGymControl
                 student._city = txtCity.Text.Trim();
                 student._state = cbState.Text.Trim();
                 student._email = txtEmail.Text.Trim();
-               
+
                 if (ValidateFields())
                 {
                     if (!CheckedHigherStudent())
@@ -191,8 +184,8 @@ namespace SystemGymControl
                         responsible._cpf = cpfResponsible;
                         responsible._kinship = Kinship;
                         responsible._phone = phone;
-                        responsible._id = idResponsible;                        
-                        if(isEdition)
+                        responsible._id = idResponsible;
+                        if (isEdition)
                             responsible._studentID = student._id;
 
                         if (student._id == 0 && !isEdition)
@@ -224,7 +217,7 @@ namespace SystemGymControl
                 image = $@"{path}\{nameImage}";
             }
             else
-                image = pathImage; 
+                image = pathImage;
         }
 
         private bool ValidateFields()
@@ -236,53 +229,53 @@ namespace SystemGymControl
             {
                 if (messageValidateFields == "Campo Nome obrigatório!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtName.Focus();
                 }
                 else if (messageValidateFields == "Campo CPF obrigatório!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     mkCPF.Focus();
                 }
                 else if (messageValidateFields == "Campo Bairro obrigatório!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtDistrict.Focus();
                 }
                 else if (messageValidateFields == "Campo Endereço obrigatório!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtAddress.Focus();
                 }
                 else if (messageValidateFields == "Campo Cidade obrigatório!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtCity.Focus();
                 }
                 else if (messageValidateFields == "Campo Estado obrigatório!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     cbState.Focus();
                 }
                 else if (messageValidateFields == "Email inválido!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtEmail.Focus();
                 }
                 else if (messageValidateFields == "CPF inválido!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     mkCPF.Focus();
                 }
                 else if (messageValidateFields == "Este CPF já está cadastrado!")
                 {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                    
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     mkCPF.Focus();
                 }
             }
             else if (!theDataSelected)
             {
-                MessageBox.Show("Informe a data de nascimento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
+                MessageBox.Show("Informe a data de nascimento!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 dtBirth.Focus();
             }
             else

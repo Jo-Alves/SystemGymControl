@@ -1,6 +1,4 @@
-﻿using Database;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace Bussiness
 {
@@ -48,8 +46,8 @@ namespace Bussiness
 
         public void Save()
         {
-            parametersPackage._id = this._id;   
-            parametersPackage._valuePenalty = this._valuePenalty;   
+            parametersPackage._id = this._id;
+            parametersPackage._valuePenalty = this._valuePenalty;
             parametersPackage._valueInterest = this._valueInterest;
             parametersPackage._typeInterest = this._typeInterest;
             parametersPackage._typePenalty = this._typePenalty;

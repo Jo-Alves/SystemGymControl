@@ -51,12 +51,12 @@ namespace Database
                 }
             }
         }
-        
+
         public void Delete(int idItemsPackage)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                 _sql = "DELETE FROM items_package WHERE id = @id";
+                _sql = "DELETE FROM items_package WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", idItemsPackage);

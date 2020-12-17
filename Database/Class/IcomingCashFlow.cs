@@ -19,21 +19,21 @@ namespace Database
             get { return id; }
             set { id = value; }
         }
-         public string _entryDate
+        public string _entryDate
         {
             get { return entryDate; }
             set { entryDate = value; }
-        } 
+        }
         public string _entryTime
         {
             get { return entryTime; }
             set { entryTime = value; }
         }
-         public decimal _valueMoney
+        public decimal _valueMoney
         {
             get { return valueMoney; }
             set { valueMoney = value; }
-        }  
+        }
         public decimal _valueCard
         {
             get { return valueCard; }

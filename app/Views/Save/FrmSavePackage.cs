@@ -1,12 +1,6 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -41,7 +35,7 @@ namespace SystemGymControl
                 GetParametersPackage(idPackage);
                 GetItemsPackage(idPackage);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM System", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -49,8 +43,8 @@ namespace SystemGymControl
 
         private void GetItemsPackage(int idPackage)
         {
-           
-            foreach(DataRow dr in itemsPackage.SearchID(idPackage).Rows)
+
+            foreach (DataRow dr in itemsPackage.SearchID(idPackage).Rows)
             {
                 int countRow = dgvFormOfPagament.Rows.Add();
                 dgvFormOfPagament.Rows[countRow].Cells["edit"].Value = Properties.Resources.icons8_pencil_25px;
@@ -65,7 +59,7 @@ namespace SystemGymControl
                 dgvFormOfPagament.Rows[countRow].MinimumHeight = 45;
                 dgvFormOfPagament.ClearSelection();
 
-                
+
             }
         }
 
@@ -81,7 +75,7 @@ namespace SystemGymControl
                 rbValuePenalty.Checked = true;
             else
                 rbPercentagePenalty.Checked = true;
-            
+
             if (drParameters["type_interest"].ToString().Equals("money"))
                 rbValueInterest.Checked = true;
             else
@@ -92,10 +86,10 @@ namespace SystemGymControl
         {
             try
             {
-                if(!string.IsNullOrWhiteSpace(txtValue.Text))
+                if (!string.IsNullOrWhiteSpace(txtValue.Text))
                     txtValue.Text = FormatTextBox.FormatValueDecimal(txtValue.Text);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Valor informado inválido! Verifique se o valor é um número decimal.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -110,7 +104,7 @@ namespace SystemGymControl
         {
             try
             {
-              
+
                 package._id = idPackage;
                 package._description = txtDescription.Text.Trim();
                 package._duration = int.Parse(ndDuration.Value.ToString());
@@ -136,15 +130,15 @@ namespace SystemGymControl
 
         private void SaveItemsPackage()
         {
-            foreach(DataGridViewRow row in dgvFormOfPagament.Rows)
+            foreach (DataGridViewRow row in dgvFormOfPagament.Rows)
             {
-                
+
                 itemsPackage._valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
                 if (idPackage == 0)
                     itemsPackage._packageID = idMaxPackage;
                 else
                     itemsPackage._packageID = idPackage;
-               
+
                 itemsPackage._id = int.Parse(row.Cells["id"].Value.ToString());
                 itemsPackage.Save();
 
@@ -152,7 +146,7 @@ namespace SystemGymControl
                 formsOfPayment._id = idFormsPayment;
                 formsOfPayment._description = row.Cells["formOfPayment"].Value.ToString();
 
-                if(itemsPackage._id == 0)
+                if (itemsPackage._id == 0)
                     formsOfPayment._itemsPackageID = itemsPackage.GetMaxId();
                 else
                     formsOfPayment._itemsPackageID = itemsPackage._id;
@@ -228,7 +222,7 @@ namespace SystemGymControl
             else
                 theFieldsHaveBeenValidated = true;
 
-                return theFieldsHaveBeenValidated;
+            return theFieldsHaveBeenValidated;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -292,7 +286,7 @@ namespace SystemGymControl
                 lblDuration.Text = "Duração(dias)";
             }
             else
-            { 
+            {
                 lblDuration.Text = "Duração(dias/meses)";
                 ndDuration.Enabled = true;
                 return;

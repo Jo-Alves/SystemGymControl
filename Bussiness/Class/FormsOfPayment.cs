@@ -1,6 +1,4 @@
-﻿using Database;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data;
 
 namespace Bussiness
 {
@@ -39,8 +37,8 @@ namespace Bussiness
         public DataTable SearchID(int id)
         {
             return formsOfPayment.SearchID(id);
-        } 
-        
+        }
+
         public DataTable SearchItemsPackageID(int idItemsPackage)
         {
             return formsOfPayment.SearchItemsPackageID(idItemsPackage);

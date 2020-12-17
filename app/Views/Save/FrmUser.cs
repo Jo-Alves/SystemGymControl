@@ -1,12 +1,6 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -70,14 +64,14 @@ namespace SystemGymControl
 
         private void dgvdataUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 dgvdataUser.ClearSelection();
 
                 // Ao acionar a célula para editar abre o Form para Editar os dados
                 int id = int.Parse(dgvdataUser.CurrentRow.Cells["id"].Value.ToString());
 
-                if(dgvdataUser.CurrentCell.ColumnIndex == 0)
+                if (dgvdataUser.CurrentCell.ColumnIndex == 0)
                 {
                     OpenForm.ShowForm(new FrmSaveUser(id), this);
                 }
@@ -98,7 +92,7 @@ namespace SystemGymControl
 
         private void dgvdataUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 dgvdataUser.ClearSelection();
             }

@@ -1,12 +1,6 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -66,9 +60,9 @@ namespace SystemGymControl
 
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
-                if(dgvDataPlan.CurrentCell.ColumnIndex == 0)
+                if (dgvDataPlan.CurrentCell.ColumnIndex == 0)
                 {
                     int idPlan = int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString());
                     int idStudent = int.Parse(dgvDataPlan.CurrentRow.Cells["idStudent"].Value.ToString());

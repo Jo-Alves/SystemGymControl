@@ -1,14 +1,7 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace SystemGymControl
 {
@@ -91,7 +84,7 @@ namespace SystemGymControl
         private bool ValidateFields()
         {
             bool theFieldsHaveBeenValidated = false;
-                     
+
             responsible._name = txtName.Text.Trim();
             responsible._cpf = mkCPF.Text;
             responsible._kinship = cbKinship.Text;
@@ -108,7 +101,7 @@ namespace SystemGymControl
                 {
                     MessageBox.Show("Campo 'CPF' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     mkCPF.Focus();
-                } 
+                }
                 else if (responsible.ValidateFieldsAndGetMessage() == "Campo Grau de Parentesco obrigatório!")
                 {
                     MessageBox.Show("Campo 'Grau de Parentesco' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -133,7 +126,7 @@ namespace SystemGymControl
         private extern static void ReleaseCapture();
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        
+
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void FrmResponsiblesStudent_MouseDown(object sender, MouseEventArgs e)

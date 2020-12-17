@@ -1,14 +1,6 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -54,7 +46,7 @@ namespace SystemGymControl
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -99,7 +91,7 @@ namespace SystemGymControl
                 user._password = txtPassword1.Text.Trim();
                 user._question = cbQuestion.Text.Trim();
                 user._answer = txtAnswer.Text.Trim();
-              
+
                 user._dateRegistion = dateRegistion;
 
                 if (ValidateFields())

@@ -7,15 +7,15 @@ namespace Database
     {
         string _sql;
 
-        
+
         public override int _id { get; set; }
         public override string _name { get; set; }
         public override string _cpf { get; set; }
         public override string _phone { get; set; }
-       
+
         private string photo;
         private string email;
-        
+
         public string _email
         {
             get { return email; }
@@ -108,7 +108,7 @@ namespace Database
             {
                 try
                 {
-                   _sql = "SELECT * FROM students WHERE id = @id";
+                    _sql = "SELECT * FROM students WHERE id = @id";
                     var adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", id);
                     DataTable table = new DataTable();
@@ -120,15 +120,15 @@ namespace Database
                     throw;
                 }
             }
-        } 
-        
+        }
+
         public DataTable SearchName(string name)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
-                   _sql = $"SELECT * FROM students WHERE name like '%{name}%'";
+                    _sql = $"SELECT * FROM students WHERE name like '%{name}%'";
                     var adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
@@ -139,15 +139,15 @@ namespace Database
                     throw;
                 }
             }
-        } 
-        
+        }
+
         public bool SearchCPF(string CPF)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
-                   _sql = "SELECT * FROM students WHERE cpf = @cpf";
+                    _sql = "SELECT * FROM students WHERE cpf = @cpf";
                     var command = new SqlCommand(_sql, connection);
                     command.Parameters.AddWithValue("@cpf", CPF);
                     connection.Open();
@@ -163,7 +163,7 @@ namespace Database
                 }
             }
         }
-        
+
         public int GetMaxId()
         {
             int maxId = 0;
@@ -171,9 +171,9 @@ namespace Database
             {
                 try
                 {
-                   _sql = "SELECT MAX(id) as maxID FROM students";
+                    _sql = "SELECT MAX(id) as maxID FROM students";
                     var command = new SqlCommand(_sql, connection);
-                    connection.Open();                    
+                    connection.Open();
                     var dr = command.ExecuteReader();
                     if (dr.Read())
                         maxId = int.Parse(dr["maxID"].ToString());

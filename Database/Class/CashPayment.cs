@@ -50,7 +50,7 @@ namespace Database
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 _sql = "INSERT INTO cash_payments VALUES (@valueTotal, @valueDiscount, @payday, @paymentTime, @planID)";
-                
+
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@valueTotal", _valueTotal);

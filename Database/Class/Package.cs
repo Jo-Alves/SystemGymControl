@@ -99,7 +99,7 @@ namespace Database
                 throw;
             }
         }
-        
+
         public DataTable SearchAllItemsAndPackage()
         {
             try
@@ -117,7 +117,7 @@ namespace Database
                 throw;
             }
         }
-        
+
         public DataTable SearchDescriptionPackageAndItems(string description)
         {
             try
@@ -159,7 +159,7 @@ namespace Database
         public DataTable SearchDescription(string description)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
-            { 
+            {
                 try
                 {
                     _sql = $"SELECT * FROM packages WHERE description like '%{description}%'";

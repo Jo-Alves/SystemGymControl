@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 
 namespace Bussiness
 {
@@ -34,8 +33,8 @@ namespace Bussiness
         {
             get { return datePurchasePlan; }
             set { datePurchasePlan = value; }
-        } 
-        
+        }
+
         public string _dateTerminalPlan
         {
             get { return dateTerminalPlan; }
@@ -72,7 +71,7 @@ namespace Bussiness
         {
             return plan.SearchAll();
         }
-        
+
         public DataTable SearchPlanNameStudent(string name)
         {
             return plan.SearchPlanNameStudent(name);

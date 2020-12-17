@@ -1,12 +1,6 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -87,7 +81,7 @@ namespace SystemGymControl
                     time = dateNow.AddMonths(1) - dateNow;
                     dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
                     break;
-                
+
                 case "bimestral":
                     time = dateNow.AddMonths(2) - dateNow;
                     dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
@@ -212,7 +206,7 @@ namespace SystemGymControl
 
         private void SaveCardPayment(DataTable dataPortion)
         {
-            foreach(DataRow dr in dataPortion.Rows)
+            foreach (DataRow dr in dataPortion.Rows)
             {
                 cardPayment._numberPortion = int.Parse(dr["portion"].ToString());
                 cardPayment._dueDate = dr["dueDate"].ToString();
@@ -276,7 +270,7 @@ namespace SystemGymControl
             modality._planID = idMaxPlan;
             modality.Save();
         }
-        
+
         private void SaveSituationPlan()
         {
             situationsPlan._situation = "Ativo";
@@ -289,7 +283,7 @@ namespace SystemGymControl
         {
             bool isDgvSelected = false;
 
-            foreach(DataGridViewRow row in dgvDataPlan.Rows)
+            foreach (DataGridViewRow row in dgvDataPlan.Rows)
             {
                 if (row.Selected)
                 {

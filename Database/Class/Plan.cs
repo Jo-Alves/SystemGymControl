@@ -32,7 +32,7 @@ namespace Database
             get { return datePurchasePlan; }
             set { datePurchasePlan = value; }
         }
-        
+
         public string _dateTerminalPlan
         {
             get { return dateTerminalPlan; }
@@ -172,8 +172,8 @@ namespace Database
             {
                 throw;
             }
-        } 
-        
+        }
+
         public DataTable SearchPlanNameStudent(string name)
         {
             try

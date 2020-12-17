@@ -12,15 +12,15 @@ namespace Database
         private decimal valueOutput;
         private int cashFlowID;
 
- // [exit_date] VARCHAR(10) NOT NULL,
+        // [exit_date] VARCHAR(10) NOT NULL,
 
- //   [exit_time] VARCHAR(10) NOT NULL,
+        //   [exit_time] VARCHAR(10) NOT NULL,
 
- //   [description_exit] VARCHAR(MAX) NOT NULL,
+        //   [description_exit] VARCHAR(MAX) NOT NULL,
 
- //   [value_output] DECIMAL(18,2) NOT NULL,
+        //   [value_output] DECIMAL(18,2) NOT NULL,
 
- //   [cash_flow_id] INT NOT NULL,
+        //   [cash_flow_id] INT NOT NULL,
 
         string _sql;
 
@@ -29,21 +29,21 @@ namespace Database
             get { return id; }
             set { id = value; }
         }
-         public string _exitDate
+        public string _exitDate
         {
             get { return exitDate; }
             set { exitDate = value; }
-        } 
+        }
         public string _exitTime
         {
             get { return exitTime; }
             set { exitTime = value; }
         }
-         public string _descriptionExit
+        public string _descriptionExit
         {
             get { return descriptionExit; }
             set { descriptionExit = value; }
-        }  
+        }
         public decimal _valueOutput
         {
             get { return valueOutput; }

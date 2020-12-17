@@ -14,7 +14,7 @@ namespace SystemGymControl
 
             FrmGymControl.Instance.PnPageContainer.Controls[nameUserControl].BringToFront();
         }
-        
+
         public static void ShowForm(Form form, Form formCurrent)
         {
             if (formCurrent.Name != "FrmGymControl")

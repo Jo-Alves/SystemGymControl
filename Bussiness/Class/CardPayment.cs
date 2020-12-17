@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 
 namespace Bussiness
 {
@@ -29,7 +28,7 @@ namespace Bussiness
         {
             get { return valuePortion; }
             set { valuePortion = value; }
-        }       
+        }
         public string _payday
         {
             get { return payday; }
@@ -39,7 +38,7 @@ namespace Bussiness
         {
             get { return paymentTime; }
             set { paymentTime = value; }
-        } 
+        }
         public string _dueDate
         {
             get { return dueDate; }

@@ -131,7 +131,7 @@ namespace Database
                     throw;
                 }
             }
-        } 
+        }
 
         public DataTable SearchUser(string user)
         {
@@ -151,7 +151,7 @@ namespace Database
                 }
             }
         }
-        
+
         public bool CheckedNameUserExist(string nameUser)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -174,7 +174,7 @@ namespace Database
                 }
             }
         }
-        
+
         public DataTable SearchID(int idUser)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -185,7 +185,7 @@ namespace Database
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", idUser);
                     DataTable table = new DataTable();
-                    adapter.Fill(table);                    
+                    adapter.Fill(table);
                     return table;
                 }
                 catch

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -12,26 +10,31 @@ namespace SystemGymControl
 
         public bool paymentCancel { get; set; }
         public DataTable dataPortion { get; set; }
+
+        decimal valuePackage;
         public FrmCardInPayment()
         {
-            InitializeComponent();           
-        } 
+            InitializeComponent();
+        }
         public FrmCardInPayment(decimal valuePackage, int numberPortions)
         {
             InitializeComponent();
+            this.valuePackage = valuePackage;
             lblvalueTotal.Text = $"R$ {valuePackage}";
-            txtNumberPortions.Text = numberPortions.ToString();
+            ndNumberPortions.Value = numberPortions;
             parcelValue(valuePackage, numberPortions);
             dgvPortions.ClearSelection();
         }
 
         private void parcelValue(decimal valuePackage, int numberPortions)
         {
-            for(int i = 1; i <= numberPortions; i++)
+            dgvPortions.Rows.Clear();
+            for (int i = 1; i <= numberPortions; i++)
             {
                 DateTime dateCurrent = DateTime.Now;
                 dgvPortions.Rows.Add(i, dateCurrent.AddMonths(i).ToShortDateString(), $"R$ {(valuePackage / numberPortions).ToString("0.00")}");
             }
+            dgvPortions.ClearSelection();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -60,7 +63,7 @@ namespace SystemGymControl
             dataPortion.Columns.Add("portion", typeof(string));
             dataPortion.Columns.Add("dueDate", typeof(string));
             dataPortion.Columns.Add("value", typeof(string));
-            foreach(DataGridViewRow row in dgvPortions.Rows)
+            foreach (DataGridViewRow row in dgvPortions.Rows)
             {
                 dataPortion.Rows.Add(row.Cells["portion"].Value.ToString(), row.Cells["dueDate"].Value.ToString(), row.Cells["valuePortion"].Value.ToString());
             }
@@ -81,6 +84,11 @@ namespace SystemGymControl
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void ndNumberPortions_ValueChanged(object sender, EventArgs e)
+        {
+            parcelValue(valuePackage, int.Parse(ndNumberPortions.Value.ToString()));
         }
     }
 }

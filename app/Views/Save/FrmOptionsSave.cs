@@ -1,12 +1,5 @@
 ﻿using Bussiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -27,7 +20,7 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmStudent(), this);
                 else
                     OpenForm.ShowForm(new FrmSaveStudent(), this);
-            
+
                 FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA - Cadastro - Aluno";
             }
             catch (Exception ex)
@@ -44,7 +37,7 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmPackage(), this);
                 else
                     OpenForm.ShowForm(new FrmSavePackage(), this);
-            
+
                 FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA - Cadastro - Pacote";
             }
             catch (Exception ex)
@@ -61,7 +54,7 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmUser(), this);
                 else
                     OpenForm.ShowForm(new FrmSaveUser(), this);
-                    
+
                 FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA - Cadastro - Usuário";
             }
             catch (Exception ex)

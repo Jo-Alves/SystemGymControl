@@ -20,21 +20,21 @@ namespace Database
             get { return id; }
             set { id = value; }
         }
-         public string _openingTime
+        public string _openingTime
         {
             get { return openingTime; }
             set { openingTime = value; }
-        } 
+        }
         public decimal _cashValueTotal
         {
             get { return cashValueTotal; }
             set { cashValueTotal = value; }
         }
-         public decimal _outputValueTotal
+        public decimal _outputValueTotal
         {
             get { return outputValueTotal; }
             set { outputValueTotal = value; }
-        }  
+        }
         public string _closingDate
         {
             get { return closingDate; }
