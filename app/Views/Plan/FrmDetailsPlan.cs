@@ -62,8 +62,16 @@ namespace SystemGymControl
             txtPackage.Text = dataPlan.Rows[0]["descriptionPackage"].ToString();
             txtValue.Text = $"R$ {dataPlan.Rows[0]["valueItemsPackage"].ToString()}";
             txtFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
-            txtDateTerminalPlan.Text = dataPlan.Rows[0]["date_terminal_plan"].ToString();
+         
+            string columnDateTerminal = "";
+            if (string.IsNullOrEmpty(dataPlan.Rows[0]["date_terminal_plan_extended"].ToString()))
+                columnDateTerminal = "date_terminal_plan";
+            else
+                columnDateTerminal = "date_terminal_plan_extended";
+
+            txtDateTerminalPlan.Text = dataPlan.Rows[0][columnDateTerminal].ToString();
             situationPlan = dataPlan.Rows[0]["situation"].ToString();
+
             if (situationPlan.ToLower() == "ativo")
             {
                 rbActive.Checked = true;
@@ -114,18 +122,26 @@ namespace SystemGymControl
             situations._id = idSituationPlan;
             situations._observation = txtObservation.Text.Trim();
             if (rbActive.Checked)
+            {
                 situations._situation = rbActive.Text;
+            }
             else
             {
                 situations._situation = rbInactive.Text;
                 situations._deactivationDate = DateTime.Now.ToShortDateString();
             }
-           
+
             situations.Save();
+            Bussiness.Plan plan = new Bussiness.Plan();
 
             if (rbInactive.Checked)
             {
                 descriptionObservation = txtObservation.Text.Trim();
+            }
+            else
+            {
+                plan._dateTerminalPlan = txtDateTerminalPlan.Text;
+                plan.UpdateTerminalPlan(idPlan);
             }
 
             btnSave.Enabled = false;

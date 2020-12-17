@@ -56,6 +56,7 @@ namespace SystemGymControl
             this.datePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTerminalPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTerminalPlanExtended = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeInactivated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deactivationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +101,7 @@ namespace SystemGymControl
             this.datePurchasePlan,
             this.timePurchasePlan,
             this.dateTerminalPlan,
+            this.dateTerminalPlanExtended,
             this.situation,
             this.timeInactivated,
             this.deactivationDate});
@@ -335,10 +337,20 @@ namespace SystemGymControl
             // dateTerminalPlan
             // 
             this.dateTerminalPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dateTerminalPlan.HeaderText = "Data do Término do Plano";
+            this.dateTerminalPlan.HeaderText = "Data final do Plano";
             this.dateTerminalPlan.Name = "dateTerminalPlan";
             this.dateTerminalPlan.ReadOnly = true;
-            this.dateTerminalPlan.Width = 234;
+            this.dateTerminalPlan.Width = 178;
+            // 
+            // dateTerminalPlanExtended
+            // 
+            this.dateTerminalPlanExtended.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dateTerminalPlanExtended.HeaderText = "Data final do plano prorrogado";
+            this.dateTerminalPlanExtended.Name = "dateTerminalPlanExtended";
+            this.dateTerminalPlanExtended.ReadOnly = true;
+            this.dateTerminalPlanExtended.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dateTerminalPlanExtended.Visible = false;
+            this.dateTerminalPlanExtended.Width = 252;
             // 
             // situation
             // 
@@ -356,6 +368,7 @@ namespace SystemGymControl
             this.timeInactivated.Name = "timeInactivated";
             this.timeInactivated.ReadOnly = true;
             this.timeInactivated.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.timeInactivated.Visible = false;
             this.timeInactivated.Width = 227;
             // 
             // deactivationDate
@@ -364,7 +377,9 @@ namespace SystemGymControl
             this.deactivationDate.HeaderText = "Data da desativação do plano";
             this.deactivationDate.Name = "deactivationDate";
             this.deactivationDate.ReadOnly = true;
-            this.deactivationDate.Width = 259;
+            this.deactivationDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.deactivationDate.Visible = false;
+            this.deactivationDate.Width = 240;
             // 
             // FrmPlan
             // 
@@ -416,6 +431,7 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn datePurchasePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn timePurchasePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlanExtended;
         private System.Windows.Forms.DataGridViewTextBoxColumn situation;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeInactivated;
         private System.Windows.Forms.DataGridViewTextBoxColumn deactivationDate;

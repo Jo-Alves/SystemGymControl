@@ -99,15 +99,16 @@ CREATE TABLE [dbo].[forms_of_payment] (
 );
 
 CREATE TABLE [dbo].[plans] (
-    [id]                 INT         IDENTITY (1, 1) NOT NULL,
+    [id]                 INT          IDENTITY (1, 1) NOT NULL,
     [date_purchase_plan] VARCHAR (10) NOT NULL,
-    [time_purchase_plan] VARCHAR (8) NOT NULL,
+    [time_purchase_plan] VARCHAR (8)  NOT NULL,
     [date_terminal_plan] VARCHAR (10) NOT NULL,
-    [items_package_id]   INT         NOT NULL,
-    [student_id]         INT         NOT NULL,
+    [date_terminal_plan_extended] VARCHAR (10) NULL,
+    [items_package_id]   INT          NOT NULL,
+    [student_id]         INT          NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
-    FOREIGN KEY ([items_package_id]) REFERENCES [dbo].[items_package]([id]) ON DELETE CASCADE,
-    FOREIGN KEY ([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
+    FOREIGN KEY ([items_package_id]) REFERENCES [dbo].[items_package] ([id]) ON DELETE CASCADE,
+    FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
 );
 
 CREATE TABLE [dbo].[modalities] (

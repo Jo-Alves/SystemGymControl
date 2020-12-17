@@ -8,6 +8,7 @@ namespace Bussiness
         private int numberPortions;
         private string datePurchasePlan;
         private string dateTerminalPlan;
+        private string dateTerminalPlanExtended;
         private string timePurchasePlan;
         private int itemsPackageID;
         private int studentID;
@@ -34,7 +35,11 @@ namespace Bussiness
             get { return datePurchasePlan; }
             set { datePurchasePlan = value; }
         }
-
+        public string _dateTerminalPlanExtended
+        {
+            get { return dateTerminalPlanExtended; }
+            set { dateTerminalPlanExtended = value; }
+        }
         public string _dateTerminalPlan
         {
             get { return dateTerminalPlan; }
@@ -70,6 +75,12 @@ namespace Bussiness
         public DataTable SearchAll()
         {
             return plan.SearchAll();
+        }
+        
+        public void UpdateTerminalPlanExtended(int id)
+        {
+            plan._dateTerminalPlanExtended = this._dateTerminalPlanExtended;
+            plan.UpdateTerminalPlanExtended(id);
         }
         
         public void UpdateTerminalPlan(int id)

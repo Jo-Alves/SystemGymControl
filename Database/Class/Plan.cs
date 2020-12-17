@@ -11,6 +11,7 @@ namespace Database
         private string datePurchasePlan;
         private string timePurchasePlan;
         private string dateTerminalPlan;
+        private string dateTerminalPlanExtended;
         private int itemsPackageID;
         private int studentID;
 
@@ -38,6 +39,11 @@ namespace Database
             get { return dateTerminalPlan; }
             set { dateTerminalPlan = value; }
         }
+        public string _dateTerminalPlanExtended
+        {
+            get { return dateTerminalPlanExtended; }
+            set { dateTerminalPlanExtended = value; }
+        }
         public string _timePurchasePlan
         {
             get { return timePurchasePlan; }
@@ -59,7 +65,7 @@ namespace Database
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO plans VALUES (@datePurchasePlan, @timePurchasePlan, @dateTerminalPlan, @itemsPackageID, @studentID)";
+                    _sql = "INSERT INTO plans (date_purchase_plan ,time_purchase_plan ,date_terminal_plan ,items_package_id ,student_id) VALUES (@datePurchasePlan, @timePurchasePlan, @dateTerminalPlan, @itemsPackageID, @studentID)";
                 else
                     _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, date_terminal_plan = @dateTerminalPlan, time_purchase_plan = @timePurchasePlan, itemns_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
 
@@ -82,6 +88,27 @@ namespace Database
             }
         }
 
+        public void UpdateTerminalPlanExtended(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                _sql = "UPDATE plans SET date_terminal_plan_extended = @dateTerminalPlanExtended WHERE id = @id";
+
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@dateTerminalPlanExtended", _dateTerminalPlanExtended);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        } 
+        
         public void UpdateTerminalPlan(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -110,7 +137,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_extended, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
@@ -170,7 +197,7 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_extended, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
@@ -201,7 +228,7 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_extended, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +

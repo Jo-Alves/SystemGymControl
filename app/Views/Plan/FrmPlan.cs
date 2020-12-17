@@ -26,14 +26,28 @@ namespace SystemGymControl
             {
                 if(dgv.Cells["situation"].Value.ToString() == "Inativo")
                 {
-                    DateTime dateTerminal = Convert.ToDateTime(dgv.Cells["dateTerminalPlan"].Value.ToString()) , deactivationDate = Convert.ToDateTime(dgv.Cells["deactivationDate"].Value.ToString());
-                    time = DateTime.Now.Subtract(deactivationDate);
-                    situationsPlan._timeInactivated = time.Days;
+                    dgvDataPlan.Columns["dateTerminalPlanExtended"].Visible = true;
+                    dgvDataPlan.Columns["timeInactivated"].Visible = true;
+                    dgvDataPlan.Columns["deactivationDate"].Visible = true;
                     int idSituation = int.Parse(dgv.Cells["idSituationPlan"].Value.ToString());
-                    plan._dateTerminalPlan = dateTerminal.AddDays(time.Days).ToShortDateString();
+
+                    var dateTerminal = Convert.ToDateTime(dgv.Cells["dateTerminalPlan"].Value.ToString());
+                    var deactivationDate = Convert.ToDateTime(dgv.Cells["deactivationDate"].Value.ToString());
+
+                    /*
+                        * subtrai a data de atual com a data da desativação do plano para
+                        * pegar a diferença das datas e aumentar o prazo do término
+                     */
+                    time = DateTime.Now.Subtract(deactivationDate);
+
+                    situationsPlan._timeInactivated = time.Days;
+                    plan._dateTerminalPlanExtended = dateTerminal.AddDays(time.Days).ToShortDateString();
                     situationsPlan.updateTimeInactivated(idSituation);
-                    plan.UpdateTerminalPlan(int.Parse(dgv.Cells["idPlan"].Value.ToString()));
-                   if(time.Days == 1)
+
+                    plan.UpdateTerminalPlanExtended(int.Parse(dgv.Cells["idPlan"].Value.ToString()));
+
+                    dgv.Cells["dateTerminalPlanExtended"].Value = plan._dateTerminalPlanExtended;
+                   if (time.Days == 1)
                     {
                         dgv.Cells["timeInactivated"].Value = $"{time.Days} dia";
                     }
@@ -76,6 +90,7 @@ namespace SystemGymControl
                 dgvDataPlan.Rows[addRow].Cells["situation"].Value = dr["situation"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["deactivationDate"].Value = dr["deactivation_date"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["timeInactivated"].Value = dr["time_inactivated"].ToString();
+                dgvDataPlan.Rows[addRow].Cells["dateTerminalPlanExtended"].Value = dr["date_terminal_plan_extended"].ToString();
                 dgvDataPlan.Rows[addRow].MinimumHeight = 45;
             }
 

@@ -5,6 +5,16 @@ namespace Bussiness
     public class SituationsPlan
     {
         Database.SituationsPlan situationsPlan = new Database.SituationsPlan();
+        public SituationsPlan()
+        {
+            this._id = 0;
+            this._observation = "";
+            this._planID = 0;
+            this._situation = "";
+            this._deactivationDate = "";
+            this._timeInactivated = 0;
+        }
+
         private int id;
         private string situation;
         private string observation;
