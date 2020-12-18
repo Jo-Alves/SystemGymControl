@@ -107,8 +107,8 @@ namespace Database
                     throw;
                 }
             }
-        } 
-        
+        }
+
         public void UpdateTerminalPlan(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))

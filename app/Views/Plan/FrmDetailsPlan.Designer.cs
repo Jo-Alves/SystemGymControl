@@ -62,6 +62,8 @@ namespace SystemGymControl
             this.lblDistrict = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDateDeactive = new System.Windows.Forms.TextBox();
+            this.lblDateDeactive = new System.Windows.Forms.Label();
             this.txtDateTerminalPlan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -105,7 +107,7 @@ namespace SystemGymControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1131, 222);
+            this.panel1.Size = new System.Drawing.Size(1148, 222);
             this.panel1.TabIndex = 0;
             // 
             // btnClose
@@ -267,7 +269,7 @@ namespace SystemGymControl
             this.pnMoreDetailsStudent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMoreDetailsStudent.Location = new System.Drawing.Point(0, 222);
             this.pnMoreDetailsStudent.Name = "pnMoreDetailsStudent";
-            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1131, 288);
+            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1148, 288);
             this.pnMoreDetailsStudent.TabIndex = 1;
             this.pnMoreDetailsStudent.Visible = false;
             // 
@@ -292,7 +294,7 @@ namespace SystemGymControl
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(24, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1095, 259);
+            this.groupBox1.Size = new System.Drawing.Size(1095, 267);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço do aluno";
@@ -323,7 +325,7 @@ namespace SystemGymControl
             // 
             this.txtPhone.BackColor = System.Drawing.Color.White;
             this.txtPhone.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(18, 213);
+            this.txtPhone.Location = new System.Drawing.Point(18, 227);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.ReadOnly = true;
             this.txtPhone.Size = new System.Drawing.Size(162, 33);
@@ -346,7 +348,7 @@ namespace SystemGymControl
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(182, 188);
+            this.label1.Location = new System.Drawing.Point(182, 202);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 22);
@@ -357,7 +359,7 @@ namespace SystemGymControl
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
             this.txtEmail.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(186, 213);
+            this.txtEmail.Location = new System.Drawing.Point(186, 227);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(638, 33);
@@ -369,7 +371,7 @@ namespace SystemGymControl
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone.Location = new System.Drawing.Point(17, 187);
+            this.lblPhone.Location = new System.Drawing.Point(17, 201);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(83, 22);
@@ -406,7 +408,7 @@ namespace SystemGymControl
             this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCity.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCity.ForeColor = System.Drawing.Color.Black;
-            this.txtCity.Location = new System.Drawing.Point(18, 158);
+            this.txtCity.Location = new System.Drawing.Point(18, 169);
             this.txtCity.Name = "txtCity";
             this.txtCity.ReadOnly = true;
             this.txtCity.Size = new System.Drawing.Size(806, 33);
@@ -419,7 +421,7 @@ namespace SystemGymControl
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCity.ForeColor = System.Drawing.Color.Black;
-            this.lblCity.Location = new System.Drawing.Point(17, 132);
+            this.lblCity.Location = new System.Drawing.Point(17, 143);
             this.lblCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(68, 22);
@@ -444,7 +446,7 @@ namespace SystemGymControl
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddress.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtAddress.Location = new System.Drawing.Point(18, 103);
+            this.txtAddress.Location = new System.Drawing.Point(18, 110);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(803, 33);
@@ -457,7 +459,7 @@ namespace SystemGymControl
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress.Location = new System.Drawing.Point(14, 78);
+            this.lblAddress.Location = new System.Drawing.Point(14, 85);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(110, 22);
@@ -496,11 +498,13 @@ namespace SystemGymControl
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 510);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1131, 245);
+            this.panel3.Size = new System.Drawing.Size(1148, 245);
             this.panel3.TabIndex = 2;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtDateDeactive);
+            this.groupBox3.Controls.Add(this.lblDateDeactive);
             this.groupBox3.Controls.Add(this.txtDateTerminalPlan);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.groupBox4);
@@ -524,13 +528,42 @@ namespace SystemGymControl
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Plano";
             // 
+            // txtDateDeactive
+            // 
+            this.txtDateDeactive.BackColor = System.Drawing.Color.White;
+            this.txtDateDeactive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDateDeactive.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateDeactive.ForeColor = System.Drawing.Color.Black;
+            this.txtDateDeactive.Location = new System.Drawing.Point(11, 192);
+            this.txtDateDeactive.Name = "txtDateDeactive";
+            this.txtDateDeactive.ReadOnly = true;
+            this.txtDateDeactive.Size = new System.Drawing.Size(139, 33);
+            this.txtDateDeactive.TabIndex = 81;
+            this.txtDateDeactive.TabStop = false;
+            this.txtDateDeactive.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDateDeactive.Visible = false;
+            this.txtDateDeactive.WordWrap = false;
+            // 
+            // lblDateDeactive
+            // 
+            this.lblDateDeactive.AutoSize = true;
+            this.lblDateDeactive.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateDeactive.ForeColor = System.Drawing.Color.Black;
+            this.lblDateDeactive.Location = new System.Drawing.Point(7, 166);
+            this.lblDateDeactive.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateDeactive.Name = "lblDateDeactive";
+            this.lblDateDeactive.Size = new System.Drawing.Size(132, 22);
+            this.lblDateDeactive.TabIndex = 82;
+            this.lblDateDeactive.Text = "Data da pausa";
+            this.lblDateDeactive.Visible = false;
+            // 
             // txtDateTerminalPlan
             // 
             this.txtDateTerminalPlan.BackColor = System.Drawing.Color.White;
             this.txtDateTerminalPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDateTerminalPlan.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDateTerminalPlan.ForeColor = System.Drawing.Color.Black;
-            this.txtDateTerminalPlan.Location = new System.Drawing.Point(18, 138);
+            this.txtDateTerminalPlan.Location = new System.Drawing.Point(14, 130);
             this.txtDateTerminalPlan.Name = "txtDateTerminalPlan";
             this.txtDateTerminalPlan.ReadOnly = true;
             this.txtDateTerminalPlan.Size = new System.Drawing.Size(139, 33);
@@ -544,7 +577,7 @@ namespace SystemGymControl
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(14, 112);
+            this.label9.Location = new System.Drawing.Point(10, 104);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(161, 22);
@@ -555,9 +588,9 @@ namespace SystemGymControl
             // 
             this.groupBox4.Controls.Add(this.pnObservation);
             this.groupBox4.Controls.Add(this.panel4);
-            this.groupBox4.Location = new System.Drawing.Point(163, 90);
+            this.groupBox4.Location = new System.Drawing.Point(175, 90);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(864, 137);
+            this.groupBox4.Size = new System.Drawing.Size(852, 137);
             this.groupBox4.TabIndex = 78;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Situação";
@@ -599,9 +632,9 @@ namespace SystemGymControl
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.rbActive);
             this.panel4.Controls.Add(this.rbInactive);
-            this.panel4.Location = new System.Drawing.Point(12, 22);
+            this.panel4.Location = new System.Drawing.Point(19, 22);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(198, 109);
+            this.panel4.Size = new System.Drawing.Size(191, 109);
             this.panel4.TabIndex = 0;
             // 
             // btnSave
@@ -615,7 +648,7 @@ namespace SystemGymControl
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(27, 47);
+            this.btnSave.Location = new System.Drawing.Point(13, 47);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(156, 43);
             this.btnSave.TabIndex = 83;
@@ -627,7 +660,7 @@ namespace SystemGymControl
             // rbActive
             // 
             this.rbActive.AutoSize = true;
-            this.rbActive.Location = new System.Drawing.Point(9, 15);
+            this.rbActive.Location = new System.Drawing.Point(11, 15);
             this.rbActive.Name = "rbActive";
             this.rbActive.Size = new System.Drawing.Size(71, 26);
             this.rbActive.TabIndex = 80;
@@ -639,7 +672,7 @@ namespace SystemGymControl
             // rbInactive
             // 
             this.rbInactive.AutoSize = true;
-            this.rbInactive.Location = new System.Drawing.Point(86, 15);
+            this.rbInactive.Location = new System.Drawing.Point(88, 15);
             this.rbInactive.Name = "rbInactive";
             this.rbInactive.Size = new System.Drawing.Size(86, 26);
             this.rbInactive.TabIndex = 81;
@@ -820,7 +853,7 @@ namespace SystemGymControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1148, 733);
+            this.ClientSize = new System.Drawing.Size(1165, 733);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnMoreDetailsStudent);
             this.Controls.Add(this.panel1);
@@ -907,5 +940,7 @@ namespace SystemGymControl
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtDateTerminalPlan;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtDateDeactive;
+        private System.Windows.Forms.Label lblDateDeactive;
     }
 }

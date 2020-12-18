@@ -76,13 +76,13 @@ namespace Bussiness
         {
             return plan.SearchAll();
         }
-        
+
         public void UpdateTerminalPlanLast(int id)
         {
             plan._dateTerminalPlanLast = this._dateTerminalPlanLast;
             plan.UpdateTerminalPlanLast(id);
         }
-        
+
         public void UpdateTerminalPlan(int id)
         {
             plan._dateTerminalPlan = this._dateTerminalPlan;

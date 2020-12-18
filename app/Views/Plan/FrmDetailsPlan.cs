@@ -62,7 +62,8 @@ namespace SystemGymControl
             txtPackage.Text = dataPlan.Rows[0]["descriptionPackage"].ToString();
             txtValue.Text = $"R$ {dataPlan.Rows[0]["valueItemsPackage"].ToString()}";
             txtFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
-         
+            txtDateDeactive.Text = dataPlan.Rows[0]["deactivation_date"].ToString();
+
             string columnDateTerminal = "";
             if (string.IsNullOrEmpty(dataPlan.Rows[0]["date_terminal_plan_last"].ToString()))
                 columnDateTerminal = "date_terminal_plan";
@@ -79,6 +80,8 @@ namespace SystemGymControl
             }
             else
             {
+                lblDateDeactive.Visible = true;
+                txtDateDeactive.Visible = true;
                 rbInactive.Checked = true;
                 descriptionObservation = dataPlan.Rows[0]["observation"].ToString();
                 txtObservation.Text = descriptionObservation;
@@ -89,14 +92,19 @@ namespace SystemGymControl
         private void rbActive_CheckedChanged(object sender, EventArgs e)
         {
             EnabledButtonSave(rbActive);
-
+            lblDateDeactive.Visible = false;
+            txtDateDeactive.Visible = false;
             pnObservation.Visible = false;
         }
 
         private void rbInactive_CheckedChanged(object sender, EventArgs e)
         {
             EnabledButtonSave(rbInactive);
-
+            if (!string.IsNullOrEmpty(txtDateDeactive.Text))
+            {
+                lblDateDeactive.Visible = true;
+                txtDateDeactive.Visible = true;
+            }
             pnObservation.Visible = true;
         }
 
@@ -137,7 +145,10 @@ namespace SystemGymControl
 
             if (rbInactive.Checked)
             {
-                descriptionObservation = txtObservation.Text.Trim(); 
+                descriptionObservation = txtObservation.Text.Trim();
+                lblDateDeactive.Visible = true;
+                txtDateDeactive.Visible = true;
+                txtDateDeactive.Text = DateTime.Now.ToShortDateString();
                 plan._dateTerminalPlanLast = txtDateTerminalPlan.Text;
                 plan.UpdateTerminalPlanLast(idPlan);
             }

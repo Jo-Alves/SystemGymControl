@@ -21,9 +21,9 @@ namespace SystemGymControl
         {
             TimeSpan time;
 
-            foreach(DataGridViewRow dgv in dgvDataPlan.Rows)
+            foreach (DataGridViewRow dgv in dgvDataPlan.Rows)
             {
-                if(dgv.Cells["situation"].Value.ToString() == "Inativo")
+                if (dgv.Cells["situation"].Value.ToString() == "Inativo")
                 {
                     //dgvDataPlan.Columns["dateTerminalPlanLast"].Visible = true;
                     dgvDataPlan.Columns["timeInactivated"].Visible = true;
@@ -46,11 +46,11 @@ namespace SystemGymControl
                     plan.UpdateTerminalPlan(int.Parse(dgv.Cells["idPlan"].Value.ToString()));
 
                     dgv.Cells["dateTerminalPlan"].Value = plan._dateTerminalPlan;
-                   if (time.Days == 1)
+                    if (time.Days == 1)
                     {
                         dgv.Cells["timeInactivated"].Value = $"{time.Days} dia";
                     }
-                   else
+                    else
                         dgv.Cells["timeInactivated"].Value = $"{time.Days} dias";
                 }
             }
@@ -71,6 +71,7 @@ namespace SystemGymControl
             {
                 int addRow = dgvDataPlan.Rows.Add();
                 dgvDataPlan.Rows[addRow].Cells["showDetails"].Value = Properties.Resources.icons8_details_32px;
+                dgvDataPlan.Rows[addRow].Cells["renewPlan"].Value = Properties.Resources.icons8_renew_32px;
                 dgvDataPlan.Rows[addRow].Cells["idPlan"].Value = dr["idPlan"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["datePurchasePlan"].Value = dr["date_purchase_plan"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["timePurchasePlan"].Value = dr["time_purchase_plan"].ToString();
@@ -101,11 +102,16 @@ namespace SystemGymControl
         {
             if (e.RowIndex > -1)
             {
+                int idPlan = int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString());
+                int idStudent = int.Parse(dgvDataPlan.CurrentRow.Cells["idStudent"].Value.ToString());
+         
                 if (dgvDataPlan.CurrentCell.ColumnIndex == 0)
                 {
-                    int idPlan = int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString());
-                    int idStudent = int.Parse(dgvDataPlan.CurrentRow.Cells["idStudent"].Value.ToString());
                     OpenForm.ShowForm(new FrmDetailsPlan(idPlan, idStudent), this);
+                }
+                else if (dgvDataPlan.CurrentCell.ColumnIndex == 1)
+                {
+                    OpenForm.ShowForm(new FrmRenewPlan(idPlan), this);
                 }
 
                 dgvDataPlan.ClearSelection();
@@ -125,7 +131,7 @@ namespace SystemGymControl
 
         private void btnPlan_Click(object sender, EventArgs e)
         {
-            if (new Bussiness.Package().SearchAll().Rows.Count > 0)
+            if (new Package().SearchAll().Rows.Count > 0)
                 OpenForm.ShowForm(new FrmPurchasePlan(), this);
             else
                 MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

@@ -39,8 +39,8 @@ namespace Database
         {
             get { return timeInactivated; }
             set { timeInactivated = value; }
-        } 
-        
+        }
+
         public int _planID
         {
             get { return planID; }
@@ -84,7 +84,7 @@ namespace Database
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@timeInactivated", _timeInactivated);
-                
+
                 try
                 {
                     connection.Open();

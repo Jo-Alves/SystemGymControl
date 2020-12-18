@@ -41,6 +41,7 @@ namespace SystemGymControl
             this.pcPlan = new System.Windows.Forms.PictureBox();
             this.btnPlan = new System.Windows.Forms.Button();
             this.showDetails = new System.Windows.Forms.DataGridViewImageColumn();
+            this.renewPlan = new System.Windows.Forms.DataGridViewImageColumn();
             this.idStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +87,7 @@ namespace SystemGymControl
             this.dgvDataPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataPlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.showDetails,
+            this.renewPlan,
             this.idStudent,
             this.idPlan,
             this.idModality,
@@ -214,7 +216,17 @@ namespace SystemGymControl
             this.showDetails.ReadOnly = true;
             this.showDetails.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.showDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.showDetails.ToolTipText = "Exibe os detalhes do plano";
             this.showDetails.Width = 148;
+            // 
+            // renewPlan
+            // 
+            this.renewPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.renewPlan.HeaderText = "Renovar Plano";
+            this.renewPlan.Name = "renewPlan";
+            this.renewPlan.ReadOnly = true;
+            this.renewPlan.ToolTipText = "Redireciona ao usuário a tela para renovar o plano do aluno";
+            this.renewPlan.Width = 126;
             // 
             // idStudent
             // 
@@ -416,6 +428,7 @@ namespace SystemGymControl
         private System.Windows.Forms.PictureBox pcPlan;
         private System.Windows.Forms.Button btnPlan;
         private System.Windows.Forms.DataGridViewImageColumn showDetails;
+        private System.Windows.Forms.DataGridViewImageColumn renewPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn idStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn idModality;

@@ -38,10 +38,12 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.pnConjuctMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnMenuQuestion = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnMenuReport = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnMenuClass = new System.Windows.Forms.Button();
             this.btnMenuRegistration = new System.Windows.Forms.Button();
             this.btnMenuSave = new System.Windows.Forms.Button();
             this.btnMenuHome = new System.Windows.Forms.Button();
@@ -53,9 +55,6 @@
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.btnMenuQuestion = new System.Windows.Forms.Button();
             this.pnTitle.SuspendLayout();
             this.pnConjuctMenu.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -148,7 +147,7 @@
             this.pnConjuctMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnConjuctMenu.Location = new System.Drawing.Point(0, 40);
             this.pnConjuctMenu.Name = "pnConjuctMenu";
-            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 712);
+            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 709);
             this.pnConjuctMenu.TabIndex = 8;
             // 
             // panel3
@@ -159,7 +158,6 @@
             this.panel3.Controls.Add(this.btnMenuReport);
             this.panel3.Controls.Add(this.btnMenuSales);
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.btnMenuClass);
             this.panel3.Controls.Add(this.btnMenuRegistration);
             this.panel3.Controls.Add(this.btnMenuSave);
             this.panel3.Controls.Add(this.btnMenuHome);
@@ -168,6 +166,72 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(235, 504);
             this.panel3.TabIndex = 5;
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSetting.Location = new System.Drawing.Point(0, 392);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnSetting.Size = new System.Drawing.Size(235, 49);
+            this.btnSetting.TabIndex = 42;
+            this.btnSetting.TabStop = false;
+            this.btnSetting.Text = "Configurações";
+            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.UseVisualStyleBackColor = false;
+            // 
+            // btnMenuQuestion
+            // 
+            this.btnMenuQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMenuQuestion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuQuestion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuQuestion.FlatAppearance.BorderSize = 0;
+            this.btnMenuQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuQuestion.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
+            this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_about_32px;
+            this.btnMenuQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 343);
+            this.btnMenuQuestion.Name = "btnMenuQuestion";
+            this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMenuQuestion.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuQuestion.TabIndex = 41;
+            this.btnMenuQuestion.TabStop = false;
+            this.btnMenuQuestion.Text = "Sobre";
+            this.btnMenuQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuQuestion.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::SystemGymControl.Properties.Resources.icons8_flow_32px_1;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(0, 294);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button2.Size = new System.Drawing.Size(235, 49);
+            this.button2.TabIndex = 40;
+            this.button2.TabStop = false;
+            this.button2.Text = "Fluxo de Caixa";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // btnMenuReport
             // 
@@ -181,7 +245,7 @@
             this.btnMenuReport.ForeColor = System.Drawing.Color.White;
             this.btnMenuReport.Image = global::SystemGymControl.Properties.Resources.icons8_report_file_32px;
             this.btnMenuReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuReport.Location = new System.Drawing.Point(0, 294);
+            this.btnMenuReport.Location = new System.Drawing.Point(0, 245);
             this.btnMenuReport.Name = "btnMenuReport";
             this.btnMenuReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuReport.Size = new System.Drawing.Size(235, 49);
@@ -203,7 +267,7 @@
             this.btnMenuSales.ForeColor = System.Drawing.Color.White;
             this.btnMenuSales.Image = global::SystemGymControl.Properties.Resources.icons8_sale_price_tag_32px_1;
             this.btnMenuSales.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuSales.Location = new System.Drawing.Point(0, 245);
+            this.btnMenuSales.Location = new System.Drawing.Point(0, 196);
             this.btnMenuSales.Name = "btnMenuSales";
             this.btnMenuSales.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuSales.Size = new System.Drawing.Size(235, 49);
@@ -225,7 +289,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = global::SystemGymControl.Properties.Resources.icons8_card_payment_32px;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(0, 196);
+            this.button1.Location = new System.Drawing.Point(0, 147);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.button1.Size = new System.Drawing.Size(235, 49);
@@ -234,28 +298,6 @@
             this.button1.Text = "Pagamento";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnMenuClass
-            // 
-            this.btnMenuClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnMenuClass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuClass.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuClass.FlatAppearance.BorderSize = 0;
-            this.btnMenuClass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnMenuClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuClass.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuClass.ForeColor = System.Drawing.Color.White;
-            this.btnMenuClass.Image = global::SystemGymControl.Properties.Resources.icons8_class_32px;
-            this.btnMenuClass.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuClass.Location = new System.Drawing.Point(0, 147);
-            this.btnMenuClass.Name = "btnMenuClass";
-            this.btnMenuClass.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuClass.Size = new System.Drawing.Size(235, 49);
-            this.btnMenuClass.TabIndex = 26;
-            this.btnMenuClass.TabStop = false;
-            this.btnMenuClass.Text = "Aula";
-            this.btnMenuClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuClass.UseVisualStyleBackColor = false;
             // 
             // btnMenuRegistration
             // 
@@ -364,7 +406,7 @@
             this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPage.Location = new System.Drawing.Point(235, 40);
             this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(617, 712);
+            this.pnPage.Size = new System.Drawing.Size(617, 709);
             this.pnPage.TabIndex = 11;
             // 
             // panel2
@@ -395,78 +437,12 @@
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 0;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::SystemGymControl.Properties.Resources.icons8_flow_32px_1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(0, 343);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button2.Size = new System.Drawing.Size(235, 49);
-            this.button2.TabIndex = 40;
-            this.button2.TabStop = false;
-            this.button2.Text = "Fluxo de Caixa";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetting.ForeColor = System.Drawing.Color.White;
-            this.btnSetting.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
-            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSetting.Location = new System.Drawing.Point(0, 441);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnSetting.Size = new System.Drawing.Size(235, 49);
-            this.btnSetting.TabIndex = 42;
-            this.btnSetting.TabStop = false;
-            this.btnSetting.Text = "Configurações";
-            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.UseVisualStyleBackColor = false;
-            // 
-            // btnMenuQuestion
-            // 
-            this.btnMenuQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnMenuQuestion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuQuestion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuQuestion.FlatAppearance.BorderSize = 0;
-            this.btnMenuQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.btnMenuQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuQuestion.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
-            this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_about_32px;
-            this.btnMenuQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 392);
-            this.btnMenuQuestion.Name = "btnMenuQuestion";
-            this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuQuestion.Size = new System.Drawing.Size(235, 49);
-            this.btnMenuQuestion.TabIndex = 41;
-            this.btnMenuQuestion.TabStop = false;
-            this.btnMenuQuestion.Text = "Sobre";
-            this.btnMenuQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuQuestion.UseVisualStyleBackColor = false;
-            // 
             // FrmGymControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(852, 752);
+            this.ClientSize = new System.Drawing.Size(852, 749);
             this.Controls.Add(this.pnPage);
             this.Controls.Add(this.pnConjuctMenu);
             this.Controls.Add(this.pnTitle);
@@ -507,7 +483,6 @@
         private System.Windows.Forms.Button btnMenuHome;
         private System.Windows.Forms.Button btnMenuSave;
         private System.Windows.Forms.Button btnMenuRegistration;
-        private System.Windows.Forms.Button btnMenuClass;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnMenuReport;
         private System.Windows.Forms.Button btnMenuSales;
