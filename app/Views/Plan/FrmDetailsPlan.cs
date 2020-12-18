@@ -64,10 +64,10 @@ namespace SystemGymControl
             txtFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
          
             string columnDateTerminal = "";
-            if (string.IsNullOrEmpty(dataPlan.Rows[0]["date_terminal_plan_extended"].ToString()))
+            if (string.IsNullOrEmpty(dataPlan.Rows[0]["date_terminal_plan_last"].ToString()))
                 columnDateTerminal = "date_terminal_plan";
             else
-                columnDateTerminal = "date_terminal_plan_extended";
+                columnDateTerminal = "date_terminal_plan_last";
 
             txtDateTerminalPlan.Text = dataPlan.Rows[0][columnDateTerminal].ToString();
             situationPlan = dataPlan.Rows[0]["situation"].ToString();
@@ -124,6 +124,7 @@ namespace SystemGymControl
             if (rbActive.Checked)
             {
                 situations._situation = rbActive.Text;
+                situations._deactivationDate = "";
             }
             else
             {
@@ -136,12 +137,9 @@ namespace SystemGymControl
 
             if (rbInactive.Checked)
             {
-                descriptionObservation = txtObservation.Text.Trim();
-            }
-            else
-            {
-                plan._dateTerminalPlan = txtDateTerminalPlan.Text;
-                plan.UpdateTerminalPlan(idPlan);
+                descriptionObservation = txtObservation.Text.Trim(); 
+                plan._dateTerminalPlanLast = txtDateTerminalPlan.Text;
+                plan.UpdateTerminalPlanLast(idPlan);
             }
 
             btnSave.Enabled = false;

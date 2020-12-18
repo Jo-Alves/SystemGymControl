@@ -12,14 +12,14 @@ namespace Bussiness
             this._planID = 0;
             this._situation = "";
             this._deactivationDate = "";
-            this._timeInactivated = 0;
+            this._timeInactivated = "";
         }
 
         private int id;
         private string situation;
         private string observation;
         private string deactivationDate;
-        private int timeInactivated;
+        private string timeInactivated;
         private int planID;
 
         public int _id
@@ -42,7 +42,7 @@ namespace Bussiness
             get { return deactivationDate; }
             set { deactivationDate = value; }
         }
-        public int _timeInactivated
+        public string _timeInactivated
         {
             get { return timeInactivated; }
             set { timeInactivated = value; }
@@ -60,6 +60,7 @@ namespace Bussiness
             situationsPlan._observation = this._observation;
             situationsPlan._planID = this._planID;
             situationsPlan._deactivationDate = this._deactivationDate;
+            situationsPlan._timeInactivated = this._timeInactivated;
             situationsPlan.Save();
         }
 

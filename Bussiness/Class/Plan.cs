@@ -8,7 +8,7 @@ namespace Bussiness
         private int numberPortions;
         private string datePurchasePlan;
         private string dateTerminalPlan;
-        private string dateTerminalPlanExtended;
+        private string dateTerminalPlanLast;
         private string timePurchasePlan;
         private int itemsPackageID;
         private int studentID;
@@ -35,10 +35,10 @@ namespace Bussiness
             get { return datePurchasePlan; }
             set { datePurchasePlan = value; }
         }
-        public string _dateTerminalPlanExtended
+        public string _dateTerminalPlanLast
         {
-            get { return dateTerminalPlanExtended; }
-            set { dateTerminalPlanExtended = value; }
+            get { return dateTerminalPlanLast; }
+            set { dateTerminalPlanLast = value; }
         }
         public string _dateTerminalPlan
         {
@@ -77,10 +77,10 @@ namespace Bussiness
             return plan.SearchAll();
         }
         
-        public void UpdateTerminalPlanExtended(int id)
+        public void UpdateTerminalPlanLast(int id)
         {
-            plan._dateTerminalPlanExtended = this._dateTerminalPlanExtended;
-            plan.UpdateTerminalPlanExtended(id);
+            plan._dateTerminalPlanLast = this._dateTerminalPlanLast;
+            plan.UpdateTerminalPlanLast(id);
         }
         
         public void UpdateTerminalPlan(int id)

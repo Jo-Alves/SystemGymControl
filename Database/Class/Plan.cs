@@ -11,7 +11,7 @@ namespace Database
         private string datePurchasePlan;
         private string timePurchasePlan;
         private string dateTerminalPlan;
-        private string dateTerminalPlanExtended;
+        private string dateTerminalPlanLast;
         private int itemsPackageID;
         private int studentID;
 
@@ -39,10 +39,10 @@ namespace Database
             get { return dateTerminalPlan; }
             set { dateTerminalPlan = value; }
         }
-        public string _dateTerminalPlanExtended
+        public string _dateTerminalPlanLast
         {
-            get { return dateTerminalPlanExtended; }
-            set { dateTerminalPlanExtended = value; }
+            get { return dateTerminalPlanLast; }
+            set { dateTerminalPlanLast = value; }
         }
         public string _timePurchasePlan
         {
@@ -88,15 +88,15 @@ namespace Database
             }
         }
 
-        public void UpdateTerminalPlanExtended(int id)
+        public void UpdateTerminalPlanLast(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                _sql = "UPDATE plans SET date_terminal_plan_extended = @dateTerminalPlanExtended WHERE id = @id";
+                _sql = "UPDATE plans SET date_terminal_plan_last = @dateTerminalPlanLast WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", id);
-                command.Parameters.AddWithValue("@dateTerminalPlanExtended", _dateTerminalPlanExtended);
+                command.Parameters.AddWithValue("@dateTerminalPlanLast", _dateTerminalPlanLast);
                 try
                 {
                     connection.Open();
@@ -137,7 +137,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_extended, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_last, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
@@ -197,7 +197,7 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_extended, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_last, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
@@ -228,7 +228,7 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_extended, " +
+                    _sql = "SELECT plans.id as idPlan, plans.date_purchase_plan, plans.date_terminal_plan, plans.date_terminal_plan_last, " +
                         "plans.time_purchase_plan, students.id as idStudent, students.name, modalities.id as " +
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +

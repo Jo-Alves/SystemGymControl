@@ -8,7 +8,7 @@ namespace Database
         private int id;
         private string situation;
         private string observation;
-        private int timeInactivated;
+        private string timeInactivated;
         private string deactivationDate;
         private int planID;
 
@@ -35,7 +35,7 @@ namespace Database
             get { return deactivationDate; }
             set { deactivationDate = value; }
         }
-        public int _timeInactivated
+        public string _timeInactivated
         {
             get { return timeInactivated; }
             set { timeInactivated = value; }
@@ -54,13 +54,14 @@ namespace Database
                 if (_id == 0)
                     _sql = "INSERT INTO situations_plan (situation, observation, plan_id) VALUES (@situation, @observation, @planID)";
                 else
-                    _sql = "UPDATE situations_plan SET situation = @situation, observation = @observation, deactivation_date = @deactivationDate WHERE id = @id";
+                    _sql = "UPDATE situations_plan SET situation = @situation, observation = @observation, deactivation_date = @deactivationDate, time_inactivated = @timeInactivated WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@situation", _situation);
                 command.Parameters.AddWithValue("@observation", _observation);
                 command.Parameters.AddWithValue("@deactivationDate", _deactivationDate);
+                command.Parameters.AddWithValue("@timeInactivated", _timeInactivated);
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {

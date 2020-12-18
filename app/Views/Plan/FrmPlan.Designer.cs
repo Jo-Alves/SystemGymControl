@@ -56,7 +56,7 @@ namespace SystemGymControl
             this.datePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTerminalPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTerminalPlanExtended = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTerminalPlanLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeInactivated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deactivationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,7 +101,7 @@ namespace SystemGymControl
             this.datePurchasePlan,
             this.timePurchasePlan,
             this.dateTerminalPlan,
-            this.dateTerminalPlanExtended,
+            this.dateTerminalPlanLast,
             this.situation,
             this.timeInactivated,
             this.deactivationDate});
@@ -319,20 +319,20 @@ namespace SystemGymControl
             // datePurchasePlan
             // 
             this.datePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.datePurchasePlan.HeaderText = "Data do plano";
+            this.datePurchasePlan.HeaderText = "Data da ativação da plano";
             this.datePurchasePlan.Name = "datePurchasePlan";
             this.datePurchasePlan.ReadOnly = true;
             this.datePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.datePurchasePlan.Width = 123;
+            this.datePurchasePlan.Width = 212;
             // 
             // timePurchasePlan
             // 
             this.timePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.timePurchasePlan.HeaderText = "Hora do Plano";
+            this.timePurchasePlan.HeaderText = "Hora da ativação do plano";
             this.timePurchasePlan.Name = "timePurchasePlan";
             this.timePurchasePlan.ReadOnly = true;
             this.timePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.timePurchasePlan.Width = 125;
+            this.timePurchasePlan.Width = 215;
             // 
             // dateTerminalPlan
             // 
@@ -342,15 +342,15 @@ namespace SystemGymControl
             this.dateTerminalPlan.ReadOnly = true;
             this.dateTerminalPlan.Width = 178;
             // 
-            // dateTerminalPlanExtended
+            // dateTerminalPlanLast
             // 
-            this.dateTerminalPlanExtended.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dateTerminalPlanExtended.HeaderText = "Data final do plano prorrogado";
-            this.dateTerminalPlanExtended.Name = "dateTerminalPlanExtended";
-            this.dateTerminalPlanExtended.ReadOnly = true;
-            this.dateTerminalPlanExtended.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dateTerminalPlanExtended.Visible = false;
-            this.dateTerminalPlanExtended.Width = 252;
+            this.dateTerminalPlanLast.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dateTerminalPlanLast.HeaderText = "Data final do plano prorrogado";
+            this.dateTerminalPlanLast.Name = "dateTerminalPlanLast";
+            this.dateTerminalPlanLast.ReadOnly = true;
+            this.dateTerminalPlanLast.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dateTerminalPlanLast.Visible = false;
+            this.dateTerminalPlanLast.Width = 252;
             // 
             // situation
             // 
@@ -431,7 +431,7 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn datePurchasePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn timePurchasePlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlanExtended;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlanLast;
         private System.Windows.Forms.DataGridViewTextBoxColumn situation;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeInactivated;
         private System.Windows.Forms.DataGridViewTextBoxColumn deactivationDate;
