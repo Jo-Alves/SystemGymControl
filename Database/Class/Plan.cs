@@ -15,7 +15,6 @@ namespace Database
         private int itemsPackageID;
         private int studentID;
 
-
         string _sql;
 
         public int _id

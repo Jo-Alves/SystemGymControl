@@ -90,5 +90,10 @@ namespace Bussiness
         {
             return package.SearchDescriptionPackageAndItems(description);
         }
+
+        public DataTable SearchPackageAndItemsPackageId(int idPackage)
+        {
+            return package.SearchPackageAndItemsPackageId(idPackage);
+        }
     }
 }

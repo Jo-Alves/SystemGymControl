@@ -1,6 +1,7 @@
 ﻿using Bussiness;
 using System;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -18,308 +19,63 @@ namespace SystemGymControl
         public FrmRenewPlan()
         {
             InitializeComponent();
-            LoadDataPackages();
         }
 
         public FrmRenewPlan(int idPlan)
         {
             InitializeComponent();
 
-            LoadDataPackages();
             DataTable dataPlan = plan.SearchID(idPlan);
             int idPackage = int.Parse(dataPlan.Rows[0]["idPackage"].ToString());
             txtCodigoStudent.Text = idPlan.ToString();
             txtNameStudent.Text = dataPlan.Rows[0]["name"].ToString();
-            btnSearchStudent.Visible = false;
-            btnPurchasePlan.Text = "Renovar plano";
-            cbModalities.Text = dataPlan.Rows[0]["descriptionModality"].ToString();
-            foreach (DataGridViewRow dgv in dgvDataPlan.Rows)
+            txtPackage.Text = dataPlan.Rows[0]["descriptionPackage"].ToString();
+            txtValue.Text = dataPlan.Rows[0]["valueItemsPackage"].ToString();
+            txtModality.Text = dataPlan.Rows[0]["descriptionModality"].ToString();
+            foreach (DataRow dr in package.SearchPackageAndItemsPackageId(int.Parse(dataPlan.Rows[0]["IdPackage"].ToString())).Rows)
             {
-                if (int.Parse(dgv.Cells["id"].Value.ToString()) == idPackage)
-                {
-                    dgv.Selected = true;
-                    break;
-                }
+                cbFormOfPayment.Items.Add(dr["description"].ToString());
             }
-        }
-        private void LoadDataPackages()
-        {
-            dgvDataPlan.Rows.Clear();
-
-            DataTable DataPackages;
-
-            if (string.IsNullOrEmpty(txtSearch.Text))
-                DataPackages = package.SearchAllItemsAndPackage();
-            else
-                DataPackages = package.SearchDescriptionPackageAndItems(txtSearch.Text);
-
-            foreach (DataRow dr in DataPackages.Rows)
-            {
-                int addRow = dgvDataPlan.Rows.Add();
-                dgvDataPlan.Rows[addRow].Cells["id"].Value = dr["id"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["description"].Value = dr["description"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["duration"].Value = dr["duration"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
-                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
-                dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
-
-                dgvDataPlan.Rows[addRow].MinimumHeight = 30;
-            }
-
-            dgvDataPlan.ClearSelection();
-        }
-
-        int idItems;
-        string formPayment;
-
-        private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                idItems = int.Parse(dgvDataPlan.CurrentRow.Cells["idItemsPackage"].Value.ToString());
-                formPayment = dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString();
-                SetTerminalPeriod(dgvDataPlan.CurrentRow.Cells["period"].Value.ToString());
-            }
-        }
-
-        string dateTerminalPlan = "";
-
-        private void SetTerminalPeriod(string periodPackage)
-        {
-            DateTime dateNow = DateTime.Parse(DateTime.Now.ToShortDateString());
-            lblDateTerminalPlan.Visible = true;
-            TimeSpan time;
-
-            switch (periodPackage.ToLower())
-            {
-                case "diário":
-                    dateTerminalPlan = dateNow.ToShortDateString();
-                    break;
-
-                case "mensal":
-                    time = dateNow.AddMonths(1) - dateNow;
-                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
-                    break;
-
-                case "bimestral":
-                    time = dateNow.AddMonths(2) - dateNow;
-                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
-                    break;
-
-                case "trimestral":
-                    time = dateNow.AddMonths(3) - dateNow;
-                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
-                    break;
-
-                case "semestral":
-                    time = dateNow.AddMonths(6) - dateNow;
-                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
-                    break;
-
-                case "anual":
-                    time = dateNow.AddYears(1) - dateNow;
-                    dateTerminalPlan = dateNow.AddDays(time.TotalDays - 1).ToShortDateString();
-                    break;
-
-                case "quinzena":
-                    time = dateNow.AddDays(15) - dateNow;
-                    dateTerminalPlan = dateNow.AddDays(time.TotalDays).ToShortDateString();
-                    break;
-
-                case "quarentena":
-                    time = dateNow.AddDays(40) - dateNow;
-                    dateTerminalPlan = dateNow.AddDays(time.TotalDays).ToShortDateString();
-                    break;
-            }
-
-            lblDateTerminalPlan.Text = $"Data de término do plano: {dateTerminalPlan}";
-        }
-
-        private void btnSearchStudent_Click(object sender, EventArgs e)
-        {
-            if (student.SearchAll().Rows.Count > 0)
-            {
-                FrmSearchStudent searchStudent = new FrmSearchStudent();
-                searchStudent.ShowDialog();
-                if (searchStudent.idStudent > 0)
-                {
-                    txtCodigoStudent.Text = searchStudent.idStudent.ToString();
-                    txtNameStudent.Text = searchStudent.nameStudent;
-                }
-            }
-            else
-                MessageBox.Show("Não há aluno(a) cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            cbFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (plan.SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmPlan(), this);
-                else
-                    OpenForm.ShowForm(new FrmHome(), this);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.Close();
         }
 
-
-
-        FrmCashInPayment cashInPayment;
-        FrmCardInPayment cardInPayment;
-        string datePlan = DateTime.Now.ToShortDateString(), timePlan = DateTime.Now.ToLongTimeString();
         private void btnPurchasePlan_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                if (!ValidateFields())
-                    return;
-
-                decimal valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
-
-                if (plan.ModalitiesBeforePlanTerminalCurrentEqual(int.Parse(txtCodigoStudent.Text), cbModalities.Text))
-                {
-                    MessageBox.Show("O aluno não pode fazer a mesma modalidade antes do fim do plano!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-
-                if (formPayment.ToLower() == "dinheiro")
-                {
-                    cashInPayment = new FrmCashInPayment(valuePackage);
-
-                    cashInPayment.ShowDialog();
-
-                    if (!cashInPayment.paymentCancel) return;
-                }
-                else
-                {
-                    cardInPayment = new FrmCardInPayment(valuePackage, int.Parse(dgvDataPlan.CurrentRow.Cells["duration"].Value.ToString()));
-                    cardInPayment.ShowDialog();
-
-                    if (!cardInPayment.paymentCancel) return;
-                }
-
-                SavePlan();
-
-                idMaxPlan = plan.GetMaxId();
-
-                SaveModality();
-
-                SaveSituationPlan();
-                if (formPayment.ToLower() == "dinheiro")
-                    SaveCashPayment(cashInPayment.DiscountMoney, cashInPayment.valueDiscount);
-                else
-                    SaveCardPayment(cardInPayment.dataPortion);
-
-                OpenForm.ShowForm(new FrmPlan(), this);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
-        private void SaveCardPayment(DataTable dataPortion)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            foreach (DataRow dr in dataPortion.Rows)
-            {
-                cardPayment._numberPortion = int.Parse(dr["portion"].ToString());
-                cardPayment._dueDate = dr["dueDate"].ToString();
-                cardPayment._valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
-                cardPayment._payday = "";
-                cardPayment._paymentTime = "";
-                cardPayment._planID = idMaxPlan;
-                cardPayment.Save();
-            }
+            this.Close();
         }
 
-        private void SaveCashPayment(decimal discountMoney, decimal valueDiscount)
+        private void btnClose_MouseEnter(object sender, EventArgs e)
         {
-            cashPayment._valueTotal = valueDiscount;
-            cashPayment._valueDiscount = discountMoney;
-            cashPayment._payday = datePlan;
-            cashPayment._paymentTime = timePlan;
-            cashPayment._planID = idMaxPlan;
-            cashPayment.Save();
+            btnClose.Image = Properties.Resources.icons8_close_window_32px_enter1;
         }
 
-        private bool ValidateFields()
+        private void btnClose_MouseLeave(object sender, EventArgs e)
         {
-            bool isValited = false;
-
-            if (string.IsNullOrWhiteSpace(txtCodigoStudent.Text))
-            {
-                MessageBox.Show("Informe os dados do aluno!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtNameStudent.Focus();
-            }
-            else if (!checkedDgvSelected())
-            {
-                MessageBox.Show("Selecione o plano que o aluno irá adquirir!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (cbModalities.SelectedIndex == -1)
-            {
-                MessageBox.Show("Selecione a modalidade!", "System Gym Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cbModalities.Focus();
-            }
-            else
-                isValited = true;
-
-            return isValited;
+            btnClose.Image = Properties.Resources.icons8_close_window_32px_leavee;
         }
 
-        int idMaxPlan;
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
 
-        private void SavePlan()
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void FrmRenewPlan_MouseDown(object sender, MouseEventArgs e)
         {
-            plan._datePurchasePlan = datePlan;
-            plan._timePurchasePlan = timePlan;
-            plan._dateTerminalPlan = dateTerminalPlan;
-            plan._itemsPackageID = idItems;
-            plan._studentID = int.Parse(txtCodigoStudent.Text);
-            plan.Save();
-        }
-
-        private void SaveModality()
-        {
-            modality._description = cbModalities.Text;
-            modality._planID = idMaxPlan;
-            modality.Save();
-        }
-
-        private void SaveSituationPlan()
-        {
-            situationsPlan._situation = "Ativo";
-            situationsPlan._observation = "";
-            situationsPlan._planID = idMaxPlan;
-            situationsPlan._deactivationDate = "";
-            situationsPlan.Save();
-        }
-
-        private bool checkedDgvSelected()
-        {
-            bool isDgvSelected = false;
-
-            foreach (DataGridViewRow row in dgvDataPlan.Rows)
-            {
-                if (row.Selected)
-                {
-                    isDgvSelected = true;
-                    break;
-                }
-            }
-
-            return isDgvSelected;
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            LoadDataPackages();
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

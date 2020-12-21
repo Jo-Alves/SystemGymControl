@@ -111,7 +111,8 @@ namespace SystemGymControl
                 }
                 else if (dgvDataPlan.CurrentCell.ColumnIndex == 1)
                 {
-                    OpenForm.ShowForm(new FrmRenewPlan(idPlan), this);
+                    var frmRenewPlan = new FrmRenewPlan(idPlan);
+                    frmRenewPlan.ShowDialog();
                 }
 
                 dgvDataPlan.ClearSelection();
