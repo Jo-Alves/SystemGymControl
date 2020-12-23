@@ -75,9 +75,9 @@ namespace Bussiness
             return situationsPlan.SearchID(id);
         }
 
-        public void updateSituationPlanExpired(int idPlan)
+        public void updateSituationPlan(int idPlan, string situation)
         {
-            situationsPlan.updateSituationPlanExpired(idPlan);
+            situationsPlan.updateSituationPlan(idPlan, situation);
         }
     }
 }

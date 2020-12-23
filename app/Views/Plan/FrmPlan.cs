@@ -15,6 +15,26 @@ namespace SystemGymControl
         {
             InitializeComponent();
             LoadDataPackages();
+            CancelAfterThirtyDayTerminalPlan();
+        }
+
+        private void CancelAfterThirtyDayTerminalPlan()
+        {
+            DateTime dateNow = DateTime.Now;
+            TimeSpan timeSpan;
+            foreach(DataGridViewRow row in dgvDataPlan.Rows)
+            {
+                DateTime dateTerminal = Convert.ToDateTime(row.Cells["dateTerminalPlan"].Value.ToString());
+                timeSpan = dateNow.Subtract(dateTerminal);
+                int idPlan = int.Parse(row.Cells["idPlan"].Value.ToString());
+
+                if(timeSpan.Days > 30)
+                {
+                    situationsPlan.updateSituationPlan(idPlan, "Cancelado");
+                }
+
+                LoadDataPackages();
+            }
         }
 
         // atualiza a coluna da tabela timeInactivated incrementado se o plano estiver inativado
@@ -128,7 +148,7 @@ namespace SystemGymControl
                 {
                     if (!dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().Equals("Expirado"))
                     {
-                        MessageBox.Show("Só é permitido renovar o plano após a sua expiração do plano!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Só é permitido renovar o plano após a sua expiração!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
 

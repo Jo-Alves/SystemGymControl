@@ -30,7 +30,7 @@ namespace SystemGymControl
         {
             foreach(DataRow dr in plan.GetDatePlanExpired().Rows)
             {
-                situationPlan.updateSituationPlanExpired(int.Parse(dr["id"].ToString()));
+                situationPlan.updateSituationPlan(int.Parse(dr["id"].ToString()), "Expirado");
             }
         }
 

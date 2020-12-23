@@ -97,14 +97,15 @@ namespace Database
             }
         }
         
-        public void updateSituationPlanExpired(int idPlan)
+        public void updateSituationPlan(int idPlan, string situation)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                _sql = "UPDATE situations_plan SET situation = 'Expirado', observation = '', time_Inactivated = 0, deactivation_date = ''  WHERE plan_id = @idPlan";
+                _sql = "UPDATE situations_plan SET situation = @situation, observation = '', time_Inactivated = 0, deactivation_date = ''  WHERE plan_id = @idPlan";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@idPlan", idPlan);
+                command.Parameters.AddWithValue("@situation", situation);
 
                 try
                 {

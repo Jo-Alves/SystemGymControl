@@ -208,7 +208,8 @@ namespace Database
                         "situations_plan.plan_id = plans.id INNER JOIN items_package " +
                         "ON items_package.id = plans.items_package_id" +
                         " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
-                        "INNER JOIN packages ON packages.id = items_package.package_id";
+                        "INNER JOIN packages ON packages.id = items_package.package_id " +
+                        "WHERE situations_plan.situation <> 'Cancelado'";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
@@ -239,7 +240,7 @@ namespace Database
                         "situations_plan.plan_id = plans.id INNER JOIN items_package " +
                         "ON items_package.id = plans.items_package_id" +
                         " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
-                        $"INNER JOIN packages ON packages.id = items_package.package_id WHERE students.name LIKE '%{name}%'";
+                        $"INNER JOIN packages ON packages.id = items_package.package_id WHERE students.name LIKE '%{name}%' AND situations_plan.situation <> 'Cancelado'";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);

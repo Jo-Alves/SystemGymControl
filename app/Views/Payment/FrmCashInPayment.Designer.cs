@@ -29,6 +29,7 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCashInPayment));
             this.btnClose = new System.Windows.Forms.Button();
             this.txtPaidOut = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -306,10 +307,11 @@ namespace SystemGymControl
             this.Controls.Add(this.btnClose);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmCashInPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCashInPayment";
+            this.Text = "Pagamento à vista";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmCashInPayment_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();

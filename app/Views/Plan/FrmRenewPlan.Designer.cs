@@ -29,6 +29,7 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRenewPlan));
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigoStudent = new System.Windows.Forms.TextBox();
             this.txtNameStudent = new System.Windows.Forms.TextBox();
@@ -65,7 +66,8 @@ namespace SystemGymControl
             this.txtCodigoStudent.Name = "txtCodigoStudent";
             this.txtCodigoStudent.ReadOnly = true;
             this.txtCodigoStudent.Size = new System.Drawing.Size(127, 29);
-            this.txtCodigoStudent.TabIndex = 1;
+            this.txtCodigoStudent.TabIndex = 0;
+            this.txtCodigoStudent.TabStop = false;
             this.txtCodigoStudent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtNameStudent
@@ -75,7 +77,8 @@ namespace SystemGymControl
             this.txtNameStudent.Name = "txtNameStudent";
             this.txtNameStudent.ReadOnly = true;
             this.txtNameStudent.Size = new System.Drawing.Size(558, 29);
-            this.txtNameStudent.TabIndex = 2;
+            this.txtNameStudent.TabIndex = 1;
+            this.txtNameStudent.TabStop = false;
             // 
             // label2
             // 
@@ -114,7 +117,7 @@ namespace SystemGymControl
             this.btnRenewPlan.Location = new System.Drawing.Point(30, 236);
             this.btnRenewPlan.Name = "btnRenewPlan";
             this.btnRenewPlan.Size = new System.Drawing.Size(169, 43);
-            this.btnRenewPlan.TabIndex = 19;
+            this.btnRenewPlan.TabIndex = 6;
             this.btnRenewPlan.TabStop = false;
             this.btnRenewPlan.Text = "Renovar";
             this.btnRenewPlan.UseVisualStyleBackColor = false;
@@ -133,7 +136,7 @@ namespace SystemGymControl
             this.btnCancel.Location = new System.Drawing.Point(205, 236);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(162, 43);
-            this.btnCancel.TabIndex = 20;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -146,7 +149,8 @@ namespace SystemGymControl
             this.txtModality.Name = "txtModality";
             this.txtModality.ReadOnly = true;
             this.txtModality.Size = new System.Drawing.Size(302, 29);
-            this.txtModality.TabIndex = 26;
+            this.txtModality.TabIndex = 3;
+            this.txtModality.TabStop = false;
             // 
             // label4
             // 
@@ -167,7 +171,8 @@ namespace SystemGymControl
             this.txtPackage.Name = "txtPackage";
             this.txtPackage.ReadOnly = true;
             this.txtPackage.Size = new System.Drawing.Size(244, 29);
-            this.txtPackage.TabIndex = 28;
+            this.txtPackage.TabIndex = 2;
+            this.txtPackage.TabStop = false;
             // 
             // btnClose
             // 
@@ -193,7 +198,8 @@ namespace SystemGymControl
             this.txtValue.Name = "txtValue";
             this.txtValue.ReadOnly = true;
             this.txtValue.Size = new System.Drawing.Size(133, 29);
-            this.txtValue.TabIndex = 33;
+            this.txtValue.TabIndex = 4;
+            this.txtValue.TabStop = false;
             this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
@@ -227,7 +233,7 @@ namespace SystemGymControl
             this.cbFormOfPayment.Location = new System.Drawing.Point(30, 193);
             this.cbFormOfPayment.Name = "cbFormOfPayment";
             this.cbFormOfPayment.Size = new System.Drawing.Size(226, 30);
-            this.cbFormOfPayment.TabIndex = 35;
+            this.cbFormOfPayment.TabIndex = 5;
             this.cbFormOfPayment.SelectedIndexChanged += new System.EventHandler(this.cbFormOfPayment_SelectedIndexChanged);
             // 
             // FrmRenewPlan
@@ -253,10 +259,11 @@ namespace SystemGymControl
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmRenewPlan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPurchasePlan";
+            this.Text = "Renovar Plano";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmRenewPlan_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
