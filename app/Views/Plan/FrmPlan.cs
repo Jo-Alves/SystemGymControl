@@ -1,6 +1,7 @@
 ﻿using Bussiness;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -96,12 +97,26 @@ namespace SystemGymControl
 
             dgvDataPlan.ClearSelection();
             UpdateTimeInactivated();
+            updateColorRowDataGridIfSituationPlanExpired();
+        }
+
+        private void updateColorRowDataGridIfSituationPlanExpired()
+        {
+            foreach (DataGridViewRow row in dgvDataPlan.Rows)
+            {
+                if (row.Cells["situation"].Value.ToString() == "Expirado")
+                {
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(45)))), ((int)(((byte)(47)))));
+                }
+            }
         }
 
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
+                dgvDataPlan.ClearSelection();
+
                 int idPlan = int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString());
                 int idStudent = int.Parse(dgvDataPlan.CurrentRow.Cells["idStudent"].Value.ToString());
          
@@ -111,11 +126,16 @@ namespace SystemGymControl
                 }
                 else if (dgvDataPlan.CurrentCell.ColumnIndex == 1)
                 {
+                    if (!dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().Equals("Expirado"))
+                    {
+                        MessageBox.Show("Só é permitido renovar o plano após a sua expiração do plano!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
                     var frmRenewPlan = new FrmRenewPlan(idPlan);
                     frmRenewPlan.ShowDialog();
+                    LoadDataPackages();
                 }
-
-                dgvDataPlan.ClearSelection();
             }
         }
 

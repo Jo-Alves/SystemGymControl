@@ -194,6 +194,7 @@ namespace SystemGymControl
             this.txtValue.ReadOnly = true;
             this.txtValue.Size = new System.Drawing.Size(133, 29);
             this.txtValue.TabIndex = 33;
+            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -227,6 +228,7 @@ namespace SystemGymControl
             this.cbFormOfPayment.Name = "cbFormOfPayment";
             this.cbFormOfPayment.Size = new System.Drawing.Size(226, 30);
             this.cbFormOfPayment.TabIndex = 35;
+            this.cbFormOfPayment.SelectedIndexChanged += new System.EventHandler(this.cbFormOfPayment_SelectedIndexChanged);
             // 
             // FrmRenewPlan
             // 

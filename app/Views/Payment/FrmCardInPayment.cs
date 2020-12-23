@@ -7,32 +7,47 @@ namespace SystemGymControl
 {
     public partial class FrmCardInPayment : Form
     {
-
         public bool paymentCancel { get; set; }
         public DataTable dataPortion { get; set; }
 
         decimal valuePackage;
+        string formPayment;
         public FrmCardInPayment()
         {
             InitializeComponent();
         }
-        public FrmCardInPayment(decimal valuePackage, int numberPortions)
+     
+        public FrmCardInPayment(decimal valuePackage, int numberPortions, string formPayment)
         {
             InitializeComponent();
+
+            this.formPayment = formPayment;
+            if (this.formPayment == "Cartão de Débito")
+            {
+                ndNumberPortions.Enabled = false;
+                ndNumberPortions.Value = 1;
+                numberPortions = 1;
+            }
             this.valuePackage = valuePackage;
             lblvalueTotal.Text = $"R$ {valuePackage}";
             ndNumberPortions.Value = numberPortions;
-            parcelValue(valuePackage, numberPortions);
+            parcelValue(valuePackage, numberPortions, formPayment);
             dgvPortions.ClearSelection();
         }
 
-        private void parcelValue(decimal valuePackage, int numberPortions)
+        private void parcelValue(decimal valuePackage, int numberPortions, string formPayment)
         {
             dgvPortions.Rows.Clear();
             for (int i = 1; i <= numberPortions; i++)
             {
-                DateTime dateCurrent = DateTime.Now;
-                dgvPortions.Rows.Add(i, dateCurrent.AddMonths(i).ToShortDateString(), $"R$ {(valuePackage / numberPortions).ToString("0.00")}");
+                DateTime dateNow = DateTime.Now;
+                DateTime date;
+                if (formPayment.ToLower() == "cartão de crédito")
+                    date = dateNow.AddMonths(i);
+                else
+                    date = dateNow.AddDays(i);
+
+                dgvPortions.Rows.Add(i, date.ToShortDateString(), $"R$ {(valuePackage / numberPortions).ToString("0.00")}");
             }
             dgvPortions.ClearSelection();
         }
@@ -88,7 +103,7 @@ namespace SystemGymControl
 
         private void ndNumberPortions_ValueChanged(object sender, EventArgs e)
         {
-            parcelValue(valuePackage, int.Parse(ndNumberPortions.Value.ToString()));
+            parcelValue(valuePackage, int.Parse(ndNumberPortions.Value.ToString()), formPayment);
         }
     }
 }

@@ -151,7 +151,7 @@ namespace SystemGymControl
 
         FrmCashInPayment cashInPayment;
         FrmCardInPayment cardInPayment;
-        string datePlan = DateTime.Now.ToShortDateString(), timePlan = DateTime.Now.ToLongTimeString();
+        DateTime datePlan;
         private void btnPurchasePlan_Click(object sender, EventArgs e)
         {
             try
@@ -178,11 +178,12 @@ namespace SystemGymControl
                 }
                 else
                 {
-                    cardInPayment = new FrmCardInPayment(valuePackage, int.Parse(dgvDataPlan.CurrentRow.Cells["duration"].Value.ToString()));
+                    cardInPayment = new FrmCardInPayment(valuePackage, int.Parse(dgvDataPlan.CurrentRow.Cells["duration"].Value.ToString()), dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString());
                     cardInPayment.ShowDialog();
 
                     if (!cardInPayment.paymentCancel) return;
                 }
+                datePlan = DateTime.Now;
 
                 SavePlan();
 
@@ -222,8 +223,8 @@ namespace SystemGymControl
         {
             cashPayment._valueTotal = valueDiscount;
             cashPayment._valueDiscount = discountMoney;
-            cashPayment._payday = datePlan;
-            cashPayment._paymentTime = timePlan;
+            cashPayment._payday = datePlan.ToShortDateString();
+            cashPayment._paymentTime = datePlan.ToLongTimeString();
             cashPayment._planID = idMaxPlan;
             cashPayment.Save();
         }
@@ -256,8 +257,8 @@ namespace SystemGymControl
 
         private void SavePlan()
         {
-            plan._datePurchasePlan = datePlan;
-            plan._timePurchasePlan = timePlan;
+            plan._datePurchasePlan = datePlan.ToShortDateString();
+            plan._timePurchasePlan = datePlan.ToLongTimeString();
             plan._dateTerminalPlan = dateTerminalPlan;
             plan._itemsPackageID = idItems;
             plan._studentID = int.Parse(txtCodigoStudent.Text);

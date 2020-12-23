@@ -103,5 +103,10 @@ namespace Bussiness
         {
             return plan.ModalitiesBeforePlanTerminalCurrentEqual(id, description);
         }
+
+        public DataTable GetDatePlanExpired()
+        {
+            return plan.GetDatePlanExpired();
+        }
     }
 }

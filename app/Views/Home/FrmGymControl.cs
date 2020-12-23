@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +7,8 @@ namespace SystemGymControl
 {
     public partial class FrmGymControl : Form
     {
+        Bussiness.Plan plan = new Bussiness.Plan();
+        Bussiness.SituationsPlan situationPlan = new Bussiness.SituationsPlan();
         public FrmGymControl()
         {
             InitializeComponent();
@@ -19,6 +22,16 @@ namespace SystemGymControl
             this.ClientSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
             this.Top = 0;
             this.Left = 0;
+
+            CheckedPlanExpired();
+        }
+
+        private void CheckedPlanExpired()
+        {
+            foreach(DataRow dr in plan.GetDatePlanExpired().Rows)
+            {
+                situationPlan.updateSituationPlanExpired(int.Parse(dr["id"].ToString()));
+            }
         }
 
         private Form activeForm = null;
@@ -129,7 +142,7 @@ namespace SystemGymControl
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            lblTitle.Text = "EXPLOSION ACADEMIA - Plano";
+            lblTitle.Text = "EXPLOSION ACADEMIA --- Plano";
         }
     }
 }

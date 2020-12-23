@@ -78,13 +78,21 @@ namespace SystemGymControl
                 rbActive.Checked = true;
                 pnObservation.Visible = false;
             }
-            else
+            else if (situationPlan.ToLower() == "inativo")
             {
                 lblDateDeactive.Visible = true;
                 txtDateDeactive.Visible = true;
                 rbInactive.Checked = true;
                 descriptionObservation = dataPlan.Rows[0]["observation"].ToString();
                 txtObservation.Text = descriptionObservation;
+            }
+            else
+            {
+                rbExpired.Checked = true;
+                rbExpired.Enabled = true;
+                rbActive.Enabled = false;
+                rbInactive.Enabled = false;
+                btnSave.Enabled = false;
             }
 
         }

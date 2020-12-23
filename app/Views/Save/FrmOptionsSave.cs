@@ -21,7 +21,7 @@ namespace SystemGymControl
                 else
                     OpenForm.ShowForm(new FrmSaveStudent(), this);
 
-                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA - Cadastro - Aluno";
+                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Cadastro - Aluno";
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace SystemGymControl
                 else
                     OpenForm.ShowForm(new FrmSavePackage(), this);
 
-                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA - Cadastro - Pacote";
+                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Cadastro - Pacote";
             }
             catch (Exception ex)
             {
@@ -55,7 +55,7 @@ namespace SystemGymControl
                 else
                     OpenForm.ShowForm(new FrmSaveUser(), this);
 
-                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA - Cadastro - Usuário";
+                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Cadastro - Usuário";
             }
             catch (Exception ex)
             {

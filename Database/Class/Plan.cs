@@ -66,7 +66,7 @@ namespace Database
                 if (_id == 0)
                     _sql = "INSERT INTO plans (date_purchase_plan ,time_purchase_plan ,date_terminal_plan ,items_package_id ,student_id) VALUES (@datePurchasePlan, @timePurchasePlan, @dateTerminalPlan, @itemsPackageID, @studentID)";
                 else
-                    _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, date_terminal_plan = @dateTerminalPlan, time_purchase_plan = @timePurchasePlan, itemns_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
+                    _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, date_terminal_plan = @dateTerminalPlan, time_purchase_plan = @timePurchasePlan, items_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
@@ -141,7 +141,7 @@ namespace Database
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
                         "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
-                        "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
+                        "IdPackage, packages.description as descriptionPackage, packages.duration, packages.period, situations_plan.id as " +
                         "idSituationPlan, situations_plan.situation, situations_plan.observation, situations_plan.deactivation_date, situations_plan.time_inactivated FROM " +
                         "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
                         "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +
@@ -273,6 +273,26 @@ namespace Database
             }
 
             return maxId;
+        }
+
+        public DataTable GetDatePlanExpired()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    _sql = "SELECT date_terminal_plan, id FROM Plans WHERE CONVERT(DATE, date_Terminal_plan, 103) < CONVERT(DATE, @dateNow, 103);";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@dateNow", DateTime.Now.ToShortDateString());
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

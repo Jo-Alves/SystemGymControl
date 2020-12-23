@@ -34,12 +34,6 @@ namespace SystemGymControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlan));
             this.dgvDataPlan = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblPlan = new System.Windows.Forms.Label();
-            this.pcPlan = new System.Windows.Forms.PictureBox();
-            this.btnPlan = new System.Windows.Forms.Button();
             this.showDetails = new System.Windows.Forms.DataGridViewImageColumn();
             this.renewPlan = new System.Windows.Forms.DataGridViewImageColumn();
             this.idStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +55,12 @@ namespace SystemGymControl
             this.situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeInactivated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deactivationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPlan = new System.Windows.Forms.Label();
+            this.pcPlan = new System.Windows.Forms.PictureBox();
+            this.btnPlan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -125,88 +125,10 @@ namespace SystemGymControl
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDataPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataPlan.Size = new System.Drawing.Size(987, 218);
             this.dgvDataPlan.TabIndex = 17;
             this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
             this.dgvDataPlan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtSearch.Location = new System.Drawing.Point(133, 21);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(693, 33);
-            this.txtSearch.TabIndex = 9;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(828, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(28, 144);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(987, 65);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pesquisar";
-            // 
-            // lblPlan
-            // 
-            this.lblPlan.AutoSize = true;
-            this.lblPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPlan.ForeColor = System.Drawing.Color.Black;
-            this.lblPlan.Location = new System.Drawing.Point(34, 99);
-            this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(58, 22);
-            this.lblPlan.TabIndex = 25;
-            this.lblPlan.Text = "Plano";
-            // 
-            // pcPlan
-            // 
-            this.pcPlan.Image = global::SystemGymControl.Properties.Resources.icons8_floor_plan_64px;
-            this.pcPlan.Location = new System.Drawing.Point(28, 25);
-            this.pcPlan.Name = "pcPlan";
-            this.pcPlan.Size = new System.Drawing.Size(64, 64);
-            this.pcPlan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcPlan.TabIndex = 24;
-            this.pcPlan.TabStop = false;
-            // 
-            // btnPlan
-            // 
-            this.btnPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.btnPlan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPlan.FlatAppearance.BorderSize = 0;
-            this.btnPlan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnPlan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
-            this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlan.ForeColor = System.Drawing.Color.White;
-            this.btnPlan.Location = new System.Drawing.Point(113, 38);
-            this.btnPlan.Name = "btnPlan";
-            this.btnPlan.Size = new System.Drawing.Size(252, 42);
-            this.btnPlan.TabIndex = 26;
-            this.btnPlan.Text = "Realizar novo plano";
-            this.btnPlan.UseVisualStyleBackColor = false;
-            this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
             // 
             // showDetails
             // 
@@ -392,6 +314,83 @@ namespace SystemGymControl
             this.deactivationDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.deactivationDate.Visible = false;
             this.deactivationDate.Width = 240;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtSearch.Location = new System.Drawing.Point(133, 21);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(693, 33);
+            this.txtSearch.TabIndex = 9;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(828, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(28, 144);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(987, 65);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // lblPlan
+            // 
+            this.lblPlan.AutoSize = true;
+            this.lblPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPlan.ForeColor = System.Drawing.Color.Black;
+            this.lblPlan.Location = new System.Drawing.Point(34, 99);
+            this.lblPlan.Name = "lblPlan";
+            this.lblPlan.Size = new System.Drawing.Size(58, 22);
+            this.lblPlan.TabIndex = 25;
+            this.lblPlan.Text = "Plano";
+            // 
+            // pcPlan
+            // 
+            this.pcPlan.Image = global::SystemGymControl.Properties.Resources.icons8_floor_plan_64px;
+            this.pcPlan.Location = new System.Drawing.Point(28, 25);
+            this.pcPlan.Name = "pcPlan";
+            this.pcPlan.Size = new System.Drawing.Size(64, 64);
+            this.pcPlan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcPlan.TabIndex = 24;
+            this.pcPlan.TabStop = false;
+            // 
+            // btnPlan
+            // 
+            this.btnPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnPlan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlan.FlatAppearance.BorderSize = 0;
+            this.btnPlan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnPlan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
+            this.btnPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlan.ForeColor = System.Drawing.Color.White;
+            this.btnPlan.Location = new System.Drawing.Point(113, 38);
+            this.btnPlan.Name = "btnPlan";
+            this.btnPlan.Size = new System.Drawing.Size(252, 42);
+            this.btnPlan.TabIndex = 26;
+            this.btnPlan.Text = "Realizar novo plano";
+            this.btnPlan.UseVisualStyleBackColor = false;
+            this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
             // 
             // FrmPlan
             // 

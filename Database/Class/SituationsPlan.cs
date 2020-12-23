@@ -96,6 +96,27 @@ namespace Database
                 }
             }
         }
+        
+        public void updateSituationPlanExpired(int idPlan)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                _sql = "UPDATE situations_plan SET situation = 'Expirado', observation = '', time_Inactivated = 0, deactivation_date = ''  WHERE plan_id = @idPlan";
+
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@idPlan", idPlan);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
 
         public DataTable SearchID(int id)
         {

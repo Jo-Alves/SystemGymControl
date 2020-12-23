@@ -74,5 +74,10 @@ namespace Bussiness
         {
             return situationsPlan.SearchID(id);
         }
+
+        public void updateSituationPlanExpired(int idPlan)
+        {
+            situationsPlan.updateSituationPlanExpired(idPlan);
+        }
     }
 }

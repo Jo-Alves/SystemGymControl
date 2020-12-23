@@ -175,7 +175,7 @@ namespace Database
             }
         }
 
-        public DataTable SearchPackageAndItemsPackageId(int idPackage)
+        public DataTable GetPackageAndItemsPackageId(int idPackage)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -183,7 +183,28 @@ namespace Database
                 {
                     _sql = "SELECT forms_of_payment.description FROM items_package INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id WHERE packages.id = @idPackage";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                    adapter.SelectCommand.Parameters.AddWithValue("idPackage", idPackage);
+                    adapter.SelectCommand.Parameters.AddWithValue("@idPackage", idPackage);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+        
+        public DataTable GetValuePackageAndId(int idPackage, string descriptionForms)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT items_package.value, items_package.id FROM items_package INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id WHERE packages.id = @idPackage AND forms_of_payment.description = @descriptionForms";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@idPackage", idPackage);
+                    adapter.SelectCommand.Parameters.AddWithValue("@descriptionForms", descriptionForms);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     return table;

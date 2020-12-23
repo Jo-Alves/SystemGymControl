@@ -91,9 +91,14 @@ namespace Bussiness
             return package.SearchDescriptionPackageAndItems(description);
         }
 
-        public DataTable SearchPackageAndItemsPackageId(int idPackage)
+        public DataTable GetPackageAndItemsPackageId(int idPackage)
         {
-            return package.SearchPackageAndItemsPackageId(idPackage);
+            return package.GetPackageAndItemsPackageId(idPackage);
+        }
+
+        public DataTable GetValuePackageAndId(int idPackage, string descriptionForms)
+        {
+            return package.GetValuePackageAndId(idPackage, descriptionForms);
         }
     }
 }
