@@ -243,7 +243,7 @@ namespace SystemGymControl
             else
                 dataCardPayment = cardInPayment.dataPortion;            
 
-            plan.Save(modality, situationsPlan, dataCardPayment, cashPayment, formPayment.ToLower());
+            plan.Save(modality, situationsPlan, dataCardPayment, cashPayment, formPayment.ToLower(), dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower());
         }
 
         private bool checkedDgvSelected()

@@ -9,6 +9,7 @@ namespace Bussiness
         private decimal valueDiscount;
         private string payday;
         private string paymentTime;
+        private string duedate;
         private int planID;
 
         Database.CashPayment cashPayment = new Database.CashPayment();
@@ -38,15 +39,20 @@ namespace Bussiness
             get { return paymentTime; }
             set { paymentTime = value; }
         }
+        public string _duedate
+        {
+            get { return duedate; }
+            set { duedate = value; }
+        }
         public int _planID
         {
             get { return planID; }
             set { planID = value; }
         }
 
-        public DataTable SearchID(int id)
+        public DataTable SearchPlanID(int planID)
         {
-            return cashPayment.SearchID(id);
+            return cashPayment.SearchPlanID(planID);
         }
 
         public DataTable SearchAll()

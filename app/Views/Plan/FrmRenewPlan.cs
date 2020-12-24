@@ -18,7 +18,7 @@ namespace SystemGymControl
         CashPayment cashPayment = new CashPayment();
         CardPayment cardPayment = new CardPayment();
 
-        int idPackage, duration, idPlan, idItemsPackage, studentId, idSituation;
+        int idPackage, duration, idPlan, idItemsPackage, studentId, idSituation, idCashPayment;
 
         DateTime datePlan;
 
@@ -51,7 +51,9 @@ namespace SystemGymControl
             {
                 cbFormOfPayment.Items.Add(dr["description"].ToString());
             }
+
             cbFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
+            idCashPayment = int.Parse(cashPayment.SearchPlanID(idPlan).Rows[0]["id"].ToString());
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -104,6 +106,7 @@ namespace SystemGymControl
                 DataTable dataCardPayment = null;
                 if (cbFormOfPayment.Text.ToLower() == "dinheiro")
                 {
+                    cashPayment._id = idCashPayment;
                     cashPayment._valueTotal = cashInPayment.valueDiscount;
                     cashPayment._valueDiscount = cashInPayment.discountMoney;
                     cashPayment._payday = datePlan.ToShortDateString();
@@ -112,7 +115,7 @@ namespace SystemGymControl
                 else
                     dataCardPayment = cardInPayment.dataPortion;
 
-                plan.Save(new Modality(), situationsPlan, dataCardPayment, cashPayment, cbFormOfPayment.Text.ToLower());
+                plan.Save(new Modality(), situationsPlan, dataCardPayment, cashPayment, cbFormOfPayment.Text.ToLower(), period);
             }
             catch (Exception ex)
             {

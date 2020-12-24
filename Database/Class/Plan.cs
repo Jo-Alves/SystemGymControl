@@ -60,7 +60,7 @@ namespace Database
             set { studentID = value; }
         }
 
-        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, CashPayment cashPayment, string formPayment)
+        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, CashPayment cashPayment, string formPayment, string period)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -69,6 +69,7 @@ namespace Database
                     _sql = "INSERT INTO plans (date_purchase_plan ,time_purchase_plan ,date_terminal_plan ,items_package_id ,student_id) VALUES (@datePurchasePlan, @timePurchasePlan, @dateTerminalPlan, @itemsPackageID, @studentID); SELECT @@identity";
                 else
                     _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, date_terminal_plan = @dateTerminalPlan, time_purchase_plan = @timePurchasePlan, items_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
+
                 SqlTransaction sqlTransaction = connection.BeginTransaction();
                 SqlCommand command = new SqlCommand(_sql, connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
@@ -98,8 +99,30 @@ namespace Database
 
                     if (formPayment == "dinheiro")
                     {
-                        cashPayment._planID = planId;
-                        cashPayment.Save(sqlTransaction);
+                        if (period != "mensal")
+                        {
+                            cashPayment._duedate = DateTime.Now.ToShortDateString();
+                            cashPayment._planID = planId;
+                            cashPayment.Save(sqlTransaction);
+                        }
+                        else
+                        {
+                            // Insere os dados do pagamento
+
+                            cashPayment._duedate = DateTime.Now.ToShortDateString();
+                            cashPayment._planID = planId;
+                            cashPayment.Save(sqlTransaction);
+
+                            // Insere os dados para o próximo pagamento com a data a vencer
+
+                            cashPayment._id = 0;
+                            cashPayment._payday = "";
+                            cashPayment._paymentTime = "";
+                            cashPayment._valueTotal += cashPayment._valueDiscount;
+                            cashPayment._valueDiscount = 0.00m;
+                            cashPayment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
+                            cashPayment.Save(sqlTransaction);
+                        }
                     }
                     else
                     {
@@ -115,8 +138,9 @@ namespace Database
                             cardPayment.Save(sqlTransaction);
                         }
                     }
+                    if (_id > 0)
+                        command.ExecuteNonQuery();
 
-                    command.ExecuteNonQuery();
                     sqlTransaction.Commit();
                 }
                 catch

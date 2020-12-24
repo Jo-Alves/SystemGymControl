@@ -10,6 +10,7 @@ namespace Database
         private decimal valueDiscount;
         private string payday;
         private string paymentTime;
+        private string duedate;
         private int planID;
 
         string _sql;
@@ -39,6 +40,11 @@ namespace Database
             get { return paymentTime; }
             set { paymentTime = value; }
         }
+        public string _duedate
+        {
+            get { return duedate; }
+            set { duedate = value; }
+        }
         public int _planID
         {
             get { return planID; }
@@ -49,7 +55,10 @@ namespace Database
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                _sql = "INSERT INTO cash_payments VALUES (@valueTotal, @valueDiscount, @payday, @paymentTime, @planID)";
+                if(_id == 0)
+                _sql = "INSERT INTO cash_payments VALUES (@valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @planID)";
+                else
+                _sql = "UPDATE  cash_payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, duedate =  @duedate WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
@@ -57,6 +66,7 @@ namespace Database
                 command.Parameters.AddWithValue("@valueDiscount", _valueDiscount);
                 command.Parameters.AddWithValue("@payday", _payday);
                 command.Parameters.AddWithValue("@paymentTime", _paymentTime);
+                command.Parameters.AddWithValue("@duedate", _duedate);
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
@@ -69,16 +79,16 @@ namespace Database
             }
         }
 
-        public DataTable SearchID(int id)
+        public DataTable SearchPlanID(int planID)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT * FROM cash_payments WHERE id = @id";
+                    _sql = "SELECT * FROM cash_payments WHERE plan_id = @planID AND payday = ''";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                    adapter.SelectCommand.Parameters.AddWithValue("@id", id);
+                    adapter.SelectCommand.Parameters.AddWithValue("@planID", planID);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     return table;
