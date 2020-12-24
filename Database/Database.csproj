@@ -45,7 +45,6 @@
     <Compile Include="Class\CashFlow.cs" />
     <Compile Include="Class\CardPayment.cs" />
     <Compile Include="Class\FormsOfPayment.cs" />
-    <Compile Include="Class\FrequenciesStudent.cs" />
     <Compile Include="Class\IcomingCashFlow.cs" />
     <Compile Include="Class\ItemsPackage.cs" />
     <Compile Include="Class\Modality.cs" />
@@ -56,7 +55,6 @@
     <Compile Include="Class\Plan.cs" />
     <Compile Include="Class\ResponsibleStudent.cs" />
     <Compile Include="Class\SituationsPlan.cs" />
-    <Compile Include="Class\SituationsStudent.cs" />
     <Compile Include="Class\Student.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

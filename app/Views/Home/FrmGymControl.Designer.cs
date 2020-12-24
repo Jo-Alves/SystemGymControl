@@ -43,7 +43,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnMenuReport = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMenuPayment = new System.Windows.Forms.Button();
             this.btnMenuRegistration = new System.Windows.Forms.Button();
             this.btnMenuSave = new System.Windows.Forms.Button();
             this.btnMenuHome = new System.Windows.Forms.Button();
@@ -157,7 +157,7 @@
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.btnMenuReport);
             this.panel3.Controls.Add(this.btnMenuSales);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnMenuPayment);
             this.panel3.Controls.Add(this.btnMenuRegistration);
             this.panel3.Controls.Add(this.btnMenuSave);
             this.panel3.Controls.Add(this.btnMenuHome);
@@ -277,27 +277,28 @@
             this.btnMenuSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuSales.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnMenuPayment
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::SystemGymControl.Properties.Resources.icons8_card_payment_32px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(0, 147);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button1.Size = new System.Drawing.Size(235, 49);
-            this.button1.TabIndex = 34;
-            this.button1.TabStop = false;
-            this.button1.Text = "Pagamento";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnMenuPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMenuPayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuPayment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuPayment.FlatAppearance.BorderSize = 0;
+            this.btnMenuPayment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuPayment.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuPayment.ForeColor = System.Drawing.Color.White;
+            this.btnMenuPayment.Image = global::SystemGymControl.Properties.Resources.icons8_card_payment_32px;
+            this.btnMenuPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuPayment.Location = new System.Drawing.Point(0, 147);
+            this.btnMenuPayment.Name = "btnMenuPayment";
+            this.btnMenuPayment.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMenuPayment.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuPayment.TabIndex = 34;
+            this.btnMenuPayment.TabStop = false;
+            this.btnMenuPayment.Text = "Pagamentos";
+            this.btnMenuPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuPayment.UseVisualStyleBackColor = false;
+            this.btnMenuPayment.Click += new System.EventHandler(this.btnMenuPayment_Click);
             // 
             // btnMenuRegistration
             // 
@@ -486,7 +487,7 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnMenuReport;
         private System.Windows.Forms.Button btnMenuSales;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMenuPayment;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnMenuQuestion;
         private System.Windows.Forms.Button button2;

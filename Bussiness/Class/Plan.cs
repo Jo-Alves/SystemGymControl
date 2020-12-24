@@ -82,6 +82,11 @@ namespace Bussiness
         public DataTable SearchAll()
         {
             return plan.SearchAll();
+        } 
+        
+        public DataTable SearchAllWhereMoney()
+        {
+            return plan.SearchAllWhereMoney();
         }
 
         public void UpdateTerminalPlanLast(int id)

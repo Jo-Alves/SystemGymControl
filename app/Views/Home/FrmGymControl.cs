@@ -144,5 +144,11 @@ namespace SystemGymControl
 
             lblTitle.Text = "EXPLOSION ACADEMIA --- Plano";
         }
+
+        private void btnMenuPayment_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos";
+            OpenForm.ShowForm(new FrmMonthlyPayment(), this);
+        }
     }
 }
