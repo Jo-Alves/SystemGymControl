@@ -33,17 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddPackage = new System.Windows.Forms.Button();
             this.dgvDataPackage = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtSearchDescription = new System.Windows.Forms.TextBox();
-            this.lblPackage = new System.Windows.Forms.Label();
-            this.pcPackage = new System.Windows.Forms.PictureBox();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.period = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtSearchDescription = new System.Windows.Forms.TextBox();
+            this.lblPackage = new System.Windows.Forms.Label();
+            this.pcPackage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPackage)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -117,66 +117,6 @@
             this.dgvDataPackage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPackage_CellClick);
             this.dgvDataPackage.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPackage_CellDoubleClick);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.txtSearchDescription);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 110);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(636, 80);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pesquisar";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::SystemGymControl.Properties.Resources.icons8_search_23px;
-            this.pictureBox1.Location = new System.Drawing.Point(522, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // txtSearchDescription
-            // 
-            this.txtSearchDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchDescription.BackColor = System.Drawing.Color.Silver;
-            this.txtSearchDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchDescription.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtSearchDescription.Location = new System.Drawing.Point(122, 28);
-            this.txtSearchDescription.Name = "txtSearchDescription";
-            this.txtSearchDescription.Size = new System.Drawing.Size(399, 33);
-            this.txtSearchDescription.TabIndex = 9;
-            this.txtSearchDescription.TextChanged += new System.EventHandler(this.txtSearchDescription_TextChanged);
-            // 
-            // lblPackage
-            // 
-            this.lblPackage.AutoSize = true;
-            this.lblPackage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.lblPackage.Location = new System.Drawing.Point(11, 83);
-            this.lblPackage.Name = "lblPackage";
-            this.lblPackage.Size = new System.Drawing.Size(68, 22);
-            this.lblPackage.TabIndex = 9;
-            this.lblPackage.Text = "Pacote";
-            // 
-            // pcPackage
-            // 
-            this.pcPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.pcPackage.Image = global::SystemGymControl.Properties.Resources.icons8_handle_with_care_64px_1;
-            this.pcPackage.Location = new System.Drawing.Point(12, 12);
-            this.pcPackage.Name = "pcPackage";
-            this.pcPackage.Size = new System.Drawing.Size(64, 64);
-            this.pcPackage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcPackage.TabIndex = 8;
-            this.pcPackage.TabStop = false;
-            // 
             // edit
             // 
             this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -229,6 +169,66 @@
             this.period.ReadOnly = true;
             this.period.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.period.Width = 76;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.txtSearchDescription);
+            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 110);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(636, 80);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::SystemGymControl.Properties.Resources.icons8_search_23px;
+            this.pictureBox1.Location = new System.Drawing.Point(522, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtSearchDescription
+            // 
+            this.txtSearchDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchDescription.BackColor = System.Drawing.Color.White;
+            this.txtSearchDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchDescription.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtSearchDescription.Location = new System.Drawing.Point(122, 28);
+            this.txtSearchDescription.Name = "txtSearchDescription";
+            this.txtSearchDescription.Size = new System.Drawing.Size(399, 33);
+            this.txtSearchDescription.TabIndex = 9;
+            this.txtSearchDescription.TextChanged += new System.EventHandler(this.txtSearchDescription_TextChanged);
+            // 
+            // lblPackage
+            // 
+            this.lblPackage.AutoSize = true;
+            this.lblPackage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.lblPackage.Location = new System.Drawing.Point(11, 83);
+            this.lblPackage.Name = "lblPackage";
+            this.lblPackage.Size = new System.Drawing.Size(68, 22);
+            this.lblPackage.TabIndex = 9;
+            this.lblPackage.Text = "Pacote";
+            // 
+            // pcPackage
+            // 
+            this.pcPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.pcPackage.Image = global::SystemGymControl.Properties.Resources.icons8_handle_with_care_64px_1;
+            this.pcPackage.Location = new System.Drawing.Point(12, 12);
+            this.pcPackage.Name = "pcPackage";
+            this.pcPackage.Size = new System.Drawing.Size(64, 64);
+            this.pcPackage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcPackage.TabIndex = 8;
+            this.pcPackage.TabStop = false;
             // 
             // FrmPackage
             // 

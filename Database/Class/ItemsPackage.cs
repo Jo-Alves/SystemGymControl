@@ -44,7 +44,6 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    //command.ExecuteNonQuery();
                     _id = Convert.ToInt32(command.ExecuteScalar());
                 }
                 catch

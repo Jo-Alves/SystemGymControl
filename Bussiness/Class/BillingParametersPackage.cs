@@ -45,17 +45,6 @@ namespace Bussiness
             set { packageID = value; }
         }
 
-        public void Save()
-        {
-            parametersPackage._id = this._id;
-            parametersPackage._valuePenalty = this._valuePenalty;
-            parametersPackage._valueInterest = this._valueInterest;
-            parametersPackage._typeInterest = this._typeInterest;
-            parametersPackage._typePenalty = this._typePenalty;
-            parametersPackage._packageID = this._packageID;
-            //parametersPackage.Save();
-        }
-
         public DataTable SearchID(int idPackage)
         {
             return parametersPackage.SearchID(idPackage);

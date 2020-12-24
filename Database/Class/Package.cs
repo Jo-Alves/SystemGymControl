@@ -80,12 +80,12 @@ namespace Database
 
                         FormsOfPayment formsOfPayment = new FormsOfPayment() { _description = dr["formOfPayment"].ToString(), _id = int.Parse(dr["idFormOfPayment"].ToString()), _itemsPackageID = idItemsPackage };
                         formsOfPayment.Save(sqlTransaction);
-
-
                     }
 
-                    
-                    command.ExecuteNonQuery();
+                    if(_id > 0)
+                    {
+                        command.ExecuteNonQuery();
+                    }
 
                     sqlTransaction.Commit();
                 }

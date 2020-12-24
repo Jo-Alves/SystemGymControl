@@ -50,7 +50,7 @@
             // 
             // pnStudent
             // 
-            this.pnStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnStudent.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnStudent.Controls.Add(this.lblStudent);
             this.pnStudent.Controls.Add(this.btnSaveStudent);
@@ -105,7 +105,7 @@
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnSavePackage);
             this.pnPackage.Controls.Add(this.pcPackage);
-            this.pnPackage.Location = new System.Drawing.Point(435, 176);
+            this.pnPackage.Location = new System.Drawing.Point(434, 176);
             this.pnPackage.Name = "pnPackage";
             this.pnPackage.Size = new System.Drawing.Size(272, 245);
             this.pnPackage.TabIndex = 2;
@@ -150,12 +150,12 @@
             // 
             // pnUser
             // 
-            this.pnUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnUser.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnSaveUser);
             this.pnUser.Controls.Add(this.pcUser);
-            this.pnUser.Location = new System.Drawing.Point(822, 176);
+            this.pnUser.Location = new System.Drawing.Point(821, 176);
             this.pnUser.Name = "pnUser";
             this.pnUser.Size = new System.Drawing.Size(272, 245);
             this.pnUser.TabIndex = 2;
@@ -203,7 +203,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1132, 570);
+            this.ClientSize = new System.Drawing.Size(1131, 570);
             this.Controls.Add(this.pnUser);
             this.Controls.Add(this.pnPackage);
             this.Controls.Add(this.pnStudent);

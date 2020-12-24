@@ -93,6 +93,8 @@
             // 
             // txtAnswer
             // 
+            this.txtAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAnswer.BackColor = System.Drawing.Color.White;
             this.txtAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAnswer.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,6 +120,7 @@
             // 
             // btnOpenImage
             // 
+            this.btnOpenImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnOpenImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpenImage.FlatAppearance.BorderSize = 0;
@@ -174,6 +177,8 @@
             // 
             // txtUser
             // 
+            this.txtUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUser.BackColor = System.Drawing.Color.White;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUser.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,6 +204,7 @@
             // 
             // pcAvatar
             // 
+            this.pcAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pcAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcAvatar.Location = new System.Drawing.Point(965, 19);
             this.pcAvatar.Name = "pcAvatar";
@@ -209,13 +215,15 @@
             // 
             // txtPassword2
             // 
+            this.txtPassword2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword2.BackColor = System.Drawing.Color.White;
             this.txtPassword2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword2.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword2.ForeColor = System.Drawing.Color.Black;
             this.txtPassword2.Location = new System.Drawing.Point(445, 188);
             this.txtPassword2.Name = "txtPassword2";
-            this.txtPassword2.Size = new System.Drawing.Size(340, 33);
+            this.txtPassword2.Size = new System.Drawing.Size(416, 33);
             this.txtPassword2.TabIndex = 4;
             this.txtPassword2.UseSystemPasswordChar = true;
             this.txtPassword2.WordWrap = false;
@@ -249,8 +257,9 @@
             // 
             // pcUpdateFormatPassword
             // 
+            this.pcUpdateFormatPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pcUpdateFormatPassword.Image = global::SystemGymControl.Properties.Resources.ver_32x32;
-            this.pcUpdateFormatPassword.Location = new System.Drawing.Point(791, 189);
+            this.pcUpdateFormatPassword.Location = new System.Drawing.Point(862, 188);
             this.pcUpdateFormatPassword.Name = "pcUpdateFormatPassword";
             this.pcUpdateFormatPassword.Size = new System.Drawing.Size(32, 32);
             this.pcUpdateFormatPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -267,6 +276,8 @@
             // 
             // txtName
             // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtName.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,6 +328,7 @@
             // 
             // btnClearImage
             // 
+            this.btnClearImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(69)))), ((int)(((byte)(72)))));
             this.btnClearImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClearImage.FlatAppearance.BorderSize = 0;
@@ -338,6 +350,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1131, 365);
             this.Controls.Add(this.btnClearImage);

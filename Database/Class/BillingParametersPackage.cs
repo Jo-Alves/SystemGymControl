@@ -49,22 +49,24 @@ namespace Database
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                if (_id == 0)
-                    _sql = "INSERT INTO billing_parameters_package VALUES (@valuePenalty, @valueInterest, @typePenalty, @typeInterest, @packageID)";
-                else
-                    _sql = "UPDATE billing_parameters_package SET value_penalty = @valuepenalty, type_penalty = @typePenalty, type_interest = @typeInterest, value_interest = @valueInterest, package_id = @packageID WHERE package_id = @packageID";
-
-                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
-                command.Parameters.AddWithValue("@id", _id);
-                command.Parameters.AddWithValue("@valuePenalty", _valuePenalty);
-                command.Parameters.AddWithValue("@valueInterest", _valueInterest);
-                command.Parameters.AddWithValue("@typePenalty", _typePenalty);
-                command.Parameters.AddWithValue("@typeInterest", _typeInterest);
-                command.Parameters.AddWithValue("@packageID", _packageID);
-
                 try
                 {
+                    if (_id == 0)
+                        _sql = "INSERT INTO billing_parameters_package VALUES (@valuePenalty, @valueInterest, @typePenalty, @typeInterest, @packageID)";
+                    else
+                        _sql = "UPDATE billing_parameters_package SET value_penalty = @valuepenalty, type_penalty = @typePenalty, type_interest = @typeInterest, value_interest = @valueInterest, package_id = @packageID WHERE package_id = @packageID";
+
+                    SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+
+                    command.Parameters.AddWithValue("@id", _id);
+                    command.Parameters.AddWithValue("@valuePenalty", _valuePenalty);
+                    command.Parameters.AddWithValue("@valueInterest", _valueInterest);
+                    command.Parameters.AddWithValue("@typePenalty", _typePenalty);
+                    command.Parameters.AddWithValue("@typeInterest", _typeInterest);
+                    command.Parameters.AddWithValue("@packageID", _packageID);
+
                     command.ExecuteNonQuery();
+
                 }
                 catch
                 {

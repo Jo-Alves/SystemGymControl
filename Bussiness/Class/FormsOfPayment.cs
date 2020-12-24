@@ -26,14 +26,6 @@ namespace Bussiness
             set { itemsPackageID = value; }
         }
 
-        public void Save()
-        {
-            formsOfPayment._id = this._id;
-            formsOfPayment._description = this._description;
-            formsOfPayment._itemsPackageID = this._itemsPackageID;
-            //formsOfPayment.Save();
-        }
-
         public DataTable SearchID(int id)
         {
             return formsOfPayment.SearchID(id);
