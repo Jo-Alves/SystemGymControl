@@ -16,7 +16,7 @@ namespace SystemGymControl
         {
             InitializeComponent();
         }
-     
+
         public FrmCardInPayment(decimal valuePackage, int numberPortions, string formPayment)
         {
             InitializeComponent();

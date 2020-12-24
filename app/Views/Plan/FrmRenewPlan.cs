@@ -79,57 +79,45 @@ namespace SystemGymControl
 
             datePlan = DateTime.Now;
 
-            SavePlan();
+            RenewPlan();
 
-            SaveSituation();
+            MessageBox.Show($"O Prazo foi renovado até o dia {plan._dateTerminalPlan}.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (cbFormOfPayment.Text.ToLower() == "dinheiro")
-                SaveCashPayment(cashInPayment.DiscountMoney, cashInPayment.valueDiscount);
-            else
-                SaveCardPayment(cardInPayment.dataPortion);
+            this.Close();
         }
 
-        private void SaveSituation()
-        {
-            situationsPlan._id = idSituation;
-            situationsPlan._situation = "Ativo";
-            situationsPlan._planID = idPlan;
-            situationsPlan.Save();
-        }
 
-        private void SaveCardPayment(DataTable dataPortion)
+        private void RenewPlan()
         {
-            foreach (DataRow dr in dataPortion.Rows)
+            try
             {
-                cardPayment._numberPortion = int.Parse(dr["portion"].ToString());
-                cardPayment._dueDate = dr["dueDate"].ToString();
-                cardPayment._valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
-                cardPayment._payday = "";
-                cardPayment._paymentTime = "";
-                cardPayment._planID = idPlan;
-                cardPayment.Save();
+                plan._id = idPlan;
+                plan._datePurchasePlan = datePlan.ToShortDateString();
+                plan._timePurchasePlan = datePlan.ToLongTimeString();
+                plan._dateTerminalPlan = GetTerminalPeriod(period);
+                plan._itemsPackageID = idItemsPackage;
+                plan._studentID = studentId;
+
+                situationsPlan._id = idSituation;
+                situationsPlan._situation = "Ativo";
+
+                DataTable dataCardPayment = null;
+                if (cbFormOfPayment.Text.ToLower() == "dinheiro")
+                {
+                    cashPayment._valueTotal = cashInPayment.valueDiscount;
+                    cashPayment._valueDiscount = cashInPayment.discountMoney;
+                    cashPayment._payday = datePlan.ToShortDateString();
+                    cashPayment._paymentTime = datePlan.ToLongTimeString();
+                }
+                else
+                    dataCardPayment = cardInPayment.dataPortion;
+
+                plan.Save(new Modality(), situationsPlan, dataCardPayment, cashPayment, cbFormOfPayment.Text.ToLower());
             }
-        }
-
-        private void SaveCashPayment(decimal discountMoney, decimal valueDiscount)
-        {
-            cashPayment._valueTotal = valueDiscount;
-            cashPayment._valueDiscount = discountMoney;
-            cashPayment._payday = datePlan.ToShortDateString();
-            cashPayment._paymentTime = datePlan.ToLongTimeString();
-            cashPayment._planID = idPlan;
-            cashPayment.Save();
-        }
-
-        private void SavePlan()
-        {
-            plan._id = idPlan;
-            plan._datePurchasePlan = datePlan.ToShortDateString();
-            plan._timePurchasePlan = datePlan.ToLongTimeString();
-            plan._dateTerminalPlan = GetTerminalPeriod(period);
-            plan._itemsPackageID = idItemsPackage;
-            plan._studentID = studentId;
-            plan.Save();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private string GetTerminalPeriod(string periodPackage)

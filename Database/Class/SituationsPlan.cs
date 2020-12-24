@@ -12,7 +12,6 @@ namespace Database
         private string deactivationDate;
         private int planID;
 
-
         string _sql;
 
         public int _id
@@ -51,12 +50,38 @@ namespace Database
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
+
+                _sql = "UPDATE situations_plan SET situation = @situation, observation = @observation, deactivation_date = @deactivationDate, time_inactivated = @timeInactivated WHERE id = @id";
+
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@situation", _situation);
+                command.Parameters.AddWithValue("@observation", _observation);
+                command.Parameters.AddWithValue("@deactivationDate", _deactivationDate);
+                command.Parameters.AddWithValue("@timeInactivated", _timeInactivated);
+                command.Parameters.AddWithValue("@planID", _planID);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Save(SqlTransaction sqlTransaction)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
                 if (_id == 0)
                     _sql = "INSERT INTO situations_plan (situation, observation, plan_id) VALUES (@situation, @observation, @planID)";
                 else
                     _sql = "UPDATE situations_plan SET situation = @situation, observation = @observation, deactivation_date = @deactivationDate, time_inactivated = @timeInactivated WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, connection);
+                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@situation", _situation);
                 command.Parameters.AddWithValue("@observation", _observation);
@@ -96,7 +121,7 @@ namespace Database
                 }
             }
         }
-        
+
         public void updateSituationPlan(int idPlan, string situation)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))

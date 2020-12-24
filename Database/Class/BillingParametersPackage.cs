@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace Database
 {
@@ -44,49 +45,46 @@ namespace Database
             set { packageID = value; }
         }
 
-        public void Save()
+        public void Save(SqlTransaction sqlTransaction)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id == 0)
-                _sql = "INSERT INTO billing_parameters_package VALUES (@valuePenalty, @valueInterest, @typePenalty, @typeInterest, @packageID)";
-            else
-                _sql = "UPDATE billing_parameters_package SET value_penalty = @valuepenalty, type_penalty = @typePenalty, type_interest = @typeInterest, value_interest = @valueInterest, package_id = @packageID WHERE package_id = @packageID";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO billing_parameters_package VALUES (@valuePenalty, @valueInterest, @typePenalty, @typeInterest, @packageID)";
+                else
+                    _sql = "UPDATE billing_parameters_package SET value_penalty = @valuepenalty, type_penalty = @typePenalty, type_interest = @typeInterest, value_interest = @valueInterest, package_id = @packageID WHERE package_id = @packageID";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@valuePenalty", _valuePenalty);
-            command.Parameters.AddWithValue("@valueInterest", _valueInterest);
-            command.Parameters.AddWithValue("@typePenalty", _typePenalty);
-            command.Parameters.AddWithValue("@typeInterest", _typeInterest);
-            command.Parameters.AddWithValue("@packageID", _packageID);
+                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@valuePenalty", _valuePenalty);
+                command.Parameters.AddWithValue("@valueInterest", _valueInterest);
+                command.Parameters.AddWithValue("@typePenalty", _typePenalty);
+                command.Parameters.AddWithValue("@typeInterest", _typeInterest);
+                command.Parameters.AddWithValue("@packageID", _packageID);
 
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public SqlDataReader SearchID(int packageID)
+        public DataTable SearchID(int packageID)
         {
             SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
             try
             {
                 connection.Open();
                 _sql = "SELECT * FROM billing_parameters_package WHERE package_id = @id";
-                SqlCommand command = new SqlCommand(_sql, connection);
-                command.Parameters.AddWithValue("@id", packageID);
-                SqlDataReader dr = command.ExecuteReader();
-                dr.Read();
-                return dr;
+                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@id", packageID);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
             }
             catch
             {

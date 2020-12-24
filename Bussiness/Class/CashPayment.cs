@@ -44,17 +44,6 @@ namespace Bussiness
             set { planID = value; }
         }
 
-        public void Save()
-        {
-            cashPayment._id = this._id;
-            cashPayment._valueTotal = this._valueTotal;
-            cashPayment._valueDiscount = this._valueDiscount;
-            cashPayment._payday = this._payday;
-            cashPayment._paymentTime = this._paymentTime;
-            cashPayment._planID = this._planID;
-            cashPayment.Save();
-        }
-
         public DataTable SearchID(int id)
         {
             return cashPayment.SearchID(id);

@@ -50,18 +50,6 @@ namespace Bussiness
             set { planID = value; }
         }
 
-        public void Save()
-        {
-            cardPayment._id = this._id;
-            cardPayment._numberPortion = this._numberPortion;
-            cardPayment._valuePortion = this._valuePortion;
-            cardPayment._payday = this._payday;
-            cardPayment._paymentTime = this._paymentTime;
-            cardPayment._dueDate = this._dueDate;
-            cardPayment._planID = this._planID;
-            cardPayment.Save();
-        }
-
         public DataTable SearchID(int id)
         {
             return cardPayment.SearchID(id);

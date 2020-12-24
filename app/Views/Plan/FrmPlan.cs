@@ -22,13 +22,13 @@ namespace SystemGymControl
         {
             DateTime dateNow = DateTime.Now;
             TimeSpan timeSpan;
-            foreach(DataGridViewRow row in dgvDataPlan.Rows)
+            foreach (DataGridViewRow row in dgvDataPlan.Rows)
             {
                 DateTime dateTerminal = Convert.ToDateTime(row.Cells["dateTerminalPlan"].Value.ToString());
                 timeSpan = dateNow.Subtract(dateTerminal);
                 int idPlan = int.Parse(row.Cells["idPlan"].Value.ToString());
 
-                if(timeSpan.Days > 30)
+                if (timeSpan.Days > 30)
                 {
                     situationsPlan.updateSituationPlan(idPlan, "Cancelado");
                 }
@@ -139,7 +139,7 @@ namespace SystemGymControl
 
                 int idPlan = int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString());
                 int idStudent = int.Parse(dgvDataPlan.CurrentRow.Cells["idStudent"].Value.ToString());
-         
+
                 if (dgvDataPlan.CurrentCell.ColumnIndex == 0)
                 {
                     OpenForm.ShowForm(new FrmDetailsPlan(idPlan, idStudent), this);

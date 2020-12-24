@@ -26,14 +26,6 @@ namespace Bussiness
             set { planID = value; }
         }
 
-        public void Save()
-        {
-            modality._id = this._id;
-            modality._description = this._description;
-            modality._planID = this._planID;
-            modality.Save();
-        }
-
         public DataTable SearchPlanID(int planID)
         {
             return modality.SearchPlanID(planID);

@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -27,23 +28,24 @@ namespace Database
             set { packageID = value; }
         }
 
-        public void Save()
+        public void Save(SqlTransaction sqlTransaction)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO items_package VALUES (@valuePackage, @packageID)";
+                    _sql = "INSERT INTO items_package VALUES (@valuePackage, @packageID); SELECT @@IDENTITY";
                 else
                     _sql = "UPDATE items_package SET  value = @valuePackage, package_id = @packageID WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, connection);
+                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@valuePackage", _valuePackage);
                 command.Parameters.AddWithValue("@packageID", _packageID);
                 try
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    //command.ExecuteNonQuery();
+                    _id = Convert.ToInt32(command.ExecuteScalar());
                 }
                 catch
                 {

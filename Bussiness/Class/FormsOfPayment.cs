@@ -31,7 +31,7 @@ namespace Bussiness
             formsOfPayment._id = this._id;
             formsOfPayment._description = this._description;
             formsOfPayment._itemsPackageID = this._itemsPackageID;
-            formsOfPayment.Save();
+            //formsOfPayment.Save();
         }
 
         public DataTable SearchID(int id)

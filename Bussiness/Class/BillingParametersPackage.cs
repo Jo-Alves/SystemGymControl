@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace Bussiness
 {
@@ -52,10 +53,10 @@ namespace Bussiness
             parametersPackage._typeInterest = this._typeInterest;
             parametersPackage._typePenalty = this._typePenalty;
             parametersPackage._packageID = this._packageID;
-            parametersPackage.Save();
+            //parametersPackage.Save();
         }
 
-        public SqlDataReader SearchID(int idPackage)
+        public DataTable SearchID(int idPackage)
         {
             return parametersPackage.SearchID(idPackage);
         }

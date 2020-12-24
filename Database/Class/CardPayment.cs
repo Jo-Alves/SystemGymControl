@@ -51,7 +51,7 @@ namespace Database
             set { planID = value; }
         }
 
-        public void Save()
+        public void Save(SqlTransaction sqlTransaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -60,7 +60,7 @@ namespace Database
                 else
                     _sql = "UPDATE card_payments SET value_portion = @valuePortion, number_portion = @numberPortion, payday = @payday, payment_time = @paymentTime, due_date = @duedate, plan_id = @planID WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, connection);
+                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@valueportion", _valuePortion);
                 command.Parameters.AddWithValue("@numberPortion", _numberPortion);
@@ -70,7 +70,6 @@ namespace Database
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
-                    connection.Open();
                     command.ExecuteNonQuery();
                 }
                 catch

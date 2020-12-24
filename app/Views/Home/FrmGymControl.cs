@@ -28,7 +28,7 @@ namespace SystemGymControl
 
         private void CheckedPlanExpired()
         {
-            foreach(DataRow dr in plan.GetDatePlanExpired().Rows)
+            foreach (DataRow dr in plan.GetDatePlanExpired().Rows)
             {
                 situationPlan.updateSituationPlan(int.Parse(dr["id"].ToString()), "Expirado");
             }

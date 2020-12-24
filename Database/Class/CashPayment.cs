@@ -45,13 +45,13 @@ namespace Database
             set { planID = value; }
         }
 
-        public void Save()
+        public void Save(SqlTransaction sqlTransaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 _sql = "INSERT INTO cash_payments VALUES (@valueTotal, @valueDiscount, @payday, @paymentTime, @planID)";
 
-                SqlCommand command = new SqlCommand(_sql, connection);
+                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@valueTotal", _valueTotal);
                 command.Parameters.AddWithValue("@valueDiscount", _valueDiscount);
@@ -60,7 +60,6 @@ namespace Database
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
-                    connection.Open();
                     command.ExecuteNonQuery();
                 }
                 catch

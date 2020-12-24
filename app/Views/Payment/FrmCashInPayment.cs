@@ -11,7 +11,7 @@ namespace SystemGymControl
         public decimal valuePaidOut { get; set; }
         public decimal valueDiscount = 0.00m;
         public decimal change { get; set; }
-        public decimal DiscountMoney = 0.00m;
+        public decimal discountMoney = 0.00m;
         decimal ValorDescontoPorcento, DiscountPercentage;
 
         public FrmCashInPayment()
@@ -74,7 +74,7 @@ namespace SystemGymControl
                     txtDiscountPercentage.Text = "0,00";
                     valueDiscount = decimal.Parse(txtValueWithDiscount.Text);
                     txtChange.Text = (valuePaidOut - valuePackage).ToString();
-                    DiscountMoney = 0.00m;
+                    discountMoney = 0.00m;
                     txtDiscountMoney.Focus();
                     break;
             }
@@ -126,17 +126,17 @@ namespace SystemGymControl
             {
                 try
                 {
-                    DiscountMoney = decimal.Parse(txtDiscountMoney.Text);
-                    if (DiscountMoney <= valuePackage)
+                    discountMoney = decimal.Parse(txtDiscountMoney.Text);
+                    if (discountMoney <= valuePackage)
                     {
                         txtDiscountMoney.Text = FormatTextBox.FormatValueDecimal(txtDiscountMoney.Text);
-                        txtValueWithDiscount.Text = (valuePackage - DiscountMoney).ToString();
+                        txtValueWithDiscount.Text = (valuePackage - discountMoney).ToString();
 
                         if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
                             txtChange.Text = (valuePaidOut - decimal.Parse(txtValueWithDiscount.Text)).ToString();
 
                         valueDiscount = decimal.Parse(txtValueWithDiscount.Text);
-                        DiscountPercentage = (100 * DiscountMoney) / valuePackage;
+                        DiscountPercentage = (100 * discountMoney) / valuePackage;
                         DiscountPercentage = Math.Round(DiscountPercentage, 2);
                         txtDiscountPercentage.Text = Math.Round(DiscountPercentage, 2).ToString();
                     }
@@ -145,7 +145,7 @@ namespace SystemGymControl
                         txtDiscountPercentage.Text = "0,00";
                         txtDiscountMoney.Text = "0,00";
                         DiscountPercentage = 0.00M;
-                        DiscountMoney = 0.00M;
+                        discountMoney = 0.00M;
                         txtValueWithDiscount.Text = valuePackage.ToString();
                     }
                 }
@@ -180,7 +180,7 @@ namespace SystemGymControl
                         txtDiscountPercentage.Text = "0,00";
                         txtDiscountMoney.Text = "0,00";
                         DiscountPercentage = 0.00M;
-                        DiscountMoney = 0.00M;
+                        discountMoney = 0.00M;
                         txtValueWithDiscount.Text = valuePackage.ToString();
                     }
                 }
@@ -221,7 +221,7 @@ namespace SystemGymControl
             }
 
             change = decimal.Parse(txtChange.Text);
-            if (valueDiscount == 0.00M && DiscountMoney < valuePackage)
+            if (valueDiscount == 0.00M && discountMoney < valuePackage)
                 valueDiscount = valuePackage;
 
             if (decimal.Parse(txtPaidOut.Text) < valueDiscount)

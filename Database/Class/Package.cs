@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -33,52 +34,85 @@ namespace Database
             set { period = value; }
         }
 
-        public void Save()
+        public void Save(DataTable dataItemsAndFormsPayment, BillingParametersPackage billingParameters)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id == 0)
-                _sql = "INSERT INTO packages VALUES (@description, @duration, @period)";
-            else
-                _sql = "UPDATE packages SET description = @description, duration = @duration, period = @period WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO packages VALUES (@description, @duration, @period); SELECT @@IDENTITY";
+                else
+                    _sql = "UPDATE packages SET description = @description, duration = @duration, period = @period WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@description", _description);
-            command.Parameters.AddWithValue("@duration", _duration);
-            command.Parameters.AddWithValue("@period", _period);
-            try
-            {
                 connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlTransaction sqlTransaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand(_sql, connection, sqlTransaction);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@description", _description);
+                command.Parameters.AddWithValue("@duration", _duration);
+                command.Parameters.AddWithValue("@period", _period);
+                try
+                {
+                    int idPackage = 0;
+                    if (_id == 0)
+                        idPackage = Convert.ToInt32(command.ExecuteScalar());
+                    else
+                        idPackage = _id;
+
+                    if (billingParameters._valueInterest > 0.00M || billingParameters._valuePenalty > 0.00M)
+                    {
+                        billingParameters._packageID = idPackage;
+                        billingParameters.Save(sqlTransaction);
+                    }
+
+                    foreach (DataRow dr in dataItemsAndFormsPayment.Rows)
+                    {
+                        ItemsPackage itemsPackage = new ItemsPackage() { _id = int.Parse(dr["id"].ToString()), _valuePackage = decimal.Parse(dr["value"].ToString()), _packageID = idPackage };
+                        itemsPackage.Save(sqlTransaction);
+
+                        int idItemsPackage = 0;
+                        if (int.Parse(dr["id"].ToString()) == 0)
+                        {
+                            idItemsPackage = itemsPackage._id;
+                        }
+                        else
+                            idItemsPackage = int.Parse(dr["id"].ToString());
+
+
+                        FormsOfPayment formsOfPayment = new FormsOfPayment() { _description = dr["formOfPayment"].ToString(), _id = int.Parse(dr["idFormOfPayment"].ToString()), _itemsPackageID = idItemsPackage };
+                        formsOfPayment.Save(sqlTransaction);
+
+
+                    }
+
+                    
+                    command.ExecuteNonQuery();
+
+                    sqlTransaction.Commit();
+                }
+                catch
+                {
+                    sqlTransaction.Rollback();
+                    throw;
+                }
             }
         }
 
         public void Delete(int idPackage)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            _sql = "DELETE FROM packages WHERE id = @id";
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", idPackage);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                _sql = "DELETE FROM packages WHERE id = @id";
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", idPackage);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
@@ -194,7 +228,7 @@ namespace Database
                 }
             }
         }
-        
+
         public DataTable GetValuePackageAndId(int idPackage, string descriptionForms)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))

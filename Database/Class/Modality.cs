@@ -27,22 +27,22 @@ namespace Database
             set { planID = value; }
         }
 
-        public void Save()
+        public void Save(SqlTransaction sqlTransaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
+                connection.Open();
                 if (_id == 0)
                     _sql = "INSERT INTO modalities VALUES (@description, @planID)";
                 else
                     _sql = "UPDATE modalities SET description = @description, plan_id = @planID WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, connection);
+                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@description", _description);
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
-                    connection.Open();
                     command.ExecuteNonQuery();
                 }
                 catch

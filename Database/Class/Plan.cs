@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace Database
 {
     public class Plan
@@ -59,16 +60,17 @@ namespace Database
             set { studentID = value; }
         }
 
-        public void Save()
+        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, CashPayment cashPayment, string formPayment)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
+                connection.Open();
                 if (_id == 0)
-                    _sql = "INSERT INTO plans (date_purchase_plan ,time_purchase_plan ,date_terminal_plan ,items_package_id ,student_id) VALUES (@datePurchasePlan, @timePurchasePlan, @dateTerminalPlan, @itemsPackageID, @studentID)";
+                    _sql = "INSERT INTO plans (date_purchase_plan ,time_purchase_plan ,date_terminal_plan ,items_package_id ,student_id) VALUES (@datePurchasePlan, @timePurchasePlan, @dateTerminalPlan, @itemsPackageID, @studentID); SELECT @@identity";
                 else
                     _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, date_terminal_plan = @dateTerminalPlan, time_purchase_plan = @timePurchasePlan, items_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
-
-                SqlCommand command = new SqlCommand(_sql, connection);
+                SqlTransaction sqlTransaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand(_sql, connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@datePurchasePlan", _datePurchasePlan);
                 command.Parameters.AddWithValue("@dateTerminalPlan", _dateTerminalPlan);
@@ -77,11 +79,49 @@ namespace Database
                 command.Parameters.AddWithValue("@studentID", _studentID);
                 try
                 {
-                    connection.Open();
+                    int planId = 0;
+                    if (_id == 0)
+                    {
+                        planId = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                    else
+                        planId = _id;
+
+                    if (!string.IsNullOrEmpty(modality._description))
+                    {
+                        modality._planID = planId;
+                        modality.Save(sqlTransaction);
+                    }
+
+                    situationsPlan._planID = planId;
+                    situationsPlan.Save(sqlTransaction);
+
+                    if (formPayment == "dinheiro")
+                    {
+                        cashPayment._planID = planId;
+                        cashPayment.Save(sqlTransaction);
+                    }
+                    else
+                    {
+                        foreach (DataRow dr in dataCardPayment.Rows)
+                        {
+                            int numberPortion = int.Parse(dr["portion"].ToString());
+                            string dueDate = dr["dueDate"].ToString();
+                            decimal valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
+                            string payday = "";
+                            string paymentTime = "";
+
+                            CardPayment cardPayment = new CardPayment() { _dueDate = dueDate, _numberPortion = numberPortion, _payday = payday, _paymentTime = paymentTime, _valuePortion = valuePortion, _planID = planId };
+                            cardPayment.Save(sqlTransaction);
+                        }
+                    }
+
                     command.ExecuteNonQuery();
+                    sqlTransaction.Commit();
                 }
                 catch
                 {
+                    sqlTransaction.Rollback();
                     throw;
                 }
             }
@@ -209,7 +249,7 @@ namespace Database
                         "ON items_package.id = plans.items_package_id" +
                         " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
                         "INNER JOIN packages ON packages.id = items_package.package_id " +
-                        "WHERE situations_plan.situation <> 'Cancelado'";
+                        "WHERE situations_plan.situation <> 'Cancelado' ORDER BY plans.id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
@@ -240,7 +280,7 @@ namespace Database
                         "situations_plan.plan_id = plans.id INNER JOIN items_package " +
                         "ON items_package.id = plans.items_package_id" +
                         " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
-                        $"INNER JOIN packages ON packages.id = items_package.package_id WHERE students.name LIKE '%{name}%' AND situations_plan.situation <> 'Cancelado'";
+                        $"INNER JOIN packages ON packages.id = items_package.package_id WHERE students.name LIKE '%{name}%' AND situations_plan.situation <> 'Cancelado' ORDER BY plans.id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);

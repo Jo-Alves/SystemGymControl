@@ -66,17 +66,19 @@ namespace SystemGymControl
         private void GetParametersPackage(int idPackage)
         {
             var drParameters = parametersPackage.SearchID(idPackage);
-            txtValuePenalty.Text = drParameters["value_penalty"].ToString();
-            txtValueInterest.Text = drParameters["value_interest"].ToString();
-            idParametersPackage = int.Parse(drParameters["id"].ToString());
+            if (drParameters.Rows.Count == 0)
+                return;
+            txtValuePenalty.Text = drParameters.Rows[0]["value_penalty"].ToString();
+            txtValueInterest.Text = drParameters.Rows[0]["value_interest"].ToString();
+            idParametersPackage = int.Parse(drParameters.Rows[0]["id"].ToString());
 
 
-            if (drParameters["type_penalty"].ToString().Equals("money"))
+            if (drParameters.Rows[0]["type_penalty"].ToString().Equals("money"))
                 rbValuePenalty.Checked = true;
             else
                 rbPercentagePenalty.Checked = true;
 
-            if (drParameters["type_interest"].ToString().Equals("money"))
+            if (drParameters.Rows[0]["type_interest"].ToString().Equals("money"))
                 rbValueInterest.Checked = true;
             else
                 rbPercentageInterest.Checked = true;
@@ -104,7 +106,6 @@ namespace SystemGymControl
         {
             try
             {
-
                 package._id = idPackage;
                 package._description = txtDescription.Text.Trim();
                 package._duration = int.Parse(ndDuration.Value.ToString());
@@ -112,12 +113,13 @@ namespace SystemGymControl
 
                 if (ValidateFields())
                 {
-                    package.Save();
-                    idMaxPackage = package.GetMaxId();
+                    SavePackage();
 
-                    SaveParametersPackage();
+                    //idMaxPackage = package.GetMaxId();
 
-                    SaveItemsPackage();
+                    //SaveParametersPackage();
+
+                    //SaveItemsPackage();
 
                     OpenForm.ShowForm(new FrmPackage(), this);
                 }
@@ -128,35 +130,19 @@ namespace SystemGymControl
             }
         }
 
-        private void SaveItemsPackage()
+        private void SavePackage()
         {
+            DataTable dataItemsAndFormsPayment = new DataTable();
+            dataItemsAndFormsPayment.Columns.Add("id", typeof(string));
+            dataItemsAndFormsPayment.Columns.Add("idFormOfPayment", typeof(string));
+            dataItemsAndFormsPayment.Columns.Add("formOfPayment", typeof(string));
+            dataItemsAndFormsPayment.Columns.Add("value", typeof(string));
+
             foreach (DataGridViewRow row in dgvFormOfPagament.Rows)
             {
-
-                itemsPackage._valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
-                if (idPackage == 0)
-                    itemsPackage._packageID = idMaxPackage;
-                else
-                    itemsPackage._packageID = idPackage;
-
-                itemsPackage._id = int.Parse(row.Cells["id"].Value.ToString());
-                itemsPackage.Save();
-
-                int idFormsPayment = int.Parse(row.Cells["idFormsOfPayment"].Value.ToString());
-                formsOfPayment._id = idFormsPayment;
-                formsOfPayment._description = row.Cells["formOfPayment"].Value.ToString();
-
-                if (itemsPackage._id == 0)
-                    formsOfPayment._itemsPackageID = itemsPackage.GetMaxId();
-                else
-                    formsOfPayment._itemsPackageID = itemsPackage._id;
-
-                formsOfPayment.Save();
+                dataItemsAndFormsPayment.Rows.Add(row.Cells["id"].Value.ToString(), row.Cells["idFormsOfPayment"].Value.ToString(), row.Cells["formOfPayment"].Value.ToString(), FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
             }
-        }
 
-        private void SaveParametersPackage()
-        {
             if (string.IsNullOrWhiteSpace(txtValueInterest.Text))
                 parametersPackage._valueInterest = 0.00m;
             else
@@ -190,8 +176,75 @@ namespace SystemGymControl
                 parametersPackage._packageID = idPackage;
 
             parametersPackage._id = idParametersPackage;
-            parametersPackage.Save();
+
+            package.Save(dataItemsAndFormsPayment, parametersPackage);
         }
+
+        //private void SaveItemsPackage()
+        //{
+        //    foreach (DataGridViewRow row in dgvFormOfPagament.Rows)
+        //    {
+
+        //        itemsPackage._valuePackage = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
+        //        if (idPackage == 0)
+        //            itemsPackage._packageID = idMaxPackage;
+        //        else
+        //            itemsPackage._packageID = idPackage;
+
+        //        itemsPackage._id = int.Parse(row.Cells["id"].Value.ToString());
+        //        itemsPackage.Save();
+
+        //        int idFormsPayment = int.Parse(row.Cells["idFormsOfPayment"].Value.ToString());
+        //        formsOfPayment._id = idFormsPayment;
+        //        formsOfPayment._description = row.Cells["formOfPayment"].Value.ToString();
+
+        //        if (itemsPackage._id == 0)
+        //            formsOfPayment._itemsPackageID = itemsPackage.GetMaxId();
+        //        else
+        //            formsOfPayment._itemsPackageID = itemsPackage._id;
+
+        //        formsOfPayment.Save();
+        //    }
+        //}
+
+        //private void SaveParametersPackage()
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtValueInterest.Text))
+        //        parametersPackage._valueInterest = 0.00m;
+        //    else
+        //        parametersPackage._valueInterest = decimal.Parse(txtValueInterest.Text);
+
+        //    if (string.IsNullOrWhiteSpace(txtValuePenalty.Text))
+        //        parametersPackage._valuePenalty = 0.00m;
+        //    else
+        //        parametersPackage._valuePenalty = decimal.Parse(txtValuePenalty.Text);
+
+        //    if (rbPercentageInterest.Checked)
+        //    {
+        //        parametersPackage._typeInterest = "percentage";
+        //    }
+        //    else if (rbValueInterest.Checked)
+        //    {
+        //        parametersPackage._typeInterest = "money";
+        //    }
+        //    if (rbPercentagePenalty.Checked)
+        //    {
+        //        parametersPackage._typePenalty = "percentage";
+        //    }
+        //    else if (rbValuePenalty.Checked)
+        //    {
+        //        parametersPackage._typePenalty = "money";
+        //    }
+
+        //    if (idPackage == 0)
+        //        parametersPackage._packageID = idMaxPackage;
+        //    else
+        //        parametersPackage._packageID = idPackage;
+
+        //    parametersPackage._id = idParametersPackage;
+
+        //    parametersPackage.Save();
+        //}
 
         private bool ValidateFields()
         {

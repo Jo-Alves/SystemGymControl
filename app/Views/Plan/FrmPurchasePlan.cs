@@ -156,7 +156,6 @@ namespace SystemGymControl
         {
             try
             {
-
                 if (!ValidateFields())
                     return;
 
@@ -185,17 +184,7 @@ namespace SystemGymControl
                 }
                 datePlan = DateTime.Now;
 
-                SavePlan();
-
-                idMaxPlan = plan.GetMaxId();
-
-                SaveModality();
-
-                SaveSituationPlan();
-                if (formPayment.ToLower() == "dinheiro")
-                    SaveCashPayment(cashInPayment.DiscountMoney, cashInPayment.valueDiscount);
-                else
-                    SaveCardPayment(cardInPayment.dataPortion);
+                PurchasePlan();
 
                 OpenForm.ShowForm(new FrmPlan(), this);
             }
@@ -203,30 +192,6 @@ namespace SystemGymControl
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void SaveCardPayment(DataTable dataPortion)
-        {
-            foreach (DataRow dr in dataPortion.Rows)
-            {
-                cardPayment._numberPortion = int.Parse(dr["portion"].ToString());
-                cardPayment._dueDate = dr["dueDate"].ToString();
-                cardPayment._valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
-                cardPayment._payday = "";
-                cardPayment._paymentTime = "";
-                cardPayment._planID = idMaxPlan;
-                cardPayment.Save();
-            }
-        }
-
-        private void SaveCashPayment(decimal discountMoney, decimal valueDiscount)
-        {
-            cashPayment._valueTotal = valueDiscount;
-            cashPayment._valueDiscount = discountMoney;
-            cashPayment._payday = datePlan.ToShortDateString();
-            cashPayment._paymentTime = datePlan.ToLongTimeString();
-            cashPayment._planID = idMaxPlan;
-            cashPayment.Save();
         }
 
         private bool ValidateFields()
@@ -253,32 +218,32 @@ namespace SystemGymControl
             return isValited;
         }
 
-        int idMaxPlan;
-
-        private void SavePlan()
+        private void PurchasePlan()
         {
             plan._datePurchasePlan = datePlan.ToShortDateString();
             plan._timePurchasePlan = datePlan.ToLongTimeString();
             plan._dateTerminalPlan = dateTerminalPlan;
             plan._itemsPackageID = idItems;
             plan._studentID = int.Parse(txtCodigoStudent.Text);
-            plan.Save();
-        }
 
-        private void SaveModality()
-        {
             modality._description = cbModalities.Text;
-            modality._planID = idMaxPlan;
-            modality.Save();
-        }
 
-        private void SaveSituationPlan()
-        {
             situationsPlan._situation = "Ativo";
             situationsPlan._observation = "";
-            situationsPlan._planID = idMaxPlan;
             situationsPlan._deactivationDate = "";
-            situationsPlan.Save();
+
+            DataTable dataCardPayment = null;
+            if (formPayment.ToLower() == "dinheiro")
+            {
+                cashPayment._valueTotal = cashInPayment.valueDiscount;
+                cashPayment._valueDiscount = cashInPayment.discountMoney;
+                cashPayment._payday = datePlan.ToShortDateString();
+                cashPayment._paymentTime = datePlan.ToLongTimeString();
+            }
+            else
+                dataCardPayment = cardInPayment.dataPortion;            
+
+            plan.Save(modality, situationsPlan, dataCardPayment, cashPayment, formPayment.ToLower());
         }
 
         private bool checkedDgvSelected()

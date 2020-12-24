@@ -56,7 +56,7 @@ namespace Bussiness
             set { studentID = value; }
         }
 
-        public void Save()
+        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, CashPayment cashPayment, string formPayment)
         {
             plan._id = this.id;
             plan._datePurchasePlan = this._datePurchasePlan;
@@ -64,7 +64,14 @@ namespace Bussiness
             plan._timePurchasePlan = this._timePurchasePlan;
             plan._itemsPackageID = this._itemsPackageID;
             plan._studentID = this._studentID;
-            plan.Save();
+
+            Database.Modality modalityDataBase = new Database.Modality() { _description = modality._description, _id = modality._id };
+
+            Database.SituationsPlan situationsPlanDataBase = new Database.SituationsPlan() { _observation = "", _situation = situationsPlan._situation, _deactivationDate = situationsPlan._deactivationDate, _timeInactivated = situationsPlan._timeInactivated, _id = situationsPlan._id };
+
+            Database.CashPayment cashPaymentDatabase = new Database.CashPayment() { _id = cashPayment._id, _payday = cashPayment._payday, _paymentTime = cashPayment._paymentTime, _valueDiscount = cashPayment._valueDiscount, _valueTotal = cashPayment._valueTotal };
+
+            plan.Save(modalityDataBase, situationsPlanDataBase, dataCardPayment, cashPaymentDatabase, formPayment);
         }
 
         public DataTable SearchID(int id)

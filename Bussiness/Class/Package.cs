@@ -46,14 +46,16 @@ namespace Bussiness
             return message;
         }
 
-        public void Save()
+        public void Save(DataTable dataItemsAndFormsPayment, BillingParametersPackage parametersPackage)
         {
             package._id = this._id;
             package._description = this._description;
             package._duration = this._duration;
             package._period = this._period;
 
-            package.Save();
+            Database.BillingParametersPackage billingParameters = new Database.BillingParametersPackage() { _id = parametersPackage._id, _typeInterest = parametersPackage._typeInterest, _typePenalty = parametersPackage._typePenalty, _valueInterest = parametersPackage._valueInterest, _valuePenalty = parametersPackage._valuePenalty };
+
+            package.Save(dataItemsAndFormsPayment, billingParameters);
         }
 
         public void Delete(int idPackage)

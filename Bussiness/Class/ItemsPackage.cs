@@ -30,7 +30,7 @@ namespace Bussiness
             itemsPackage._id = this._id;
             itemsPackage._valuePackage = this._valuePackage;
             itemsPackage._packageID = this._packageID;
-            itemsPackage.Save();
+            //itemsPackage.Save();
         }
 
         public DataTable SearchID(int idItemsPackage)
