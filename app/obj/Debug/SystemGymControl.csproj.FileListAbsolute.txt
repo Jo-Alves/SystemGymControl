@@ -170,3 +170,4 @@ C:\Users\Joelmir\Desktop\SystemGymControl\app\bin\Debug\Bussiness.pdb
 C:\Users\Joelmir\Desktop\SystemGymControl\app\bin\Debug\Database.pdb
 C:\Users\Joelmir\Desktop\SystemGymControl\app\obj\Debug\SystemGymControl.csproj.CopyComplete
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmMonthlyPayment.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmPayment.resources

@@ -55,10 +55,10 @@ namespace Database
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                if(_id == 0)
-                _sql = "INSERT INTO cash_payments VALUES (@valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @planID)";
+                if (_id == 0)
+                    _sql = "INSERT INTO cash_payments VALUES (@valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @planID)";
                 else
-                _sql = "UPDATE  cash_payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, duedate =  @duedate WHERE id = @id";
+                    _sql = "UPDATE  cash_payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, duedate =  @duedate WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);

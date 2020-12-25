@@ -82,7 +82,7 @@ namespace Database
                         formsOfPayment.Save(sqlTransaction);
                     }
 
-                    if(_id > 0)
+                    if (_id > 0)
                     {
                         command.ExecuteNonQuery();
                     }

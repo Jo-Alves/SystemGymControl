@@ -29,97 +29,35 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMonthlyPayment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lblPlan = new System.Windows.Forms.Label();
-            this.pcPlan = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMonthlyPayment));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvDataPlan = new System.Windows.Forms.DataGridView();
-            this.pay = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idItemsPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFormOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSituationPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionModality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionformOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timePurchasePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTerminalPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTerminalPlanLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeInactivated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deactivationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.pcPlan)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.receive = new System.Windows.Forms.DataGridViewImageColumn();
+            this.receipt = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberPortion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuePortion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblPlan
-            // 
-            this.lblPlan.AutoSize = true;
-            this.lblPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPlan.ForeColor = System.Drawing.Color.Black;
-            this.lblPlan.Location = new System.Drawing.Point(10, 88);
-            this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(115, 22);
-            this.lblPlan.TabIndex = 27;
-            this.lblPlan.Text = "Pagamentos";
-            // 
-            // pcPlan
-            // 
-            this.pcPlan.Image = global::SystemGymControl.Properties.Resources.icons8_card_payment_64px;
-            this.pcPlan.Location = new System.Drawing.Point(34, 21);
-            this.pcPlan.Name = "pcPlan";
-            this.pcPlan.Size = new System.Drawing.Size(64, 64);
-            this.pcPlan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcPlan.TabIndex = 26;
-            this.pcPlan.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 137);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1003, 65);
-            this.groupBox1.TabIndex = 29;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pesquisar";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(844, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtSearch.BackColor = System.Drawing.Color.White;
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtSearch.Location = new System.Drawing.Point(133, 21);
+            this.txtSearch.Location = new System.Drawing.Point(185, 45);
             this.txtSearch.Name = "txtSearch";
+            this.txtSearch.ReadOnly = true;
             this.txtSearch.Size = new System.Drawing.Size(709, 33);
             this.txtSearch.TabIndex = 9;
             // 
@@ -142,29 +80,17 @@ namespace SystemGymControl
             this.dgvDataPlan.ColumnHeadersHeight = 30;
             this.dgvDataPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataPlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pay,
-            this.idStudent,
-            this.idPlan,
-            this.idModality,
-            this.idItemsPackage,
-            this.idPackage,
-            this.idFormOfPayment,
-            this.idSituationPlan,
-            this.name,
-            this.descriptionModality,
-            this.valuePlan,
-            this.descriptionformOfPayment,
-            this.descriptionPackage,
-            this.datePurchasePlan,
-            this.timePurchasePlan,
-            this.dateTerminalPlan,
-            this.dateTerminalPlanLast,
-            this.situation,
-            this.timeInactivated,
-            this.deactivationDate});
+            this.receive,
+            this.receipt,
+            this.id,
+            this.numberPortion,
+            this.valuePortion,
+            this.duedate,
+            this.payday,
+            this.paymentTime});
             this.dgvDataPlan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDataPlan.EnableHeadersVisualStyles = false;
-            this.dgvDataPlan.Location = new System.Drawing.Point(14, 208);
+            this.dgvDataPlan.Location = new System.Drawing.Point(14, 96);
             this.dgvDataPlan.MultiSelect = false;
             this.dgvDataPlan.Name = "dgvDataPlan";
             this.dgvDataPlan.ReadOnly = true;
@@ -180,184 +106,112 @@ namespace SystemGymControl
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDataPlan.Size = new System.Drawing.Size(1001, 218);
+            this.dgvDataPlan.Size = new System.Drawing.Size(1001, 330);
             this.dgvDataPlan.TabIndex = 30;
             // 
-            // pay
+            // textBox1
             // 
-            this.pay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.pay.HeaderText = "Pagar";
-            this.pay.Name = "pay";
-            this.pay.ReadOnly = true;
-            this.pay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.pay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.pay.ToolTipText = "Exibe os detalhes do plano";
-            this.pay.Width = 79;
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.textBox1.Location = new System.Drawing.Point(79, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 33);
+            this.textBox1.TabIndex = 31;
             // 
-            // idStudent
+            // label1
             // 
-            this.idStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idStudent.HeaderText = "idStudent";
-            this.idStudent.Name = "idStudent";
-            this.idStudent.ReadOnly = true;
-            this.idStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.idStudent.Visible = false;
-            this.idStudent.Width = 109;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(75, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 22);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Código";
             // 
-            // idPlan
+            // label2
             // 
-            this.idPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idPlan.HeaderText = "idPlan";
-            this.idPlan.Name = "idPlan";
-            this.idPlan.ReadOnly = true;
-            this.idPlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.idPlan.Visible = false;
-            this.idPlan.Width = 63;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(181, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 22);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Nome";
             // 
-            // idModality
+            // receive
             // 
-            this.idModality.HeaderText = "idModality";
-            this.idModality.Name = "idModality";
-            this.idModality.ReadOnly = true;
-            this.idModality.Visible = false;
+            this.receive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.receive.HeaderText = "Receber";
+            this.receive.Name = "receive";
+            this.receive.ReadOnly = true;
+            this.receive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.receive.Width = 78;
             // 
-            // idItemsPackage
+            // receipt
             // 
-            this.idItemsPackage.HeaderText = "idItemsPackage";
-            this.idItemsPackage.Name = "idItemsPackage";
-            this.idItemsPackage.ReadOnly = true;
-            this.idItemsPackage.Visible = false;
+            this.receipt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.receipt.HeaderText = "Gerar recibo";
+            this.receipt.Name = "receipt";
+            this.receipt.ReadOnly = true;
+            this.receipt.Width = 112;
             // 
-            // idPackage
+            // id
             // 
-            this.idPackage.HeaderText = "idPackage";
-            this.idPackage.Name = "idPackage";
-            this.idPackage.ReadOnly = true;
-            this.idPackage.Visible = false;
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.HeaderText = "Código";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 69;
             // 
-            // idFormOfPayment
+            // numberPortion
             // 
-            this.idFormOfPayment.HeaderText = "idFormOfPayment";
-            this.idFormOfPayment.Name = "idFormOfPayment";
-            this.idFormOfPayment.ReadOnly = true;
-            this.idFormOfPayment.Visible = false;
+            this.numberPortion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.numberPortion.HeaderText = "Portion";
+            this.numberPortion.Name = "numberPortion";
+            this.numberPortion.ReadOnly = true;
+            this.numberPortion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.numberPortion.Width = 73;
             // 
-            // idSituationPlan
+            // valuePortion
             // 
-            this.idSituationPlan.HeaderText = "idSituationPlan";
-            this.idSituationPlan.Name = "idSituationPlan";
-            this.idSituationPlan.ReadOnly = true;
-            this.idSituationPlan.Visible = false;
+            this.valuePortion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valuePortion.HeaderText = "Valor da Parcela";
+            this.valuePortion.Name = "valuePortion";
+            this.valuePortion.ReadOnly = true;
+            this.valuePortion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valuePortion.Width = 139;
             // 
-            // name
+            // duedate
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.name.HeaderText = "Nome";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.name.Width = 81;
+            this.duedate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.duedate.HeaderText = "Data de vencimento";
+            this.duedate.Name = "duedate";
+            this.duedate.ReadOnly = true;
+            this.duedate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.duedate.Width = 168;
             // 
-            // descriptionModality
+            // payday
             // 
-            this.descriptionModality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.descriptionModality.HeaderText = "Modalidade";
-            this.descriptionModality.Name = "descriptionModality";
-            this.descriptionModality.ReadOnly = true;
-            this.descriptionModality.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionModality.Width = 105;
+            this.payday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.payday.HeaderText = "Data de pagamento";
+            this.payday.Name = "payday";
+            this.payday.ReadOnly = true;
+            this.payday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.payday.Width = 166;
             // 
-            // valuePlan
+            // paymentTime
             // 
-            this.valuePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.valuePlan.HeaderText = "Valor";
-            this.valuePlan.Name = "valuePlan";
-            this.valuePlan.ReadOnly = true;
-            this.valuePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valuePlan.Width = 56;
-            // 
-            // descriptionformOfPayment
-            // 
-            this.descriptionformOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.descriptionformOfPayment.HeaderText = "Forma de Pagamento";
-            this.descriptionformOfPayment.Name = "descriptionformOfPayment";
-            this.descriptionformOfPayment.ReadOnly = true;
-            this.descriptionformOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionformOfPayment.Width = 179;
-            // 
-            // descriptionPackage
-            // 
-            this.descriptionPackage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.descriptionPackage.HeaderText = "Pacote";
-            this.descriptionPackage.Name = "descriptionPackage";
-            this.descriptionPackage.ReadOnly = true;
-            this.descriptionPackage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descriptionPackage.Width = 68;
-            // 
-            // datePurchasePlan
-            // 
-            this.datePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.datePurchasePlan.HeaderText = "Data da ativação da plano";
-            this.datePurchasePlan.Name = "datePurchasePlan";
-            this.datePurchasePlan.ReadOnly = true;
-            this.datePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.datePurchasePlan.Width = 212;
-            // 
-            // timePurchasePlan
-            // 
-            this.timePurchasePlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.timePurchasePlan.HeaderText = "Hora da ativação do plano";
-            this.timePurchasePlan.Name = "timePurchasePlan";
-            this.timePurchasePlan.ReadOnly = true;
-            this.timePurchasePlan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.timePurchasePlan.Width = 215;
-            // 
-            // dateTerminalPlan
-            // 
-            this.dateTerminalPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dateTerminalPlan.HeaderText = "Data final do Plano";
-            this.dateTerminalPlan.Name = "dateTerminalPlan";
-            this.dateTerminalPlan.ReadOnly = true;
-            this.dateTerminalPlan.Width = 178;
-            // 
-            // dateTerminalPlanLast
-            // 
-            this.dateTerminalPlanLast.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dateTerminalPlanLast.HeaderText = "Data final do plano prorrogado";
-            this.dateTerminalPlanLast.Name = "dateTerminalPlanLast";
-            this.dateTerminalPlanLast.ReadOnly = true;
-            this.dateTerminalPlanLast.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dateTerminalPlanLast.Visible = false;
-            this.dateTerminalPlanLast.Width = 252;
-            // 
-            // situation
-            // 
-            this.situation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.situation.HeaderText = "Situação do Plano";
-            this.situation.Name = "situation";
-            this.situation.ReadOnly = true;
-            this.situation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.situation.Width = 152;
-            // 
-            // timeInactivated
-            // 
-            this.timeInactivated.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.timeInactivated.HeaderText = "Tempo do plano desativado";
-            this.timeInactivated.Name = "timeInactivated";
-            this.timeInactivated.ReadOnly = true;
-            this.timeInactivated.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.timeInactivated.Visible = false;
-            this.timeInactivated.Width = 227;
-            // 
-            // deactivationDate
-            // 
-            this.deactivationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.deactivationDate.HeaderText = "Data da desativação do plano";
-            this.deactivationDate.Name = "deactivationDate";
-            this.deactivationDate.ReadOnly = true;
-            this.deactivationDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.deactivationDate.Visible = false;
-            this.deactivationDate.Width = 240;
+            this.paymentTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.paymentTime.HeaderText = "Hora do pagamento";
+            this.paymentTime.Name = "paymentTime";
+            this.paymentTime.ReadOnly = true;
+            this.paymentTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.paymentTime.Width = 169;
             // 
             // FrmMonthlyPayment
             // 
@@ -365,20 +219,17 @@ namespace SystemGymControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1027, 438);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvDataPlan);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lblPlan);
-            this.Controls.Add(this.pcPlan);
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMonthlyPayment";
-            this.Text = "FrmMonthlyPayment";
-            ((System.ComponentModel.ISupportInitialize)(this.pcPlan)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "FrmPayment";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -386,32 +237,18 @@ namespace SystemGymControl
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblPlan;
-        private System.Windows.Forms.PictureBox pcPlan;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgvDataPlan;
-        private System.Windows.Forms.DataGridViewImageColumn pay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idStudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idModality;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idItemsPackage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPackage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFormOfPayment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idSituationPlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionModality;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valuePlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionformOfPayment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionPackage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datePurchasePlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timePurchasePlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTerminalPlanLast;
-        private System.Windows.Forms.DataGridViewTextBoxColumn situation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeInactivated;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deactivationDate;
+        private System.Windows.Forms.DataGridViewImageColumn receive;
+        private System.Windows.Forms.DataGridViewImageColumn receipt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberPortion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valuePortion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duedate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paymentTime;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

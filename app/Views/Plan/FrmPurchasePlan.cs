@@ -241,7 +241,7 @@ namespace SystemGymControl
                 cashPayment._paymentTime = datePlan.ToLongTimeString();
             }
             else
-                dataCardPayment = cardInPayment.dataPortion;            
+                dataCardPayment = cardInPayment.dataPortion;
 
             plan.Save(modality, situationsPlan, dataCardPayment, cashPayment, formPayment.ToLower(), dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower());
         }
