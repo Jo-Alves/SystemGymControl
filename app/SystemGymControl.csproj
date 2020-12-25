@@ -590,6 +590,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_receipt_32px.png" />
+    <None Include="Resources\icons8_get_revenue_32px.png" />
     <None Include="Resources\icons8_pay_32px.png" />
     <None Include="Resources\icons8_card_payment_64px.png" />
     <None Include="Resources\icons8_renew_32px.png" />

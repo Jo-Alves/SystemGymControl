@@ -89,6 +89,11 @@ namespace Bussiness
             return plan.SearchAllWhereMoney();
         }
 
+        public DataTable SearchPlanStudentWhereMoney(string name)
+        {
+            return plan.SearchPlanStudentWhereMoney(name);
+        }
+        
         public void UpdateTerminalPlanLast(int id)
         {
             plan._dateTerminalPlanLast = this._dateTerminalPlanLast;

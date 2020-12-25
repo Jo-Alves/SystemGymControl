@@ -30,7 +30,7 @@ namespace SystemGymControl
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtBirth = new System.Windows.Forms.TextBox();
             this.txtCPF = new System.Windows.Forms.TextBox();
@@ -71,6 +71,7 @@ namespace SystemGymControl
             this.label8 = new System.Windows.Forms.Label();
             this.txtObservation = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.rbExpired = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
             this.rbActive = new System.Windows.Forms.RadioButton();
             this.rbInactive = new System.Windows.Forms.RadioButton();
@@ -86,8 +87,7 @@ namespace SystemGymControl
             this.label3 = new System.Windows.Forms.Label();
             this.txtDatePurchasePlan = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.htmlToolTip = new MetroFramework.Drawing.Html.HtmlToolTip();
-            this.rbExpired = new System.Windows.Forms.RadioButton();
+            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).BeginInit();
@@ -102,29 +102,29 @@ namespace SystemGymControl
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.linkMoreDetails);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 222);
+            this.panel1.Size = new System.Drawing.Size(1165, 222);
             this.panel1.TabIndex = 0;
             // 
-            // btnClose
+            // btnBack
             // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_back_arrow_32px;
-            this.btnClose.Location = new System.Drawing.Point(24, 4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(28, 30);
-            this.btnClose.TabIndex = 60;
-            this.btnClose.TabStop = false;
-            this.htmlToolTip.SetToolTip(this.btnClose, "Voltar para a janela anterior");
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = global::SystemGymControl.Properties.Resources.icons8_back_arrow_32px;
+            this.btnBack.Location = new System.Drawing.Point(24, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(28, 30);
+            this.btnBack.TabIndex = 60;
+            this.btnBack.TabStop = false;
+            this.metroToolTip.SetToolTip(this.btnBack, "Voltar para a janela anterior");
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // groupBox2
             // 
@@ -270,7 +270,7 @@ namespace SystemGymControl
             this.pnMoreDetailsStudent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMoreDetailsStudent.Location = new System.Drawing.Point(0, 222);
             this.pnMoreDetailsStudent.Name = "pnMoreDetailsStudent";
-            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1148, 288);
+            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1165, 288);
             this.pnMoreDetailsStudent.TabIndex = 1;
             this.pnMoreDetailsStudent.Visible = false;
             // 
@@ -499,7 +499,7 @@ namespace SystemGymControl
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 510);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1148, 245);
+            this.panel3.Size = new System.Drawing.Size(1165, 245);
             this.panel3.TabIndex = 2;
             // 
             // groupBox3
@@ -638,6 +638,18 @@ namespace SystemGymControl
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(278, 109);
             this.panel4.TabIndex = 0;
+            // 
+            // rbExpired
+            // 
+            this.rbExpired.AutoSize = true;
+            this.rbExpired.Enabled = false;
+            this.rbExpired.Location = new System.Drawing.Point(172, 15);
+            this.rbExpired.Name = "rbExpired";
+            this.rbExpired.Size = new System.Drawing.Size(103, 26);
+            this.rbExpired.TabIndex = 84;
+            this.rbExpired.TabStop = true;
+            this.rbExpired.Text = "Expirado";
+            this.rbExpired.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
@@ -845,21 +857,11 @@ namespace SystemGymControl
             this.label2.TabIndex = 67;
             this.label2.Text = "Data do plano";
             // 
-            // htmlToolTip
+            // metroToolTip
             // 
-            this.htmlToolTip.OwnerDraw = true;
-            // 
-            // rbExpired
-            // 
-            this.rbExpired.AutoSize = true;
-            this.rbExpired.Enabled = false;
-            this.rbExpired.Location = new System.Drawing.Point(172, 15);
-            this.rbExpired.Name = "rbExpired";
-            this.rbExpired.Size = new System.Drawing.Size(103, 26);
-            this.rbExpired.TabIndex = 84;
-            this.rbExpired.TabStop = true;
-            this.rbExpired.Text = "Expirado";
-            this.rbExpired.UseVisualStyleBackColor = true;
+            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip.StyleManager = null;
+            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // FrmDetailsPlan
             // 
@@ -867,7 +869,7 @@ namespace SystemGymControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1165, 733);
+            this.ClientSize = new System.Drawing.Size(1182, 733);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnMoreDetailsStudent);
             this.Controls.Add(this.panel1);
@@ -949,13 +951,13 @@ namespace SystemGymControl
         private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtCEP;
-        private System.Windows.Forms.Button btnClose;
-        private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtDateTerminalPlan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDateDeactive;
         private System.Windows.Forms.Label lblDateDeactive;
         private System.Windows.Forms.RadioButton rbExpired;
+        private MetroFramework.Components.MetroToolTip metroToolTip;
     }
 }

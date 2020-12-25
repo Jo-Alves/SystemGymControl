@@ -100,15 +100,15 @@ namespace Database
             }
         }
 
-        public DataTable SearchAll()
+        public DataTable SearchCashPaymentPlanMoney(int idPlan)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
-                    _sql = "SELECT * FROM cash_payments WHERE id = @id";
+                    _sql = "SELECT *, cash_payments.id as idCash, students.id as idStudent FROM cash_payments INNER JOIN plans ON plans.id = cash_payments.plan_id INNER JOIN students ON students.id = plans.student_id WHERE plans.id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                    adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idPlan);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     return table;

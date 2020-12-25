@@ -29,27 +29,25 @@ namespace Database
 
         public void Save(SqlTransaction sqlTransaction)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id == 0)
-                _sql = "INSERT INTO forms_of_payment VALUES (@description, @itemsPackageID)";
-            else
-                _sql = "UPDATE forms_of_payment SET description = @description, items_package_id = @itemsPackageID WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO forms_of_payment VALUES (@description, @itemsPackageID)";
+                else
+                    _sql = "UPDATE forms_of_payment SET description = @description, items_package_id = @itemsPackageID WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@description", _description);
-            command.Parameters.AddWithValue("@itemsPackageID", _itemsPackageID);
-            try
-            {
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@description", _description);
+                command.Parameters.AddWithValue("@itemsPackageID", _itemsPackageID);
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 

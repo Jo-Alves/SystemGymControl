@@ -55,9 +55,9 @@ namespace Bussiness
             return cashPayment.SearchPlanID(planID);
         }
 
-        public DataTable SearchAll()
+        public DataTable SearchCashPaymentPlanMoney(int idPlan)
         {
-            return cashPayment.SearchAll();
+            return cashPayment.SearchCashPaymentPlanMoney(idPlan);
         }
     }
 }

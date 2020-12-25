@@ -24,7 +24,7 @@ namespace SystemGymControl
             if (string.IsNullOrEmpty(txtSearch.Text))
                 dataPlan = plan.SearchAllWhereMoney();
             else
-                dataPlan = plan.SearchPlanNameStudent(txtSearch.Text);
+                dataPlan = plan.SearchPlanStudentWhereMoney(txtSearch.Text);
 
             foreach (DataRow dr in dataPlan.Rows)
             {
@@ -86,6 +86,11 @@ namespace SystemGymControl
                     OpenForm.ShowForm(new FrmMonthlyPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString())), this);
                 }
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, System.EventArgs e)
+        {
+            LoadDataPlan();
         }
     }
 }

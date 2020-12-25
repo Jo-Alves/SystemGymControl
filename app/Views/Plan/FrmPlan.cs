@@ -14,7 +14,7 @@ namespace SystemGymControl
         public FrmPlan()
         {
             InitializeComponent();
-            LoadDataPackages();
+            LoadDataPlan();
             CancelAfterThirtyDayTerminalPlan();
         }
 
@@ -33,7 +33,7 @@ namespace SystemGymControl
                     situationsPlan.updateSituationPlan(idPlan, "Cancelado");
                 }
 
-                LoadDataPackages();
+                LoadDataPlan();
             }
         }
 
@@ -77,7 +77,7 @@ namespace SystemGymControl
             }
         }
 
-        private void LoadDataPackages()
+        private void LoadDataPlan()
         {
             dgvDataPlan.Rows.Clear();
 
@@ -154,14 +154,14 @@ namespace SystemGymControl
 
                     var frmRenewPlan = new FrmRenewPlan(idPlan);
                     frmRenewPlan.ShowDialog();
-                    LoadDataPackages();
+                    LoadDataPlan();
                 }
             }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            LoadDataPackages();
+            LoadDataPlan();
         }
 
         private void dgvDataPlan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
