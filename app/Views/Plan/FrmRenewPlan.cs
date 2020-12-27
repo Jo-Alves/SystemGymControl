@@ -53,7 +53,8 @@ namespace SystemGymControl
             }
 
             cbFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
-            idCashPayment = int.Parse(cashPayment.SearchPlanID(idPlan).Rows[0]["id"].ToString());
+            if(cashPayment.SearchPlanID(idPlan).Rows.Count > 0)
+                idCashPayment = int.Parse(cashPayment.SearchPlanID(idPlan).Rows[0]["id"].ToString());
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
