@@ -37,45 +37,6 @@ namespace SystemGymControl
             }
         }
 
-        // atualiza a coluna da tabela timeInactivated incrementado se o plano estiver inativado
-        private void UpdateTimeInactivated()
-        {
-            TimeSpan time;
-
-            foreach (DataGridViewRow dgv in dgvDataPlan.Rows)
-            {
-                if (dgv.Cells["situation"].Value.ToString() == "Inativo")
-                {
-                    //dgvDataPlan.Columns["dateTerminalPlanLast"].Visible = true;
-                    dgvDataPlan.Columns["timeInactivated"].Visible = true;
-                    dgvDataPlan.Columns["deactivationDate"].Visible = true;
-                    int idSituation = int.Parse(dgv.Cells["idSituationPlan"].Value.ToString());
-
-                    var dateTerminal = Convert.ToDateTime(dgv.Cells["dateTerminalPlanLast"].Value.ToString());
-                    var deactivationDate = Convert.ToDateTime(dgv.Cells["deactivationDate"].Value.ToString());
-
-                    /*
-                        * subtrai a data de atual com a data da desativação do plano para
-                        * pegar a diferença das datas e aumentar o prazo do término
-                     */
-                    time = DateTime.Now.Subtract(deactivationDate);
-
-                    situationsPlan._timeInactivated = time.Days.ToString();
-                    plan._dateTerminalPlan = dateTerminal.AddDays(time.Days).ToShortDateString();
-                    situationsPlan.updateTimeInactivated(idSituation);
-
-                    plan.UpdateTerminalPlan(int.Parse(dgv.Cells["idPlan"].Value.ToString()));
-
-                    dgv.Cells["dateTerminalPlan"].Value = plan._dateTerminalPlan;
-                    if (time.Days == 1)
-                    {
-                        dgv.Cells["timeInactivated"].Value = $"{time.Days} dia";
-                    }
-                    else
-                        dgv.Cells["timeInactivated"].Value = $"{time.Days} dias";
-                }
-            }
-        }
 
         private void LoadDataPlan()
         {
@@ -116,8 +77,43 @@ namespace SystemGymControl
             }
 
             dgvDataPlan.ClearSelection();
-            UpdateTimeInactivated();
+            ShowTimeInactivated();
+            FormatFieldsTimeInactivated();
             updateColorRowDataGridIfSituationPlanExpired();
+        }
+
+        private void ShowTimeInactivated()
+        {
+            foreach (DataGridViewRow dgv in dgvDataPlan.Rows)
+            {
+                if (dgv.Cells["situation"].Value.ToString() == "Inativo")
+                {
+                    dgvDataPlan.Columns["timeInactivated"].Visible = true;
+                    dgvDataPlan.Columns["deactivationDate"].Visible = true;
+
+                    break;
+                }
+                else
+                {
+                    dgvDataPlan.Columns["timeInactivated"].Visible = false;
+                    dgvDataPlan.Columns["deactivationDate"].Visible = false;
+                }
+            }
+        }
+        private void FormatFieldsTimeInactivated()
+        {
+            foreach (DataGridViewRow dgv in dgvDataPlan.Rows)
+            {
+                if (dgv.Cells["situation"].Value.ToString().ToLower() == "inativo")
+                {
+                    if (dgv.Cells["timeInactivated"].Value.ToString() == "1")
+                    {
+                        dgv.Cells["timeInactivated"].Value = $"{dgv.Cells["timeInactivated"].Value} dia";
+                    }
+                    else
+                        dgv.Cells["timeInactivated"].Value = $"{dgv.Cells["timeInactivated"].Value} dias";
+                }
+            }
         }
 
         private void updateColorRowDataGridIfSituationPlanExpired()

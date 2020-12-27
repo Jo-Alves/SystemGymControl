@@ -24,6 +24,35 @@ namespace SystemGymControl
             this.Left = 0;
 
             CheckedPlanExpired();
+            UpdateTimeInactivated();
+        }
+
+        private void UpdateTimeInactivated()
+        {
+            TimeSpan time;
+
+            foreach (DataRow row in plan.SearchAll().Rows)
+            {
+                if (row["situation"].ToString().ToLower() == "inativo")
+                {
+                    int idSituation = int.Parse(row["idSituationPlan"].ToString());
+
+                    var dateTerminal = Convert.ToDateTime(row["date_terminal_plan_last"].ToString());
+                    var deactivationDate = Convert.ToDateTime(row["deactivation_date"].ToString());
+
+                    /*
+                        * subtrai a data de atual com a data da desativação do plano para
+                        * pegar a diferença das datas e aumentar o prazo do término
+                     */
+                    time = DateTime.Now.Subtract(deactivationDate);
+
+                    situationPlan._timeInactivated = time.Days.ToString();
+                    plan._dateTerminalPlan = dateTerminal.AddDays(time.Days).ToShortDateString();
+                    situationPlan.updateTimeInactivated(idSituation);
+
+                    plan.UpdateTerminalPlan(int.Parse(row["idPlan"].ToString()));                   
+                }             
+            }
         }
 
         private void CheckedPlanExpired()

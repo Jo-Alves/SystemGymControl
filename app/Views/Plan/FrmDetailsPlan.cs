@@ -128,10 +128,11 @@ namespace SystemGymControl
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Bussiness.Plan plan = new Bussiness.Plan();
+            Bussiness.SituationsPlan situations = new Bussiness.SituationsPlan();
 
             if (!ValidateFieldObservation()) return;
 
-            Bussiness.SituationsPlan situations = new Bussiness.SituationsPlan();
             if (rbActive.Checked)
                 txtObservation.Clear();
 
@@ -142,14 +143,14 @@ namespace SystemGymControl
                 situations._situation = rbActive.Text;
                 situations._deactivationDate = "";
             }
-            else
+            else if(rbInactive.Checked)
             {
+                situations._timeInactivated = "0";
                 situations._situation = rbInactive.Text;
-                situations._deactivationDate = DateTime.Now.ToShortDateString();
+                situations._deactivationDate = DateTime.Now.ToShortDateString();               
             }
 
             situations.Save();
-            Bussiness.Plan plan = new Bussiness.Plan();
 
             if (rbInactive.Checked)
             {
