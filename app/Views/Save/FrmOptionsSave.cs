@@ -17,7 +17,7 @@ namespace SystemGymControl
             try
             {
                 if (new Student().SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmStudent(), this);
+                    OpenForm.ShowForm(new FrmStudents(), this);
                 else
                     OpenForm.ShowForm(new FrmSaveStudent(), this);
 
@@ -34,7 +34,7 @@ namespace SystemGymControl
             try
             {
                 if (new Package().SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmPackage(), this);
+                    OpenForm.ShowForm(new FrmPackages(), this);
                 else
                     OpenForm.ShowForm(new FrmSavePackage(), this);
 
@@ -51,7 +51,7 @@ namespace SystemGymControl
             try
             {
                 if (new User().SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmUser(), this);
+                    OpenForm.ShowForm(new FrmUsers(), this);
                 else
                     OpenForm.ShowForm(new FrmSaveUser(), this);
 

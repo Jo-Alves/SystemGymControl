@@ -58,11 +58,8 @@ namespace Database
                     else
                         idPackage = _id;
 
-                    if (billingParameters._valueInterest > 0.00M || billingParameters._valuePenalty > 0.00M)
-                    {
                         billingParameters._packageID = idPackage;
                         billingParameters.Save(sqlTransaction);
-                    }
 
                     foreach (DataRow dr in dataItemsAndFormsPayment.Rows)
                     {

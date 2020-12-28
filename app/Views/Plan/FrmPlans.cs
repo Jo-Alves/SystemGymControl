@@ -6,12 +6,12 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class FrmPlan : Form
+    public partial class FrmPlans : Form
     {
         Plan plan = new Plan();
         SituationsPlan situationsPlan = new SituationsPlan();
 
-        public FrmPlan()
+        public FrmPlans()
         {
             InitializeComponent();
             LoadDataPlan();

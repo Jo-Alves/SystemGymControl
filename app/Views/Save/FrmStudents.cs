@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class FrmStudent : Form
+    public partial class FrmStudents : Form
     {
         Student student = new Student();
         Bussiness.ResponsibleStudent responsibleStudent = new Bussiness.ResponsibleStudent();
 
-        public FrmStudent()
+        public FrmStudents()
         {
             InitializeComponent();
             LoadDataStudents();

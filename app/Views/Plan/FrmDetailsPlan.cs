@@ -209,7 +209,7 @@ namespace SystemGymControl
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmPlan(), this);
+            OpenForm.ShowForm(new FrmPlans(), this);
         }
     }
 }

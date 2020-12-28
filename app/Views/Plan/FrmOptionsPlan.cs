@@ -31,7 +31,7 @@ namespace SystemGymControl
             try
             {
                 //if (new Package().SearchAll().Rows.Count > 0)
-                OpenForm.ShowForm(new FrmPackage(), this);
+                OpenForm.ShowForm(new FrmPackages(), this);
                 //else
                 //OpenForm.ShowForm(new FrmSavePackage(), this);
             }

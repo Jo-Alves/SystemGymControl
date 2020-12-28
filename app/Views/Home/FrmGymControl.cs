@@ -157,7 +157,7 @@ namespace SystemGymControl
             try
             {
                 if (new Bussiness.Plan().SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmPlan(), this);
+                    OpenForm.ShowForm(new FrmPlans(), this);
                 else
                 {
                     if (new Bussiness.Package().SearchAll().Rows.Count > 0)
@@ -177,7 +177,7 @@ namespace SystemGymControl
         private void btnMenuPayment_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos";
-            OpenForm.ShowForm(new FrmPayment(), this);
+            OpenForm.ShowForm(new FrmPayments(), this);
         }
     }
 }

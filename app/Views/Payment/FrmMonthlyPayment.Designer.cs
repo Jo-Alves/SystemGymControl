@@ -47,6 +47,7 @@ namespace SystemGymControl
             this.receive = new System.Windows.Forms.DataGridViewImageColumn();
             this.receipt = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +80,7 @@ namespace SystemGymControl
             this.receive,
             this.receipt,
             this.id,
+            this.idCash,
             this.valueTotal,
             this.valueDiscount,
             this.Situation,
@@ -105,6 +107,8 @@ namespace SystemGymControl
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDataPlan.Size = new System.Drawing.Size(1001, 326);
             this.dgvDataPlan.TabIndex = 30;
+            this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
+            this.dgvDataPlan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
             // 
             // groupBox1
             // 
@@ -216,6 +220,13 @@ namespace SystemGymControl
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.id.Width = 69;
             // 
+            // idCash
+            // 
+            this.idCash.HeaderText = "idCach";
+            this.idCash.Name = "idCash";
+            this.idCash.ReadOnly = true;
+            this.idCash.Visible = false;
+            // 
             // valueTotal
             // 
             this.valueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -308,6 +319,7 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewImageColumn receive;
         private System.Windows.Forms.DataGridViewImageColumn receipt;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCash;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situation;

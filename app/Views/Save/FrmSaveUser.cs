@@ -56,7 +56,7 @@ namespace SystemGymControl
             {
                 if (user.SearchAll().Rows.Count > 0)
                 {
-                    OpenForm.ShowForm(new FrmUser(), this);
+                    OpenForm.ShowForm(new FrmUsers(), this);
                 }
                 else
                 {
@@ -101,7 +101,7 @@ namespace SystemGymControl
 
                     user._avatar = avatar;
                     user.Save();
-                    OpenForm.ShowForm(new FrmUser(), this);
+                    OpenForm.ShowForm(new FrmUsers(), this);
                 }
             }
             catch (Exception ex)

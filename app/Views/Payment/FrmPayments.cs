@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class FrmPayment : Form
+    public partial class FrmPayments : Form
     {
 
         Bussiness.Plan plan = new Bussiness.Plan();
 
-        public FrmPayment()
+        public FrmPayments()
         {
             InitializeComponent();
             LoadDataPlan();
@@ -69,9 +69,9 @@ namespace SystemGymControl
 
         private void dgvDataPlan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
-                dgvDataPlan.ClearSelection();               
+                dgvDataPlan.ClearSelection();
             }
         }
 

@@ -90,6 +90,12 @@
     <Compile Include="Views\Home\FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Payment\FrmEffectPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payment\FrmEffectPayment.Designer.cs">
+      <DependentUpon>FrmEffectPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Payment\FrmCashInPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +114,11 @@
     <Compile Include="Views\Payment\FrmMonthlyPayment.Designer.cs">
       <DependentUpon>FrmMonthlyPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Payment\FrmPayment.cs">
+    <Compile Include="Views\Payment\FrmPayments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Payment\FrmPayment.Designer.cs">
-      <DependentUpon>FrmPayment.cs</DependentUpon>
+    <Compile Include="Views\Payment\FrmPayments.Designer.cs">
+      <DependentUpon>FrmPayments.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Plan\FrmDetailsPlan.cs">
       <SubType>Form</SubType>
@@ -126,11 +132,11 @@
     <Compile Include="Views\Plan\FrmOptionsPlan.Designer.cs">
       <DependentUpon>FrmOptionsPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Plan\FrmPlan.cs">
+    <Compile Include="Views\Plan\FrmPlans.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Plan\FrmPlan.Designer.cs">
-      <DependentUpon>FrmPlan.cs</DependentUpon>
+    <Compile Include="Views\Plan\FrmPlans.Designer.cs">
+      <DependentUpon>FrmPlans.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Plan\FrmRenewPlan.cs">
       <SubType>Form</SubType>
@@ -164,11 +170,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Save\FrmPackage.cs">
+    <Compile Include="Views\Save\FrmPackages.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Save\FrmPackage.Designer.cs">
-      <DependentUpon>FrmPackage.cs</DependentUpon>
+    <Compile Include="Views\Save\FrmPackages.Designer.cs">
+      <DependentUpon>FrmPackages.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Save\FrmResponsiblesStudent.cs">
       <SubType>Form</SubType>
@@ -194,17 +200,17 @@
     <Compile Include="Views\Save\FrmSaveUser.Designer.cs">
       <DependentUpon>FrmSaveUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Save\FrmStudent.cs">
+    <Compile Include="Views\Save\FrmStudents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Save\FrmStudent.Designer.cs">
-      <DependentUpon>FrmStudent.cs</DependentUpon>
+    <Compile Include="Views\Save\FrmStudents.Designer.cs">
+      <DependentUpon>FrmStudents.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Save\FrmUser.cs">
+    <Compile Include="Views\Save\FrmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Save\FrmUser.Designer.cs">
-      <DependentUpon>FrmUser.cs</DependentUpon>
+    <Compile Include="Views\Save\FrmUsers.Designer.cs">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
@@ -222,6 +228,9 @@
     <EmbeddedResource Include="Views\Home\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payment\FrmEffectPayment.resx">
+      <DependentUpon>FrmEffectPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Payment\FrmCashInPayment.resx">
       <DependentUpon>FrmCashInPayment.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,8 +240,8 @@
     <EmbeddedResource Include="Views\Payment\FrmMonthlyPayment.resx">
       <DependentUpon>FrmMonthlyPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Payment\FrmPayment.resx">
-      <DependentUpon>FrmPayment.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Payment\FrmPayments.resx">
+      <DependentUpon>FrmPayments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan\FrmDetailsPlan.resx">
       <DependentUpon>FrmDetailsPlan.cs</DependentUpon>
@@ -240,8 +249,8 @@
     <EmbeddedResource Include="Views\Plan\FrmOptionsPlan.resx">
       <DependentUpon>FrmOptionsPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Plan\FrmPlan.resx">
-      <DependentUpon>FrmPlan.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Plan\FrmPlans.resx">
+      <DependentUpon>FrmPlans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan\FrmRenewPlan.resx">
       <DependentUpon>FrmRenewPlan.cs</DependentUpon>
@@ -255,8 +264,8 @@
     <EmbeddedResource Include="Views\Save\FrmOptionsSave.resx">
       <DependentUpon>FrmOptionsSave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Save\FrmPackage.resx">
-      <DependentUpon>FrmPackage.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Save\FrmPackages.resx">
+      <DependentUpon>FrmPackages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Save\FrmResponsiblesStudent.resx">
       <DependentUpon>FrmResponsiblesStudent.cs</DependentUpon>
@@ -270,11 +279,11 @@
     <EmbeddedResource Include="Views\Save\FrmSaveUser.resx">
       <DependentUpon>FrmSaveUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Save\FrmStudent.resx">
-      <DependentUpon>FrmStudent.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Save\FrmStudents.resx">
+      <DependentUpon>FrmStudents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Save\FrmUser.resx">
-      <DependentUpon>FrmUser.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Save\FrmUsers.resx">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\WsMail\AtendeClienteService.wsdl" />
     <None Include="Connected Services\WsMail\SystemGymControl.WsMail.atualizaPagamentoNaEntregaResponse.datasource">

@@ -137,7 +137,7 @@ namespace SystemGymControl
             try
             {
                 if (plan.SearchAll().Rows.Count > 0)
-                    OpenForm.ShowForm(new FrmPlan(), this);
+                    OpenForm.ShowForm(new FrmPlans(), this);
                 else
                     OpenForm.ShowForm(new FrmHome(), this);
             }
@@ -186,7 +186,7 @@ namespace SystemGymControl
 
                 PurchasePlan();
 
-                OpenForm.ShowForm(new FrmPlan(), this);
+                OpenForm.ShowForm(new FrmPlans(), this);
             }
             catch (Exception ex)
             {

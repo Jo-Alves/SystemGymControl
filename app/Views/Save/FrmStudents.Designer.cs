@@ -1,6 +1,6 @@
 ﻿namespace SystemGymControl
 {
-    partial class FrmStudent
+    partial class FrmStudents
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudent));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudents));
             this.btnAddStudent = new System.Windows.Forms.Button();
             this.dgvDataStudent = new System.Windows.Forms.DataGridView();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();

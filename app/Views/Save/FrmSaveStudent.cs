@@ -59,7 +59,7 @@ namespace SystemGymControl
             {
                 if (student.SearchAll().Rows.Count > 0)
                 {
-                    OpenForm.ShowForm(new FrmStudent(), this);
+                    OpenForm.ShowForm(new FrmStudents(), this);
                 }
                 else
                 {
@@ -194,7 +194,7 @@ namespace SystemGymControl
                         responsible.Save();
                     }
 
-                    OpenForm.ShowForm(new FrmStudent(), this);
+                    OpenForm.ShowForm(new FrmStudents(), this);
                 }
             }
             catch (Exception ex)

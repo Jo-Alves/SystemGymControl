@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class FrmUser : Form
+    public partial class FrmUsers : Form
     {
         User user = new User();
 
-        public FrmUser()
+        public FrmUsers()
         {
             InitializeComponent();
             LoadDataUsers();

@@ -53,7 +53,7 @@ namespace SystemGymControl
             }
 
             cbFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
-            if(cashPayment.SearchPlanID(idPlan).Rows.Count > 0)
+            if (cashPayment.SearchPlanID(idPlan).Rows.Count > 0)
                 idCashPayment = int.Parse(cashPayment.SearchPlanID(idPlan).Rows[0]["id"].ToString());
         }
 
@@ -62,7 +62,7 @@ namespace SystemGymControl
             this.Close();
         }
 
-        private void btnPurchasePlan_Click(object sender, EventArgs e)
+        private void btnRenewPlan_Click(object sender, EventArgs e)
         {
             if (cbFormOfPayment.Text.ToLower() == "dinheiro")
             {

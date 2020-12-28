@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class FrmPackage : Form
+    public partial class FrmPackages : Form
     {
         Package package = new Package();
 
-        public FrmPackage()
+        public FrmPackages()
         {
             InitializeComponent();
             LoadDataPackages();

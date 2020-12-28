@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -7,7 +8,7 @@ namespace SystemGymControl
     public partial class FrmMonthlyPayment : Form
     {
         Bussiness.CashPayment cashPayment = new Bussiness.CashPayment();
-
+        int idPlan;
         public FrmMonthlyPayment()
         {
             InitializeComponent();
@@ -17,34 +18,48 @@ namespace SystemGymControl
         {
             InitializeComponent();
             LoadDataCashPayment(idPlan);
+            CheckedDueDate();
+        }
+
+        private void CheckedDueDate()
+        {
+            foreach(DataGridViewRow row in dgvDataPlan.Rows)
+            {
+                DateTime dueDate = Convert.ToDateTime(row.Cells["duedate"].Value.ToString());
+
+                if(DateTime.Now > dueDate && row.Cells["situation"].Value.ToString().ToLower() == "a receber") 
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(45)))), ((int)(((byte)(47)))));
+            }
         }
 
         private void LoadDataCashPayment(int idPlan)
         {
+            this.idPlan = idPlan;
             var dataCashPayment = cashPayment.SearchCashPaymentPlanMoney(idPlan);
 
-            foreach (DataRow row in dataCashPayment.Rows)
+            foreach (DataRow dr in dataCashPayment.Rows)
             {
                 int countRow = dgvDataPlan.Rows.Add();
 
-                txtName.Text = row["name"].ToString();
-                txtIdStudent.Text = row["idStudent"].ToString();
+                txtName.Text = dr["name"].ToString();
+                txtIdStudent.Text = dr["idStudent"].ToString();
 
                 dgvDataPlan.Rows[countRow].Cells["receive"].Value = Properties.Resources.icons8_get_revenue_32px;
+                dgvDataPlan.Rows[countRow].Cells["idCash"].Value = dr["idCash"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["receipt"].Value = Properties.Resources.icons8_receipt_32px;
                 dgvDataPlan.Rows[countRow].Cells["receipt"].Value = Properties.Resources.icons8_receipt_32px;
-                dgvDataPlan.Rows[countRow].Cells["id"].Value = row["idCash"].ToString();
-                dgvDataPlan.Rows[countRow].Cells["valueTotal"].Value = $"R$ {row["value_total"]}";
-                dgvDataPlan.Rows[countRow].Cells["valueDiscount"].Value = $"R$ {row["value_discount"]}";
+                dgvDataPlan.Rows[countRow].Cells["id"].Value = dr["idCash"].ToString();
+                dgvDataPlan.Rows[countRow].Cells["valueTotal"].Value = $"R$ {dr["value_total"]}";
+                dgvDataPlan.Rows[countRow].Cells["valueDiscount"].Value = $"R$ {dr["value_discount"]}";
 
-                if (string.IsNullOrEmpty(row["payday"].ToString()))
+                if (string.IsNullOrEmpty(dr["payday"].ToString()))
                     dgvDataPlan.Rows[countRow].Cells["situation"].Value = "A RECEBER";
                 else
                     dgvDataPlan.Rows[countRow].Cells["situation"].Value = "PAGO";
                 
-                dgvDataPlan.Rows[countRow].Cells["duedate"].Value = row["duedate"].ToString();
-                dgvDataPlan.Rows[countRow].Cells["payday"].Value = row["payday"].ToString();
-                dgvDataPlan.Rows[countRow].Cells["paymentTime"].Value = row["payment_time"].ToString();
+                dgvDataPlan.Rows[countRow].Cells["duedate"].Value = dr["duedate"].ToString();
+                dgvDataPlan.Rows[countRow].Cells["payday"].Value = dr["payday"].ToString();
+                dgvDataPlan.Rows[countRow].Cells["paymentTime"].Value = dr["payment_time"].ToString();
 
                 dgvDataPlan.Rows[countRow].MinimumHeight = 45;               
             }
@@ -54,7 +69,32 @@ namespace SystemGymControl
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmPayment(), this);
+            OpenForm.ShowForm(new FrmPayments(), this);
+        }
+
+        private void dgvDataPlan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                dgvDataPlan.ClearSelection();
+            }
+        }
+
+        private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dgvDataPlan.ClearSelection();
+                if (dgvDataPlan.CurrentCell.ColumnIndex == 0 && dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().ToLower() == "a receber")
+                {
+                    var paymentPlanMounth = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idCash"].Value.ToString()));
+                    paymentPlanMounth.ShowDialog();
+                }
+                else if (dgvDataPlan.CurrentCell.ColumnIndex == 0 && dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().ToLower() == "pago")
+                {
+                    MessageBox.Show("Esta mensalidade já foi paga!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
     }
 }

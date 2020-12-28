@@ -1,6 +1,6 @@
 ﻿namespace SystemGymControl
 {
-    partial class FrmPackage
+    partial class FrmPackages
     {
         /// <summary> 
         /// Variável de designer necessária.

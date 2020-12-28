@@ -1,7 +1,7 @@
 ﻿
 namespace SystemGymControl
 {
-    partial class FrmUser
+    partial class FrmUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsers));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblStudent = new System.Windows.Forms.Label();

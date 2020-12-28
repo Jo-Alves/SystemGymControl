@@ -119,5 +119,25 @@ namespace Database
                 }
             }
         }
+
+        public DataTable SearchCashPaymentPlanIDCash(int idCash)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT *, cash_payments.id as idCash, students.id as idStudent, items_package.value as valuePackage FROM cash_payments INNER JOIN plans ON plans.id = cash_payments.plan_id INNER JOIN students ON students.id = plans.student_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN billing_parameters_package ON billing_parameters_package.package_id = packages.id WHERE cash_payments.id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idCash);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

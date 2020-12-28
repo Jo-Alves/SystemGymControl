@@ -121,7 +121,7 @@ namespace SystemGymControl
             this.btnRenewPlan.TabStop = false;
             this.btnRenewPlan.Text = "Renovar";
             this.btnRenewPlan.UseVisualStyleBackColor = false;
-            this.btnRenewPlan.Click += new System.EventHandler(this.btnPurchasePlan_Click);
+            this.btnRenewPlan.Click += new System.EventHandler(this.btnRenewPlan_Click);
             // 
             // btnCancel
             // 
