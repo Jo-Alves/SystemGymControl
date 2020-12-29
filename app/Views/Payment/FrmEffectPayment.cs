@@ -7,13 +7,14 @@ namespace SystemGymControl
 {
     public partial class FrmEffectPayment : Form
     {
-        decimal valuePackage;
         public bool paymentCancel { get; set; }
         public decimal valuePaidOut { get; set; }
         public decimal valueDiscount = 0.00m;
         public decimal change { get; set; }
         public decimal discountMoney = 0.00m;
-        decimal ValorDescontoPorcento, DiscountPercentage;
+        decimal valueTotal, amountReceivable;
+        DataTable dataPlanCash; 
+        int daysDelay;
 
         public FrmEffectPayment()
         {
@@ -26,28 +27,31 @@ namespace SystemGymControl
 
             try
             {
-                DataTable dataPlanCash = new Bussiness.CashPayment().SearchCashPaymentPlanIDCash(idCash);
+                cbFormOfPayment.SelectedIndex = 2;
+
+                dataPlanCash = new Bussiness.CashPayment().SearchCashPaymentPlanIDCash(idCash);
 
                 LoadFields(dataPlanCash);
-                CheckedDaysDelay();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.valuePackage = valuePackage;
-            //txtValuePlan.Text = $"R$ {valuePackage}";
+            }           
         }
 
-        private void CheckedDaysDelay()
+        private int GetValueDaysDelay()
         {
+            int daysDelay = 0;
+
             DateTime dueDate = Convert.ToDateTime(txtDuedate.Text);
             if (DateTime.Now > dueDate)
             {
                 TimeSpan timeSpan;
                 timeSpan = DateTime.Now.Subtract(dueDate);
-                txtDaysOfDelay.Text = $"{timeSpan.Days} dia(s)";
+                daysDelay = timeSpan.Days;
             }
+
+            return daysDelay;
         }
 
         private void LoadFields(DataTable dataPlanCash)
@@ -55,11 +59,58 @@ namespace SystemGymControl
             txtIdStudent.Text = dataPlanCash.Rows[0]["idStudent"].ToString();
             txtName.Text = dataPlanCash.Rows[0]["name"].ToString();
             txtValuePlan.Text = $"R$ {dataPlanCash.Rows[0]["valuePackage"]}";
-            txtValuePenalty.Text = $"R$ {dataPlanCash.Rows[0]["value_penalty"]}";
-            txtValueInterest.Text = $"R$ {dataPlanCash.Rows[0]["value_interest"]}";
             txtDuedate.Text = dataPlanCash.Rows[0]["duedate"].ToString();
             txtPayDay.Text = DateTime.Now.ToShortDateString();
+            daysDelay = GetValueDaysDelay();
+            txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
 
+            valueTotal = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValuePlan.Text));
+
+            decimal valueInterestMoney, valuePenaltyMoney;
+            if (dataPlanCash.Rows[0]["type_interest"].ToString().ToLower() == "percentage")
+            {
+                decimal valueInterest = decimal.Parse(dataPlanCash.Rows[0]["type_interest"].ToString());
+
+                valueInterestMoney = Math.Round((valueInterest * valueTotal) / 100);
+                txtValueInterest.Text = $"R$ {valueInterestMoney}";
+            }
+            else
+            {
+                valueInterestMoney = decimal.Parse(dataPlanCash.Rows[0]["value_interest"].ToString());
+                txtValueInterest.Text = $"R$ {valueInterestMoney}";
+            }
+
+            if (dataPlanCash.Rows[0]["type_penalty"].ToString().ToLower() == "percentage")
+            {
+                decimal valuePenalty = decimal.Parse(dataPlanCash.Rows[0]["type_penalty"].ToString());
+
+                valuePenaltyMoney = Math.Round((valuePenalty * valueTotal) / 100);
+
+                txtValuePenalty.Text = $"R$ {valuePenaltyMoney}";
+            }
+            else
+            {
+                valuePenaltyMoney = decimal.Parse(dataPlanCash.Rows[0]["value_penalty"].ToString());
+                txtValuePenalty.Text = $"R$ {valuePenaltyMoney}";
+            }
+
+            if (daysDelay >= 1)
+            {
+                CalculatePenaltyAndInteres(valuePenaltyMoney, valueInterestMoney, daysDelay);
+                txtDiscount.Enabled = false;
+            }
+            else
+            {
+                amountReceivable = valueTotal;
+                txtAmountReceivable.Text = $"R$ {valueTotal}";
+            }
+        }
+
+        // Ao método função de somar o valor total com os juros e a multa penalizada
+        private void CalculatePenaltyAndInteres(decimal valuePenaltyMoney, decimal valueInterestMoney, int daysDelay)
+        {
+            amountReceivable = valueTotal + valuePenaltyMoney + (valueInterestMoney * daysDelay);
+            txtAmountReceivable.Text = $"R$ {amountReceivable}";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -96,70 +147,37 @@ namespace SystemGymControl
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        //private void txtPaidOut_Leave(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
-        //        {
-        //            txtPaidOut.Text = FormatTextBox.FormatValueDecimal(txtPaidOut.Text);
-        //            valuePaidOut = decimal.Parse(txtPaidOut.Text.Trim());
-        //            change = valuePaidOut - decimal.Parse(txtValueWithDiscount.Text);
-        //            txtChange.Text = change.ToString();
-        //            txtPaidOut.Text = valuePaidOut.ToString();
-        //            if (txtValueWithDiscount.Text != "0,00")
-        //            {
-        //                txtChange.Text = (decimal.Parse(txtPaidOut.Text) - decimal.Parse(txtValueWithDiscount.Text)).ToString();
-        //            }
-        //        }
-        //        else
-        //            txtChange.Clear();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        txtPaidOut.Clear();
-        //    }
-        //}
+        private void txtDiscount_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtDiscount.Text))
+            {
+                try
+                {
+                    discountMoney = decimal.Parse(txtDiscount.Text);
+                    if (discountMoney <= amountReceivable)
+                    {
+                        txtDiscount.Text = FormatTextBox.FormatValueDecimal(txtDiscount.Text);
+                        if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
+                            txtChange.Text = (decimal.Parse(txtPaidOut.Text) - amountReceivable - discountMoney).ToString();
 
-        //private void txtDiscountMoney_Leave(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(txtDiscountMoney.Text))
-        //    {
-        //        try
-        //        {
-        //            discountMoney = decimal.Parse(txtDiscountMoney.Text);
-        //            if (discountMoney <= valuePackage)
-        //            {
-        //                txtDiscountMoney.Text = FormatTextBox.FormatValueDecimal(txtDiscountMoney.Text);
-        //                txtValueWithDiscount.Text = (valuePackage - discountMoney).ToString();
+                        valueDiscount = amountReceivable - discountMoney;
+                    }
+                    else
+                    {
+                        txtAmountReceivable.Text = amountReceivable.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDiscount.Text = "0,00";
+                }
+            }
+            else
+            txtDiscount.Text = "0,00";
+        }
 
-        //                if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
-        //                    txtChange.Text = (valuePaidOut - decimal.Parse(txtValueWithDiscount.Text)).ToString();
-
-        //                valueDiscount = decimal.Parse(txtValueWithDiscount.Text);
-        //                DiscountPercentage = (100 * discountMoney) / valuePackage;
-        //                DiscountPercentage = Math.Round(DiscountPercentage, 2);
-        //                txtDiscountPercentage.Text = Math.Round(DiscountPercentage, 2).ToString();
-        //            }
-        //            else
-        //            {
-        //                txtDiscountPercentage.Text = "0,00";
-        //                txtDiscountMoney.Text = "0,00";
-        //                DiscountPercentage = 0.00M;
-        //                discountMoney = 0.00M;
-        //                txtValueWithDiscount.Text = valuePackage.ToString();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            txtDiscountMoney.Text = "0,00";
-        //        }
-        //    }
-        //}
-
-      private void txtPaidOut_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtPaidOut_KeyPress(object sender, KeyPressEventArgs e)
         {
             FormatTextBox.HandleFormatTextBox(txtPaidOut, e);
         }
@@ -185,6 +203,50 @@ namespace SystemGymControl
             paymentCancel = true;
 
             this.Close();
+        }
+
+        private void cbCalculateInaterastAndPenalty_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!cbCalculateInaterastAndPenalty.Checked)
+            {
+                txtAmountReceivable.Text = $"R$ {valueTotal}";
+                txtValueInterest.Enabled = false;
+                txtValuePenalty.Enabled = false;
+                txtValuePlan.Enabled = false;
+                txtDiscount.Enabled = true;
+            }
+            else
+            {
+                txtValueInterest.Enabled = true;
+                txtValuePenalty.Enabled = true;
+                txtValuePlan.Enabled = true;
+                LoadFields(dataPlanCash);
+                if(daysDelay > 1)
+                {
+                    txtDiscount.Enabled = false;
+                    txtDiscount.Text = "0,00";
+                }
+            }
+
+            txtPaidOut_Leave(sender, e);
+            txtDiscount_Leave(sender, e);
+        }
+
+        private void txtPaidOut_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
+                {
+                    txtChange.Text = $"R$ {decimal.Parse(txtPaidOut.Text) - decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text))}";
+                    txtPaidOut.Text = FormatTextBox.FormatValueDecimal(txtPaidOut.Text);
+                    valuePaidOut = decimal.Parse(txtPaidOut.Text);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Valor digitado inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
