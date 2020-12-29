@@ -15,8 +15,7 @@ namespace SystemGymControl
         FrmCardInPayment cardInPayment;
         FrmCashInPayment cashInPayment;
 
-        CashPayment cashPayment = new CashPayment();
-        CardPayment cardPayment = new CardPayment();
+        Payment payment = new Payment();
 
         int idPackage, duration, idPlan, idItemsPackage, studentId, idSituation, idCashPayment;
 
@@ -47,14 +46,15 @@ namespace SystemGymControl
             duration = int.Parse(dataPlan.Rows[0]["duration"].ToString());
             txtValue.Text = dataPlan.Rows[0]["valueItemsPackage"].ToString();
             txtModality.Text = dataPlan.Rows[0]["descriptionModality"].ToString();
+
             foreach (DataRow dr in package.GetPackageAndItemsPackageId(idPackage).Rows)
             {
                 cbFormOfPayment.Items.Add(dr["description"].ToString());
             }
 
             cbFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
-            if (cashPayment.SearchPlanID(idPlan).Rows.Count > 0)
-                idCashPayment = int.Parse(cashPayment.SearchPlanID(idPlan).Rows[0]["id"].ToString());
+            if (payment.SearchPlanID(idPlan).Rows.Count > 0)
+                idCashPayment = int.Parse(payment.SearchPlanID(idPlan).Rows[0]["id"].ToString());
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace SystemGymControl
             }
             else
             {
-                cardInPayment = new FrmCardInPayment(decimal.Parse(txtValue.Text), duration, cbFormOfPayment.Text);
+                cardInPayment = new FrmCardInPayment(decimal.Parse(txtValue.Text), duration, cbFormOfPayment.Text, period);
                 cardInPayment.ShowDialog();
 
                 if (!cardInPayment.paymentCancel) return;
@@ -107,16 +107,17 @@ namespace SystemGymControl
                 DataTable dataCardPayment = null;
                 if (cbFormOfPayment.Text.ToLower() == "dinheiro")
                 {
-                    cashPayment._id = idCashPayment;
-                    cashPayment._valueTotal = cashInPayment.valueDiscount;
-                    cashPayment._valueDiscount = cashInPayment.discountMoney;
-                    cashPayment._payday = datePlan.ToShortDateString();
-                    cashPayment._paymentTime = datePlan.ToLongTimeString();
+                    payment._id = idCashPayment;
+                    payment._valueTotal = cashInPayment.valueDiscount;
+                    payment._valueDiscount = cashInPayment.discountMoney;
+                    payment._payday = datePlan.ToShortDateString();
+                    payment._paymentTime = datePlan.ToLongTimeString();
+                    payment._paymentOnAccount = "yes";
                 }
                 else
                     dataCardPayment = cardInPayment.dataPortion;
 
-                plan.Save(new Modality(), situationsPlan, dataCardPayment, cashPayment, cbFormOfPayment.Text.ToLower(), period);
+                plan.Save(new Modality(), situationsPlan, dataCardPayment, payment, cbFormOfPayment.Text, period);
             }
             catch (Exception ex)
             {

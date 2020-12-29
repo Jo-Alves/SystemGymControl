@@ -60,7 +60,7 @@ namespace Database
             set { studentID = value; }
         }
 
-        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, CashPayment cashPayment, string formPayment, string period)
+        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, Payment payment, string formPayment, string period)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -88,56 +88,69 @@ namespace Database
                     else
                         planId = _id;
 
+                    // tabela modalities
+
                     if (!string.IsNullOrEmpty(modality._description))
                     {
                         modality._planID = planId;
                         modality.Save(sqlTransaction);
                     }
 
+                    //Tabela situations_plan
+
                     situationsPlan._planID = planId;
                     situationsPlan.Save(sqlTransaction);
 
-                    if (formPayment == "dinheiro")
+                    // Tabela form_of_payment
+
+                    if (formPayment.ToLower() == "dinheiro" || period.ToLower() == "mensal")
                     {
-                        if (period != "mensal")
-                        {
-                            cashPayment._duedate = DateTime.Now.ToShortDateString();
-                            cashPayment._planID = planId;
-                            cashPayment.Save(sqlTransaction);
-                        }
-                        else
-                        {
-                            // Insere os dados do pagamento
+                        if (formPayment.ToLower() != "dinheiro")
+                            payment._paymentOfAccount = "no";
 
-                            cashPayment._duedate = DateTime.Now.ToShortDateString();
-                            cashPayment._planID = planId;
-                            cashPayment.Save(sqlTransaction);
+                        payment._duedate = DateTime.Now.ToShortDateString();
+                        payment._planID = planId;
+                        payment.Save(sqlTransaction);
 
-                            // Insere os dados para o próximo pagamento com a data a vencer
+                        // Insere os dados para o próximo pagamento com a data a vencer
 
-                            cashPayment._id = 0;
-                            cashPayment._payday = "";
-                            cashPayment._paymentTime = "";
-                            cashPayment._valueTotal += cashPayment._valueDiscount;
-                            cashPayment._valueDiscount = 0.00m;
-                            cashPayment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
-                            cashPayment.Save(sqlTransaction);
-                        }
+                        payment._id = 0;
+                        payment._numberPortion = 1;
+                        payment._payday = "";
+                        payment._paymentTime = "";
+                        payment._valueTotal += payment._valueDiscount;
+                        payment._valueDiscount = 0.00m;
+                        payment._formPayment = formPayment;
+                        payment._paymentOfAccount = "no";
+                        payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
+                        payment.Save(sqlTransaction);
                     }
                     else
                     {
-                        foreach (DataRow dr in dataCardPayment.Rows)
+                        if (period != "mensal")
                         {
-                            int numberPortion = int.Parse(dr["portion"].ToString());
-                            string dueDate = dr["dueDate"].ToString();
-                            decimal valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
-                            string payday = "";
-                            string paymentTime = "";
+                            foreach (DataRow dr in dataCardPayment.Rows)
+                            {
+                                int numberPortion = int.Parse(dr["portion"].ToString());
+                                string dueDate = dr["dueDate"].ToString();
+                                decimal valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
+                                string payday = "";
+                                string paymentTime = "";
 
-                            CardPayment cardPayment = new CardPayment() { _dueDate = dueDate, _numberPortion = numberPortion, _payday = payday, _paymentTime = paymentTime, _valuePortion = valuePortion, _planID = planId };
-                            cardPayment.Save(sqlTransaction);
+                                payment._duedate = dueDate;
+                                payment._numberPortion = numberPortion;
+                                payment._payday = payday;
+                                payment._paymentTime = paymentTime;
+                                payment._valueTotal = valuePortion;
+                                payment._valueDiscount = 0.00M;
+                                payment._formPayment = formPayment;
+                                payment._paymentOfAccount = "no";
+                                payment._planID = planId;
+                                payment.Save(sqlTransaction);
+                            }
                         }
                     }
+
                     if (_id > 0)
                         command.ExecuteNonQuery();
 
@@ -305,7 +318,7 @@ namespace Database
                         "ON items_package.id = plans.items_package_id" +
                         " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
                         "INNER JOIN packages ON packages.id = items_package.package_id " +
-                        "WHERE situations_plan.situation <> 'Cancelado' AND forms_of_payment.description = 'Dinheiro' AND packages.period = 'Mensal' ORDER BY plans.id";
+                        "WHERE situations_plan.situation <> 'Cancelado' AND packages.period = 'Mensal' ORDER BY plans.id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);

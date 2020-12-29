@@ -17,12 +17,12 @@ namespace SystemGymControl
             InitializeComponent();
         }
 
-        public FrmCardInPayment(decimal valuePackage, int numberPortions, string formPayment)
+        public FrmCardInPayment(decimal valuePackage, int numberPortions, string formPayment, string period)
         {
             InitializeComponent();
 
             this.formPayment = formPayment;
-            if (this.formPayment == "Cartão de Débito")
+            if (this.formPayment == "Cartão de Débito" || period.ToLower() == "mensal" || period.ToLower() == "diário")
             {
                 ndNumberPortions.Enabled = false;
                 ndNumberPortions.Value = 1;

@@ -84,6 +84,12 @@
     <Compile Include="Utils\FormatValueDecimal.cs" />
     <Compile Include="Utils\OpenForm.cs" />
     <Compile Include="Utils\Security.cs" />
+    <Compile Include="Views\Home\FrmGymControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Home\FrmGymControl.designer.cs">
+      <DependentUpon>FrmGymControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,10 +156,10 @@
     <Compile Include="Views\Plan\FrmPurchasePlan.Designer.cs">
       <DependentUpon>FrmPurchasePlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Plan\FrmSearchStudent.cs">
+    <Compile Include="Views\Save\FrmSearchStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Plan\FrmSearchStudent.Designer.cs">
+    <Compile Include="Views\Save\FrmSearchStudent.Designer.cs">
       <DependentUpon>FrmSearchStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Save\FrmOptionsSave.cs">
@@ -161,12 +167,6 @@
     </Compile>
     <Compile Include="Views\Save\FrmOptionsSave.Designer.cs">
       <DependentUpon>FrmOptionsSave.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\FrmGymControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Home\FrmGymControl.Designer.cs">
-      <DependentUpon>FrmGymControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -212,9 +212,6 @@
     <Compile Include="Views\Save\FrmUsers.Designer.cs">
       <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
-      <DependentUpon>FrmGymControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -225,6 +222,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
+      <DependentUpon>FrmGymControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,7 +258,7 @@
     <EmbeddedResource Include="Views\Plan\FrmPurchasePlan.resx">
       <DependentUpon>FrmPurchasePlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Plan\FrmSearchStudent.resx">
+    <EmbeddedResource Include="Views\Save\FrmSearchStudent.resx">
       <DependentUpon>FrmSearchStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Save\FrmOptionsSave.resx">

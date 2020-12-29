@@ -12,8 +12,7 @@ namespace SystemGymControl
         Plan plan = new Plan();
         Student student = new Student();
         SituationsPlan situationsPlan = new SituationsPlan();
-        CashPayment cashPayment = new CashPayment();
-        CardPayment cardPayment = new CardPayment();
+        Payment payment = new Payment();
 
         public FrmPurchasePlan()
         {
@@ -40,7 +39,6 @@ namespace SystemGymControl
                 dgvDataPlan.Rows[addRow].Cells["duration"].Value = dr["duration"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["period"].Value = dr["period"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["value"].Value = $"R$ {dr["value"].ToString()}";
-                dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["formOfPayment"].Value = dr["formOfPayment"].ToString();
                 dgvDataPlan.Rows[addRow].Cells["idItemsPackage"].Value = dr["idItems"].ToString();
 
@@ -177,7 +175,7 @@ namespace SystemGymControl
                 }
                 else
                 {
-                    cardInPayment = new FrmCardInPayment(valuePackage, int.Parse(dgvDataPlan.CurrentRow.Cells["duration"].Value.ToString()), dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString());
+                    cardInPayment = new FrmCardInPayment(valuePackage, int.Parse(dgvDataPlan.CurrentRow.Cells["duration"].Value.ToString()), dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString(), dgvDataPlan.CurrentRow.Cells["period"].Value.ToString());
                     cardInPayment.ShowDialog();
 
                     if (!cardInPayment.paymentCancel) return;
@@ -233,17 +231,29 @@ namespace SystemGymControl
             situationsPlan._deactivationDate = "";
 
             DataTable dataCardPayment = null;
-            if (formPayment.ToLower() == "dinheiro")
-            {
-                cashPayment._valueTotal = cashInPayment.valueDiscount;
-                cashPayment._valueDiscount = cashInPayment.discountMoney;
-                cashPayment._payday = datePlan.ToShortDateString();
-                cashPayment._paymentTime = datePlan.ToLongTimeString();
-            }
-            else
-                dataCardPayment = cardInPayment.dataPortion;
 
-            plan.Save(modality, situationsPlan, dataCardPayment, cashPayment, formPayment.ToLower(), dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower());
+            payment._numberPortion = 1;
+            
+            if(formPayment.ToLower() == "dinheiro")
+            {
+                payment._valueTotal = cashInPayment.valueDiscount;
+                payment._valueDiscount = cashInPayment.discountMoney;
+                payment._paymentOnAccount = "yes";
+            }
+            else if (formPayment.ToLower() != "dinheiro" && dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower() != "mensal")
+                dataCardPayment = cardInPayment.dataPortion;
+            else if (formPayment.ToLower() != "dinheiro" && dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower() == "mensal")
+            {
+                payment._valueTotal = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
+                payment._valueDiscount = 0.00M;
+            }
+            
+
+            payment._formPayment = formPayment;
+            payment._payday = datePlan.ToShortDateString();
+            payment._paymentTime = datePlan.ToLongTimeString();
+
+            plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower());
         }
 
         private bool checkedDgvSelected()

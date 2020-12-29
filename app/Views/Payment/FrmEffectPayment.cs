@@ -29,7 +29,7 @@ namespace SystemGymControl
             {
                 cbFormOfPayment.SelectedIndex = 2;
 
-                dataPlanCash = new Bussiness.CashPayment().SearchCashPaymentPlanIDCash(idCash);
+                dataPlanCash = new Bussiness.Payment().SearchCashPaymentPlanIDCash(idCash);
 
                 LoadFields(dataPlanCash);
             }
@@ -69,10 +69,10 @@ namespace SystemGymControl
             decimal valueInterestMoney, valuePenaltyMoney;
             if (dataPlanCash.Rows[0]["type_interest"].ToString().ToLower() == "percentage")
             {
-                decimal valueInterest = decimal.Parse(dataPlanCash.Rows[0]["type_interest"].ToString());
+                decimal valueInterest = decimal.Parse(dataPlanCash.Rows[0]["value_interest"].ToString());
 
-                valueInterestMoney = Math.Round((valueInterest * valueTotal) / 100);
-                txtValueInterest.Text = $"R$ {valueInterestMoney}";
+                valueInterestMoney = (valueInterest * valueTotal) / 100;
+                txtValueInterest.Text = $"R$ {valueInterestMoney.ToString("0.00")}";
             }
             else
             {
@@ -82,11 +82,11 @@ namespace SystemGymControl
 
             if (dataPlanCash.Rows[0]["type_penalty"].ToString().ToLower() == "percentage")
             {
-                decimal valuePenalty = decimal.Parse(dataPlanCash.Rows[0]["type_penalty"].ToString());
+                decimal valuePenalty = decimal.Parse(dataPlanCash.Rows[0]["value_penalty"].ToString());
 
-                valuePenaltyMoney = Math.Round((valuePenalty * valueTotal) / 100);
+                valuePenaltyMoney = (valuePenalty * valueTotal) / 100;
 
-                txtValuePenalty.Text = $"R$ {valuePenaltyMoney}";
+                txtValuePenalty.Text = $"R$ {valuePenaltyMoney.ToString("0.00")}";
             }
             else
             {

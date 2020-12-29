@@ -130,29 +130,20 @@ CREATE TABLE [dbo].[situations_plan] (
     FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans] ([id]) ON DELETE CASCADE
 );
 
-CREATE TABLE [dbo].[cash_payments] (
+CREATE TABLE [dbo].[payments] (
     [id]             INT             IDENTITY (1, 1) NOT NULL,
+    [portion]        INT             NULL,
     [value_total]    DECIMAL (18, 2) NOT NULL,
     [value_discount] DECIMAL (18, 2) NOT NULL,
     [payday]         VARCHAR (10)    NULL,
     [payment_time]   VARCHAR (8)     NULL,
     [duedate]        VARCHAR (10)    NULL,
+    [formOfPayment]  VARCHAR (50)    NOT NULL,
+    [payment_on_account]   VARCHAR (10)    NULL,
     [plan_id]        INT             NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
     FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans] ([id]) ON DELETE CASCADE
 );
-
-CREATE TABLE [dbo].[card_payments]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[number_portion] int NOT NULL,
-	[value_portion] DECIMAL (18,2) NOT NULL,
-	[payday] VARCHAR (10) NULL,
-	[payment_time] VARCHAR (8) NULL,
-	[due_date] VARCHAR (10) NOT NULL,-- vencimento
-	[plan_id] int NOT NULL,
-	FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans]([id]) ON DELETE CASCADE
-)
 
 CREATE TABLE [dbo].[users]
 (

@@ -1,23 +1,32 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace Bussiness
 {
-    public class CashPayment
+    public class Payment
     {
         private int id;
+        private int numberPortion;
         private decimal valueTotal;
         private decimal valueDiscount;
         private string payday;
         private string paymentTime;
         private string duedate;
+        private string formPayment;
+        private string paymentOnAccount;
         private int planID;
 
-        Database.CashPayment cashPayment = new Database.CashPayment();
+        Database.Payment payment = new Database.Payment();
 
         public int _id
         {
             get { return id; }
             set { id = value; }
+        }
+        public int _numberPortion
+        {
+            get { return numberPortion; }
+            set { numberPortion = value; }
         }
         public decimal _valueTotal
         {
@@ -44,25 +53,30 @@ namespace Bussiness
             get { return duedate; }
             set { duedate = value; }
         }
-        public int _planID
+        public string _formPayment
         {
-            get { return planID; }
-            set { planID = value; }
+            get { return formPayment; }
+            set { formPayment = value; }
+        }
+        public string _paymentOnAccount
+        {
+            get { return paymentOnAccount; }
+            set { paymentOnAccount = value; }
         }
 
         public DataTable SearchPlanID(int planID)
         {
-            return cashPayment.SearchPlanID(planID);
+            return payment.SearchPlanID(planID);
         }
 
         public DataTable SearchCashPaymentPlanMoney(int idPlan)
         {
-            return cashPayment.SearchCashPaymentPlanMoney(idPlan);
+            return payment.SearchCashPaymentPlanMoney(idPlan);
         }
-        
+
         public DataTable SearchCashPaymentPlanIDCash(int idCash)
         {
-            return cashPayment.SearchCashPaymentPlanIDCash(idCash);
+            return payment.SearchCashPaymentPlanIDCash(idCash);
         }
     }
 }

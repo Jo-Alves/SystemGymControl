@@ -7,7 +7,7 @@ namespace SystemGymControl
 {
     public partial class FrmMonthlyPayment : Form
     {
-        Bussiness.CashPayment cashPayment = new Bussiness.CashPayment();
+        Bussiness.Payment payment = new Bussiness.Payment();
         int idPlan;
         public FrmMonthlyPayment()
         {
@@ -35,7 +35,7 @@ namespace SystemGymControl
         private void LoadDataCashPayment(int idPlan)
         {
             this.idPlan = idPlan;
-            var dataCashPayment = cashPayment.SearchCashPaymentPlanMoney(idPlan);
+            var dataCashPayment = payment.SearchCashPaymentPlanMoney(idPlan);
 
             foreach (DataRow dr in dataCashPayment.Rows)
             {

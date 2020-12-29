@@ -23,8 +23,15 @@ namespace SystemGymControl
             this.Top = 0;
             this.Left = 0;
 
-            CheckedPlanExpired();
-            UpdateTimeInactivated();
+            try
+            {
+                CheckedPlanExpired();
+                UpdateTimeInactivated();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void UpdateTimeInactivated()

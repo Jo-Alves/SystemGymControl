@@ -3,14 +3,17 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    public class CashPayment
+    public class Payment
     {
         private int id;
+        private int numberPortion;
         private decimal valueTotal;
         private decimal valueDiscount;
         private string payday;
         private string paymentTime;
         private string duedate;
+        private string formPayment;
+        private string paymentOfAccount;
         private int planID;
 
         string _sql;
@@ -19,6 +22,11 @@ namespace Database
         {
             get { return id; }
             set { id = value; }
+        }
+        public int _numberPortion
+        {
+            get { return numberPortion; }
+            set { numberPortion = value; }
         }
         public decimal _valueTotal
         {
@@ -45,6 +53,16 @@ namespace Database
             get { return duedate; }
             set { duedate = value; }
         }
+        public string _formPayment
+        {
+            get { return formPayment; }
+            set { formPayment = value; }
+        } 
+        public string _paymentOfAccount
+        {
+            get { return paymentOfAccount; }
+            set { paymentOfAccount = value; }
+        }
         public int _planID
         {
             get { return planID; }
@@ -56,17 +74,20 @@ namespace Database
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO cash_payments VALUES (@valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @planID)";
+                    _sql = "INSERT INTO payments VALUES (@portion, @valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @formPayment, @paymentOfAccount, @planID)";
                 else
-                    _sql = "UPDATE  cash_payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, duedate =  @duedate WHERE id = @id";
+                    _sql = "UPDATE  payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_of_account = @paymentOfAccount, duedate =  @duedate WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
                 command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@portion", _numberPortion);
                 command.Parameters.AddWithValue("@valueTotal", _valueTotal);
                 command.Parameters.AddWithValue("@valueDiscount", _valueDiscount);
                 command.Parameters.AddWithValue("@payday", _payday);
                 command.Parameters.AddWithValue("@paymentTime", _paymentTime);
                 command.Parameters.AddWithValue("@duedate", _duedate);
+                command.Parameters.AddWithValue("@formPayment", _formPayment);
+                command.Parameters.AddWithValue("@paymentOfAccount", _paymentOfAccount);
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
@@ -86,7 +107,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT * FROM cash_payments WHERE plan_id = @planID AND payday = ''";
+                    _sql = "SELECT * FROM payments WHERE plan_id = @planID AND payday = ''";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@planID", planID);
                     DataTable table = new DataTable();
@@ -106,7 +127,7 @@ namespace Database
             {
                 try
                 {
-                    _sql = "SELECT *, cash_payments.id as idCash, students.id as idStudent FROM cash_payments INNER JOIN plans ON plans.id = cash_payments.plan_id INNER JOIN students ON students.id = plans.student_id WHERE plans.id = @id";
+                    _sql = "SELECT *, payments.id as idCash, students.id as idStudent FROM payments INNER JOIN plans ON plans.id = payments.plan_id INNER JOIN students ON students.id = plans.student_id WHERE plans.id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", idPlan);
                     DataTable table = new DataTable();
@@ -126,7 +147,7 @@ namespace Database
             {
                 try
                 {
-                    _sql = "SELECT *, cash_payments.id as idCash, students.id as idStudent, items_package.value as valuePackage FROM cash_payments INNER JOIN plans ON plans.id = cash_payments.plan_id INNER JOIN students ON students.id = plans.student_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN billing_parameters_package ON billing_parameters_package.package_id = packages.id WHERE cash_payments.id = @id";
+                    _sql = "SELECT *, payments.id as idCash, students.id as idStudent, items_package.value as valuePackage FROM payments INNER JOIN plans ON plans.id = payments.plan_id INNER JOIN students ON students.id = plans.student_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN billing_parameters_package ON billing_parameters_package.package_id = packages.id WHERE payments.id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", idCash);
                     DataTable table = new DataTable();
