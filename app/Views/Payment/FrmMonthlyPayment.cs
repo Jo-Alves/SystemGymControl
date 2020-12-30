@@ -34,6 +34,8 @@ namespace SystemGymControl
 
         private void LoadDataCashPayment(int idPlan)
         {
+            dgvDataPlan.Rows.Clear();
+
             this.idPlan = idPlan;
             var dataCashPayment = payment.SearchCashPaymentPlanMoney(idPlan);
 
@@ -87,8 +89,12 @@ namespace SystemGymControl
                 dgvDataPlan.ClearSelection();
                 if (dgvDataPlan.CurrentCell.ColumnIndex == 0 && dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().ToLower() == "a receber")
                 {
-                    var paymentPlanMounth = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idCash"].Value.ToString()));
-                    paymentPlanMounth.ShowDialog();
+                    var effectPayment = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idCash"].Value.ToString()));
+                    effectPayment.ShowDialog();
+                    if (effectPayment.paymentEffected)
+                    {
+                        LoadDataCashPayment(idPlan);
+                    }
                 }
                 else if (dgvDataPlan.CurrentCell.ColumnIndex == 0 && dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().ToLower() == "pago")
                 {

@@ -63,6 +63,27 @@ namespace Bussiness
             get { return paymentOnAccount; }
             set { paymentOnAccount = value; }
         }
+        
+        public int _planID
+        {
+            get { return planID; }
+            set { planID = value; }
+        }
+
+        public void Save()
+        {
+            payment._id = this.id;
+            payment._numberPortion = this._numberPortion;
+            payment._payday = this._payday;
+            payment._paymentOfAccount = this._paymentOnAccount;
+            payment._paymentTime = this._paymentTime;
+            payment._planID = this._planID;
+            payment._valueDiscount = this._valueDiscount;
+            payment._valueTotal = this._valueTotal;
+            payment._formPayment = this._formPayment;
+            payment._duedate = this._duedate;
+            payment.Save();
+        }
 
         public DataTable SearchPlanID(int planID)
         {

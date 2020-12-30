@@ -1,4 +1,4 @@
-﻿CREATE DATABASE dbGymControl
+CREATE DATABASE dbGymControl
 
 USE dbGymControl
 
@@ -138,7 +138,7 @@ CREATE TABLE [dbo].[payments] (
     [payday]         VARCHAR (10)    NULL,
     [payment_time]   VARCHAR (8)     NULL,
     [duedate]        VARCHAR (10)    NULL,
-    [formOfPayment]  VARCHAR (50)    NOT NULL,
+    [form_Payment]  VARCHAR (50)    NOT NULL,
     [payment_on_account]   VARCHAR (10)    NULL,
     [plan_id]        INT             NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),

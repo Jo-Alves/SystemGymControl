@@ -64,6 +64,8 @@ namespace SystemGymControl
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -77,7 +79,7 @@ namespace SystemGymControl
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_close_window_32px_leavee;
-            this.btnClose.Location = new System.Drawing.Point(617, 2);
+            this.btnClose.Location = new System.Drawing.Point(770, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 28);
@@ -99,7 +101,7 @@ namespace SystemGymControl
             this.btnFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinish.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinish.ForeColor = System.Drawing.Color.White;
-            this.btnFinish.Location = new System.Drawing.Point(370, 450);
+            this.btnFinish.Location = new System.Drawing.Point(523, 450);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(136, 40);
             this.btnFinish.TabIndex = 2;
@@ -118,7 +120,7 @@ namespace SystemGymControl
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(512, 450);
+            this.btnCancel.Location = new System.Drawing.Point(665, 450);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 40);
             this.btnCancel.TabIndex = 3;
@@ -135,7 +137,7 @@ namespace SystemGymControl
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Location = new System.Drawing.Point(13, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 93);
+            this.groupBox1.Size = new System.Drawing.Size(778, 93);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
@@ -145,7 +147,7 @@ namespace SystemGymControl
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(116, 17);
+            this.label2.Location = new System.Drawing.Point(193, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 22);
             this.label2.TabIndex = 45;
@@ -157,7 +159,7 @@ namespace SystemGymControl
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(10, 17);
+            this.label3.Location = new System.Drawing.Point(87, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 22);
             this.label3.TabIndex = 44;
@@ -168,7 +170,7 @@ namespace SystemGymControl
             this.txtIdStudent.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtIdStudent.BackColor = System.Drawing.Color.White;
             this.txtIdStudent.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtIdStudent.Location = new System.Drawing.Point(14, 42);
+            this.txtIdStudent.Location = new System.Drawing.Point(91, 42);
             this.txtIdStudent.Name = "txtIdStudent";
             this.txtIdStudent.ReadOnly = true;
             this.txtIdStudent.Size = new System.Drawing.Size(100, 33);
@@ -181,10 +183,10 @@ namespace SystemGymControl
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtName.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(120, 43);
+            this.txtName.Location = new System.Drawing.Point(197, 43);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(494, 33);
+            this.txtName.Size = new System.Drawing.Size(507, 33);
             this.txtName.TabIndex = 5;
             this.txtName.TabStop = false;
             // 
@@ -195,7 +197,7 @@ namespace SystemGymControl
             this.groupBox2.Controls.Add(this.cbCalculateInaterastAndPenalty);
             this.groupBox2.Location = new System.Drawing.Point(13, 133);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 223);
+            this.groupBox2.Size = new System.Drawing.Size(778, 223);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
             // 
@@ -207,9 +209,9 @@ namespace SystemGymControl
             this.groupBox4.Controls.Add(this.txtPayDay);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.txtDuedate);
-            this.groupBox4.Location = new System.Drawing.Point(315, 51);
+            this.groupBox4.Location = new System.Drawing.Point(386, 42);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(304, 166);
+            this.groupBox4.Size = new System.Drawing.Size(340, 166);
             this.groupBox4.TabIndex = 65;
             this.groupBox4.TabStop = false;
             // 
@@ -290,9 +292,9 @@ namespace SystemGymControl
             this.groupBox3.Controls.Add(this.txtValuePenalty);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.txtValuePlan);
-            this.groupBox3.Location = new System.Drawing.Point(6, 51);
+            this.groupBox3.Location = new System.Drawing.Point(50, 42);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(304, 166);
+            this.groupBox3.Size = new System.Drawing.Size(340, 166);
             this.groupBox3.TabIndex = 61;
             this.groupBox3.TabStop = false;
             // 
@@ -371,7 +373,7 @@ namespace SystemGymControl
             this.cbCalculateInaterastAndPenalty.Checked = true;
             this.cbCalculateInaterastAndPenalty.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCalculateInaterastAndPenalty.ForeColor = System.Drawing.Color.White;
-            this.cbCalculateInaterastAndPenalty.Location = new System.Drawing.Point(19, 29);
+            this.cbCalculateInaterastAndPenalty.Location = new System.Drawing.Point(80, 18);
             this.cbCalculateInaterastAndPenalty.Name = "cbCalculateInaterastAndPenalty";
             this.cbCalculateInaterastAndPenalty.Size = new System.Drawing.Size(202, 26);
             this.cbCalculateInaterastAndPenalty.TabIndex = 6;
@@ -406,7 +408,7 @@ namespace SystemGymControl
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(483, 363);
+            this.label10.Location = new System.Drawing.Point(638, 363);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 22);
             this.label10.TabIndex = 77;
@@ -416,7 +418,7 @@ namespace SystemGymControl
             // 
             this.txtChange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtChange.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtChange.Location = new System.Drawing.Point(487, 391);
+            this.txtChange.Location = new System.Drawing.Point(642, 391);
             this.txtChange.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtChange.Name = "txtChange";
             this.txtChange.ReadOnly = true;
@@ -499,12 +501,37 @@ namespace SystemGymControl
             this.cbFormOfPayment.Sorted = true;
             this.cbFormOfPayment.TabIndex = 81;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(483, 363);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(143, 22);
+            this.label14.TabIndex = 85;
+            this.label14.Text = "Valor c/ desconto";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.textBox1.Location = new System.Drawing.Point(487, 391);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(148, 33);
+            this.textBox1.TabIndex = 84;
+            this.textBox1.TabStop = false;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FrmEffectPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(650, 509);
+            this.ClientSize = new System.Drawing.Size(803, 509);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cbFormOfPayment);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -577,5 +604,7 @@ namespace SystemGymControl
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbFormOfPayment;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -115,7 +115,7 @@ namespace SystemGymControl
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPaidOut.Clear();
             }
         }
@@ -151,7 +151,7 @@ namespace SystemGymControl
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtDiscountMoney.Text = "0,00";
                 }
             }
@@ -186,7 +186,7 @@ namespace SystemGymControl
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtDiscountPercentage.Text = "0,00";
                 }
             }
@@ -216,7 +216,7 @@ namespace SystemGymControl
         {
             if (string.IsNullOrWhiteSpace(txtPaidOut.Text))
             {
-                MessageBox.Show("Informe o valor pago!", "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Informe o valor pago!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -226,7 +226,7 @@ namespace SystemGymControl
 
             if (decimal.Parse(txtPaidOut.Text) < valueDiscount)
             {
-                MessageBox.Show("Valor em dinheiro menor do que o valor total da venda!", "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Valor em dinheiro menor do que o valor !", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
