@@ -158,7 +158,7 @@ namespace SystemGymControl
                     {
                         txtDiscount.Text = FormatTextBox.FormatValueDecimal(txtDiscount.Text);
                         if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
-                            txtChange.Text = (decimal.Parse(txtPaidOut.Text) - amountReceivable - discountMoney).ToString();
+                            txtChange.Text = $"R$ {(decimal.Parse(txtPaidOut.Text) - (amountReceivable - discountMoney))}";
 
                         valueDiscount = amountReceivable - discountMoney;
                     }
@@ -232,16 +232,30 @@ namespace SystemGymControl
             txtDiscount_Leave(sender, e);
         }
 
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDiscount.Text))
+                txtDiscount.Text = "0,00";
+        }
+
+        private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormatTextBox.HandleFormatTextBox(txtDiscount, e);
+        }
+
         private void txtPaidOut_Leave(object sender, EventArgs e)
         {
             try
             {
                 if (!string.IsNullOrWhiteSpace(txtPaidOut.Text))
-                {
-                    txtChange.Text = $"R$ {decimal.Parse(txtPaidOut.Text) - decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text))}";
+                {                    
+                    txtDiscount_Leave(sender, e);
+
                     txtPaidOut.Text = FormatTextBox.FormatValueDecimal(txtPaidOut.Text);
                     valuePaidOut = decimal.Parse(txtPaidOut.Text);
                 }
+                else
+                    txtChange.Clear();
             }
             catch
             {

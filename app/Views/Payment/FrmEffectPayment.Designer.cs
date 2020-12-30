@@ -469,6 +469,8 @@ namespace SystemGymControl
             this.txtDiscount.TabIndex = 78;
             this.txtDiscount.Text = "0,00";
             this.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
+            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscount_KeyPress);
             this.txtDiscount.Leave += new System.EventHandler(this.txtDiscount_Leave);
             // 
             // label13
@@ -481,7 +483,7 @@ namespace SystemGymControl
             this.label13.TabIndex = 80;
             this.label13.Text = "Formas de Pagamento";
             // 
-            // comboBox1
+            // cbFormOfPayment
             // 
             this.cbFormOfPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFormOfPayment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -492,7 +494,7 @@ namespace SystemGymControl
             "Cartão de Débito",
             "Dinheiro"});
             this.cbFormOfPayment.Location = new System.Drawing.Point(19, 456);
-            this.cbFormOfPayment.Name = "comboBox1";
+            this.cbFormOfPayment.Name = "cbFormOfPayment";
             this.cbFormOfPayment.Size = new System.Drawing.Size(207, 34);
             this.cbFormOfPayment.Sorted = true;
             this.cbFormOfPayment.TabIndex = 81;
