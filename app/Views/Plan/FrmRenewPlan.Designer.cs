@@ -45,6 +45,7 @@ namespace SystemGymControl
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
+            this.lblDateTerminalPlan = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -236,12 +237,24 @@ namespace SystemGymControl
             this.cbFormOfPayment.TabIndex = 5;
             this.cbFormOfPayment.SelectedIndexChanged += new System.EventHandler(this.cbFormOfPayment_SelectedIndexChanged);
             // 
+            // lblDateTerminalPlan
+            // 
+            this.lblDateTerminalPlan.AutoSize = true;
+            this.lblDateTerminalPlan.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateTerminalPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.lblDateTerminalPlan.ForeColor = System.Drawing.Color.White;
+            this.lblDateTerminalPlan.Location = new System.Drawing.Point(262, 196);
+            this.lblDateTerminalPlan.Name = "lblDateTerminalPlan";
+            this.lblDateTerminalPlan.Size = new System.Drawing.Size(0, 22);
+            this.lblDateTerminalPlan.TabIndex = 35;
+            // 
             // FrmRenewPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(748, 303);
+            this.Controls.Add(this.lblDateTerminalPlan);
             this.Controls.Add(this.cbFormOfPayment);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtValue);
@@ -287,5 +300,6 @@ namespace SystemGymControl
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbFormOfPayment;
+        private System.Windows.Forms.Label lblDateTerminalPlan;
     }
 }

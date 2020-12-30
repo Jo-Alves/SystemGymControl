@@ -484,6 +484,7 @@ namespace SystemGymControl
             this.label13.Size = new System.Drawing.Size(181, 22);
             this.label13.TabIndex = 80;
             this.label13.Text = "Formas de Pagamento";
+            this.label13.Visible = false;
             // 
             // cbFormOfPayment
             // 
@@ -500,6 +501,7 @@ namespace SystemGymControl
             this.cbFormOfPayment.Size = new System.Drawing.Size(207, 34);
             this.cbFormOfPayment.Sorted = true;
             this.cbFormOfPayment.TabIndex = 81;
+            this.cbFormOfPayment.Visible = false;
             // 
             // label14
             // 

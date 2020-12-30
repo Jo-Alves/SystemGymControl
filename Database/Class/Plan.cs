@@ -103,7 +103,7 @@ namespace Database
 
                     // Tabela form_of_payment
 
-                    if (formPayment.ToLower() == "dinheiro" || period.ToLower() == "mensal")
+                    if (formPayment.ToLower() == "dinheiro")
                     {
                         if (formPayment.ToLower() != "dinheiro")
                             payment._paymentOfAccount = "no";
@@ -112,18 +112,21 @@ namespace Database
                         payment._planID = planId;
                         payment.Save(sqlTransaction);
 
-                        // Insere os dados para o próximo pagamento com a data a vencer
+                        // Insere os dados para o próximo pagamento com a data a vencer se o periodo for mensal
 
-                        payment._id = 0;
-                        payment._numberPortion = 1;
-                        payment._payday = "";
-                        payment._paymentTime = "";
-                        payment._valueTotal += payment._valueDiscount;
-                        payment._valueDiscount = 0.00m;
-                        payment._formPayment = formPayment;
-                        payment._paymentOfAccount = "no";
-                        payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
-                        payment.Save(sqlTransaction);
+                        if (period.ToLower() == "mensal")
+                        {
+                            payment._id = 0;
+                            payment._numberPortion = 1;
+                            payment._payday = "";
+                            payment._paymentTime = "";
+                            payment._valueTotal += payment._valueDiscount;
+                            payment._valueDiscount = 0.00m;
+                            payment._formPayment = formPayment;
+                            payment._paymentOfAccount = "no";
+                            payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
+                            payment.Save(sqlTransaction);
+                        }
                     }
                     else
                     {

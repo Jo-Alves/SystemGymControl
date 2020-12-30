@@ -19,7 +19,7 @@ namespace SystemGymControl
 
         int idPackage, duration, idPlan, idItemsPackage, studentId, idSituation, idCashPayment;
 
-        DateTime datePlan;
+        DateTime datePlan = DateTime.Now;
 
         string period;
 
@@ -34,7 +34,11 @@ namespace SystemGymControl
 
             this.idPlan = idPlan;
             DataTable dataPlan = plan.SearchID(idPlan);
+            LoadFIelds(dataPlan);            
+        }
 
+        private void LoadFIelds(DataTable dataPlan)
+        {
             idPackage = int.Parse(dataPlan.Rows[0]["idPackage"].ToString());
             idItemsPackage = int.Parse(dataPlan.Rows[0]["idItemsPackage"].ToString());
             idSituation = int.Parse(dataPlan.Rows[0]["idSituationPlan"].ToString());
@@ -55,6 +59,8 @@ namespace SystemGymControl
             cbFormOfPayment.Text = dataPlan.Rows[0]["descriptionFormOfPayment"].ToString();
             if (payment.SearchPlanID(idPlan).Rows.Count > 0)
                 idCashPayment = int.Parse(payment.SearchPlanID(idPlan).Rows[0]["id"].ToString());
+
+            lblDateTerminalPlan.Text = $"O prazo será prorrogado até {GetTerminalPeriod(period)}";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -80,16 +86,11 @@ namespace SystemGymControl
                 if (!cardInPayment.paymentCancel) return;
             }
 
-            datePlan = DateTime.Now;
-
             RenewPlan();
-
-            MessageBox.Show($"O Prazo foi renovado até o dia {plan._dateTerminalPlan}.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
         }
-
-
+        
         private void RenewPlan()
         {
             try
@@ -112,6 +113,8 @@ namespace SystemGymControl
                     payment._valueDiscount = cashInPayment.discountMoney;
                     payment._payday = datePlan.ToShortDateString();
                     payment._paymentTime = datePlan.ToLongTimeString();
+                    payment._formPayment = cbFormOfPayment.Text;
+                    payment._numberPortion = 1;
                     payment._paymentOnAccount = "yes";
                 }
                 else
