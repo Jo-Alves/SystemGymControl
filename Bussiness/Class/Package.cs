@@ -102,5 +102,10 @@ namespace Bussiness
         {
             return package.GetValuePackageAndId(idPackage, descriptionForms);
         }
+
+        public DataTable GetValuePackageFormPayment(string descriptionForms)
+        {
+            return package.GetValuePackageFormPayment(descriptionForms);
+        }
     }
 }

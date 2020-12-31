@@ -226,7 +226,7 @@ namespace SystemGymControl
 
             if (decimal.Parse(txtPaidOut.Text) < valueDiscount)
             {
-                MessageBox.Show("Valor em dinheiro menor do que o valor !", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Valor em dinheiro menor do que o valor a receber!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 

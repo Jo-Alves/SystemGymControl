@@ -100,17 +100,16 @@ namespace Database
             }
         }
         
-        public void Save()
+        public void SavePaymentEffected(SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
-            {
-                connection.Open();
+            {                
                 if (_id == 0)
                     _sql = "INSERT INTO payments VALUES (@portion, @valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @formPayment, @paymentOfAccount, @planID)";
                 else
                     _sql = "UPDATE  payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_on_account = @paymentOfAccount, duedate =  @duedate WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, connection);
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@portion", _numberPortion);
                 command.Parameters.AddWithValue("@valueTotal", _valueTotal);

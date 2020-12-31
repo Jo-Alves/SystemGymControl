@@ -93,6 +93,7 @@ namespace SystemGymControl
                 rbActive.Enabled = false;
                 rbInactive.Enabled = false;
                 btnSave.Enabled = false;
+                pnObservation.Visible = false;
             }
 
         }

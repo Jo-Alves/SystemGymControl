@@ -167,6 +167,53 @@ namespace Database
             }
         }
 
+        public void EffectPaymentPlan(Payment payment, decimal valueTotal)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                _sql = "UPDATE plans SET date_terminal_plan = @dateTerminalPlan WHERE id = @planID";
+
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand(_sql, connection, transaction);
+                command.Parameters.AddWithValue("@dateTerminalPlan", _dateTerminalPlan);
+                command.Parameters.AddWithValue("@planID", payment._planID);
+                try
+                {
+                    payment.SavePaymentEffected(transaction);
+
+                    // Insere os dados para o próximo pagamento com a data a vencer
+                    payment._id = 0;
+                    payment._paymentOfAccount = "no";
+                    payment._payday = "";
+                    payment._paymentTime = "";
+                    payment._valueDiscount = 0.00M;
+                    payment._valueTotal = valueTotal;
+
+                    // faz uma condição
+                    // Se a data atual for menor que a data do cencimento
+                    // deverá converter a data do vencimento e adicionar mais um mês
+                    // Se não converte a data atual adiciona mais um Mês pela mês atual
+                    if (Convert.ToDateTime(payment._duedate) >= DateTime.Now)
+                        payment._duedate = Convert.ToDateTime(payment._duedate).AddMonths(1).ToShortDateString();
+                    else
+                        payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
+
+                    payment.SavePaymentEffected(transaction);
+
+                    new SituationsPlan().updateSituationPlan(transaction, payment._planID);
+
+                    command.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
         public void UpdateTerminalPlanLast(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -281,7 +328,7 @@ namespace Database
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
                         "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
-                        "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
+                        "IdPackage, packages.description as descriptionPackage, packages.period, situations_plan.id as " +
                         "idSituationPlan, situations_plan.situation, situations_plan.observation, situations_plan.deactivation_date, situations_plan.time_inactivated FROM " +
                         "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
                         "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +
@@ -377,7 +424,7 @@ namespace Database
                         "idModality, modalities.description as descriptionModality, items_package.id as idItemsPackage, " +
                         "items_package.value as valueItemsPackage, forms_of_payment.Id as idFormOfPayment, " +
                         "forms_of_payment.description as descriptionFormOfPayment, packages.id as " +
-                        "IdPackage, packages.description as descriptionPackage, situations_plan.id as " +
+                        "IdPackage, packages.description as descriptionPackage, packages.period, situations_plan.id as " +
                         "idSituationPlan, situations_plan.situation, situations_plan.observation, situations_plan.deactivation_date, situations_plan.time_inactivated FROM " +
                         "plans INNER JOIN modalities ON plans.id = modalities.plan_id INNER JOIN " +
                         "students ON students.id = plans.student_id INNER JOIN situations_plan ON " +

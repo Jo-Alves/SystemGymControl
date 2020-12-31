@@ -58,14 +58,14 @@ namespace SystemGymControl
             this.txtAmountReceivable = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtChange = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtPaidOut = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtValueWithDiscount = new System.Windows.Forms.TextBox();
+            this.txtPaidOut = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -427,34 +427,11 @@ namespace SystemGymControl
             this.txtChange.TabStop = false;
             this.txtChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(171, 363);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 22);
-            this.label11.TabIndex = 73;
-            this.label11.Text = "Valor Pago - R$";
-            // 
-            // txtPaidOut
-            // 
-            this.txtPaidOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPaidOut.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtPaidOut.Location = new System.Drawing.Point(175, 391);
-            this.txtPaidOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtPaidOut.Name = "txtPaidOut";
-            this.txtPaidOut.Size = new System.Drawing.Size(148, 33);
-            this.txtPaidOut.TabIndex = 0;
-            this.txtPaidOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPaidOut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaidOut_KeyPress);
-            this.txtPaidOut.Leave += new System.EventHandler(this.txtPaidOut_Leave);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(327, 363);
+            this.label12.Location = new System.Drawing.Point(171, 362);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(115, 22);
             this.label12.TabIndex = 79;
@@ -464,7 +441,7 @@ namespace SystemGymControl
             // 
             this.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDiscount.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtDiscount.Location = new System.Drawing.Point(331, 391);
+            this.txtDiscount.Location = new System.Drawing.Point(175, 390);
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(148, 33);
@@ -484,7 +461,6 @@ namespace SystemGymControl
             this.label13.Size = new System.Drawing.Size(181, 22);
             this.label13.TabIndex = 80;
             this.label13.Text = "Formas de Pagamento";
-            this.label13.Visible = false;
             // 
             // cbFormOfPayment
             // 
@@ -501,7 +477,7 @@ namespace SystemGymControl
             this.cbFormOfPayment.Size = new System.Drawing.Size(207, 34);
             this.cbFormOfPayment.Sorted = true;
             this.cbFormOfPayment.TabIndex = 81;
-            this.cbFormOfPayment.Visible = false;
+            this.cbFormOfPayment.SelectedIndexChanged += new System.EventHandler(this.cbFormOfPayment_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -513,18 +489,41 @@ namespace SystemGymControl
             this.label14.TabIndex = 85;
             this.label14.Text = "Valor c/ desconto";
             // 
-            // textBox1
+            // txtValueWithDiscount
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.textBox1.Location = new System.Drawing.Point(487, 391);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(148, 33);
-            this.textBox1.TabIndex = 84;
-            this.textBox1.TabStop = false;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValueWithDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValueWithDiscount.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtValueWithDiscount.Location = new System.Drawing.Point(487, 391);
+            this.txtValueWithDiscount.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtValueWithDiscount.Name = "txtValueWithDiscount";
+            this.txtValueWithDiscount.ReadOnly = true;
+            this.txtValueWithDiscount.Size = new System.Drawing.Size(148, 33);
+            this.txtValueWithDiscount.TabIndex = 84;
+            this.txtValueWithDiscount.TabStop = false;
+            this.txtValueWithDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPaidOut
+            // 
+            this.txtPaidOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPaidOut.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtPaidOut.Location = new System.Drawing.Point(331, 391);
+            this.txtPaidOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtPaidOut.Name = "txtPaidOut";
+            this.txtPaidOut.Size = new System.Drawing.Size(148, 33);
+            this.txtPaidOut.TabIndex = 0;
+            this.txtPaidOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPaidOut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaidOut_KeyPress);
+            this.txtPaidOut.Leave += new System.EventHandler(this.txtPaidOut_Leave);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(327, 363);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(124, 22);
+            this.label11.TabIndex = 73;
+            this.label11.Text = "Valor Pago - R$";
             // 
             // FrmEffectPayment
             // 
@@ -533,7 +532,7 @@ namespace SystemGymControl
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(803, 509);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtValueWithDiscount);
             this.Controls.Add(this.cbFormOfPayment);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -600,13 +599,13 @@ namespace SystemGymControl
         private System.Windows.Forms.TextBox txtAmountReceivable;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtChange;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtPaidOut;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbFormOfPayment;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtValueWithDiscount;
+        private System.Windows.Forms.TextBox txtPaidOut;
+        private System.Windows.Forms.Label label11;
     }
 }

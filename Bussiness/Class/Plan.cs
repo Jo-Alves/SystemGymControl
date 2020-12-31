@@ -69,7 +69,7 @@ namespace Bussiness
 
             Database.SituationsPlan situationsPlanDataBase = new Database.SituationsPlan() { _observation = "", _situation = situationsPlan._situation, _deactivationDate = situationsPlan._deactivationDate, _timeInactivated = situationsPlan._timeInactivated, _id = situationsPlan._id };
 
-            Database.Payment paymentDatabase = new Database.Payment() { _id = payment._id, _payday = payment._payday, _paymentTime = payment._paymentTime, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion= payment._numberPortion, _paymentOfAccount = payment._paymentOnAccount };
+            Database.Payment paymentDatabase = new Database.Payment() { _id = payment._id, _payday = payment._payday, _paymentTime = payment._paymentTime, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _paymentOfAccount = payment._paymentOnAccount };
 
             plan.Save(modalityDataBase, situationsPlanDataBase, dataCardPayment, paymentDatabase, formPayment, period.ToLower());
         }
@@ -93,7 +93,7 @@ namespace Bussiness
         {
             return plan.SearchPlanStudentWhereMoney(name);
         }
-        
+
         public void UpdateTerminalPlanLast(int id)
         {
             plan._dateTerminalPlanLast = this._dateTerminalPlanLast;
@@ -124,6 +124,14 @@ namespace Bussiness
         public DataTable GetDatePlanExpired()
         {
             return plan.GetDatePlanExpired();
+        }
+
+        public void EffectPaymentPlan(Payment payment, decimal valueTotal)
+        {
+            Database.Payment paymentDataBase = new Database.Payment() { _id = payment._id, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _payday = payment._payday, _paymentOfAccount = payment._paymentOnAccount, _paymentTime = payment._paymentTime, _planID = payment._planID, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal };
+
+            plan._dateTerminalPlan = this._dateTerminalPlan;
+            plan.EffectPaymentPlan(paymentDataBase, valueTotal);
         }
     }
 }

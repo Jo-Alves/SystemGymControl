@@ -143,6 +143,25 @@ namespace Database
                 }
             }
         }
+        public void updateSituationPlan(SqlTransaction transaction, int idPlan)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                _sql = "UPDATE situations_plan SET situation = 'Ativo', observation = '', time_Inactivated = '', deactivation_date = ''  WHERE plan_id = @idPlan";               
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
+                command.Parameters.AddWithValue("@idPlan", idPlan);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
 
         public DataTable SearchID(int id)
         {
