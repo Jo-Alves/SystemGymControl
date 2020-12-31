@@ -183,7 +183,7 @@ namespace Database
             }
         }
 
-        public void EffectPaymentPlan(Payment payment, decimal valueTotal)
+        public void EffectPaymentPlan(Payment payment, decimal valueTotal, IcomingCashFlow icomingCash, string formPayment)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -218,6 +218,11 @@ namespace Database
                     payment.SavePaymentEffected(transaction);
 
                     new SituationsPlan().updateSituationPlan(transaction, payment._planID);
+
+                    if(formPayment == "dinheiro")
+                    {
+                        icomingCash.Save(transaction);
+                    }
 
                     command.ExecuteNonQuery();
                     transaction.Commit();

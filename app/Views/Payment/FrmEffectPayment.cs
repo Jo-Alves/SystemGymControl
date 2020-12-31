@@ -226,7 +226,21 @@ namespace SystemGymControl
         {
             try
             {
-                Payment payment = new Payment() { _id = idCash, _duedate = txtDuedate.Text, _formPayment = cbFormOfPayment.Text, _numberPortion = 1, _payday = txtPayDay.Text, _paymentTime = DateTime.Now.ToLongTimeString(), _planID = idPlan, _valueDiscount = decimal.Parse(txtDiscount.Text), _valueTotal = (decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)) - decimal.Parse(txtDiscount.Text)), _paymentOnAccount = "yes" };
+
+                decimal amountReceivable = (decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)) - decimal.Parse(txtDiscount.Text));
+
+                DateTime datePayment = DateTime.Now;
+
+                IcomingCashFlow icomingCashFlow = new IcomingCashFlow()
+                {
+                    _valueCard = 0.00M,
+                    _entryDate = txtPayDay.Text,
+                    _entryTime = datePayment.ToLongTimeString(),
+                    _cashFlowID = FrmGymControl.Instance._IdCashFlow,
+                    _valueMoney = amountReceivable
+                };
+
+                Payment payment = new Payment() { _id = idCash, _duedate = txtDuedate.Text, _formPayment = cbFormOfPayment.Text, _numberPortion = 1, _payday = txtPayDay.Text, _paymentTime = datePayment.ToLongTimeString(), _planID = idPlan, _valueDiscount = decimal.Parse(txtDiscount.Text), _valueTotal = amountReceivable, _paymentOnAccount = "yes" };
 
                 if (cbFormOfPayment.Text.ToLower() != "dinheiro")
                 {
@@ -239,7 +253,11 @@ namespace SystemGymControl
                 TimeSpan time;
                 time = dueDate.AddMonths(1) - dueDate;
 
-                new Plan() { _dateTerminalPlan = dueDate.AddDays(time.TotalDays - 1).ToShortDateString() }.EffectPaymentPlan(payment, valueTotal);
+                new Plan()
+                {
+                    _dateTerminalPlan = dueDate.AddDays(time.TotalDays - 1).ToShortDateString()
+                }
+                .EffectPaymentPlan(payment, valueTotal, icomingCashFlow, cbFormOfPayment.Text.ToLower());
 
             }
             catch (Exception ex)

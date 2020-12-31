@@ -128,12 +128,33 @@ namespace Bussiness
             return plan.GetDatePlanExpired();
         }
 
-        public void EffectPaymentPlan(Payment payment, decimal valueTotal)
+        public void EffectPaymentPlan(Payment payment, decimal valueTotal, IcomingCashFlow icomingCashFlow, string formPayment)
         {
-            Database.Payment paymentDataBase = new Database.Payment() { _id = payment._id, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _payday = payment._payday, _paymentOnAccount = payment._paymentOnAccount, _paymentTime = payment._paymentTime, _planID = payment._planID, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal };
+            Database.Payment paymentDataBase = new Database.Payment()
+            {
+                _id = payment._id,
+                _duedate = payment._duedate,
+                _formPayment = payment._formPayment,
+                _numberPortion = payment._numberPortion,
+                _payday = payment._payday,
+                _paymentOnAccount = payment._paymentOnAccount,
+                _paymentTime = payment._paymentTime,
+                _planID = payment._planID,
+                _valueDiscount = payment._valueDiscount,
+                _valueTotal = payment._valueTotal
+            };
+
+            Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow()
+            {
+                _cashFlowID = icomingCashFlow._cashFlowID,
+                _entryDate = icomingCashFlow._entryDate,
+                _entryTime = icomingCashFlow._entryTime,
+                _valueCard = icomingCashFlow._valueCard,
+                _valueMoney = icomingCashFlow._valueMoney
+            };
 
             plan._dateTerminalPlan = this._dateTerminalPlan;
-            plan.EffectPaymentPlan(paymentDataBase, valueTotal);
+            plan.EffectPaymentPlan(paymentDataBase, valueTotal, icomingCash, formPayment);
         }
     }
 }
