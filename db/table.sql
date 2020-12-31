@@ -158,18 +158,16 @@ CREATE TABLE [dbo].[users]
 	[date_registion] VARCHAR(10) NOT NULL
 )
 
-CREATE TABLE [dbo].[cash_flow]
-(
-	[id] INT NOT NULL PRIMARY KEY, 
-	[opening_date] VARCHAR(10),
-	[opening_time] VARCHAR(8),
-    [cash_value_total] DECIMAL(18, 2) NULL, 
-    [output_value_total] DECIMAL(18, 2) NULL,
-	[closing_date] VARCHAR(10),
-	[closing_time] VARCHAR(8),
-	[user_id] INT NOT NULL,
-	FOREIGN KEY ([user_id]) REFERENCES [dbo].[users]([id])
-)
+CREATE TABLE [dbo].[cash_flow] (
+    [id]                 INT             NOT NULL IDENTITY,
+    [opening_date]       VARCHAR (10)    NULL,
+    [opening_time]       VARCHAR (8)     NULL,
+    [cash_value_total]   DECIMAL (18, 2) NULL,
+    [output_value_total] DECIMAL (18, 2) NULL,
+    [closing_date]       VARCHAR (10)    NULL,
+    [closing_time]       VARCHAR (8)     NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
 
 
 CREATE TABLE [dbo].[icoming_cash_flow]

@@ -44,8 +44,8 @@ namespace Database
                     _sql = "UPDATE packages SET description = @description, duration = @duration, period = @period WHERE id = @id";
 
                 connection.Open();
-                SqlTransaction sqlTransaction = connection.BeginTransaction();
-                SqlCommand command = new SqlCommand(_sql, connection, sqlTransaction);
+                SqlTransaction transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand(_sql, connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@description", _description);
                 command.Parameters.AddWithValue("@duration", _duration);
@@ -58,13 +58,13 @@ namespace Database
                     else
                         idPackage = _id;
 
-                        billingParameters._packageID = idPackage;
-                        billingParameters.Save(sqlTransaction);
+                    billingParameters._packageID = idPackage;
+                    billingParameters.Save(transaction);
 
                     foreach (DataRow dr in dataItemsAndFormsPayment.Rows)
                     {
                         ItemsPackage itemsPackage = new ItemsPackage() { _id = int.Parse(dr["id"].ToString()), _valuePackage = decimal.Parse(dr["value"].ToString()), _packageID = idPackage };
-                        itemsPackage.Save(sqlTransaction);
+                        itemsPackage.Save(transaction);
 
                         int idItemsPackage = 0;
                         if (int.Parse(dr["id"].ToString()) == 0)
@@ -76,7 +76,7 @@ namespace Database
 
 
                         FormsOfPayment formsOfPayment = new FormsOfPayment() { _description = dr["formOfPayment"].ToString(), _id = int.Parse(dr["idFormOfPayment"].ToString()), _itemsPackageID = idItemsPackage };
-                        formsOfPayment.Save(sqlTransaction);
+                        formsOfPayment.Save(transaction);
                     }
 
                     if (_id > 0)
@@ -84,11 +84,11 @@ namespace Database
                         command.ExecuteNonQuery();
                     }
 
-                    sqlTransaction.Commit();
+                    transaction.Commit();
                 }
                 catch
                 {
-                    sqlTransaction.Rollback();
+                    transaction.Rollback();
                     throw;
                 }
             }
@@ -245,8 +245,8 @@ namespace Database
                     throw;
                 }
             }
-        } 
-        
+        }
+
         public DataTable GetValuePackageFormPayment(string descriptionForms)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))

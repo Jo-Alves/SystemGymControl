@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 
 namespace Bussiness
 {
@@ -63,7 +62,7 @@ namespace Bussiness
             get { return paymentOnAccount; }
             set { paymentOnAccount = value; }
         }
-        
+
         public int _planID
         {
             get { return planID; }

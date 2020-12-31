@@ -10,10 +10,17 @@ namespace SystemGymControl
     {
         Plan plan = new Plan();
         SituationsPlan situationPlan = new SituationsPlan();
+        CashFlow cashFlow = new CashFlow();
         Payment payment = new Payment();
+        int idCashFlow;
         public FrmGymControl()
         {
             InitializeComponent();
+            InitialSettings();
+        }
+
+        private void InitialSettings()
+        {
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
             gp.AddEllipse(pcPerfil.DisplayRectangle);
             pcPerfil.Region = new Region(gp);
@@ -27,6 +34,7 @@ namespace SystemGymControl
 
             try
             {
+                idCashFlow = cashFlow.GetMaxCashFlowID();
                 CheckedPlanExpired();
                 UpdateTimeInactivated();
             }
@@ -59,13 +67,13 @@ namespace SystemGymControl
                     plan._dateTerminalPlan = dateTerminal.AddDays(time.Days).ToShortDateString();
                     situationPlan.updateTimeInactivated(idSituation);
                     int idPlan = int.Parse(row["idPlan"].ToString());
-                    plan.UpdateTerminalPlan(idPlan);   
-                    
-                    if(row["period"].ToString().ToLower() == "mensal")
+                    plan.UpdateTerminalPlan(idPlan);
+
+                    if (row["period"].ToString().ToLower() == "mensal")
                     {
                         payment.UpdatePaymentPlanMensal(idPlan, dateTerminal.AddDays(time.Days + 1).ToShortDateString());
                     }
-                }             
+                }
             }
         }
 
@@ -117,6 +125,11 @@ namespace SystemGymControl
         {
             get { return lblTitle; }
             set { lblTitle = value; }
+        }
+
+        public int _IdCashFlow
+        {
+            get { return idCashFlow; }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

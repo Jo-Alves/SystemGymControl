@@ -1,9 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
 {
-    class CashFlow
+    public class CashFlow
     {
         private int id;
         private string openingTime;
@@ -11,7 +12,6 @@ namespace Database
         private decimal outputValueTotal;
         private string closingDate;
         private string closingTime;
-        private int userID;
 
         string _sql;
 
@@ -45,20 +45,15 @@ namespace Database
             get { return closingTime; }
             set { closingTime = value; }
         }
-        public int _userID
-        {
-            get { return userID; }
-            set { userID = value; }
-        }
 
         public void Save()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO cash_flow VALUES (@openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime, @userID)";
+                    _sql = "INSERT INTO cash_flow VALUES (@openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime)";
                 else
-                    _sql = "UPDATE cash_flow SET opening_time = @openingTime, cash_value_total = @cashValueTotal, output_value_total = @outputValueTotal, closing_date = @closingDate, closing_time = @closingTime, user_id = @userID WHERE id = @id";
+                    _sql = "UPDATE cash_flow SET opening_time = @openingTime, cash_value_total = @cashValueTotal, output_value_total = @outputValueTotal, closing_date = @closingDate, closing_time = @closingTime WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@id", _id);
@@ -67,7 +62,6 @@ namespace Database
                 command.Parameters.AddWithValue("@outputValueTotal", _outputValueTotal);
                 command.Parameters.AddWithValue("@closingDate", _closingDate);
                 command.Parameters.AddWithValue("@closingTime", _closingTime);
-                command.Parameters.AddWithValue("@userID", _userID);
                 try
                 {
                     connection.Open();
@@ -80,7 +74,7 @@ namespace Database
             }
         }
 
-        public void SearchID()
+        public DataTable SearchID(int idCashFlow)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -88,18 +82,11 @@ namespace Database
                 {
                     connection.Open();
                     _sql = "SELECT * FROM cash_flow WHERE id = @id";
-                    SqlCommand adapter = new SqlCommand(_sql, connection);
-                    adapter.Parameters.AddWithValue("@id", _id);
-                    SqlDataReader dr = adapter.ExecuteReader();
-                    if (dr.Read())
-                    {
-                        _openingTime = dr["opening_time"].ToString();
-                        _cashValueTotal = decimal.Parse(dr["cash_value_total"].ToString());
-                        _outputValueTotal = decimal.Parse(dr["output_value_total"].ToString());
-                        _closingDate = dr["closing_date"].ToString();
-                        _closingTime = dr["closing_time"].ToString();
-
-                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idCashFlow);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
                 catch
                 {
@@ -127,6 +114,23 @@ namespace Database
                     throw;
                 }
             }
-        } 
+        }
+
+        public int GetMaxCashFlowID()
+        {
+            int maxId = 0;
+
+            using(var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                connection.Open();
+                _sql = "SELECT MAX(id) FROM cash_flow WHERE closing_date = ''";
+                SqlCommand command = new SqlCommand(_sql, connection);
+                if (command.ExecuteScalar() != DBNull.Value)
+                    maxId = int.Parse(command.ExecuteScalar().ToString());
+                
+            }
+
+            return maxId;
+        }
     }
 }

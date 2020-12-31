@@ -13,6 +13,7 @@ namespace SystemGymControl
         Student student = new Student();
         SituationsPlan situationsPlan = new SituationsPlan();
         Payment payment = new Payment();
+        IcomingCashFlow icomingCashFlow = new IcomingCashFlow();
 
         public FrmPurchasePlan()
         {
@@ -145,8 +146,6 @@ namespace SystemGymControl
             }
         }
 
-
-
         FrmCashInPayment cashInPayment;
         FrmCardInPayment cardInPayment;
         DateTime datePlan;
@@ -224,6 +223,8 @@ namespace SystemGymControl
             plan._itemsPackageID = idItems;
             plan._studentID = int.Parse(txtCodigoStudent.Text);
 
+
+
             modality._description = cbModalities.Text;
 
             situationsPlan._situation = "Ativo";
@@ -240,6 +241,7 @@ namespace SystemGymControl
                 payment._valueTotal = cashInPayment.valueDiscount;
                 payment._valueDiscount = cashInPayment.discountMoney;
                 payment._paymentOnAccount = "yes";
+                icomingCashFlow._valueMoney = payment._valueTotal;
             }
             else
             {
@@ -250,7 +252,11 @@ namespace SystemGymControl
             payment._payday = datePlan.ToShortDateString();
             payment._paymentTime = datePlan.ToLongTimeString();
 
-            plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, periodPackage);
+            icomingCashFlow._valueCard = 0.00M;
+            icomingCashFlow._entryDate = datePlan.ToShortDateString();
+            icomingCashFlow._entryTime = datePlan.ToLongTimeString();
+            icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;
+            plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, periodPackage, icomingCashFlow);
         }
 
         private bool checkedDgvSelected()

@@ -13,7 +13,7 @@ namespace Database
         private string paymentTime;
         private string duedate;
         private string formPayment;
-        private string paymentOfAccount;
+        private string paymentOnAccount;
         private int planID;
 
         string _sql;
@@ -57,11 +57,11 @@ namespace Database
         {
             get { return formPayment; }
             set { formPayment = value; }
-        } 
-        public string _paymentOfAccount
+        }
+        public string _paymentOnAccount
         {
-            get { return paymentOfAccount; }
-            set { paymentOfAccount = value; }
+            get { return paymentOnAccount; }
+            set { paymentOnAccount = value; }
         }
         public int _planID
         {
@@ -69,16 +69,16 @@ namespace Database
             set { planID = value; }
         }
 
-        public void Save(SqlTransaction sqlTransaction)
+        public void Save(SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO payments VALUES (@portion, @valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @formPayment, @paymentOfAccount, @planID)";
+                    _sql = "INSERT INTO payments VALUES (@portion, @valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @formPayment, @paymentOnAccount, @planID)";
                 else
-                    _sql = "UPDATE  payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_on_account = @paymentOfAccount, duedate =  @duedate WHERE id = @id";
+                    _sql = "UPDATE  payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_on_account = @paymentOnAccount, duedate =  @duedate WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@portion", _numberPortion);
                 command.Parameters.AddWithValue("@valueTotal", _valueTotal);
@@ -87,7 +87,7 @@ namespace Database
                 command.Parameters.AddWithValue("@paymentTime", _paymentTime);
                 command.Parameters.AddWithValue("@duedate", _duedate);
                 command.Parameters.AddWithValue("@formPayment", _formPayment);
-                command.Parameters.AddWithValue("@paymentOfAccount", _paymentOfAccount);
+                command.Parameters.AddWithValue("@paymentOnAccount", _paymentOnAccount);
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
@@ -99,15 +99,15 @@ namespace Database
                 }
             }
         }
-        
+
         public void SavePaymentEffected(SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
-            {                
+            {
                 if (_id == 0)
-                    _sql = "INSERT INTO payments VALUES (@portion, @valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @formPayment, @paymentOfAccount, @planID)";
+                    _sql = "INSERT INTO payments VALUES (@portion, @valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @formPayment, @paymentOnAccount, @planID)";
                 else
-                    _sql = "UPDATE  payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_on_account = @paymentOfAccount, duedate =  @duedate WHERE id = @id";
+                    _sql = "UPDATE  payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_on_account = @paymentOnAccount, duedate =  @duedate WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
@@ -118,7 +118,7 @@ namespace Database
                 command.Parameters.AddWithValue("@paymentTime", _paymentTime);
                 command.Parameters.AddWithValue("@duedate", _duedate);
                 command.Parameters.AddWithValue("@formPayment", _formPayment);
-                command.Parameters.AddWithValue("@paymentOfAccount", _paymentOfAccount);
+                command.Parameters.AddWithValue("@paymentOnAccount", _paymentOnAccount);
                 command.Parameters.AddWithValue("@planID", _planID);
                 try
                 {
@@ -198,7 +198,7 @@ namespace Database
             {
                 connection.Open();
                 _sql = "UPDATE payments SET duedate = @duedate WHERE plan_id = @planID and payday = ''";
-                SqlCommand command = new SqlCommand(_sql, connection);                
+                SqlCommand command = new SqlCommand(_sql, connection);
                 command.Parameters.AddWithValue("@planID", idPlan);
                 command.Parameters.AddWithValue("@duedate", duedate);
                 try

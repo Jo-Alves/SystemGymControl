@@ -11,6 +11,7 @@ namespace SystemGymControl
         Package package = new Package();
         Plan plan = new Plan();
         SituationsPlan situationsPlan = new SituationsPlan();
+        IcomingCashFlow icomingCashFlow = new IcomingCashFlow();
 
         FrmCardInPayment cardInPayment;
         FrmCashInPayment cashInPayment;
@@ -34,7 +35,7 @@ namespace SystemGymControl
 
             this.idPlan = idPlan;
             DataTable dataPlan = plan.SearchID(idPlan);
-            LoadFIelds(dataPlan);            
+            LoadFIelds(dataPlan);
         }
 
         private void LoadFIelds(DataTable dataPlan)
@@ -90,7 +91,7 @@ namespace SystemGymControl
 
             this.Close();
         }
-        
+
         private void RenewPlan()
         {
             try
@@ -116,11 +117,18 @@ namespace SystemGymControl
                     payment._formPayment = cbFormOfPayment.Text;
                     payment._numberPortion = 1;
                     payment._paymentOnAccount = "yes";
+                    icomingCashFlow._valueMoney = payment._valueTotal;
                 }
                 else
                     dataCardPayment = cardInPayment.dataPortion;
 
-                plan.Save(new Modality(), situationsPlan, dataCardPayment, payment, cbFormOfPayment.Text, period);
+                icomingCashFlow._valueCard = 0.00M;
+                icomingCashFlow._entryDate = datePlan.ToShortDateString();
+                icomingCashFlow._entryTime = datePlan.ToLongTimeString();
+                icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;
+
+
+                plan.Save(new Modality(), situationsPlan, dataCardPayment, payment, cbFormOfPayment.Text, period, icomingCashFlow);
             }
             catch (Exception ex)
             {

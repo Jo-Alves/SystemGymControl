@@ -144,11 +144,11 @@ namespace SystemGymControl
                 situations._situation = rbActive.Text;
                 situations._deactivationDate = "";
             }
-            else if(rbInactive.Checked)
+            else if (rbInactive.Checked)
             {
                 situations._timeInactivated = "0";
                 situations._situation = rbInactive.Text;
-                situations._deactivationDate = DateTime.Now.ToShortDateString();               
+                situations._deactivationDate = DateTime.Now.ToShortDateString();
             }
 
             situations.Save();

@@ -34,7 +34,7 @@ namespace SystemGymControl
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }           
+            }
         }
 
         private int GetValueDaysDelay()
@@ -62,7 +62,7 @@ namespace SystemGymControl
             daysDelay = GetValueDaysDelay();
             txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
             cbFormOfPayment.Text = dataPlanCash.Rows[0]["form_payment"].ToString();
-          
+
 
             DisableAndEnabledTextBoxsInPaymentInMoney();
 
@@ -192,7 +192,7 @@ namespace SystemGymControl
                 }
             }
             else
-            txtDiscount.Text = "0,00";
+                txtDiscount.Text = "0,00";
         }
 
         private void txtPaidOut_KeyPress(object sender, KeyPressEventArgs e)
@@ -240,7 +240,7 @@ namespace SystemGymControl
                 time = dueDate.AddMonths(1) - dueDate;
 
                 new Plan() { _dateTerminalPlan = dueDate.AddDays(time.TotalDays - 1).ToShortDateString() }.EffectPaymentPlan(payment, valueTotal);
-               
+
             }
             catch (Exception ex)
             {
@@ -300,7 +300,7 @@ namespace SystemGymControl
                 txtValueInterest.Enabled = false;
                 txtValuePenalty.Enabled = false;
                 txtValuePlan.Enabled = false;
-         
+
                 if (cbFormOfPayment.Text.ToLower() != "dinheiro")
                     txtPaidOut.Text = FormatValueDecimal.RemoveDollarSignGetValue(txtValuePlan.Text);
             }

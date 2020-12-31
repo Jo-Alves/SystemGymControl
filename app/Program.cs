@@ -13,7 +13,7 @@ namespace SystemGymControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmGymControl());
+            Application.Run(new FrmLoadSystem());
         }
     }
 }

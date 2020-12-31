@@ -23,11 +23,11 @@ namespace SystemGymControl
 
         private void CheckedDueDate()
         {
-            foreach(DataGridViewRow row in dgvDataPlan.Rows)
+            foreach (DataGridViewRow row in dgvDataPlan.Rows)
             {
                 DateTime dueDate = Convert.ToDateTime(row.Cells["duedate"].Value.ToString());
 
-                if(DateTime.Now > dueDate && row.Cells["situation"].Value.ToString().ToLower() == "a receber") 
+                if (DateTime.Now > dueDate && row.Cells["situation"].Value.ToString().ToLower() == "a receber")
                     row.DefaultCellStyle.BackColor = Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(45)))), ((int)(((byte)(47)))));
             }
         }
@@ -58,12 +58,12 @@ namespace SystemGymControl
                     dgvDataPlan.Rows[countRow].Cells["situation"].Value = "A RECEBER";
                 else
                     dgvDataPlan.Rows[countRow].Cells["situation"].Value = "PAGO";
-                
+
                 dgvDataPlan.Rows[countRow].Cells["duedate"].Value = dr["duedate"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["payday"].Value = dr["payday"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["paymentTime"].Value = dr["payment_time"].ToString();
 
-                dgvDataPlan.Rows[countRow].MinimumHeight = 45;               
+                dgvDataPlan.Rows[countRow].MinimumHeight = 45;
             }
 
             dgvDataPlan.ClearSelection();
@@ -76,7 +76,7 @@ namespace SystemGymControl
 
         private void dgvDataPlan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 dgvDataPlan.ClearSelection();
             }

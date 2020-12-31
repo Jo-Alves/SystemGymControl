@@ -28,7 +28,7 @@ namespace Database
             set { packageID = value; }
         }
 
-        public void Save(SqlTransaction sqlTransaction)
+        public void Save(SqlTransaction transaction)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -37,7 +37,7 @@ namespace Database
                 else
                     _sql = "UPDATE items_package SET  value = @valuePackage, package_id = @packageID WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@valuePackage", _valuePackage);
                 command.Parameters.AddWithValue("@packageID", _packageID);

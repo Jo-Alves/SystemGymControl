@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class OutgoingCashFlow
+    public class OutgoingCashFlow
     {
         private int id;
         private string exitDate;
@@ -11,16 +11,6 @@ namespace Database
         private string descriptionExit;
         private decimal valueOutput;
         private int cashFlowID;
-
-        // [exit_date] VARCHAR(10) NOT NULL,
-
-        //   [exit_time] VARCHAR(10) NOT NULL,
-
-        //   [description_exit] VARCHAR(MAX) NOT NULL,
-
-        //   [value_output] DECIMAL(18,2) NOT NULL,
-
-        //   [cash_flow_id] INT NOT NULL,
 
         string _sql;
 
@@ -57,59 +47,50 @@ namespace Database
 
         public void Save()
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO outgoing_cash_flow VALUES (@exitDate, @exitTime, @descriptionExit, @valueOutput, @closingTime, @cashFlowID)";
-            else
-                _sql = "UPDATE outgoing_cash_flow SET exit_date = @exitDate, exit_time = @exitTime, description_exit = @descriptionExit, value_output = @valueOutput, cash_flow_id = @cashFlowID WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO outgoing_cash_flow VALUES (@exitDate, @exitTime, @descriptionExit, @valueOutput, @closingTime, @cashFlowID)";
+                else
+                    _sql = "UPDATE outgoing_cash_flow SET exit_date = @exitDate, exit_time = @exitTime, description_exit = @descriptionExit, value_output = @valueOutput, cash_flow_id = @cashFlowID WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@exitDate", _exitDate);
-            command.Parameters.AddWithValue("@exitTime", _exitTime);
-            command.Parameters.AddWithValue("@descriptionExit", _descriptionExit);
-            command.Parameters.AddWithValue("@valueOutput", _valueOutput);
-            command.Parameters.AddWithValue("@cashFlowID", _cashFlowID);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@exitDate", _exitDate);
+                command.Parameters.AddWithValue("@exitTime", _exitTime);
+                command.Parameters.AddWithValue("@descriptionExit", _descriptionExit);
+                command.Parameters.AddWithValue("@valueOutput", _valueOutput);
+                command.Parameters.AddWithValue("@cashFlowID", _cashFlowID);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public void SearchID()
+        public DataTable SearchID(int idOutgoing)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                _sql = "SELECT * FROM outgoing_cash_flow WHERE id = @id";
-                SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@id", _id);
-                SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _exitDate = dr["exit_date"].ToString();
-                    _exitTime = dr["exit_time"].ToString();
-                    _valueOutput = decimal.Parse(dr["value_output"].ToString());
-                    _descriptionExit = dr["description_exit"].ToString();
+                    connection.Open();
+                    _sql = "SELECT * FROM outgoing_cash_flow WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idOutgoing);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                catch
+                {
+                    throw;
+                }
             }
         }
 
@@ -117,13 +98,15 @@ namespace Database
         {
             try
             {
-                SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-                _sql = "SELECT * FROM outgoing_cash_flow WHERE id = @id";
-                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    _sql = "SELECT * FROM outgoing_cash_flow WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
             }
             catch
             {

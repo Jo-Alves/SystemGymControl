@@ -42,9 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\BillingParametersPackage.cs" />
+    <Compile Include="Class\CashFlow.cs" />
     <Compile Include="Class\FormsOfPayment.cs" />
+    <Compile Include="Class\IcomingCashFlow.cs" />
     <Compile Include="Class\ItemsPackage.cs" />
     <Compile Include="Class\Modality.cs" />
+    <Compile Include="Class\OutgoingCashFlow.cs" />
     <Compile Include="Class\Package.cs" />
     <Compile Include="Class\Payment.cs" />
     <Compile Include="Class\Person.cs" />

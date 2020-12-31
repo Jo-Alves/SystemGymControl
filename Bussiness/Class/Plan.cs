@@ -56,7 +56,7 @@ namespace Bussiness
             set { studentID = value; }
         }
 
-        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, Payment payment, string formPayment, string period)
+        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, Payment payment, string formPayment, string period, IcomingCashFlow icomingCashFlow)
         {
             plan._id = this.id;
             plan._datePurchasePlan = this._datePurchasePlan;
@@ -69,9 +69,11 @@ namespace Bussiness
 
             Database.SituationsPlan situationsPlanDataBase = new Database.SituationsPlan() { _observation = "", _situation = situationsPlan._situation, _deactivationDate = situationsPlan._deactivationDate, _timeInactivated = situationsPlan._timeInactivated, _id = situationsPlan._id };
 
-            Database.Payment paymentDatabase = new Database.Payment() { _id = payment._id, _payday = payment._payday, _paymentTime = payment._paymentTime, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _paymentOfAccount = payment._paymentOnAccount };
+            Database.Payment paymentDatabase = new Database.Payment() { _id = payment._id, _payday = payment._payday, _paymentTime = payment._paymentTime, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _paymentOnAccount = payment._paymentOnAccount };
 
-            plan.Save(modalityDataBase, situationsPlanDataBase, dataCardPayment, paymentDatabase, formPayment, period.ToLower());
+            Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow() { _cashFlowID = icomingCashFlow._cashFlowID, _entryDate = icomingCashFlow._entryDate, _entryTime = icomingCashFlow._entryTime, _valueCard = icomingCashFlow._valueCard, _valueMoney = icomingCashFlow._valueMoney, _id = icomingCashFlow._id };
+
+            plan.Save(modalityDataBase, situationsPlanDataBase, dataCardPayment, paymentDatabase, formPayment, period.ToLower(), icomingCash);
         }
 
         public DataTable SearchID(int id)
@@ -128,7 +130,7 @@ namespace Bussiness
 
         public void EffectPaymentPlan(Payment payment, decimal valueTotal)
         {
-            Database.Payment paymentDataBase = new Database.Payment() { _id = payment._id, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _payday = payment._payday, _paymentOfAccount = payment._paymentOnAccount, _paymentTime = payment._paymentTime, _planID = payment._planID, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal };
+            Database.Payment paymentDataBase = new Database.Payment() { _id = payment._id, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _payday = payment._payday, _paymentOnAccount = payment._paymentOnAccount, _paymentTime = payment._paymentTime, _planID = payment._planID, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal };
 
             plan._dateTerminalPlan = this._dateTerminalPlan;
             plan.EffectPaymentPlan(paymentDataBase, valueTotal);

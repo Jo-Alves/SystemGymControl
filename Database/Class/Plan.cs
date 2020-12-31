@@ -60,7 +60,7 @@ namespace Database
             set { studentID = value; }
         }
 
-        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, Payment payment, string formPayment, string period)
+        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, Payment payment, string formPayment, string period, IcomingCashFlow icomingCashFlow)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -70,8 +70,8 @@ namespace Database
                 else
                     _sql = "UPDATE plans SET date_purchase_plan = @datePurchasePlan, date_terminal_plan = @dateTerminalPlan, time_purchase_plan = @timePurchasePlan, items_package_id = @itemsPackageID, student_id = @studentID WHERE id = @id";
 
-                SqlTransaction sqlTransaction = connection.BeginTransaction();
-                SqlCommand command = new SqlCommand(_sql, connection, sqlTransaction);
+                SqlTransaction transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand(_sql, connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@datePurchasePlan", _datePurchasePlan);
                 command.Parameters.AddWithValue("@dateTerminalPlan", _dateTerminalPlan);
@@ -93,24 +93,24 @@ namespace Database
                     if (!string.IsNullOrEmpty(modality._description))
                     {
                         modality._planID = planId;
-                        modality.Save(sqlTransaction);
+                        modality.Save(transaction);
                     }
 
                     //Tabela situations_plan
 
                     situationsPlan._planID = planId;
-                    situationsPlan.Save(sqlTransaction);
+                    situationsPlan.Save(transaction);
 
                     // Tabela form_of_payment
 
                     if (formPayment.ToLower() == "dinheiro")
                     {
                         if (formPayment.ToLower() != "dinheiro")
-                            payment._paymentOfAccount = "no";
+                            payment._paymentOnAccount = "no";
 
                         payment._duedate = DateTime.Now.ToShortDateString();
                         payment._planID = planId;
-                        payment.Save(sqlTransaction);
+                        payment.Save(transaction);
 
                         // Insere os dados para o próximo pagamento com a data a vencer se o periodo for mensal
 
@@ -123,10 +123,12 @@ namespace Database
                             payment._valueTotal += payment._valueDiscount;
                             payment._valueDiscount = 0.00m;
                             payment._formPayment = formPayment;
-                            payment._paymentOfAccount = "no";
+                            payment._paymentOnAccount = "no";
                             payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
-                            payment.Save(sqlTransaction);
+                            payment.Save(transaction);
                         }
+
+                        icomingCashFlow.Save(transaction);
                     }
                     else
                     {
@@ -148,9 +150,9 @@ namespace Database
                             payment._valueTotal = valuePortion;
                             payment._valueDiscount = 0.00M;
                             payment._formPayment = formPayment;
-                            payment._paymentOfAccount = "no";
+                            payment._paymentOnAccount = "no";
                             payment._planID = planId;
-                            payment.Save(sqlTransaction);
+                            payment.Save(transaction);
                         }
 
                         if (period.ToLower() == "mensal")
@@ -162,20 +164,20 @@ namespace Database
                             payment._valueTotal += payment._valueDiscount;
                             payment._valueDiscount = 0.00m;
                             payment._formPayment = formPayment;
-                            payment._paymentOfAccount = "no";
+                            payment._paymentOnAccount = "no";
                             payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
-                            payment.Save(sqlTransaction);
+                            payment.Save(transaction);
                         }
                     }
 
                     if (_id > 0)
                         command.ExecuteNonQuery();
 
-                    sqlTransaction.Commit();
+                    transaction.Commit();
                 }
                 catch
                 {
-                    sqlTransaction.Rollback();
+                    transaction.Rollback();
                     throw;
                 }
             }
@@ -198,7 +200,7 @@ namespace Database
 
                     // Insere os dados para o próximo pagamento com a data a vencer
                     payment._id = 0;
-                    payment._paymentOfAccount = "no";
+                    payment._paymentOnAccount = "no";
                     payment._payday = "";
                     payment._paymentTime = "";
                     payment._valueDiscount = 0.00M;
@@ -394,7 +396,7 @@ namespace Database
                 throw;
             }
         }
-        
+
         public DataTable SearchPlanStudentWhereMoney(string name)
         {
             try

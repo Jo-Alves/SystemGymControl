@@ -72,7 +72,7 @@ namespace Database
             }
         }
 
-        public void Save(SqlTransaction sqlTransaction)
+        public void Save(SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -81,7 +81,7 @@ namespace Database
                 else
                     _sql = "UPDATE situations_plan SET situation = @situation, observation = @observation, deactivation_date = @deactivationDate, time_inactivated = @timeInactivated WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@situation", _situation);
                 command.Parameters.AddWithValue("@observation", _observation);
@@ -147,7 +147,7 @@ namespace Database
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                _sql = "UPDATE situations_plan SET situation = 'Ativo', observation = '', time_Inactivated = '', deactivation_date = ''  WHERE plan_id = @idPlan";               
+                _sql = "UPDATE situations_plan SET situation = 'Ativo', observation = '', time_Inactivated = '', deactivation_date = ''  WHERE plan_id = @idPlan";
                 SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@idPlan", idPlan);
 

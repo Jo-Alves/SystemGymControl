@@ -45,7 +45,7 @@ namespace Database
             set { packageID = value; }
         }
 
-        public void Save(SqlTransaction sqlTransaction)
+        public void Save(SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -56,7 +56,7 @@ namespace Database
                     else
                         _sql = "UPDATE billing_parameters_package SET value_penalty = @valuepenalty, type_penalty = @typePenalty, type_interest = @typeInterest, value_interest = @valueInterest, package_id = @packageID WHERE package_id = @packageID";
 
-                    SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                    SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
 
                     command.Parameters.AddWithValue("@id", _id);
                     command.Parameters.AddWithValue("@valuePenalty", _valuePenalty);

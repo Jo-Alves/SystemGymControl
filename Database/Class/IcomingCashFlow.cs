@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace Database
 {
-    class IcomingCashFlow
+    public class IcomingCashFlow
     {
         private int id;
         private string entryDate;
@@ -45,61 +45,52 @@ namespace Database
             set { cashFlowID = value; }
         }
 
-        public void Save()
+        public void Save(SqlTransaction transaction)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO icoming_cash_flow VALUES (@entryDate, @entryTime, @valueMoney, @valueCard, @closingTime, @cashFlowID)";
-            else
-                _sql = "UPDATE icoming_cash_flow SET entry_date = @entryDate, entry_time = @entryTime, value_money = @valueMoney, value_card = @valueCard, cash_flow_id = @cashFlowID WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO icoming_cash_flow VALUES (@entryDate, @entryTime, @valueMoney, @valueCard, @cashFlowID)";
+                else
+                    _sql = "UPDATE icoming_cash_flow SET entry_date = @entryDate, entry_time = @entryTime, value_money = @valueMoney, value_card = @valueCard, cash_flow_id = @cashFlowID WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@entryDate", _entryDate);
-            command.Parameters.AddWithValue("@entryTime", _entryTime);
-            command.Parameters.AddWithValue("@valueMoney", _valueMoney);
-            command.Parameters.AddWithValue("@valueCard", _valueCard);
-            command.Parameters.AddWithValue("@cashFlowID", _cashFlowID);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@entryDate", _entryDate);
+                command.Parameters.AddWithValue("@entryTime", _entryTime);
+                command.Parameters.AddWithValue("@valueMoney", _valueMoney);
+                command.Parameters.AddWithValue("@valueCard", _valueCard);
+                command.Parameters.AddWithValue("@cashFlowID", _cashFlowID);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
-        public void SearchID()
+        public DataTable SearchID(int idIcoming)
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                _sql = "SELECT * FROM icoming_cash_flow WHERE id = @id";
-                SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@id", _id);
-                SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _entryDate = dr["entry_date"].ToString();
-                    _entryTime = dr["entry_time"].ToString();
-                    _valueCard = decimal.Parse(dr["value_card"].ToString());
-                    _valueMoney = decimal.Parse(dr["value_money"].ToString());
+                    connection.Open();
+                    _sql = "SELECT * FROM icoming_cash_flow WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", idIcoming);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                catch
+                {
+                    throw;
+                }
             }
         }
 
@@ -107,13 +98,15 @@ namespace Database
         {
             try
             {
-                SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-                _sql = "SELECT * FROM icoming_cash_flow WHERE id = @id";
-                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    _sql = "SELECT * FROM icoming_cash_flow WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
             }
             catch
             {

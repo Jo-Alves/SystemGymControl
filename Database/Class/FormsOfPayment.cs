@@ -27,7 +27,7 @@ namespace Database
             set { itemsPackageID = value; }
         }
 
-        public void Save(SqlTransaction sqlTransaction)
+        public void Save(SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -36,7 +36,7 @@ namespace Database
                 else
                     _sql = "UPDATE forms_of_payment SET description = @description, items_package_id = @itemsPackageID WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@description", _description);
                 command.Parameters.AddWithValue("@itemsPackageID", _itemsPackageID);

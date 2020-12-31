@@ -27,7 +27,7 @@ namespace Database
             set { planID = value; }
         }
 
-        public void Save(SqlTransaction sqlTransaction)
+        public void Save(SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -37,7 +37,7 @@ namespace Database
                 else
                     _sql = "UPDATE modalities SET description = @description, plan_id = @planID WHERE id = @id";
 
-                SqlCommand command = new SqlCommand(_sql, sqlTransaction.Connection, sqlTransaction);
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@description", _description);
                 command.Parameters.AddWithValue("@planID", _planID);
