@@ -63,6 +63,7 @@ namespace SystemGymControl
             txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
             cbFormOfPayment.Text = dataPlanCash.Rows[0]["form_payment"].ToString();
 
+            txtValuePlan.Text = $"R$ {new Package().GetValuePackageFormPayment(cbFormOfPayment.Text).Rows[0]["value"]}";
 
             DisableAndEnabledTextBoxsInPaymentInMoney();
 
