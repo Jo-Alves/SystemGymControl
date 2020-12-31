@@ -233,27 +233,24 @@ namespace SystemGymControl
             DataTable dataCardPayment = null;
 
             payment._numberPortion = 1;
-            
-            if(formPayment.ToLower() == "dinheiro")
+            string periodPackage = dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower();
+
+            if (formPayment.ToLower() == "dinheiro")
             {
                 payment._valueTotal = cashInPayment.valueDiscount;
                 payment._valueDiscount = cashInPayment.discountMoney;
                 payment._paymentOnAccount = "yes";
             }
-            else if (formPayment.ToLower() != "dinheiro" && dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower() != "mensal")
-                dataCardPayment = cardInPayment.dataPortion;
-            else if (formPayment.ToLower() != "dinheiro" && dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower() == "mensal")
+            else
             {
-                payment._valueTotal = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
-                payment._valueDiscount = 0.00M;
+                dataCardPayment = cardInPayment.dataPortion;
             }
-            
 
             payment._formPayment = formPayment;
             payment._payday = datePlan.ToShortDateString();
             payment._paymentTime = datePlan.ToLongTimeString();
 
-            plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower());
+            plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, periodPackage);
         }
 
         private bool checkedDgvSelected()

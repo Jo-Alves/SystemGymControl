@@ -53,81 +53,80 @@ namespace Database
 
         public void Save()
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            if (_id > 0)
-                _sql = "INSERT INTO cash_flow VALUES (@openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime, @userID)";
-            else
-                _sql = "UPDATE cash_flow SET opening_time = @openingTime, cash_value_total = @cashValueTotal, output_value_total = @outputValueTotal, closing_date = @closingDate, closing_time = @closingTime, user_id = @userID WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                if (_id == 0)
+                    _sql = "INSERT INTO cash_flow VALUES (@openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime, @userID)";
+                else
+                    _sql = "UPDATE cash_flow SET opening_time = @openingTime, cash_value_total = @cashValueTotal, output_value_total = @outputValueTotal, closing_date = @closingDate, closing_time = @closingTime, user_id = @userID WHERE id = @id";
 
-            SqlCommand command = new SqlCommand(_sql, connection);
-            command.Parameters.AddWithValue("@id", _id);
-            command.Parameters.AddWithValue("@openingTime", _openingTime);
-            command.Parameters.AddWithValue("@cashValueTotal", _cashValueTotal);
-            command.Parameters.AddWithValue("@outputValueTotal", _outputValueTotal);
-            command.Parameters.AddWithValue("@closingDate", _closingDate);
-            command.Parameters.AddWithValue("@closingTime", _closingTime);
-            command.Parameters.AddWithValue("@userID", _userID);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", _id);
+                command.Parameters.AddWithValue("@openingTime", _openingTime);
+                command.Parameters.AddWithValue("@cashValueTotal", _cashValueTotal);
+                command.Parameters.AddWithValue("@outputValueTotal", _outputValueTotal);
+                command.Parameters.AddWithValue("@closingDate", _closingDate);
+                command.Parameters.AddWithValue("@closingTime", _closingTime);
+                command.Parameters.AddWithValue("@userID", _userID);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
         public void SearchID()
         {
-            SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                connection.Open();
-                _sql = "SELECT * FROM cash_flow WHERE id = @id";
-                SqlCommand adapter = new SqlCommand(_sql, connection);
-                adapter.Parameters.AddWithValue("@id", _id);
-                SqlDataReader dr = adapter.ExecuteReader();
-                if (dr.Read())
+                try
                 {
-                    _openingTime = dr["opening_time"].ToString();
-                    _cashValueTotal = decimal.Parse(dr["cash_value_total"].ToString());
-                    _outputValueTotal = decimal.Parse(dr["output_value_total"].ToString());
-                    _closingDate = dr["closing_date"].ToString();
-                    _closingTime = dr["closing_time"].ToString();
+                    connection.Open();
+                    _sql = "SELECT * FROM cash_flow WHERE id = @id";
+                    SqlCommand adapter = new SqlCommand(_sql, connection);
+                    adapter.Parameters.AddWithValue("@id", _id);
+                    SqlDataReader dr = adapter.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        _openingTime = dr["opening_time"].ToString();
+                        _cashValueTotal = decimal.Parse(dr["cash_value_total"].ToString());
+                        _outputValueTotal = decimal.Parse(dr["output_value_total"].ToString());
+                        _closingDate = dr["closing_date"].ToString();
+                        _closingTime = dr["closing_time"].ToString();
 
+                    }
                 }
-            }
-            catch
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
+                catch
+                {
+                    throw;
+                }
             }
         }
 
         public DataTable SearchAll()
         {
-            try
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
-                _sql = "SELECT * FROM cash_flow WHERE id = @id";
-                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
+                try
+                {
+
+                    _sql = "SELECT * FROM cash_flow WHERE id = @id";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
             }
-            catch
-            {
-                throw;
-            }
-        }
+        } 
     }
 }

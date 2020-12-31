@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bussiness;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -7,8 +8,9 @@ namespace SystemGymControl
 {
     public partial class FrmGymControl : Form
     {
-        Bussiness.Plan plan = new Bussiness.Plan();
-        Bussiness.SituationsPlan situationPlan = new Bussiness.SituationsPlan();
+        Plan plan = new Plan();
+        SituationsPlan situationPlan = new SituationsPlan();
+        Payment payment = new Payment();
         public FrmGymControl()
         {
             InitializeComponent();
@@ -56,8 +58,13 @@ namespace SystemGymControl
                     situationPlan._timeInactivated = time.Days.ToString();
                     plan._dateTerminalPlan = dateTerminal.AddDays(time.Days).ToShortDateString();
                     situationPlan.updateTimeInactivated(idSituation);
-
-                    plan.UpdateTerminalPlan(int.Parse(row["idPlan"].ToString()));                   
+                    int idPlan = int.Parse(row["idPlan"].ToString());
+                    plan.UpdateTerminalPlan(idPlan);   
+                    
+                    if(row["period"].ToString().ToLower() == "mensal")
+                    {
+                        payment.UpdatePaymentPlanMensal(idPlan, dateTerminal.AddDays(time.Days + 1).ToShortDateString());
+                    }
                 }             
             }
         }

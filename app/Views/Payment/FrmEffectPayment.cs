@@ -62,10 +62,14 @@ namespace SystemGymControl
             daysDelay = GetValueDaysDelay();
             txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
             cbFormOfPayment.Text = dataPlanCash.Rows[0]["form_payment"].ToString();
+          
 
             DisableAndEnabledTextBoxsInPaymentInMoney();
 
             SetValueInterestAndPanaltyFurType();
+
+            if (cbFormOfPayment.Text.ToLower() != "dinheiro")
+                txtPaidOut.Text = FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text);
         }
 
         private void SetValueInterestAndPanaltyFurType()

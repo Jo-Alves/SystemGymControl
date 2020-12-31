@@ -191,5 +191,25 @@ namespace Database
                 }
             }
         }
+
+        public void UpdatePaymentPlanMensal(int idPlan, string duedate)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                connection.Open();
+                _sql = "UPDATE payments SET duedate = @duedate WHERE plan_id = @planID and payday = ''";
+                SqlCommand command = new SqlCommand(_sql, connection);                
+                command.Parameters.AddWithValue("@planID", idPlan);
+                command.Parameters.AddWithValue("@duedate", duedate);
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

@@ -130,27 +130,41 @@ namespace Database
                     }
                     else
                     {
-                        if (period != "mensal")
+                        foreach (DataRow dr in dataCardPayment.Rows)
                         {
-                            foreach (DataRow dr in dataCardPayment.Rows)
-                            {
-                                int numberPortion = int.Parse(dr["portion"].ToString());
-                                string dueDate = dr["dueDate"].ToString();
-                                decimal valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
-                                string payday = "";
-                                string paymentTime = "";
+                            int numberPortion = int.Parse(dr["portion"].ToString());
+                            string dueDate = dr["dueDate"].ToString();
+                            decimal valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
+                            //string payday = "";
+                            //string paymentTime = "";
 
-                                payment._duedate = dueDate;
-                                payment._numberPortion = numberPortion;
-                                payment._payday = payday;
-                                payment._paymentTime = paymentTime;
-                                payment._valueTotal = valuePortion;
-                                payment._valueDiscount = 0.00M;
-                                payment._formPayment = formPayment;
-                                payment._paymentOfAccount = "no";
-                                payment._planID = planId;
-                                payment.Save(sqlTransaction);
-                            }
+                            payment._duedate = dueDate;
+                            payment._numberPortion = numberPortion;
+                            //if (period != "mensal")
+                            //{
+                            //    payment._payday = payday;
+                            //    payment._paymentTime = paymentTime;
+                            //}
+                            payment._valueTotal = valuePortion;
+                            payment._valueDiscount = 0.00M;
+                            payment._formPayment = formPayment;
+                            payment._paymentOfAccount = "no";
+                            payment._planID = planId;
+                            payment.Save(sqlTransaction);
+                        }
+
+                        if (period.ToLower() == "mensal")
+                        {
+                            payment._id = 0;
+                            payment._numberPortion = 1;
+                            payment._payday = "";
+                            payment._paymentTime = "";
+                            payment._valueTotal += payment._valueDiscount;
+                            payment._valueDiscount = 0.00m;
+                            payment._formPayment = formPayment;
+                            payment._paymentOfAccount = "no";
+                            payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
+                            payment.Save(sqlTransaction);
                         }
                     }
 

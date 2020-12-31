@@ -84,5 +84,10 @@ namespace Bussiness
         {
             return payment.SearchCashPaymentPlanIDCash(idCash);
         }
+
+        public void UpdatePaymentPlanMensal(int idPlan, string duedate)
+        {
+            payment.UpdatePaymentPlanMensal(idPlan, duedate);
+        }
     }
 }
