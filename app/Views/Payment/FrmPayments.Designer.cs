@@ -285,6 +285,7 @@ namespace SystemGymControl
             this.descriptionformOfPayment.Name = "descriptionformOfPayment";
             this.descriptionformOfPayment.ReadOnly = true;
             this.descriptionformOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.descriptionformOfPayment.Visible = false;
             this.descriptionformOfPayment.Width = 179;
             // 
             // descriptionPackage
@@ -361,7 +362,7 @@ namespace SystemGymControl
             this.deactivationDate.Visible = false;
             this.deactivationDate.Width = 240;
             // 
-            // FrmPayment
+            // FrmPayments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -375,7 +376,7 @@ namespace SystemGymControl
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmPayment";
+            this.Name = "FrmPayments";
             this.Text = "FrmPayment";
             ((System.ComponentModel.ISupportInitialize)(this.pcPlan)).EndInit();
             this.groupBox1.ResumeLayout(false);

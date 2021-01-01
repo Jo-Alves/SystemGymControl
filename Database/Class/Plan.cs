@@ -421,7 +421,7 @@ namespace Database
                         "ON items_package.id = plans.items_package_id" +
                         " INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id " +
                         "INNER JOIN packages ON packages.id = items_package.package_id " +
-                        $"WHERE students.name LIKE '%{name}%' AND situations_plan.situation <> 'Cancelado' AND forms_of_payment.description = 'Dinheiro' AND packages.period = 'Mensal' ORDER BY plans.id";
+                        $"WHERE students.name LIKE '%{name}%' AND situations_plan.situation <> 'Cancelado' AND packages.period = 'Mensal' ORDER BY plans.id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);

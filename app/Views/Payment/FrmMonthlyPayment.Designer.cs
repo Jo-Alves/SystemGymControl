@@ -217,8 +217,7 @@ namespace SystemGymControl
             this.id.HeaderText = "Código";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 69;
+            this.id.Width = 88;
             // 
             // idCash
             // 
