@@ -42,7 +42,7 @@ namespace Bussiness
             get { return closingTime; }
             set { closingTime = value; }
         }
-       
+
         public void Save()
         {
 

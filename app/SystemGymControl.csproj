@@ -80,6 +80,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Views\Authentication\FmrAuthentication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Authentication\FmrAuthentication.designer.cs">
+      <DependentUpon>FmrAuthentication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Authentication\FrmReportTipPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Authentication\FrmReportTipPassword.designer.cs">
+      <DependentUpon>FrmReportTipPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Authentication\FrmResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Authentication\FrmResetPassword.designer.cs">
+      <DependentUpon>FrmResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Initial\FrmLoadSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +246,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Authentication\FmrAuthentication.resx">
+      <DependentUpon>FmrAuthentication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Authentication\FrmReportTipPassword.resx">
+      <DependentUpon>FrmReportTipPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Authentication\FrmResetPassword.resx">
+      <DependentUpon>FrmResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </EmbeddedResource>

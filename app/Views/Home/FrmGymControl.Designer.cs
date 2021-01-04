@@ -173,7 +173,7 @@
             this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSetting.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetting.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetting.ForeColor = System.Drawing.Color.White;
@@ -195,7 +195,7 @@
             this.btnMenuQuestion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuQuestion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuQuestion.FlatAppearance.BorderSize = 0;
-            this.btnMenuQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnMenuQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuQuestion.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
@@ -217,7 +217,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -239,7 +239,7 @@
             this.btnMenuReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuReport.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuReport.FlatAppearance.BorderSize = 0;
-            this.btnMenuReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnMenuReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuReport.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuReport.ForeColor = System.Drawing.Color.White;
@@ -261,7 +261,7 @@
             this.btnMenuSales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuSales.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuSales.FlatAppearance.BorderSize = 0;
-            this.btnMenuSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnMenuSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuSales.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuSales.ForeColor = System.Drawing.Color.White;
@@ -283,7 +283,7 @@
             this.btnMenuPayment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuPayment.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuPayment.FlatAppearance.BorderSize = 0;
-            this.btnMenuPayment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuPayment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnMenuPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuPayment.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuPayment.ForeColor = System.Drawing.Color.White;
@@ -306,7 +306,7 @@
             this.btnMenuRegistration.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuRegistration.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuRegistration.FlatAppearance.BorderSize = 0;
-            this.btnMenuRegistration.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuRegistration.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnMenuRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuRegistration.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuRegistration.ForeColor = System.Drawing.Color.White;
@@ -329,7 +329,7 @@
             this.btnMenuSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuSave.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuSave.FlatAppearance.BorderSize = 0;
-            this.btnMenuSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnMenuSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuSave.ForeColor = System.Drawing.Color.White;
@@ -352,7 +352,7 @@
             this.btnMenuHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuHome.FlatAppearance.BorderSize = 0;
-            this.btnMenuHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btnMenuHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btnMenuHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuHome.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuHome.ForeColor = System.Drawing.Color.White;

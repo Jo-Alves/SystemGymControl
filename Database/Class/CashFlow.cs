@@ -120,14 +120,14 @@ namespace Database
         {
             int maxId = 0;
 
-            using(var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 connection.Open();
                 _sql = "SELECT MAX(id) FROM cash_flow WHERE closing_date = ''";
                 SqlCommand command = new SqlCommand(_sql, connection);
                 if (command.ExecuteScalar() != DBNull.Value)
                     maxId = int.Parse(command.ExecuteScalar().ToString());
-                
+
             }
 
             return maxId;
@@ -137,7 +137,7 @@ namespace Database
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                    _sql = "UPDATE cash_flow SET cash_value_total = cash_value_total + @cashValueTotal WHERE id = @id";
+                _sql = "UPDATE cash_flow SET cash_value_total = cash_value_total + @cashValueTotal WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", id);

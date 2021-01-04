@@ -173,3 +173,6 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGy
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmStudents.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmUsers.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmLoadSystem.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmAuthentication.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmResetPassword.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmReportTipPassword.resources

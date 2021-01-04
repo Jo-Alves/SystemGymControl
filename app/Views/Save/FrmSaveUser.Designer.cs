@@ -258,10 +258,11 @@
             // pcUpdateFormatPassword
             // 
             this.pcUpdateFormatPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcUpdateFormatPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcUpdateFormatPassword.Image = global::SystemGymControl.Properties.Resources.ver_32x32;
-            this.pcUpdateFormatPassword.Location = new System.Drawing.Point(862, 188);
+            this.pcUpdateFormatPassword.Location = new System.Drawing.Point(860, 188);
             this.pcUpdateFormatPassword.Name = "pcUpdateFormatPassword";
-            this.pcUpdateFormatPassword.Size = new System.Drawing.Size(32, 32);
+            this.pcUpdateFormatPassword.Size = new System.Drawing.Size(34, 34);
             this.pcUpdateFormatPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pcUpdateFormatPassword.TabIndex = 58;
             this.pcUpdateFormatPassword.TabStop = false;

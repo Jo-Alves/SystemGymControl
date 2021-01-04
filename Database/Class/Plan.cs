@@ -184,7 +184,7 @@ namespace Database
             }
         }
 
-        public void EffectPaymentPlan(Payment payment, decimal valueTotal, IcomingCashFlow icomingCash, string formPayment)
+        public void EffectPaymentPlan(Payment payment, decimal valueTotal, IcomingCashFlow icomingCashFlow, string formPayment)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -208,7 +208,7 @@ namespace Database
                     payment._valueTotal = valueTotal;
 
                     // faz uma condição
-                    // Se a data atual for menor que a data do cencimento
+                    // Se a data atual for menor que a data do vencimento
                     // deverá converter a data do vencimento e adicionar mais um mês
                     // Se não converte a data atual adiciona mais um Mês pela mês atual
                     if (Convert.ToDateTime(payment._duedate) >= DateTime.Now)
@@ -220,10 +220,13 @@ namespace Database
 
                     new SituationsPlan().updateSituationPlan(transaction, payment._planID);
 
-                    if(formPayment == "dinheiro")
+                    if (formPayment == "dinheiro")
                     {
-                        icomingCash.Save(transaction);
+                        icomingCashFlow.Save(transaction);
+                        new CashFlow().UpdateValueTotalCashFlow(icomingCashFlow._cashFlowID, payment._valueTotal, transaction);
                     }
+
+
 
                     command.ExecuteNonQuery();
                     transaction.Commit();
