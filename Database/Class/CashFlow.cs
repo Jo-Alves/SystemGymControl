@@ -132,5 +132,26 @@ namespace Database
 
             return maxId;
         }
+
+        public void UpdateValueTotalCashFlow(int id, decimal valueTotal, SqlTransaction transaction)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                    _sql = "UPDATE cash_flow SET cash_value_total = cash_value_total + @cashValueTotal WHERE id = @id";
+
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@cashValueTotal", valueTotal);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }
