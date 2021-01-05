@@ -5,25 +5,25 @@ namespace SystemGymControl
 {
     public partial class FrmReportTipPassword : Form
     {
-        public FrmReportTipPassword(string PerguntaSeguranca)
+        public FrmReportTipPassword(string question)
         {
             InitializeComponent();
-            //lbl_PerguntaSeguranca.Text = PerguntaSeguranca;
+            txtQuestionSecurity.Text = question;
         }
 
         public string RespostaSeguranca { get; set; }
         public string AcaoFechar { get; set; }
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
-            if (txt_DicaSenha.Text == "")
+            if (txtAnswerSecurity.Text == "")
             {
                 MessageBox.Show("Digite a dica de senha!", "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                RespostaSeguranca = txt_DicaSenha.Text.Trim();
-                txt_DicaSenha.Clear();
-                txt_DicaSenha.Focus();
+                RespostaSeguranca = txtAnswerSecurity.Text.Trim();
+                txtAnswerSecurity.Clear();
+                txtAnswerSecurity.Focus();
                 this.Close();
             }
         }
@@ -35,24 +35,14 @@ namespace SystemGymControl
             Close();
         }
 
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            new FrmResetPassword().ShowDialog();
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnClose_MouseEnter(object sender, EventArgs e)
-        {
-            btnClose.Image = Properties.Resources.icons8_close_window_32px_enter1;
-        }
-
-        private void btnClose_MouseLeave(object sender, EventArgs e)
-        {
-            btnClose.Image = Properties.Resources.icons8_close_window_32px_leavee;
-        }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

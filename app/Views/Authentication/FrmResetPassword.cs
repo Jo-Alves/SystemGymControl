@@ -65,5 +65,28 @@ namespace SystemGymControl
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        bool isPasswordHidden;
+
+        private void pcUpdateFormatPassword_Click(object sender, EventArgs e)
+        {
+            isPasswordHidden = !isPasswordHidden;
+
+            switch (isPasswordHidden)
+            {
+                case true:
+                    txtPassword.UseSystemPasswordChar = false;
+                    txtConfirmPassword.UseSystemPasswordChar = false;
+                    pcUpdateFormatPassword.Image = Properties.Resources.ocultar_32x32;
+                    metroToolTip.SetToolTip(pcUpdateFormatPassword, "Ocultar");
+                    break;
+                case false:
+                    txtPassword.UseSystemPasswordChar = true;
+                    txtConfirmPassword.UseSystemPasswordChar = true;
+                    pcUpdateFormatPassword.Image = Properties.Resources.ver_32x32;
+                    metroToolTip.SetToolTip(pcUpdateFormatPassword, "Ver");
+                    break;
+            }
+        }
     }
 }

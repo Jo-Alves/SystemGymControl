@@ -12,8 +12,6 @@ namespace Bussiness
         private string closingDate;
         private string closingTime;
 
-        string _sql;
-
         public int _id
         {
             get { return id; }
@@ -90,6 +88,11 @@ namespace Bussiness
         public int GetMaxCashFlowID()
         {
             return new Database.CashFlow().GetMaxCashFlowID();
+        }
+
+        public bool HaveCashFlowOpen()
+        {
+            return new Database.CashFlow().HaveCashFlowOpen();
         }
     }
 }

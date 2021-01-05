@@ -21,9 +21,9 @@ namespace SystemGymControl
             {
                 timer.Enabled = false;
                 this.Visible = false;
-                using (var GymControl = new FrmGymControl())
+                using (var authentication = new FrmAuthentication())
                 {
-                    GymControl.ShowDialog();
+                    authentication.ShowDialog();
                 }
             }
         }

@@ -163,5 +163,29 @@ namespace Database
                 }
             }
         }
+
+        public bool HaveCashFlowOpen()
+        {
+            bool haveCashFlowOpen = false;
+
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT * FROM cash_flow WHERE closing_date = ''";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                        haveCashFlowOpen = true;                   
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return haveCashFlowOpen;
+        }
     }
 }

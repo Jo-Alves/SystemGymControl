@@ -94,20 +94,45 @@ namespace SystemGymControl
 
                 user._dateRegistion = dateRegistion;
 
-                if (ValidateFields())
-                {
+                if (!ValidateFields() || !ValidateFieldEmail()) return;
+
+
                     if (!string.IsNullOrWhiteSpace(avatar))
                         CopyAvatarOuterDirectory();
 
                     user._avatar = avatar;
                     user.Save();
                     OpenForm.ShowForm(new FrmUsers(), this);
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool ValidateFieldEmail()
+        {
+            bool theFieldsHaveBeenValidated = false;
+
+            string messageValidateFields = user.ValidateFieldsAndGetMessage();
+
+            if (!string.IsNullOrEmpty(txtEmail.Text))
+            {
+                if (messageValidateFields == "Email inválido!")
+                {
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtEmail.Focus();
+                }
+                else if (messageValidateFields == "Este email já existe!")
+                {
+                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtEmail.Focus();
+                }
+                else
+                    theFieldsHaveBeenValidated = true;
+            }
+
+            return theFieldsHaveBeenValidated;
         }
 
         private void CopyAvatarOuterDirectory()
@@ -133,48 +158,40 @@ namespace SystemGymControl
 
             string messageValidateFields = user.ValidateFieldsAndGetMessage();
 
-            if (!string.IsNullOrEmpty(messageValidateFields))
+            if (messageValidateFields == "Campo 'Nome' obrigatório!")
             {
-                if (messageValidateFields == "Campo 'Nome' obrigatório!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtName.Focus();
-                }
-                else if (messageValidateFields == "Campo 'Usuário' obrigatório!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtUser.Focus();
-                }
-                else if (messageValidateFields == "O nome de usuário já existe!" && idUser == 0)
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtUser.Focus();
-                }
-                else if (messageValidateFields == "Email inválido!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtEmail.Focus();
-                }
-                else if (messageValidateFields == "Campo 'Senha' obrigatório!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtPassword1.Focus();
-                }
-                else if (messageValidateFields == "A senha deve ter no mínimo 5 cararacteres!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtPassword1.Focus();
-                }
-                else if (messageValidateFields == "Campo 'Pergunta de Segurança' obrigatório!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    cbQuestion.Focus();
-                }
-                else if (messageValidateFields == "Campo 'Resposta de Segurança' obrigatório!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtAnswer.Focus();
-                }
+                MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtName.Focus();
+            }
+            else if (messageValidateFields == "Campo 'Usuário' obrigatório!")
+            {
+                MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtUser.Focus();
+            }
+            else if (messageValidateFields == "O nome de usuário já existe!" && idUser == 0)
+            {
+                MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtUser.Focus();
+            }
+            else if (messageValidateFields == "Campo 'Senha' obrigatório!")
+            {
+                MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPassword1.Focus();
+            }
+            else if (messageValidateFields == "A senha deve ter no mínimo 5 cararacteres!")
+            {
+                MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPassword1.Focus();
+            }
+            else if (messageValidateFields == "Campo 'Pergunta de Segurança' obrigatório!")
+            {
+                MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cbQuestion.Focus();
+            }
+            else if (messageValidateFields == "Campo 'Resposta de Segurança' obrigatório!")
+            {
+                MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtAnswer.Focus();
             }
             else if (string.IsNullOrWhiteSpace(txtPassword2.Text))
             {

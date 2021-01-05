@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -63,7 +64,6 @@ namespace Database
             set { dateRegistion = value; }
         }
 
-
         public void Save()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -87,6 +87,29 @@ namespace Database
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public bool CheckedEmailUserExist(string email)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM users WHERE email  = @email";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@email", email);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                        return true;
+                    else
+                        return false;
                 }
                 catch
                 {
@@ -195,6 +218,32 @@ namespace Database
             }
         }
 
+        public bool ExitNameOrUser(string user)
+        {
+            bool exitUser = false;
+
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT * FROM users WHERE email = @email OR name_user = @user";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@user", user);
+                    command.Parameters.AddWithValue("@email", user);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                        exitUser = true;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return exitUser;
+        }
+
         public bool Logout(string user, string password)
         {
             bool existUser = false;
@@ -203,10 +252,10 @@ namespace Database
             {
                 try
                 {
-                    _sql = "SELECT * FROM users WHERE email = @email or name_user = @user and password = @password";
+                    _sql = "SELECT * FROM users WHERE email = @email OR name_user = @user AND password = @password";
                     SqlCommand command = new SqlCommand(_sql, connection);
                     command.Parameters.AddWithValue("@user", user);
-                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@email", user);
                     command.Parameters.AddWithValue("@password", password);
                     connection.Open();
                     SqlDataReader dr = command.ExecuteReader();

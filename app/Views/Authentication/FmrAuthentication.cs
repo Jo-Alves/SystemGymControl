@@ -57,11 +57,6 @@ namespace SystemGymControl
             Application.Exit();
         }
 
-        private void lblTogglePass_Click(object sender, EventArgs e)
-        {
-
-        }
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
 
         private extern static void ReleaseCapture();
@@ -78,8 +73,59 @@ namespace SystemGymControl
 
         private void lblReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var resetPassword = new FrmResetPassword(cbUser.Text);
-            resetPassword.ShowDialog();
+            try
+            {
+                new FrmReportTipPassword(new Bussiness.User().SearchUser(txtUser.Text.Trim()).Rows[0]["question"].ToString()).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (!ValidateFields()) return;
+
+            Bussiness.User user = new Bussiness.User();
+
+            if (user.Logout(txtUser.Text.Trim(), txtPassword.Text.Trim()))
+            {
+                this.Visible = false;
+
+                if (new Bussiness.CashFlow().HaveCashFlowOpen())
+                    new FrmGymControl().ShowDialog();
+                else
+                    new FrmBoxOpening().ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Usuário|email ou senha incorreta!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                if (new Bussiness.User().ExitNameOrUser(txtUser.Text.Trim()))
+                    linkReset.Visible = true;
+            }
+        }
+
+        private bool ValidateFields()
+        {
+            bool fieldsValidate = false;
+
+            if (string.IsNullOrWhiteSpace(txtUser.Text))
+            {
+                MessageBox.Show("Informe o seu nome ou email cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtUser.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                MessageBox.Show("Informe a senha cadastrada!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPassword.Focus();
+            }
+            else
+                fieldsValidate = true;
+
+            return fieldsValidate;
         }
     }
 }

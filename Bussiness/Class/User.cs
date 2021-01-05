@@ -70,6 +70,8 @@ namespace Bussiness
                 message = "Campo 'Usuário' obrigatório!";
             else if (new Database.User().CheckedNameUserExist(this._user) && this.id == 0)
                 message = "O nome de usuário já existe!";
+            else if (new Database.User().CheckedEmailUserExist(this._email) && this.id == 0)
+                message = "Este email já existe!";
             else if (!ValidateEmail.Validate(this._email))
                 message = "Email inválido!";
             else if (string.IsNullOrEmpty(this._password))
@@ -117,6 +119,17 @@ namespace Bussiness
         public DataTable SearchID(int idUser)
         {
             return new Database.User().SearchID(idUser);
+        }
+
+        public bool Logout(string user, string password)
+        {
+            return new Database.User().Logout(user, password);
+        } 
+
+        public bool ExitNameOrUser(string user)
+        {
+            return new Database.User().ExitNameOrUser(user);
+            
         }
     }
 }

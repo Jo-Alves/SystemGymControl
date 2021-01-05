@@ -262,8 +262,8 @@
             this.pcUpdateFormatPassword.Image = global::SystemGymControl.Properties.Resources.ver_32x32;
             this.pcUpdateFormatPassword.Location = new System.Drawing.Point(860, 188);
             this.pcUpdateFormatPassword.Name = "pcUpdateFormatPassword";
-            this.pcUpdateFormatPassword.Size = new System.Drawing.Size(34, 34);
-            this.pcUpdateFormatPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcUpdateFormatPassword.Size = new System.Drawing.Size(34, 33);
+            this.pcUpdateFormatPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcUpdateFormatPassword.TabIndex = 58;
             this.pcUpdateFormatPassword.TabStop = false;
             this.metroToolTip.SetToolTip(this.pcUpdateFormatPassword, "Ver");
