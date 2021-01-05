@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -25,7 +24,7 @@ namespace SystemGymControl
 
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void lbl_Fechar_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ namespace Bussiness
         private int id;
         private string entryDate;
         private string entryTime;
+        private string descriptionIcoming;
         private decimal valueMoney;
         private decimal valueCard;
         private int cashFlowID;
@@ -20,6 +21,11 @@ namespace Bussiness
         {
             get { return entryDate; }
             set { entryDate = value; }
+        }
+        public string _descriptionIcoming
+        {
+            get { return descriptionIcoming; }
+            set { descriptionIcoming = value; }
         }
         public string _entryTime
         {

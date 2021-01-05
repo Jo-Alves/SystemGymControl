@@ -223,8 +223,6 @@ namespace SystemGymControl
             plan._itemsPackageID = idItems;
             plan._studentID = int.Parse(txtCodigoStudent.Text);
 
-
-
             modality._description = cbModalities.Text;
 
             situationsPlan._situation = "Ativo";
@@ -256,6 +254,7 @@ namespace SystemGymControl
             icomingCashFlow._entryDate = datePlan.ToShortDateString();
             icomingCashFlow._entryTime = datePlan.ToLongTimeString();
             icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;
+            icomingCashFlow._descriptionIcoming = $"Pagamento da aquisição do plano: {dgvDataPlan.CurrentRow.Cells["description"].Value}";
             plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, periodPackage, icomingCashFlow);
         }
 

@@ -8,6 +8,7 @@ namespace Database
         private int id;
         private string entryDate;
         private string entryTime;
+        private string descriptionIcoming;
         private decimal valueMoney;
         private decimal valueCard;
         private int cashFlowID;
@@ -23,6 +24,11 @@ namespace Database
         {
             get { return entryDate; }
             set { entryDate = value; }
+        }
+        public string _descriptionIcoming
+        {
+            get { return descriptionIcoming; }
+            set { descriptionIcoming = value; }
         }
         public string _entryTime
         {
@@ -50,14 +56,15 @@ namespace Database
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 if (_id == 0)
-                    _sql = "INSERT INTO icoming_cash_flow VALUES (@entryDate, @entryTime, @valueMoney, @valueCard, @cashFlowID)";
+                    _sql = "INSERT INTO icoming_cash_flow VALUES (@entryDate, @entryTime, @descriptionIcoming, @valueMoney, @valueCard, @cashFlowID)";
                 else
-                    _sql = "UPDATE icoming_cash_flow SET entry_date = @entryDate, entry_time = @entryTime, value_money = @valueMoney, value_card = @valueCard, cash_flow_id = @cashFlowID WHERE id = @id";
+                    _sql = "UPDATE icoming_cash_flow SET entry_date = @entryDate, entry_time = @entryTime, description_icoming = @descriptionIcoming, value_money = @valueMoney, value_card = @valueCard, cash_flow_id = @cashFlowID WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@entryDate", _entryDate);
                 command.Parameters.AddWithValue("@entryTime", _entryTime);
+                command.Parameters.AddWithValue("@descriptionIcoming", _descriptionIcoming);
                 command.Parameters.AddWithValue("@valueMoney", _valueMoney);
                 command.Parameters.AddWithValue("@valueCard", _valueCard);
                 command.Parameters.AddWithValue("@cashFlowID", _cashFlowID);

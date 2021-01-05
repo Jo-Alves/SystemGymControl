@@ -5,12 +5,14 @@ namespace Bussiness
     public class CashFlow
     {
         private int id;
+        private string openingDate;
         private string openingTime;
         private decimal cashValueTotal;
         private decimal outputValueTotal;
         private string closingDate;
         private string closingTime;
 
+        string _sql;
 
         public int _id
         {
@@ -21,6 +23,11 @@ namespace Bussiness
         {
             get { return openingTime; }
             set { openingTime = value; }
+        }
+        public string _openingDate
+        {
+            get { return openingDate; }
+            set { openingDate = value; }
         }
         public decimal _cashValueTotal
         {
@@ -43,18 +50,30 @@ namespace Bussiness
             set { closingTime = value; }
         }
 
-        public void Save()
+        public void Save(IcomingCashFlow icomingCashFlow)
         {
-
-            new Database.CashFlow()
+            Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow()
             {
-                _id = this._id,
-                _openingTime = this._openingTime,
-                _outputValueTotal = this._outputValueTotal,
+                _descriptionIcoming = icomingCashFlow._descriptionIcoming,
+                _entryDate = icomingCashFlow._entryDate,
+                _entryTime = icomingCashFlow._entryTime,
+                _valueCard = icomingCashFlow._valueCard,
+                _valueMoney = icomingCashFlow._valueMoney
+            };
+
+            var cashFlow = new Database.CashFlow()
+            {
                 _cashValueTotal = this._cashValueTotal,
                 _closingDate = this._closingDate,
                 _closingTime = this._closingTime,
-            }.Save();
+                _openingDate = this._openingDate,
+                _openingTime = this._openingTime,
+                _outputValueTotal = this._outputValueTotal
+            };
+
+            cashFlow.Save(icomingCash);
+
+            this.id = icomingCash._cashFlowID;
         }
 
         public DataTable SearchID(int cashFlow)
@@ -66,6 +85,7 @@ namespace Bussiness
         {
             return new Database.CashFlow().SearchAll();
         }
+
 
         public int GetMaxCashFlowID()
         {

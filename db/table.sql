@@ -170,16 +170,17 @@ CREATE TABLE [dbo].[cash_flow] (
 );
 
 
-CREATE TABLE [dbo].[icoming_cash_flow]
-(
-	[id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	[entry_date] VARCHAR(10) NOT NULL,
-	[entry_time] VARCHAR(10) NOT NULL,
-	[value_money] DECIMAL(18,2) NOT NULL,
-	[value_card] DECIMAL(18,2) NOT NULL,
-	[cash_flow_id] INT NOT NULL,
-	FOREIGN KEY ([cash_flow_id]) REFERENCES [dbo].[cash_flow]([id]) ON DELETE CASCADE
-)
+CREATE TABLE [dbo].[icoming_cash_flow] (
+    [id]               INT             IDENTITY (1, 1) NOT NULL,
+    [entry_date]       VARCHAR (10)    NOT NULL,
+    [entry_time]       VARCHAR (10)    NOT NULL,
+    [description_icoming] VARCHAR (MAX)   NULL,
+    [value_money]      DECIMAL (18, 2) NOT NULL,
+    [value_card]       DECIMAL (18, 2) NOT NULL,
+    [cash_flow_id]     INT             NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([cash_flow_id]) REFERENCES [dbo].[cash_flow] ([id]) ON DELETE CASCADE
+);
 
 CREATE TABLE [dbo].[outgoing_cash_flow]
 (

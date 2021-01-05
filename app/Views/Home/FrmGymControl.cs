@@ -12,14 +12,22 @@ namespace SystemGymControl
         SituationsPlan situationPlan = new SituationsPlan();
         CashFlow cashFlow = new CashFlow();
         Payment payment = new Payment();
-        int idCashFlow;
+        int idCashFlow, id;
+
         public FrmGymControl()
         {
             InitializeComponent();
-            InitialSettings();
+            InitialSettings(cashFlow.GetMaxCashFlowID());
         }
 
-        private void InitialSettings()
+        public FrmGymControl(int id)
+        {
+            InitializeComponent();
+            this.id = id;
+            InitialSettings(id);
+        }
+
+        private void InitialSettings(int id)
         {
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
             gp.AddEllipse(pcPerfil.DisplayRectangle);
@@ -34,7 +42,7 @@ namespace SystemGymControl
 
             try
             {
-                idCashFlow = cashFlow.GetMaxCashFlowID();
+                idCashFlow = id;
                 CheckedPlanExpired();
                 UpdateTimeInactivated();
             }

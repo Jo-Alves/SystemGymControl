@@ -71,7 +71,7 @@ namespace Bussiness
 
             Database.Payment paymentDatabase = new Database.Payment() { _id = payment._id, _payday = payment._payday, _paymentTime = payment._paymentTime, _valueDiscount = payment._valueDiscount, _valueTotal = payment._valueTotal, _duedate = payment._duedate, _formPayment = payment._formPayment, _numberPortion = payment._numberPortion, _paymentOnAccount = payment._paymentOnAccount };
 
-            Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow() { _cashFlowID = icomingCashFlow._cashFlowID, _entryDate = icomingCashFlow._entryDate, _entryTime = icomingCashFlow._entryTime, _valueCard = icomingCashFlow._valueCard, _valueMoney = icomingCashFlow._valueMoney, _id = icomingCashFlow._id };
+            Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow() { _cashFlowID = icomingCashFlow._cashFlowID, _entryDate = icomingCashFlow._entryDate, _entryTime = icomingCashFlow._entryTime, _valueCard = icomingCashFlow._valueCard, _valueMoney = icomingCashFlow._valueMoney, _id = icomingCashFlow._id, _descriptionIcoming = icomingCashFlow._descriptionIcoming };
 
             plan.Save(modalityDataBase, situationsPlanDataBase, dataCardPayment, paymentDatabase, formPayment, period.ToLower(), icomingCash);
         }
@@ -150,7 +150,8 @@ namespace Bussiness
                 _entryDate = icomingCashFlow._entryDate,
                 _entryTime = icomingCashFlow._entryTime,
                 _valueCard = icomingCashFlow._valueCard,
-                _valueMoney = icomingCashFlow._valueMoney
+                _valueMoney = icomingCashFlow._valueMoney,
+                _descriptionIcoming = icomingCashFlow._descriptionIcoming
             };
 
             plan._dateTerminalPlan = this._dateTerminalPlan;

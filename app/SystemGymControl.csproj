@@ -98,6 +98,12 @@
     <Compile Include="Views\Authentication\FrmResetPassword.designer.cs">
       <DependentUpon>FrmResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cash Flow\FrmBoxOpening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cash Flow\FrmBoxOpening.Designer.cs">
+      <DependentUpon>FrmBoxOpening.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Initial\FrmLoadSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Authentication\FrmResetPassword.resx">
       <DependentUpon>FrmResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cash Flow\FrmBoxOpening.resx">
+      <DependentUpon>FrmBoxOpening.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>

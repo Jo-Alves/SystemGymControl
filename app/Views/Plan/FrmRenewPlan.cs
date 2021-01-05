@@ -126,7 +126,7 @@ namespace SystemGymControl
                 icomingCashFlow._entryDate = datePlan.ToShortDateString();
                 icomingCashFlow._entryTime = datePlan.ToLongTimeString();
                 icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;
-
+                icomingCashFlow._descriptionIcoming = $"Pagamento da renovação do plano: {txtPackage.Text}";
 
                 plan.Save(new Modality(), situationsPlan, dataCardPayment, payment, cbFormOfPayment.Text, period, icomingCashFlow);
             }

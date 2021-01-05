@@ -7,6 +7,7 @@ namespace Database
     public class CashFlow
     {
         private int id;
+        private string openingDate;
         private string openingTime;
         private decimal cashValueTotal;
         private decimal outputValueTotal;
@@ -24,6 +25,11 @@ namespace Database
         {
             get { return openingTime; }
             set { openingTime = value; }
+        }
+        public string _openingDate
+        {
+            get { return openingDate; }
+            set { openingDate = value; }
         }
         public decimal _cashValueTotal
         {
@@ -46,29 +52,34 @@ namespace Database
             set { closingTime = value; }
         }
 
-        public void Save()
+        public void Save(IcomingCashFlow icomingCashFlow)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                if (_id == 0)
-                    _sql = "INSERT INTO cash_flow VALUES (@openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime)";
-                else
-                    _sql = "UPDATE cash_flow SET opening_time = @openingTime, cash_value_total = @cashValueTotal, output_value_total = @outputValueTotal, closing_date = @closingDate, closing_time = @closingTime WHERE id = @id";
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
 
-                SqlCommand command = new SqlCommand(_sql, connection);
+                _sql = "INSERT INTO cash_flow VALUES (@openingDate, @openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime); SELECT @@IDENTITY";
+
+                SqlCommand command = new SqlCommand(_sql, connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
                 command.Parameters.AddWithValue("@openingTime", _openingTime);
+                command.Parameters.AddWithValue("@openingDate", _openingDate);
                 command.Parameters.AddWithValue("@cashValueTotal", _cashValueTotal);
                 command.Parameters.AddWithValue("@outputValueTotal", _outputValueTotal);
                 command.Parameters.AddWithValue("@closingDate", _closingDate);
                 command.Parameters.AddWithValue("@closingTime", _closingTime);
                 try
                 {
-                    connection.Open();
-                    command.ExecuteNonQuery();
+                    icomingCashFlow._cashFlowID = Convert.ToInt32(command.ExecuteScalar());
+                    icomingCashFlow.Save(transaction);
+
+                    transaction.Commit();
+
                 }
                 catch
                 {
+                    transaction.Rollback();
                     throw;
                 }
             }
@@ -101,7 +112,6 @@ namespace Database
             {
                 try
                 {
-
                     _sql = "SELECT * FROM cash_flow WHERE id = @id";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
