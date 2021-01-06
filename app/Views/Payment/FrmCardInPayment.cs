@@ -105,5 +105,13 @@ namespace SystemGymControl
         {
             parcelValue(valuePackage, int.Parse(ndNumberPortions.Value.ToString()), formPayment);
         }
+
+        private void FrmCardInPayment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnFinish_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+        }
     }
 }

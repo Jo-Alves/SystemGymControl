@@ -142,5 +142,14 @@ namespace SystemGymControl
                 e.Handled = true;
             }
         }
+
+        private void FrmResponsiblesStudent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSave_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+
+        }
     }
 }

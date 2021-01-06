@@ -252,6 +252,7 @@
             this.Name = "FrmCardInPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagamento a Cartão";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCardInPayment_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmCardInPayment_MouseDown);
             this.gbParcelas.ResumeLayout(false);
             this.gbParcelas.PerformLayout();

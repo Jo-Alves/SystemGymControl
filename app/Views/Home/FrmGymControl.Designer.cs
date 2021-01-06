@@ -360,8 +360,6 @@
             this.btnMenuHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuHome.FlatAppearance.BorderSize = 0;
-            this.btnMenuHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnMenuHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnMenuHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuHome.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuHome.ForeColor = System.Drawing.Color.White;
@@ -392,7 +390,7 @@
             // lblUser
             // 
             this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(67, 133);
+            this.lblUser.Location = new System.Drawing.Point(60, 153);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(100, 22);
             this.lblUser.TabIndex = 4;
@@ -402,9 +400,9 @@
             // pcPerfil
             // 
             this.pcPerfil.Image = global::SystemGymControl.Properties.Resources.icons8_person_female_50px;
-            this.pcPerfil.Location = new System.Drawing.Point(67, 31);
+            this.pcPerfil.Location = new System.Drawing.Point(51, 18);
             this.pcPerfil.Name = "pcPerfil";
-            this.pcPerfil.Size = new System.Drawing.Size(100, 100);
+            this.pcPerfil.Size = new System.Drawing.Size(130, 130);
             this.pcPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcPerfil.TabIndex = 3;
             this.pcPerfil.TabStop = false;

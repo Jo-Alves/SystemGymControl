@@ -310,6 +310,14 @@ namespace SystemGymControl
             }
         }
 
+        private void FrmSavePackage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSave_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+        }
+
         private void dgvFormOfPagament_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)

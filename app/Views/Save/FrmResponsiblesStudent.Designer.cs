@@ -222,10 +222,12 @@
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmResponsiblesStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmResponsiblesStudent";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmResponsiblesStudent_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmResponsiblesStudent_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();

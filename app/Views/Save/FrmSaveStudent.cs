@@ -314,6 +314,14 @@ namespace SystemGymControl
             return isItBigger;
         }
 
+        private void FrmSaveStudent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSave_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+        }
+
         private void btnClearImage_Click(object sender, EventArgs e)
         {
             image = "";

@@ -75,7 +75,7 @@ namespace SystemGymControl
         {
             try
             {
-                new FrmReportTipPassword(new Bussiness.User().SearchUser(txtUser.Text.Trim()).Rows[0]["question"].ToString()).ShowDialog();
+                new FrmReportTipPassword(txtUser.Text.Trim(), new Bussiness.User().SearchUser(txtUser.Text.Trim()).Rows[0]["question"].ToString()).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -91,12 +91,15 @@ namespace SystemGymControl
 
             if (user.Logout(txtUser.Text.Trim(), txtPassword.Text.Trim()))
             {
+                var dataUser = new Bussiness.User().GetUserOrName(txtUser.Text.Trim());
+                string nameUser = dataUser.Rows[0]["name_user"].ToString();
+                string avatar = dataUser.Rows[0]["avatar"].ToString();
                 this.Visible = false;
 
                 if (new Bussiness.CashFlow().HaveCashFlowOpen())
-                    new FrmGymControl().ShowDialog();
+                    new FrmGymControl(nameUser, avatar).ShowDialog();
                 else
-                    new FrmBoxOpening().ShowDialog();
+                    new FrmBoxOpening(nameUser, avatar).ShowDialog();
 
             }
             else
@@ -126,6 +129,14 @@ namespace SystemGymControl
                 fieldsValidate = true;
 
             return fieldsValidate;
+        }
+
+        private void FrmAuthentication_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnLogin_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
         }
     }
 }

@@ -35,7 +35,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.Usuario = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pcUpdateFormatPassword = new System.Windows.Forms.PictureBox();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
@@ -130,23 +130,24 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnLogin
+            // btnResetPassword
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(46, 213);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(126, 43);
-            this.btnLogin.TabIndex = 23;
-            this.btnLogin.TabStop = false;
-            this.btnLogin.Text = "Entrar";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnResetPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnResetPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResetPassword.FlatAppearance.BorderSize = 0;
+            this.btnResetPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnResetPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
+            this.btnResetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetPassword.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPassword.ForeColor = System.Drawing.Color.White;
+            this.btnResetPassword.Location = new System.Drawing.Point(46, 213);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(126, 43);
+            this.btnResetPassword.TabIndex = 23;
+            this.btnResetPassword.TabStop = false;
+            this.btnResetPassword.Text = "Redefinir";
+            this.btnResetPassword.UseVisualStyleBackColor = false;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // btnClose
             // 
@@ -195,7 +196,7 @@
             this.Controls.Add(this.pcUpdateFormatPassword);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnResetPassword);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -204,10 +205,12 @@
             this.Controls.Add(this.Usuario);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmResetPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Redefinição Senha";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmResetPassword_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmResetPassword_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pcUpdateFormatPassword)).EndInit();
             this.ResumeLayout(false);
@@ -224,7 +227,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label Usuario;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pcUpdateFormatPassword;
         private MetroFramework.Components.MetroToolTip metroToolTip;

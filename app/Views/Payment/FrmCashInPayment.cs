@@ -212,6 +212,21 @@ namespace SystemGymControl
             txtDiscountPercentage.Text = FormatTextBox.FormatValueDecimal(txtDiscountPercentage.Text);
         }
 
+        private void FrmCashInPayment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnFinish_Click(sender, e);
+            else if (e.KeyCode == Keys.F10)
+                btnGenerateReceipt_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+        }
+
+        private void btnGenerateReceipt_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnFinish_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtPaidOut.Text))

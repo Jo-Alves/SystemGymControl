@@ -51,6 +51,7 @@
             this.linkReset.Name = "linkReset";
             this.linkReset.Size = new System.Drawing.Size(153, 19);
             this.linkReset.TabIndex = 4;
+            this.linkReset.TabStop = true;
             this.linkReset.Text = "Redefina a sua senha";
             this.linkReset.Visible = false;
             this.linkReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblReset_LinkClicked);
@@ -193,6 +194,7 @@
             this.Name = "FrmAuthentication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Autenticacao do sistema";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmAuthentication_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmAuthentication_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pcUpdateFormatPassword)).EndInit();
             this.ResumeLayout(false);

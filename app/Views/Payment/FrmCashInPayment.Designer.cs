@@ -243,6 +243,7 @@ namespace SystemGymControl
             this.btnGenerateReceipt.TabStop = false;
             this.btnGenerateReceipt.Text = "Gerar Recibo";
             this.btnGenerateReceipt.UseVisualStyleBackColor = false;
+            this.btnGenerateReceipt.Click += new System.EventHandler(this.btnGenerateReceipt_Click);
             // 
             // btnCancel
             // 
@@ -308,10 +309,12 @@ namespace SystemGymControl
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmCashInPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagamento à vista";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCashInPayment_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmCashInPayment_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();

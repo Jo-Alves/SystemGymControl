@@ -174,6 +174,27 @@ namespace Database
                 }
             }
         }
+        
+        public DataTable GetUserOrName(string user)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT * FROM users WHERE name_user = @user OR email = @email";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@user", user);
+                    adapter.SelectCommand.Parameters.AddWithValue("@email", user);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
 
         public bool CheckedNameUserExist(string nameUser)
         {
@@ -272,6 +293,56 @@ namespace Database
             }
 
             return existUser;
+        }
+
+        public bool CheckedAnswerSecurity(string name, string answer)
+        {
+            bool answerCorrect = false;
+
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT * FROM users WHERE (name_user = @user OR email = @email) AND answer = @answer";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@user", name);
+                    command.Parameters.AddWithValue("@email", name);
+                    command.Parameters.AddWithValue("@answer", answer);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                    {                       
+                        answerCorrect = true;
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return answerCorrect;
+        }
+
+        public void ResetSecurity()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                _sql = "UPDATE users SET password = @password WHERE name_user = @name OR email = @email";
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@name", _user);
+                command.Parameters.AddWithValue("@email", _user);
+                command.Parameters.AddWithValue("@password", _password);
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
     }
 }

@@ -542,9 +542,11 @@
             this.Controls.Add(this.lblName);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSaveStudent";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaveStudent_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ndNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).EndInit();
             this.ResumeLayout(false);

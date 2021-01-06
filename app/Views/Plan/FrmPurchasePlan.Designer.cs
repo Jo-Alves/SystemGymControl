@@ -364,9 +364,11 @@ namespace SystemGymControl
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmPurchasePlan";
             this.Text = "FrmPurchasePlan";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPurchasePlan_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

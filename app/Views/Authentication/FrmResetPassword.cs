@@ -11,26 +11,13 @@ namespace SystemGymControl
             InitializeComponent();
         }
 
-        public FrmResetPassword(string Usuario)
+        public FrmResetPassword(string user)
         {
             InitializeComponent();
-            lblUser.Text = Usuario;
+            lblUser.Text = user;
         }
 
-        private void btn_Cancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btn_Confirmar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_Fechar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        public bool hasBeenReset { get; set; }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -87,6 +74,47 @@ namespace SystemGymControl
                     metroToolTip.SetToolTip(pcUpdateFormatPassword, "Ver");
                     break;
             }
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            if (!txtPassword.Text.Trim().Equals(txtConfirmPassword.Text.Trim()))
+            {
+                MessageBox.Show("Os caracteres não são compatíveis!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (txtPassword.Text.Length < 5)
+            {
+                MessageBox.Show("A senha deve ter no mínimo 5 cararacteres!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            try
+            {
+                new Bussiness.User()
+                {
+                    _user = lblUser.Text,
+                    _email = txtPassword.Text.Trim(),
+                    _password = txtConfirmPassword.Text.Trim()
+                }
+        .ResetSecurity();
+
+                MessageBox.Show("Senha redefinida com sucesso!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                hasBeenReset = true;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FrmResetPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnResetPassword_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
         }
     }
 }

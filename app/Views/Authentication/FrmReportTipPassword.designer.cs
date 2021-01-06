@@ -38,12 +38,11 @@
             // 
             // txtAnswerSecurity
             // 
-            this.txtAnswerSecurity.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAnswerSecurity.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtAnswerSecurity.Location = new System.Drawing.Point(19, 142);
+            this.txtAnswerSecurity.Location = new System.Drawing.Point(25, 142);
             this.txtAnswerSecurity.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnswerSecurity.Name = "txtAnswerSecurity";
-            this.txtAnswerSecurity.Size = new System.Drawing.Size(415, 33);
+            this.txtAnswerSecurity.Size = new System.Drawing.Size(414, 33);
             this.txtAnswerSecurity.TabIndex = 6;
             // 
             // Usuario
@@ -51,7 +50,7 @@
             this.Usuario.AutoSize = true;
             this.Usuario.Font = new System.Drawing.Font("Open Sans", 14F);
             this.Usuario.ForeColor = System.Drawing.Color.Black;
-            this.Usuario.Location = new System.Drawing.Point(15, 113);
+            this.Usuario.Location = new System.Drawing.Point(19, 113);
             this.Usuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Usuario.Name = "Usuario";
             this.Usuario.Size = new System.Drawing.Size(299, 26);
@@ -94,7 +93,6 @@
             // 
             // txtQuestionSecurity
             // 
-            this.txtQuestionSecurity.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQuestionSecurity.Font = new System.Drawing.Font("Open Sans", 14F);
             this.txtQuestionSecurity.Location = new System.Drawing.Point(24, 76);
             this.txtQuestionSecurity.Margin = new System.Windows.Forms.Padding(4);
@@ -130,10 +128,12 @@
             this.Controls.Add(this.Usuario);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmReportTipPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informar Dica de Senha";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReportTipPassword_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

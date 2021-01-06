@@ -190,6 +190,15 @@ namespace SystemGymControl
                 btnSave.Enabled = true;
         }
 
+        private void FrmDetailsPlan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSave_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnBack_Click(sender, e);
+
+        }
+
         bool linkMoreDetailsClicked = false;
 
         private void linkMoreDetails_Click(object sender, LinkLabelLinkClickedEventArgs e)

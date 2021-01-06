@@ -312,6 +312,15 @@ namespace SystemGymControl
             }
         }
 
+        private void FrmEffectPayment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnFinish_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+
+        }
+
         private void cbCalculateInaterastAndPenalty_CheckedChanged(object sender, EventArgs e)
         {
             if (!cbCalculateInaterastAndPenalty.Checked)

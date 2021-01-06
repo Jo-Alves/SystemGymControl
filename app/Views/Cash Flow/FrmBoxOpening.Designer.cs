@@ -106,10 +106,12 @@ namespace SystemGymControl
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmBoxOpening";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBoxOpening";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBoxOpening_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmBoxOpening_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();

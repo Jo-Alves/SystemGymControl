@@ -20,11 +20,29 @@ namespace SystemGymControl
             InitialSettings(cashFlow.GetMaxCashFlowID());
         }
 
-        public FrmGymControl(int id)
+        public FrmGymControl(int id, string nameUser, string avatar)
         {
             InitializeComponent();
             this.id = id;
             InitialSettings(id);
+        }
+
+        public FrmGymControl(string nameUser, string avatar)
+        {
+            InitializeComponent();
+            InitialSettings(cashFlow.GetMaxCashFlowID());
+            loadFieldsPerfil(nameUser, avatar);
+        }
+
+        private void loadFieldsPerfil(string nameUser, string avatar)
+        {
+            if (!string.IsNullOrEmpty(avatar))
+            {
+                pcPerfil.ImageLocation = avatar;
+                pcPerfil.Load();
+            }
+
+            lblUser.Text = nameUser;
         }
 
         private void InitialSettings(int id)

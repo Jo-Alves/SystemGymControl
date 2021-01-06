@@ -5,43 +5,54 @@ namespace SystemGymControl
 {
     public partial class FrmReportTipPassword : Form
     {
-        public FrmReportTipPassword(string question)
+        string question, name;
+
+        public FrmReportTipPassword()
         {
             InitializeComponent();
+        }
+        
+        public FrmReportTipPassword(string name, string question)
+        {
+            InitializeComponent();
+            this.name = name;
+            this.question = question;
             txtQuestionSecurity.Text = question;
         }
 
-        public string RespostaSeguranca { get; set; }
-        public string AcaoFechar { get; set; }
-        private void btn_Confirmar_Click(object sender, EventArgs e)
-        {
-            if (txtAnswerSecurity.Text == "")
-            {
-                MessageBox.Show("Digite a dica de senha!", "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                RespostaSeguranca = txtAnswerSecurity.Text.Trim();
-                txtAnswerSecurity.Clear();
-                txtAnswerSecurity.Focus();
-                this.Close();
-            }
-        }
-
-        private void lbl_Fechar_Click(object sender, EventArgs e)
-        {
-            RespostaSeguranca = "";
-            AcaoFechar = "Fechar";
-            Close();
-        }
+        public string answerSecurity { get; set; }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            new FrmResetPassword().ShowDialog();
+            try
+            {
+                if (new Bussiness.User().CheckedAnswerSecurity(name, txtAnswerSecurity.Text.Trim()))
+                {
+                    var resetPassword = new FrmResetPassword(name);
+                    resetPassword.ShowDialog();
+
+                    if (resetPassword.hasBeenReset)
+                        this.Close();
+                }
+                else
+                    MessageBox.Show("A resposta está incorreta! Tente novamente...", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void FrmReportTipPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnConfirm_Click(sender, e);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            
             this.Close();
         }
     }

@@ -198,7 +198,7 @@ namespace SystemGymControl
                 MessageBox.Show("Repita a senha informada acima", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtPassword2.Focus();
             }
-            else if (txtPassword1.Text.Trim() != txtPassword2.Text.Trim())
+            else if (!txtPassword1.Text.Trim().Equals(txtPassword2.Text.Trim()))
             {
                 MessageBox.Show("Os caracteres não são compatíveis!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtPassword2.Focus();
@@ -230,6 +230,14 @@ namespace SystemGymControl
         {
             avatar = "";
             pcAvatar.Image = null;
+        }
+
+        private void FrmSaveUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSave_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
         }
 
         private void pcUpdateFormatPassword_Click(object sender, EventArgs e)

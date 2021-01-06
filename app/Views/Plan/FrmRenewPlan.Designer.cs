@@ -273,10 +273,12 @@ namespace SystemGymControl
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "FrmRenewPlan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Renovar Plano";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRenewPlan_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmRenewPlan_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();

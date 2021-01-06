@@ -183,6 +183,15 @@ namespace SystemGymControl
             this.Close();
         }
 
+        private void FrmRenewPlan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnRenewPlan_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+
+        }
+
         private void btnClose_MouseEnter(object sender, EventArgs e)
         {
             btnClose.Image = Properties.Resources.icons8_close_window_32px_enter1;

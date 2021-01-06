@@ -278,5 +278,14 @@ namespace SystemGymControl
         {
             LoadDataPackages();
         }
+
+        private void FrmPurchasePlan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnPurchasePlan_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape)
+                btnCancel_Click(sender, e);
+
+        }
     }
 }

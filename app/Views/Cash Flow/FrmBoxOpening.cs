@@ -7,9 +7,13 @@ namespace SystemGymControl
 {
     public partial class FrmBoxOpening : Form
     {
-        public FrmBoxOpening()
+        string nameUser, avatar;
+
+        public FrmBoxOpening(string nameUser, string avatar)
         {
             InitializeComponent();
+            this.nameUser = nameUser;
+            this.avatar = avatar;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -66,7 +70,7 @@ namespace SystemGymControl
                 cashFlow.Save(icomingCashFlow);
 
                 this.Visible = false;
-                new FrmGymControl(cashFlow._id).ShowDialog();
+                new FrmGymControl(cashFlow._id,  nameUser,  avatar).ShowDialog();
             }
             catch (Exception ex)
             {
@@ -86,6 +90,12 @@ namespace SystemGymControl
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void FrmBoxOpening_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnConfirm_Click(sender, e);
         }
     }
 }
