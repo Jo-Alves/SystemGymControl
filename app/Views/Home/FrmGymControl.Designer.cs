@@ -40,7 +40,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnMenuQuestion = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCashFlow = new System.Windows.Forms.Button();
             this.btnMenuReport = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
             this.btnMenuPayment = new System.Windows.Forms.Button();
@@ -154,7 +154,7 @@
             // 
             this.panel3.Controls.Add(this.btnSetting);
             this.panel3.Controls.Add(this.btnMenuQuestion);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btnCashFlow);
             this.panel3.Controls.Add(this.btnMenuReport);
             this.panel3.Controls.Add(this.btnMenuSales);
             this.panel3.Controls.Add(this.btnMenuPayment);
@@ -215,26 +215,27 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::SystemGymControl.Properties.Resources.icons8_flow_32px_1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(0, 294);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button2.Size = new System.Drawing.Size(235, 49);
-            this.button2.TabIndex = 40;
-            this.button2.TabStop = false;
-            this.button2.Text = "Fluxo de Caixa";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCashFlow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnCashFlow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCashFlow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCashFlow.FlatAppearance.BorderSize = 0;
+            this.btnCashFlow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnCashFlow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnCashFlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCashFlow.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCashFlow.ForeColor = System.Drawing.Color.White;
+            this.btnCashFlow.Image = global::SystemGymControl.Properties.Resources.icons8_flow_32px_1;
+            this.btnCashFlow.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCashFlow.Location = new System.Drawing.Point(0, 294);
+            this.btnCashFlow.Name = "button2";
+            this.btnCashFlow.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCashFlow.Size = new System.Drawing.Size(235, 49);
+            this.btnCashFlow.TabIndex = 40;
+            this.btnCashFlow.TabStop = false;
+            this.btnCashFlow.Text = "Fluxo de Caixa";
+            this.btnCashFlow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCashFlow.UseVisualStyleBackColor = false;
+            this.btnCashFlow.Click += new System.EventHandler(this.btnCashFlow_Click);
             // 
             // btnMenuReport
             // 
@@ -497,6 +498,6 @@
         private System.Windows.Forms.Button btnMenuPayment;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnMenuQuestion;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCashFlow;
     }
 }

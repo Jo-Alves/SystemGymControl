@@ -103,6 +103,16 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bank_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_bank_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_card_payment_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_card_payment_32px", resourceCulture);
@@ -116,6 +126,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_card_payment_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_card_payment_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cash_register_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cash_register_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +256,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_flow_32px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_flow_32px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_flow_64px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_flow_64px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

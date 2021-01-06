@@ -104,6 +104,18 @@
     <Compile Include="Views\Cash Flow\FrmBoxOpening.Designer.cs">
       <DependentUpon>FrmBoxOpening.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cash Flow\frmClosingCashFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cash Flow\frmClosingCashFlow.Designer.cs">
+      <DependentUpon>frmClosingCashFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cash Flow\FrmOptionClosingCashFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cash Flow\FrmOptionClosingCashFlow.Designer.cs">
+      <DependentUpon>FrmOptionClosingCashFlow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Initial\FrmLoadSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +275,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Cash Flow\FrmBoxOpening.resx">
       <DependentUpon>FrmBoxOpening.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cash Flow\frmClosingCashFlow.resx">
+      <DependentUpon>frmClosingCashFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cash Flow\FrmOptionClosingCashFlow.resx">
+      <DependentUpon>FrmOptionClosingCashFlow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
@@ -644,6 +662,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_flow_64px_1.png" />
+    <None Include="Resources\icons8_cash_register_64px.png" />
+    <None Include="Resources\icons8_bank_64px.png" />
     <None Include="Resources\icons8_receipt_32px.png" />
     <None Include="Resources\icons8_get_revenue_32px.png" />
     <None Include="Resources\icons8_pay_32px.png" />

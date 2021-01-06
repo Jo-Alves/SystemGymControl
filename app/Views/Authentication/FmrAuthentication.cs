@@ -75,7 +75,11 @@ namespace SystemGymControl
         {
             try
             {
-                new FrmReportTipPassword(txtUser.Text.Trim(), new Bussiness.User().SearchUser(txtUser.Text.Trim()).Rows[0]["question"].ToString()).ShowDialog();
+                if (new Bussiness.User().SearchUser(txtUser.Text.Trim()).Rows.Count > 0)
+                    new FrmReportTipPassword(txtUser.Text.Trim(), new Bussiness.User().SearchUser(txtUser.Text.Trim()).Rows[0]["question"].ToString()).ShowDialog();
+                else
+                    MessageBox.Show($"O usuário {txtUser.Text} não existe!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             }
             catch (Exception ex)
             {

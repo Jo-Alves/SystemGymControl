@@ -209,11 +209,11 @@ namespace SystemGymControl
         {
             try
             {
-                if (new Bussiness.Plan().SearchAll().Rows.Count > 0)
+                if (new Plan().SearchAll().Rows.Count > 0)
                     OpenForm.ShowForm(new FrmPlans(), this);
                 else
                 {
-                    if (new Bussiness.Package().SearchAll().Rows.Count > 0)
+                    if (new Package().SearchAll().Rows.Count > 0)
                         OpenForm.ShowForm(new FrmPurchasePlan(), this);
                     else
                         MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -225,6 +225,12 @@ namespace SystemGymControl
             }
 
             lblTitle.Text = "EXPLOSION ACADEMIA --- Plano";
+        }
+
+        private void btnCashFlow_Click(object sender, EventArgs e)
+        {
+            OpenForm.ShowForm(new frmOptionClosingCashFlow(), this);
+            lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo de Caixa";
         }
 
         private void btnMenuPayment_Click(object sender, EventArgs e)
