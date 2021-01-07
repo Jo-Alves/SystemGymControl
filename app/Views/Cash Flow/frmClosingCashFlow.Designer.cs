@@ -29,11 +29,11 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNumberBox = new System.Windows.Forms.Label();
             this.lblDateEntry = new System.Windows.Forms.Label();
@@ -41,26 +41,20 @@ namespace SystemGymControl
             this.lblOperator = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gb = new System.Windows.Forms.GroupBox();
+            this.lblValueReicept = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblValueCardDeb = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblValueCardCred = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblRemove = new System.Windows.Forms.Label();
+            this.lblExitBox = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblEntryBox = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvDataHistoryPayment = new System.Windows.Forms.DataGridView();
-            this.txtValueBox = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtBalance = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblValueReicept = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.idCash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +62,12 @@ namespace SystemGymControl
             this.formPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtValueTotalBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblBalance = new System.Windows.Forms.Label();
             this.gb.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataHistoryPayment)).BeginInit();
@@ -158,7 +158,7 @@ namespace SystemGymControl
             this.gb.Controls.Add(this.label11);
             this.gb.Controls.Add(this.lblDiscount);
             this.gb.Controls.Add(this.label9);
-            this.gb.Controls.Add(this.lblRemove);
+            this.gb.Controls.Add(this.lblExitBox);
             this.gb.Controls.Add(this.label7);
             this.gb.Controls.Add(this.lblEntryBox);
             this.gb.Controls.Add(this.label3);
@@ -169,6 +169,32 @@ namespace SystemGymControl
             this.gb.TabIndex = 6;
             this.gb.TabStop = false;
             this.gb.Text = "Movimentação do dia";
+            // 
+            // lblValueReicept
+            // 
+            this.lblValueReicept.BackColor = System.Drawing.Color.White;
+            this.lblValueReicept.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblValueReicept.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.lblValueReicept.ForeColor = System.Drawing.Color.Green;
+            this.lblValueReicept.Location = new System.Drawing.Point(536, 82);
+            this.lblValueReicept.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValueReicept.Name = "lblValueReicept";
+            this.lblValueReicept.Size = new System.Drawing.Size(152, 32);
+            this.lblValueReicept.TabIndex = 13;
+            this.lblValueReicept.Text = "R$ 0,00";
+            this.lblValueReicept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(549, 49);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 26);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Valor Recebido";
             // 
             // lblValueCardDeb
             // 
@@ -248,19 +274,19 @@ namespace SystemGymControl
             this.label9.TabIndex = 6;
             this.label9.Text = "Desconto";
             // 
-            // lblRemove
+            // lblExitBox
             // 
-            this.lblRemove.BackColor = System.Drawing.Color.White;
-            this.lblRemove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRemove.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.lblRemove.ForeColor = System.Drawing.Color.Black;
-            this.lblRemove.Location = new System.Drawing.Point(189, 82);
-            this.lblRemove.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRemove.Name = "lblRemove";
-            this.lblRemove.Size = new System.Drawing.Size(152, 32);
-            this.lblRemove.TabIndex = 5;
-            this.lblRemove.Text = "R$ 0,00";
-            this.lblRemove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblExitBox.BackColor = System.Drawing.Color.White;
+            this.lblExitBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblExitBox.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.lblExitBox.ForeColor = System.Drawing.Color.Black;
+            this.lblExitBox.Location = new System.Drawing.Point(189, 82);
+            this.lblExitBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblExitBox.Name = "lblExitBox";
+            this.lblExitBox.Size = new System.Drawing.Size(152, 32);
+            this.lblExitBox.TabIndex = 5;
+            this.lblExitBox.Text = "R$ 0,00";
+            this.lblExitBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -316,14 +342,14 @@ namespace SystemGymControl
             this.dgvDataHistoryPayment.AllowUserToAddRows = false;
             this.dgvDataHistoryPayment.AllowUserToDeleteRows = false;
             this.dgvDataHistoryPayment.BackgroundColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 14F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataHistoryPayment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 14F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataHistoryPayment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDataHistoryPayment.ColumnHeadersHeight = 30;
             this.dgvDataHistoryPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataHistoryPayment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -341,28 +367,96 @@ namespace SystemGymControl
             this.dgvDataHistoryPayment.MultiSelect = false;
             this.dgvDataHistoryPayment.Name = "dgvDataHistoryPayment";
             this.dgvDataHistoryPayment.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 14F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataHistoryPayment.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Open Sans", 14F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataHistoryPayment.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDataHistoryPayment.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.dgvDataHistoryPayment.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Open Sans", 12F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            this.dgvDataHistoryPayment.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDataHistoryPayment.Size = new System.Drawing.Size(1050, 287);
             this.dgvDataHistoryPayment.TabIndex = 31;
+            this.dgvDataHistoryPayment.TabStop = false;
             // 
-            // txtValueBox
+            // idCash
             // 
-            this.txtValueBox.Location = new System.Drawing.Point(44, 628);
-            this.txtValueBox.Name = "txtValueBox";
-            this.txtValueBox.Size = new System.Drawing.Size(158, 33);
-            this.txtValueBox.TabIndex = 8;
-            this.txtValueBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.idCash.HeaderText = "idCach";
+            this.idCash.Name = "idCash";
+            this.idCash.ReadOnly = true;
+            this.idCash.Visible = false;
+            // 
+            // description
+            // 
+            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.description.HeaderText = "Pacote";
+            this.description.Name = "description";
+            this.description.ReadOnly = true;
+            this.description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // value
+            // 
+            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.value.DefaultCellStyle = dataGridViewCellStyle7;
+            this.value.HeaderText = "Valor pago";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
+            this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.value.Width = 113;
+            // 
+            // valueDiscount
+            // 
+            this.valueDiscount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valueDiscount.DefaultCellStyle = dataGridViewCellStyle8;
+            this.valueDiscount.HeaderText = "Desconto";
+            this.valueDiscount.Name = "valueDiscount";
+            this.valueDiscount.ReadOnly = true;
+            this.valueDiscount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valueDiscount.Width = 102;
+            // 
+            // formPayment
+            // 
+            this.formPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.formPayment.HeaderText = "Forma de Pagamento";
+            this.formPayment.Name = "formPayment";
+            this.formPayment.ReadOnly = true;
+            this.formPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.formPayment.Width = 211;
+            // 
+            // payday
+            // 
+            this.payday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.payday.HeaderText = "Data de pagamento";
+            this.payday.Name = "payday";
+            this.payday.ReadOnly = true;
+            this.payday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.payday.Width = 197;
+            // 
+            // paymentTime
+            // 
+            this.paymentTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.paymentTime.HeaderText = "Hora do pagamento";
+            this.paymentTime.Name = "paymentTime";
+            this.paymentTime.ReadOnly = true;
+            this.paymentTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.paymentTime.Width = 198;
+            // 
+            // txtValueTotalBox
+            // 
+            this.txtValueTotalBox.Location = new System.Drawing.Point(44, 628);
+            this.txtValueTotalBox.Name = "txtValueTotalBox";
+            this.txtValueTotalBox.Size = new System.Drawing.Size(158, 33);
+            this.txtValueTotalBox.TabIndex = 0;
+            this.txtValueTotalBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValueTotalBox.TextChanged += new System.EventHandler(this.txtValueTotalBox_TextChanged);
+            this.txtValueTotalBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValueTotalBox_KeyPress);
+            this.txtValueTotalBox.Leave += new System.EventHandler(this.txtValueTotalBox_Leave);
             // 
             // label14
             // 
@@ -375,14 +469,6 @@ namespace SystemGymControl
             this.label14.Size = new System.Drawing.Size(143, 26);
             this.label14.TabIndex = 9;
             this.label14.Text = "Valor em caixa";
-            // 
-            // txtBalance
-            // 
-            this.txtBalance.Location = new System.Drawing.Point(209, 628);
-            this.txtBalance.Name = "txtBalance";
-            this.txtBalance.Size = new System.Drawing.Size(158, 33);
-            this.txtBalance.TabIndex = 10;
-            this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
             // 
@@ -435,95 +521,18 @@ namespace SystemGymControl
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnCloseBox_Click);
             // 
-            // lblValueReicept
+            // lblBalance
             // 
-            this.lblValueReicept.BackColor = System.Drawing.Color.White;
-            this.lblValueReicept.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblValueReicept.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.lblValueReicept.ForeColor = System.Drawing.Color.Green;
-            this.lblValueReicept.Location = new System.Drawing.Point(536, 82);
-            this.lblValueReicept.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblValueReicept.Name = "lblValueReicept";
-            this.lblValueReicept.Size = new System.Drawing.Size(152, 32);
-            this.lblValueReicept.TabIndex = 13;
-            this.lblValueReicept.Text = "R$ 0,00";
-            this.lblValueReicept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(549, 49);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 26);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Valor Recebido";
-            // 
-            // idCash
-            // 
-            this.idCash.HeaderText = "idCach";
-            this.idCash.Name = "idCash";
-            this.idCash.ReadOnly = true;
-            this.idCash.Visible = false;
-            // 
-            // description
-            // 
-            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.description.HeaderText = "Pacote";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            this.description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // value
-            // 
-            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.value.DefaultCellStyle = dataGridViewCellStyle2;
-            this.value.HeaderText = "Valor pago";
-            this.value.Name = "value";
-            this.value.ReadOnly = true;
-            this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.value.Width = 113;
-            // 
-            // valueDiscount
-            // 
-            this.valueDiscount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.valueDiscount.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valueDiscount.HeaderText = "Desconto";
-            this.valueDiscount.Name = "valueDiscount";
-            this.valueDiscount.ReadOnly = true;
-            this.valueDiscount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valueDiscount.Width = 102;
-            // 
-            // formPayment
-            // 
-            this.formPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.formPayment.HeaderText = "Forma de Pagamento";
-            this.formPayment.Name = "formPayment";
-            this.formPayment.ReadOnly = true;
-            this.formPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.formPayment.Width = 211;
-            // 
-            // payday
-            // 
-            this.payday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.payday.HeaderText = "Data de pagamento";
-            this.payday.Name = "payday";
-            this.payday.ReadOnly = true;
-            this.payday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.payday.Width = 197;
-            // 
-            // paymentTime
-            // 
-            this.paymentTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.paymentTime.HeaderText = "Hora do pagamento";
-            this.paymentTime.Name = "paymentTime";
-            this.paymentTime.ReadOnly = true;
-            this.paymentTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.paymentTime.Width = 198;
+            this.lblBalance.BackColor = System.Drawing.Color.White;
+            this.lblBalance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBalance.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.lblBalance.ForeColor = System.Drawing.Color.Black;
+            this.lblBalance.Location = new System.Drawing.Point(218, 628);
+            this.lblBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(152, 33);
+            this.lblBalance.TabIndex = 14;
+            this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmClosingCashFlow
             // 
@@ -532,12 +541,12 @@ namespace SystemGymControl
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1131, 680);
+            this.Controls.Add(this.lblBalance);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.txtBalance);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtValueBox);
+            this.Controls.Add(this.txtValueTotalBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb);
             this.Controls.Add(this.lblOperator);
@@ -578,15 +587,14 @@ namespace SystemGymControl
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblRemove;
+        private System.Windows.Forms.Label lblExitBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblEntryBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvDataHistoryPayment;
-        private System.Windows.Forms.TextBox txtValueBox;
+        private System.Windows.Forms.TextBox txtValueTotalBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnClose;
@@ -599,5 +607,6 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn formPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn payday;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentTime;
+        private System.Windows.Forms.Label lblBalance;
     }
 }

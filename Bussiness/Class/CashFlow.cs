@@ -12,6 +12,8 @@ namespace Bussiness
         private string closingDate;
         private string closingTime;
 
+        Database.CashFlow cash = new Database.CashFlow();
+
         public int _id
         {
             get { return id; }
@@ -76,23 +78,28 @@ namespace Bussiness
 
         public DataTable SearchID(int cashFlow)
         {
-            return new Database.CashFlow().SearchID(cashFlow);
+            return cash.SearchID(cashFlow);
         }
 
         public DataTable SearchAll()
         {
-            return new Database.CashFlow().SearchAll();
+            return cash.SearchAll();
         }
 
 
         public int GetMaxCashFlowID()
         {
-            return new Database.CashFlow().GetMaxCashFlowID();
+            return cash.GetMaxCashFlowID();
         }
 
         public bool HaveCashFlowOpen()
         {
-            return new Database.CashFlow().HaveCashFlowOpen();
+            return cash.HaveCashFlowOpen();
+        }
+
+        public void ClosingBox(decimal balance, int idCash)
+        {
+            cash.ClosingBox(balance, idCash);
         }
     }
 }

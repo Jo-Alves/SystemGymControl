@@ -37,7 +37,7 @@ namespace SystemGymControl
             dgvDataPlan.Rows.Clear();
 
             this.idPlan = idPlan;
-            var dataCashPayment = payment.SearchCashPaymentPlanMoney(idPlan);
+            var dataCashPayment = payment.SearchCashPaymentPlanMounth(idPlan);
 
             foreach (DataRow dr in dataCashPayment.Rows)
             {

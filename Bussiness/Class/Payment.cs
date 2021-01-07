@@ -74,9 +74,9 @@ namespace Bussiness
             return payment.SearchPlanID(planID);
         }
 
-        public DataTable SearchCashPaymentPlanMoney(int idPlan)
+        public DataTable SearchCashPaymentPlanMounth(int idPlan)
         {
-            return payment.SearchCashPaymentPlanMoney(idPlan);
+            return payment.SearchCashPaymentPlanMounth(idPlan);
         }
 
         public DataTable SearchCashPaymentPlanIDCash(int idCash)

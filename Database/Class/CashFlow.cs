@@ -12,7 +12,7 @@ namespace Database
         private decimal cashValueTotal;
         private decimal outputValueTotal;
         private string closingDate;
-        private string closingTime;
+        private string closingTime;        
 
         string _sql;
 
@@ -59,7 +59,7 @@ namespace Database
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
 
-                _sql = "INSERT INTO cash_flow VALUES (@openingDate, @openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime); SELECT @@IDENTITY";
+                _sql = "INSERT INTO cash_flow (opening_date ,opening_time ,cash_value_total ,output_value_total ,closing_date ,closing_time) VALUES (@openingDate, @openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime); SELECT @@IDENTITY";
 
                 SqlCommand command = new SqlCommand(_sql, connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
@@ -75,7 +75,6 @@ namespace Database
                     icomingCashFlow.Save(transaction);
 
                     transaction.Commit();
-
                 }
                 catch
                 {
@@ -186,6 +185,27 @@ namespace Database
             }
 
             return haveCashFlowOpen;
-        }       
+        }   
+        
+        public void ClosingBox(decimal balance, int idCash)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                connection.Open();
+                _sql = $"UPDATE cash_Flow SET balance = @balance, closing_date = '{DateTime.Now.ToShortDateString()}', closing_time = '{DateTime.Now.ToLongTimeString()}' WHERE id = @idCash";
+
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@balance", balance);
+                command.Parameters.AddWithValue("@idCash", idCash);
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

@@ -153,7 +153,7 @@ namespace Database
             }
         }
 
-        public DataTable SearchCashPaymentPlanMoney(int idPlan)
+        public DataTable SearchCashPaymentPlanMounth(int idPlan)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
