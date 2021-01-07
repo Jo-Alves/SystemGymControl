@@ -7,13 +7,14 @@ namespace SystemGymControl
 {
     public partial class FrmBoxOpening : Form
     {
-        string nameUser, avatar;
+        string nameUser, avatar, name;
 
-        public FrmBoxOpening(string nameUser, string avatar)
+        public FrmBoxOpening(string nameUser, string avatar, string name)
         {
             InitializeComponent();
             this.nameUser = nameUser;
             this.avatar = avatar;
+            this.name = name;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace SystemGymControl
                 cashFlow.Save(icomingCashFlow);
 
                 this.Visible = false;
-                new FrmGymControl(cashFlow._id,  nameUser,  avatar).ShowDialog();
+                new FrmGymControl(cashFlow._id, nameUser, avatar, name).ShowDialog();
             }
             catch (Exception ex)
             {

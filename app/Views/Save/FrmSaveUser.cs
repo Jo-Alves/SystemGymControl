@@ -97,12 +97,12 @@ namespace SystemGymControl
                 if (!ValidateFields() || !ValidateFieldEmail()) return;
 
 
-                    if (!string.IsNullOrWhiteSpace(avatar))
-                        CopyAvatarOuterDirectory();
+                if (!string.IsNullOrWhiteSpace(avatar))
+                    CopyAvatarOuterDirectory();
 
-                    user._avatar = avatar;
-                    user.Save();
-                    OpenForm.ShowForm(new FrmUsers(), this);
+                user._avatar = avatar;
+                user.Save();
+                OpenForm.ShowForm(new FrmUsers(), this);
             }
             catch (Exception ex)
             {

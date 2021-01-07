@@ -57,5 +57,10 @@ namespace Bussiness
         {
             return new Database.IcomingCashFlow().SearchAll();
         }
+
+        public decimal GetValueEntryInitial(int idCash)
+        {
+            return new Database.IcomingCashFlow().GetValueEntryInitial(idCash);
+        }
     }
 }

@@ -96,14 +96,15 @@ namespace SystemGymControl
             if (user.Logout(txtUser.Text.Trim(), txtPassword.Text.Trim()))
             {
                 var dataUser = new Bussiness.User().GetUserOrName(txtUser.Text.Trim());
+                string name = dataUser.Rows[0]["name"].ToString();
                 string nameUser = dataUser.Rows[0]["name_user"].ToString();
                 string avatar = dataUser.Rows[0]["avatar"].ToString();
                 this.Visible = false;
 
                 if (new Bussiness.CashFlow().HaveCashFlowOpen())
-                    new FrmGymControl(nameUser, avatar).ShowDialog();
+                    new FrmGymControl(nameUser, avatar, name).ShowDialog();
                 else
-                    new FrmBoxOpening(nameUser, avatar).ShowDialog();
+                    new FrmBoxOpening(nameUser, avatar, name).ShowDialog();
 
             }
             else

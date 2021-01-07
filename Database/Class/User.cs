@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -174,7 +173,7 @@ namespace Database
                 }
             }
         }
-        
+
         public DataTable GetUserOrName(string user)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -311,7 +310,7 @@ namespace Database
                     connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
                     if (dr.Read())
-                    {                       
+                    {
                         answerCorrect = true;
                     }
                 }

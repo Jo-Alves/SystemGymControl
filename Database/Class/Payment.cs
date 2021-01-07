@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -158,7 +159,7 @@ namespace Database
             {
                 try
                 {
-                    _sql = "SELECT *, payments.id as idCash, students.id as idStudent FROM payments INNER JOIN plans ON plans.id = payments.plan_id INNER JOIN students ON students.id = plans.student_id WHERE plans.id = @id";
+                    _sql = "SELECT *, payments.id as idCash, students.id as idStudent FROM payments INNER JOIN plans ON plans.id = payments.plan_id INNER JOIN students ON students.id = plans.student_id WHERE plans.id = @id ORDER BY payments.id DESC";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", idPlan);
                     DataTable table = new DataTable();
@@ -204,6 +205,25 @@ namespace Database
                 try
                 {
                     command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public DataTable HistoryPayment(string entryTimeCashFlow)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM payments INNER JOIN plans ON planS.id = payments.plan_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id WHERE payments.payday = '{DateTime.Now.ToShortDateString()}' AND CONVERT(time, payment_time, 103) > CONVERT(time, '{entryTimeCashFlow}', 103)";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
                 catch
                 {

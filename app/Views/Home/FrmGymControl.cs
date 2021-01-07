@@ -13,6 +13,7 @@ namespace SystemGymControl
         CashFlow cashFlow = new CashFlow();
         Payment payment = new Payment();
         int idCashFlow, id;
+        string nameUser;
 
         public FrmGymControl()
         {
@@ -20,21 +21,22 @@ namespace SystemGymControl
             InitialSettings(cashFlow.GetMaxCashFlowID());
         }
 
-        public FrmGymControl(int id, string nameUser, string avatar)
+        public FrmGymControl(int id, string nameUser, string avatar, string name)
         {
             InitializeComponent();
             this.id = id;
             InitialSettings(id);
+            loadFieldsPerfil(nameUser, avatar, name);
         }
 
-        public FrmGymControl(string nameUser, string avatar)
+        public FrmGymControl(string nameUser, string avatar, string name)
         {
             InitializeComponent();
             InitialSettings(cashFlow.GetMaxCashFlowID());
-            loadFieldsPerfil(nameUser, avatar);
+            loadFieldsPerfil(nameUser, avatar, name);
         }
 
-        private void loadFieldsPerfil(string nameUser, string avatar)
+        private void loadFieldsPerfil(string nameUser, string avatar, string name)
         {
             if (!string.IsNullOrEmpty(avatar))
             {
@@ -43,6 +45,7 @@ namespace SystemGymControl
             }
 
             lblUser.Text = nameUser;
+            this.nameUser = name;
         }
 
         private void InitialSettings(int id)
@@ -139,6 +142,12 @@ namespace SystemGymControl
                 }
                 return _obj;
             }
+        }
+
+        public string _nameUser
+        {
+            get { return nameUser; }
+            set { nameUser = value; }
         }
 
         public Panel PnPageContainer

@@ -177,7 +177,7 @@ namespace Database
                     connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
                     if (dr.Read())
-                        haveCashFlowOpen = true;                   
+                        haveCashFlowOpen = true;
                 }
                 catch
                 {
@@ -186,6 +186,6 @@ namespace Database
             }
 
             return haveCashFlowOpen;
-        }
+        }       
     }
 }

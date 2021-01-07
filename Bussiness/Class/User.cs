@@ -119,8 +119,8 @@ namespace Bussiness
         public DataTable SearchID(int idUser)
         {
             return new Database.User().SearchID(idUser);
-        } 
-        
+        }
+
         public DataTable GetUserOrName(string user)
         {
             return new Database.User().GetUserOrName(user);
@@ -129,12 +129,12 @@ namespace Bussiness
         public bool Logout(string user, string password)
         {
             return new Database.User().Logout(user, password);
-        } 
+        }
 
         public bool ExitNameOrUser(string user)
         {
             return new Database.User().ExitNameOrUser(user);
-            
+
         }
 
         public bool CheckedAnswerSecurity(string name, string answer)

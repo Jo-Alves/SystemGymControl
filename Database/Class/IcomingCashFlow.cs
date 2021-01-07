@@ -120,5 +120,30 @@ namespace Database
                 throw;
             }
         }
+
+        public decimal GetValueEntryInitial(int idCash)
+        {
+            decimal valueEntry = 0.00M;
+
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT value_money FROM icoming_cash_flow WHERE cash_flow_id = @idCash AND description_icoming = 'Valor inicial'";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("idCash", idCash);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                        valueEntry = decimal.Parse(dr["value_money"].ToString());
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return valueEntry;
+        }
     }
 }

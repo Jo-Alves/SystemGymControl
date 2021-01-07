@@ -11,7 +11,7 @@ namespace SystemGymControl
         {
             InitializeComponent();
         }
-        
+
         public FrmReportTipPassword(string name, string question)
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace SystemGymControl
             }
             catch (Exception ex)
             {
-                    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -52,7 +52,7 @@ namespace SystemGymControl
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
     }
