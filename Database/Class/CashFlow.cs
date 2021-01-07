@@ -207,5 +207,29 @@ namespace Database
                 }
             }
         }
+
+        public bool CheckedBoxClosing(int idCash)
+        {
+            bool boxItIsClosing = false;
+
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM cash_flow WHERE closing_date <> '' AND id = {idCash}";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                        boxItIsClosing = true;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return boxItIsClosing;
+        }
     }
 }

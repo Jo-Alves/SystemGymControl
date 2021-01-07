@@ -149,7 +149,13 @@ namespace SystemGymControl
                         return;
                     }
 
-                    if (dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower().Equals("mensal"))
+                    if (new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
+                    {
+                        MessageBox.Show("Não há como realizar renovar plano neste momento. Para renovar plano fecha o sistema e abra um novo caixa", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                        if (dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower().Equals("mensal"))
                     {
                         MessageBox.Show("Você será redirecionado para a tela de pagamento.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -177,10 +183,25 @@ namespace SystemGymControl
 
         private void btnPlan_Click(object sender, EventArgs e)
         {
-            if (new Package().SearchAll().Rows.Count > 0)
-                OpenForm.ShowForm(new FrmPurchasePlan(), this);
-            else
-                MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            try
+            {
+
+                if (!new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
+                {
+                    if (new Package().SearchAll().Rows.Count > 0)
+                        OpenForm.ShowForm(new FrmPurchasePlan(), this);
+                    else
+                        MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                    MessageBox.Show("Não há como realizar um novo plano neste momento. Para realizar um novo plano fecha o sistema e abra um novo caixa", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

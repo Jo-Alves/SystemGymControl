@@ -13,7 +13,7 @@ namespace SystemGymControl
         CashFlow cashFlow = new CashFlow();
         Payment payment = new Payment();
         int idCashFlow, id;
-        string nameUser;
+        string nameUser, name;
 
         public FrmGymControl()
         {
@@ -45,7 +45,8 @@ namespace SystemGymControl
             }
 
             lblUser.Text = nameUser;
-            this.nameUser = name;
+            this.nameUser = nameUser;
+            this.name = name;
         }
 
         private void InitialSettings(int id)
@@ -140,6 +141,7 @@ namespace SystemGymControl
                 {
                     _obj = new FrmGymControl();
                 }
+               
                 return _obj;
             }
         }
@@ -149,11 +151,23 @@ namespace SystemGymControl
             get { return nameUser; }
             set { nameUser = value; }
         }
+        
+        public string _name
+        {
+            get { return name; }
+            set { name = value; }
+        }
 
         public Panel PnPageContainer
         {
             get { return pnPage; }
             set { pnPage = value; }
+        } 
+        
+        public PictureBox _pcPerfil
+        {
+            get { return pcPerfil; }
+            set { pcPerfil = value; }
         }
 
         public Label _lblTitle

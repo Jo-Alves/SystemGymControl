@@ -27,11 +27,13 @@ namespace SystemGymControl
             try
             {
                 var dataUser = user.SearchID(id);
+                nameUser = dataUser.Rows[0]["name_user"].ToString();
+
                 txtUser.Enabled = false;
                 idUser = int.Parse(dataUser.Rows[0]["id"].ToString());
                 txtName.Text = dataUser.Rows[0]["name"].ToString();
                 txtEmail.Text = dataUser.Rows[0]["email"].ToString();
-                txtUser.Text = dataUser.Rows[0]["name_user"].ToString();
+                txtUser.Text = nameUser;
                 txtPassword1.Text = dataUser.Rows[0]["password"].ToString();
                 txtPassword2.Text = txtPassword1.Text;
                 cbQuestion.Text = dataUser.Rows[0]["question"].ToString();
@@ -103,10 +105,27 @@ namespace SystemGymControl
                 user._avatar = avatar;
                 user.Save();
                 OpenForm.ShowForm(new FrmUsers(), this);
+
+                ShowPerfilAvatar();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ShowPerfilAvatar()
+        {
+            if (nameUser == FrmGymControl.Instance._nameUser)
+            {
+                if (!string.IsNullOrWhiteSpace(avatar))
+                {
+                    FrmGymControl.Instance._pcPerfil.ImageLocation = avatar;
+                    FrmGymControl.Instance._pcPerfil.Load();
+                }
+                else
+                    FrmGymControl.Instance._pcPerfil.Image = Properties.Resources.icons8_person_female_50px;
+
             }
         }
 

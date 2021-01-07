@@ -42,7 +42,7 @@ namespace SystemGymControl
 
         private void FrmClosingCashFlow_Load(object sender, EventArgs e)
         {
-            lblOperator.Text = FrmGymControl.Instance._nameUser;
+            lblOperator.Text = FrmGymControl.Instance._name;
             try
             {
                 GetDataCashFlow(FrmGymControl.Instance._IdCashFlow);

@@ -186,6 +186,7 @@ namespace SystemGymControl
             this.btnSaveStudent.TabIndex = 1;
             this.btnSaveStudent.Text = "Ir para a tela";
             this.btnSaveStudent.UseVisualStyleBackColor = false;
+            this.btnSaveStudent.Click += new System.EventHandler(this.btnSaveStudent_Click);
             // 
             // pcStudent
             // 

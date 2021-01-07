@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bussiness;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -89,11 +90,23 @@ namespace SystemGymControl
                 dgvDataPlan.ClearSelection();
                 if (dgvDataPlan.CurrentCell.ColumnIndex == 0 && dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().ToLower() == "a receber")
                 {
-                    var effectPayment = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idCash"].Value.ToString()));
-                    effectPayment.ShowDialog();
-                    if (effectPayment.paymentEffected)
+                    try
                     {
-                        LoadDataCashPayment(idPlan);
+                        if (!new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
+                        {
+                            var effectPayment = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idCash"].Value.ToString()));
+                            effectPayment.ShowDialog();
+                            if (effectPayment.paymentEffected)
+                            {
+                                LoadDataCashPayment(idPlan);
+                            }
+                        }
+                        else
+                            MessageBox.Show("Não há como efetuar o pagamento no sistema neste momento. Para efetuar o pagamento fecha o sistema e abra um novo caixa", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else if (dgvDataPlan.CurrentCell.ColumnIndex == 0 && dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().ToLower() == "pago")

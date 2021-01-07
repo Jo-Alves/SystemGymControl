@@ -101,5 +101,10 @@ namespace Bussiness
         {
             cash.ClosingBox(balance, idCash);
         }
+
+        public bool CheckedBoxClosing(int idCash)
+        {
+            return cash.CheckedBoxClosing(idCash);
+        }
     }
 }
