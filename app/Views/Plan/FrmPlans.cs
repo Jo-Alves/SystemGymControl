@@ -151,7 +151,7 @@ namespace SystemGymControl
 
                     if (new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
                     {
-                        MessageBox.Show("Não há como realizar renovar plano neste momento. Para renovar plano fecha o sistema e abra um novo caixa", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Não há como realizar renovar plano neste momento. Para renovar plano fecha o sistema e abra um novo caixa.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
@@ -194,7 +194,7 @@ namespace SystemGymControl
                         MessageBox.Show("Não há pacotes cadastrado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
-                    MessageBox.Show("Não há como realizar um novo plano neste momento. Para realizar um novo plano fecha o sistema e abra um novo caixa", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Não há como realizar um novo plano neste momento. Para realizar um novo plano fecha o sistema e abra um novo caixa.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             }

@@ -89,30 +89,37 @@ namespace SystemGymControl
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!ValidateFields()) return;
-
-            Bussiness.User user = new Bussiness.User();
-
-            if (user.Logout(txtUser.Text.Trim(), txtPassword.Text.Trim()))
+            try
             {
-                var dataUser = new Bussiness.User().GetUserOrName(txtUser.Text.Trim());
-                string name = dataUser.Rows[0]["name"].ToString();
-                string nameUser = dataUser.Rows[0]["name_user"].ToString();
-                string avatar = dataUser.Rows[0]["avatar"].ToString();
-                this.Visible = false;
+                if (!ValidateFields()) return;
 
-                if (new Bussiness.CashFlow().HaveCashFlowOpen())
-                    new FrmGymControl(nameUser, avatar, name).ShowDialog();
+                Bussiness.User user = new Bussiness.User();
+
+                if (user.Logout(txtUser.Text.Trim(), txtPassword.Text.Trim()))
+                {
+                    var dataUser = new Bussiness.User().GetUserOrName(txtUser.Text.Trim());
+                    string name = dataUser.Rows[0]["name"].ToString();
+                    string nameUser = dataUser.Rows[0]["name_user"].ToString();
+                    string avatar = dataUser.Rows[0]["avatar"].ToString();
+                    this.Visible = false;
+
+                    if (new Bussiness.CashFlow().HaveCashFlowOpen())
+                        new FrmGymControl(nameUser, avatar, name).ShowDialog();
+                    else
+                        new FrmBoxOpening(nameUser, avatar, name).ShowDialog();
+
+                }
                 else
-                    new FrmBoxOpening(nameUser, avatar, name).ShowDialog();
+                {
+                    MessageBox.Show("Usuário|email ou senha incorreta!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                    if (new Bussiness.User().ExitNameOrUser(txtUser.Text.Trim()))
+                        linkReset.Visible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Usuário|email ou senha incorreta!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                if (new Bussiness.User().ExitNameOrUser(txtUser.Text.Trim()))
-                    linkReset.Visible = true;
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

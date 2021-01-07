@@ -102,7 +102,7 @@ namespace SystemGymControl
                             }
                         }
                         else
-                            MessageBox.Show("Não há como efetuar o pagamento no sistema neste momento. Para efetuar o pagamento fecha o sistema e abra um novo caixa", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Não há como efetuar o pagamento no sistema neste momento. Para efetuar o pagamento fecha o sistema e abra um novo caixa.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
