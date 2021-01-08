@@ -46,17 +46,14 @@ namespace Database
             set { cashFlowID = value; }
         }
 
-        public void Save()
+        public void ExitMoney()
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+           using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                if (_id == 0)
-                    _sql = "INSERT INTO outgoing_cash_flow VALUES (@exitDate, @exitTime, @descriptionExit, @valueOutput, @closingTime, @cashFlowID)";
-                else
-                    _sql = "UPDATE outgoing_cash_flow SET exit_date = @exitDate, exit_time = @exitTime, description_exit = @descriptionExit, value_output = @valueOutput, cash_flow_id = @cashFlowID WHERE id = @id";
-
-                SqlCommand command = new SqlCommand(_sql, connection);
-                command.Parameters.AddWithValue("@id", _id);
+                _sql = "INSERT INTO outgoing_cash_flow VALUES (@exitDate, @exitTime, @descriptionExit, @valueOutput, @cashFlowID)";
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand(_sql, connection, transaction);
                 command.Parameters.AddWithValue("@exitDate", _exitDate);
                 command.Parameters.AddWithValue("@exitTime", _exitTime);
                 command.Parameters.AddWithValue("@descriptionExit", _descriptionExit);
@@ -64,19 +61,16 @@ namespace Database
                 command.Parameters.AddWithValue("@cashFlowID", _cashFlowID);
                 try
                 {
-                    connection.Open();
+                    new CashFlow().UpdateValueTotalAndOutputValueOutgoingCash(_cashFlowID, valueOutput, transaction);
                     command.ExecuteNonQuery();
+                    transaction.Commit();
                 }
                 catch
                 {
+                    transaction.Rollback();
                     throw;
                 }
             }
-        }
-
-        public void ExitMoney()
-        {
-           
         }
 
         public DataTable SearchID(int idOutgoing)

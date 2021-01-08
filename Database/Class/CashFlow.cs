@@ -207,6 +207,26 @@ namespace Database
                 }
             }
         }
+        
+        public void UpdateValueTotalAndOutputValueOutgoingCash(int idCash, decimal valueOutput, SqlTransaction transaction)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                _sql = $"UPDATE cash_Flow SET cash_value_total = cash_value_total - @valueOutput, output_value_Total = output_value_Total + @valueOutput WHERE id = @idCash";
+
+                SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
+                command.Parameters.AddWithValue("@valueOutput", valueOutput);
+                command.Parameters.AddWithValue("@idCash", idCash);
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
 
         public bool CheckedBoxClosing(int idCash)
         {

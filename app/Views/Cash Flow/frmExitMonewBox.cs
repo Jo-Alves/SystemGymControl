@@ -1,7 +1,5 @@
 ﻿using Bussiness;
 using System;
-using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace SystemGymControl
@@ -9,7 +7,7 @@ namespace SystemGymControl
     public partial class frmExitMonewBox : Form
     {
         string entryTimeCashFlow;
-        decimal valueEntryBox, valueExitBox, valueReicept = 0.00M, balance;
+        decimal valueEntryBox, valueExitBox, valueTotalCash;
 
         public frmExitMonewBox()
         {
@@ -28,9 +26,16 @@ namespace SystemGymControl
                 MessageBox.Show("Informe o valor para retirar do caixa!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtWithdrawMoney.Focus();
                 return;
-            }else if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            }
+            else if (string.IsNullOrWhiteSpace(txtDescription.Text))
             {
                 MessageBox.Show("Descreva o motivo a finalidade de retirar o valor do caixa!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDescription.Focus();
+                return;
+            }
+            else if (decimal.Parse(txtWithdrawMoney.Text) > valueTotalCash)
+            {
+                MessageBox.Show("O valor informado é maior que o valor do caixa!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDescription.Focus();
                 return;
             }
@@ -39,13 +44,18 @@ namespace SystemGymControl
             {
                 try
                 {
-                    var outgoinCashFlow = new OutgoingCashFlow() { _cashFlowID = FrmGymControl.Instance._IdCashFlow, _descriptionExit = txtDescription.Text.Trim(), _exitDate = DateTime.Now.ToShortDateString(), _exitTime = DateTime.Now.ToLongTimeString(), _valueOutput = decimal.Parse(txtWithdrawMoney.Text)};
+                    new OutgoingCashFlow()
+                    {
+                        _cashFlowID = FrmGymControl.Instance._IdCashFlow,
+                        _descriptionExit = txtDescription.Text.Trim(),
+                        _exitDate = DateTime.Now.ToShortDateString(),
+                        _exitTime = DateTime.Now.ToLongTimeString(),
+                        _valueOutput = decimal.Parse(txtWithdrawMoney.Text)
+                    }.ExitMoney();
 
-                    outgoinCashFlow.ExitMoney();
-                   
                     OpenForm.ShowForm(new FrmHome(), this);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -73,7 +83,7 @@ namespace SystemGymControl
         {
             var cashFlow = new CashFlow().SearchID(idCashFlow);
 
-            decimal valueTotalCash = decimal.Parse(cashFlow.Rows[0]["cash_value_total"].ToString());
+            valueTotalCash = decimal.Parse(cashFlow.Rows[0]["cash_value_total"].ToString());
 
             valueEntryBox = decimal.Parse(new IcomingCashFlow().GetValueEntryInitial(idCashFlow).ToString());
             valueExitBox = decimal.Parse(cashFlow.Rows[0]["output_value_total"].ToString());

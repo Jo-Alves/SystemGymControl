@@ -213,7 +213,7 @@
             this.btnMenuQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuQuestion.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnCashFlow
             // 
             this.btnCashFlow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnCashFlow.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -227,7 +227,7 @@
             this.btnCashFlow.Image = global::SystemGymControl.Properties.Resources.icons8_flow_32px_1;
             this.btnCashFlow.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCashFlow.Location = new System.Drawing.Point(0, 294);
-            this.btnCashFlow.Name = "button2";
+            this.btnCashFlow.Name = "btnCashFlow";
             this.btnCashFlow.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCashFlow.Size = new System.Drawing.Size(235, 49);
             this.btnCashFlow.TabIndex = 40;
@@ -391,7 +391,7 @@
             // lblUser
             // 
             this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(60, 153);
+            this.lblUser.Location = new System.Drawing.Point(68, 153);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(100, 22);
             this.lblUser.TabIndex = 4;

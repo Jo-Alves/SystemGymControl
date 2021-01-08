@@ -226,7 +226,6 @@
             this.txtWithdrawMoney.Size = new System.Drawing.Size(158, 33);
             this.txtWithdrawMoney.TabIndex = 0;
             this.txtWithdrawMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtWithdrawMoney.TextChanged += new System.EventHandler(this.txtWithdrawMoney_TextChanged);
             this.txtWithdrawMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWithdrawMoney_KeyPress);
             this.txtWithdrawMoney.Leave += new System.EventHandler(this.txtWithdrawMoney_Leave);
             // 
@@ -281,11 +280,11 @@
             this.btnWithdraw.UseVisualStyleBackColor = false;
             this.btnWithdraw.Click += new System.EventHandler(this.btnWithdraw_Click);
             // 
-            // textBox1
+            // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(33, 372);
             this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "textBox1";
+            this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(1053, 155);
             this.txtDescription.TabIndex = 14;
             // 

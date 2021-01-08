@@ -43,19 +43,6 @@ namespace Bussiness
             set { cashFlowID = value; }
         }
 
-        public void Save()
-        {
-            new Database.OutgoingCashFlow()
-            {
-                _id = this._id,
-                _cashFlowID = this._cashFlowID,
-                _descriptionExit = _descriptionExit,
-                _exitDate = this._exitDate,
-                _exitTime = this._exitTime,
-                _valueOutput = this._valueOutput
-            }.Save();
-        }
-
         public DataTable SearchID(int idOutgoing)
         {
             return new Database.OutgoingCashFlow().SearchID(idOutgoing);

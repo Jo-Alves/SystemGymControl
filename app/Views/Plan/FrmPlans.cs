@@ -151,7 +151,7 @@ namespace SystemGymControl
 
                     if (new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
                     {
-                        MessageBox.Show("Não há como realizar renovar plano neste momento. Para renovar plano fecha o sistema e abra um novo caixa.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Não há como renovar o plano neste momento. Para renovar plano fecha o sistema e abra um novo caixa.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
