@@ -19,24 +19,6 @@ CREATE TABLE [dbo].[students]
     [photo] VARCHAR(100) NULL    
 )
 
-CREATE TABLE [dbo].[frequencies_student]
-(
-	[id] INT NOT NULL PRIMARY KEY, 
-    [situation] VARCHAR(7) NOT NULL, 
-    [date] VARCHAR(10) NOT NULL, 
-    [student_id] INT NOT NULL,    
-	FOREIGN KEY ([student_id]) REFERENCES [dbo].[students]([id]) ON DELETE CASCADE
-)
-
-CREATE TABLE [dbo].[situations_student] (
-    [id]         INT          NOT NULL,
-    [situation]  VARCHAR (10) NOT NULL,
-    [observation] VARCHAR(100) NULL,
-    [student_id] INT          NOT NULL,
-    PRIMARY KEY CLUSTERED ([id] ASC),
-    FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
-);
-
 CREATE TABLE [dbo].[responsibles_student] (
     [id]         INT           IDENTITY (1, 1) NOT NULL,
     [name]       VARCHAR (100) NULL,
@@ -47,20 +29,6 @@ CREATE TABLE [dbo].[responsibles_student] (
     PRIMARY KEY CLUSTERED ([id] ASC),
     FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE CASCADE
 );
-
-CREATE TABLE [dbo].[personal]
-(
-	[id] INT NOT NULL PRIMARY KEY, 
-    [name] VARCHAR(100) NULL, 
-    [cpf] VARCHAR(14) NULL UNIQUE, 
-    [cep] VARCHAR(10) NULL, 
-    [district] VARCHAR(100) NULL, 
-    [address] VARCHAR(100) NULL, 
-    [number] INT NULL, 
-    [birth] VARCHAR(10) NULL, 
-    [city] VARCHAR(50) NULL, 
-    [state] VARCHAR(50) NULL
-)
 
 CREATE TABLE [dbo].[packages] (
     [id]          INT             IDENTITY (1, 1) NOT NULL,
@@ -164,6 +132,7 @@ CREATE TABLE [dbo].[cash_flow] (
     [opening_time]       VARCHAR (8)     NULL,
     [cash_value_total]   DECIMAL (18, 2) NULL,
     [output_value_total] DECIMAL (18, 2) NULL,
+    [balance] DECIMAL (18, 2) NULL,
     [closing_date]       VARCHAR (10)    NULL,
     [closing_time]       VARCHAR (8)     NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
