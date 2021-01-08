@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace Bussiness
 {
@@ -44,7 +45,15 @@ namespace Bussiness
 
         public void Save()
         {
-            new Database.OutgoingCashFlow() { _id = this._id, _cashFlowID = this._cashFlowID, _descriptionExit = _descriptionExit, _exitDate = this._exitDate, _exitTime = this._exitTime, _valueOutput = this._valueOutput }.Save();
+            new Database.OutgoingCashFlow()
+            {
+                _id = this._id,
+                _cashFlowID = this._cashFlowID,
+                _descriptionExit = _descriptionExit,
+                _exitDate = this._exitDate,
+                _exitTime = this._exitTime,
+                _valueOutput = this._valueOutput
+            }.Save();
         }
 
         public DataTable SearchID(int idOutgoing)
@@ -55,6 +64,18 @@ namespace Bussiness
         public DataTable SearchAll()
         {
             return new Database.OutgoingCashFlow().SearchAll();
+        }
+
+        public void ExitMoney()
+        {
+            new Database.OutgoingCashFlow()
+            {
+                _cashFlowID = this._cashFlowID,
+                _descriptionExit = this._descriptionExit,
+                _exitDate = this._exitDate,
+                _exitTime = this._exitTime,
+                _valueOutput = this._valueOutput
+            }.ExitMoney();
         }
     }
 }

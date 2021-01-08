@@ -197,6 +197,7 @@ namespace Database
                 command.Parameters.AddWithValue("@planID", payment._planID);
                 try
                 {
+                    decimal discount = payment._valueDiscount;
                     payment.SavePaymentEffected(transaction);
 
                     // Insere os dados para o próximo pagamento com a data a vencer
@@ -207,6 +208,7 @@ namespace Database
                     payment._valueDiscount = 0.00M;
                     payment._valueTotal = valueTotal;
 
+                 
                     // faz uma condição
                     // Se a data atual for menor que a data do vencimento
                     // deverá converter a data do vencimento e adicionar mais um mês
@@ -223,7 +225,7 @@ namespace Database
                     if (formPayment == "dinheiro")
                     {
                         icomingCashFlow.Save(transaction);
-                        new CashFlow().UpdateValueTotalCashFlow(icomingCashFlow._cashFlowID, payment._valueTotal, transaction);
+                        new CashFlow().UpdateValueTotalCashFlow(icomingCashFlow._cashFlowID, (valueTotal - discount), transaction);
                     }
 
 

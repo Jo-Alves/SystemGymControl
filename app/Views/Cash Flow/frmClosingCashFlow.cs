@@ -26,6 +26,7 @@ namespace SystemGymControl
             if (string.IsNullOrWhiteSpace(txtValueTotalBox.Text))
             {
                 MessageBox.Show("Informe o valor total do caixa para prosseguir!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtValueTotalBox.Focus();
                 return;
             }
 

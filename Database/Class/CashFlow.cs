@@ -59,7 +59,7 @@ namespace Database
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
 
-                _sql = "INSERT INTO cash_flow (opening_date ,opening_time ,cash_value_total ,output_value_total ,closing_date ,closing_time) VALUES (@openingDate, @openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime); SELECT @@IDENTITY";
+                _sql = "INSERT INTO cash_flow (opening_date, opening_time, cash_value_total, output_value_total, closing_date, closing_time) VALUES (@openingDate, @openingTime, @cashValueTotal, @outputValueTotal, @closingDate, @closingTime); SELECT @@IDENTITY";
 
                 SqlCommand command = new SqlCommand(_sql, connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);

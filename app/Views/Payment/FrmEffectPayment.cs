@@ -209,12 +209,12 @@ namespace SystemGymControl
                 return;
             }
 
-
-            if (decimal.Parse(txtPaidOut.Text) < decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)))
-            {
-                MessageBox.Show("Valor em dinheiro menor do que o valor a receber!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            if (cbFormOfPayment.Text.ToLower() == "dinheiro")
+                if (decimal.Parse(txtPaidOut.Text) < decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValueWithDiscount.Text)))
+                {
+                    MessageBox.Show("Valor em dinheiro menor do que o valor a receber!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
 
             EffectPayment();
 

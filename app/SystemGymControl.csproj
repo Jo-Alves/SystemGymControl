@@ -104,11 +104,23 @@
     <Compile Include="Views\Cash Flow\FrmBoxOpening.Designer.cs">
       <DependentUpon>FrmBoxOpening.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cash Flow\frmExitMonewBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cash Flow\frmExitMonewBox.Designer.cs">
+      <DependentUpon>frmExitMonewBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cash Flow\frmClosingCashFlow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Cash Flow\frmClosingCashFlow.Designer.cs">
       <DependentUpon>frmClosingCashFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cash Flow\FrmExitBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cash Flow\FrmExitBox.Designer.cs">
+      <DependentUpon>FrmExitBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Cash Flow\FrmOptionClosingCashFlow.cs">
       <SubType>Form</SubType>
@@ -276,8 +288,14 @@
     <EmbeddedResource Include="Views\Cash Flow\FrmBoxOpening.resx">
       <DependentUpon>FrmBoxOpening.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cash Flow\frmExitMonewBox.resx">
+      <DependentUpon>frmExitMonewBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Cash Flow\frmClosingCashFlow.resx">
       <DependentUpon>frmClosingCashFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cash Flow\FrmExitBox.resx">
+      <DependentUpon>FrmExitBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Cash Flow\FrmOptionClosingCashFlow.resx">
       <DependentUpon>FrmOptionClosingCashFlow.cs</DependentUpon>

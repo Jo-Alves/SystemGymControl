@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -71,6 +72,11 @@ namespace Database
                     throw;
                 }
             }
+        }
+
+        public void ExitMoney()
+        {
+           
         }
 
         public DataTable SearchID(int idOutgoing)

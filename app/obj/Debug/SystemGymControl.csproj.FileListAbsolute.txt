@@ -179,3 +179,5 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGy
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmBoxOpening.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.frmClosingCashFlow.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.frmOptionClosingCashFlow.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.frmExitMonewBox.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.Views.Cash_Flow.FrmExitBox.resources
