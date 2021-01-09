@@ -78,24 +78,36 @@ namespace SystemGymControl
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }       
+        }
 
         private void GetDataCashFlow(int idCashFlow)
         {
-            var cashFlow = new CashFlow().SearchID(idCashFlow);
+            try
+            {
+                var cashFlow = new CashFlow().SearchID(idCashFlow);
 
-            valueTotalCash = decimal.Parse(cashFlow.Rows[0]["cash_value_total"].ToString());
+                valueTotalCash = decimal.Parse(cashFlow.Rows[0]["cash_value_total"].ToString());
 
-            valueEntryBox = decimal.Parse(new IcomingCashFlow().GetValueEntryInitial(idCashFlow).ToString());
-            valueExitBox = decimal.Parse(cashFlow.Rows[0]["output_value_total"].ToString());
+                valueEntryBox = decimal.Parse(new IcomingCashFlow().GetValueEntryInitial(idCashFlow).ToString());
+                valueExitBox = decimal.Parse(cashFlow.Rows[0]["output_value_total"].ToString());
 
-            entryTimeCashFlow = cashFlow.Rows[0]["opening_time"].ToString();
-            lblNumberBox.Text = cashFlow.Rows[0]["id"].ToString();
-            lblDateEntry.Text = $"{cashFlow.Rows[0]["opening_date"]}, {entryTimeCashFlow}";
-            lblEntryBox.Text = $"R$ {valueEntryBox}";
-            lblExitBox.Text = $"R$ {valueExitBox}";
+                entryTimeCashFlow = cashFlow.Rows[0]["opening_time"].ToString();
+                lblNumberBox.Text = cashFlow.Rows[0]["id"].ToString();
+                lblDateEntry.Text = $"{cashFlow.Rows[0]["opening_date"]}, {entryTimeCashFlow}";
+                lblEntryBox.Text = $"R$ {valueEntryBox}";
+                lblExitBox.Text = $"R$ {valueExitBox}";
 
-            lblValueReicept.Text = ((valueTotalCash + decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(lblExitBox.Text))) - (decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(lblEntryBox.Text)))).ToString();
+                var cash = new CashFlow();
+                cash.GetDateOpeningCashFlow();
+
+                var payment = new Payment().GetSumValueTotalAndDiscount(entryTimeCashFlow, cash._openingDate);
+
+                lblValueReicept.Text = !string.IsNullOrEmpty(payment.Rows[0]["valueTotal"].ToString()) ? $"R$ {payment.Rows[0]["valueTotal"]}" : "R$ 0,00";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
        private void txtWithdrawMoney_TextChanged(object sender, EventArgs e)

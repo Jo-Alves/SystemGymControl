@@ -120,7 +120,7 @@ namespace Database
                             payment._numberPortion = 1;
                             payment._payday = "";
                             payment._paymentTime = "";
-                            payment._valueTotal = payment._valueDiscount;
+                            payment._valueTotal = payment._valueTotal + payment._valueDiscount;
                             payment._valueDiscount = 0.00m;
                             payment._formPayment = formPayment;
                             payment._paymentOnAccount = "no";

@@ -79,18 +79,12 @@ namespace SystemGymControl
 
             foreach (DataGridViewRow row in dgvDataHistoryPayment.Rows)
             {
-                discount += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["valueDiscount"].Value.ToString()));
-
                if(row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de crédito")
                     valueCardCred += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
                else if(row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de débito")
                     valueCardDeb += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
-               else if (row.Cells["formPayment"].Value.ToString().ToLower() == "dinheiro")
-                    valueReicept += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
             }
 
-            lblDiscount.Text = $"R$ {discount}";
-            lblValueReicept.Text = $"R$ {valueReicept}";
             lblValueCardCred.Text = $"R$ {valueCardCred}";
             lblValueCardDeb.Text = $"R$ {valueCardDeb}";
         }
@@ -119,16 +113,26 @@ namespace SystemGymControl
 
         private void GetDataCashFlow(int idCashFlow)
         {
-            var cashFlow = new CashFlow().SearchID(idCashFlow);
+            var cashFlow = new CashFlow();
+            var cashDate = cashFlow.SearchID(idCashFlow);
 
             valueEntryBox = decimal.Parse(new IcomingCashFlow().GetValueEntryInitial(idCashFlow).ToString());
-            valueExitBox = decimal.Parse(cashFlow.Rows[0]["output_value_total"].ToString());
+            valueExitBox = decimal.Parse(cashDate.Rows[0]["output_value_total"].ToString());
 
-            entryTimeCashFlow = cashFlow.Rows[0]["opening_time"].ToString();
-            lblNumberBox.Text = cashFlow.Rows[0]["id"].ToString();
-            lblDateEntry.Text = $"{cashFlow.Rows[0]["opening_date"]}, {entryTimeCashFlow}";
+            entryTimeCashFlow = cashDate.Rows[0]["opening_time"].ToString();
+            lblNumberBox.Text = cashDate.Rows[0]["id"].ToString();
+            lblDateEntry.Text = $"{cashDate.Rows[0]["opening_date"]}, {entryTimeCashFlow}";
             lblEntryBox.Text = $"R$ {valueEntryBox}";
             lblExitBox.Text = $"R$ {valueExitBox}";
+
+            cashFlow.GetDateOpeningCashFlow();
+
+            var payment = new Payment().GetSumValueTotalAndDiscount(entryTimeCashFlow, cashFlow._openingDate);
+
+            valueReicept = !string.IsNullOrEmpty(payment.Rows[0]["valueTotal"].ToString()) ? decimal.Parse(payment.Rows[0]["valueTotal"].ToString()) : 0.00M;
+
+            lblValueReicept.Text = $"R${valueReicept}";
+            lblDiscount.Text = !string.IsNullOrEmpty(payment.Rows[0]["discount"].ToString()) ? $"R$ {payment.Rows[0]["discount"]}" : "R$ 0,00";
         }
 
        private void txtValueTotalBox_TextChanged(object sender, EventArgs e)

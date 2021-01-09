@@ -231,5 +231,24 @@ namespace Database
                 }
             }
         }
+
+        public DataTable GetSumValueTotalAndDiscount(string entryTimeCashFlow, string openingDate)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT SUM(value_total) AS valueTotal, SUM(value_discount) AS discount  FROM payments WHERE form_Payment = 'dinheiro' AND CONVERT(DATE, payments.payday, 103) = CONVERT(DATE, '{openingDate}', 103) AND CONVERT(time, payment_time, 103) > CONVERT(time, '{entryTimeCashFlow}', 103)";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

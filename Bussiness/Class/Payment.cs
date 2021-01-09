@@ -92,6 +92,11 @@ namespace Bussiness
         public DataTable HistoryPayment(string entryTimeCashFlow, string openingDate)
         {
             return payment.HistoryPayment(entryTimeCashFlow, openingDate);
+        } 
+        
+        public DataTable GetSumValueTotalAndDiscount(string entryTimeCashFlow, string openingDate)
+        {
+            return payment.GetSumValueTotalAndDiscount(entryTimeCashFlow, openingDate);
         }
     }
 }
