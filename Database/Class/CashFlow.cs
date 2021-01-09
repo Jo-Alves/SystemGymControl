@@ -12,7 +12,7 @@ namespace Database
         private decimal cashValueTotal;
         private decimal outputValueTotal;
         private string closingDate;
-        private string closingTime;        
+        private string closingTime;
 
         string _sql;
 
@@ -159,7 +159,7 @@ namespace Database
                         _id = int.Parse(dr["id"].ToString());
                     }
                 }
-         
+
             }
             catch
             {
@@ -210,8 +210,8 @@ namespace Database
             }
 
             return haveCashFlowOpen;
-        }   
-        
+        }
+
         public void ClosingBox(decimal balance, int idCash)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -232,7 +232,7 @@ namespace Database
                 }
             }
         }
-        
+
         public void UpdateValueTotalAndOutputValueOutgoingCash(int idCash, decimal valueOutput, SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))

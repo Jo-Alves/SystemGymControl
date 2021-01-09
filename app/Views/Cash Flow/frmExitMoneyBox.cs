@@ -110,15 +110,15 @@ namespace SystemGymControl
             }
         }
 
-       private void txtWithdrawMoney_TextChanged(object sender, EventArgs e)
+        private void txtWithdrawMoney_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtWithdrawMoney.Text))
             {
 
             }
             else
-            { 
-                
+            {
+
             }
         }
 

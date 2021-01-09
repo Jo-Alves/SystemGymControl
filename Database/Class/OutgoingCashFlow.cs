@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -48,7 +47,7 @@ namespace Database
 
         public void ExitMoney()
         {
-           using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 _sql = "INSERT INTO outgoing_cash_flow VALUES (@exitDate, @exitTime, @descriptionExit, @valueOutput, @cashFlowID)";
                 connection.Open();

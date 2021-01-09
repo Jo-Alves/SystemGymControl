@@ -208,7 +208,7 @@ namespace Database
                     payment._valueDiscount = 0.00M;
                     payment._valueTotal = valueTotal;
 
-                 
+
                     // faz uma condição
                     // Se a data atual for menor que a data do vencimento
                     // deverá converter a data do vencimento e adicionar mais um mês

@@ -158,7 +158,7 @@ namespace SystemGymControl
                 {
                     _obj = new FrmGymControl();
                 }
-               
+
                 return _obj;
             }
         }
@@ -168,13 +168,13 @@ namespace SystemGymControl
             get { return nameUser; }
             set { nameUser = value; }
         }
-        
+
         public bool _datePrevious
         {
             get { return datePrevious; }
             set { datePrevious = value; }
         }
-        
+
         public string _name
         {
             get { return name; }
@@ -185,8 +185,8 @@ namespace SystemGymControl
         {
             get { return pnPage; }
             set { pnPage = value; }
-        } 
-        
+        }
+
         public PictureBox _pcPerfil
         {
             get { return pcPerfil; }
@@ -247,14 +247,14 @@ namespace SystemGymControl
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
             lblTitle.Text = "EXPLOSION ACADEMIA";
             OpenForm.ShowForm(new FrmOptionsSave(), this);
         }
 
         private void btnMenuHome_Click(object sender, EventArgs e)
         {
-           if(datePrevious)
+            if (datePrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -271,7 +271,7 @@ namespace SystemGymControl
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
             try
             {
                 if (new Plan().SearchAll().Rows.Count > 0)

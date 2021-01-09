@@ -38,7 +38,7 @@ namespace SystemGymControl
             {
                 CashFlow cash = new CashFlow();
                 cash.ClosingBox(balance, FrmGymControl.Instance._IdCashFlow);
-                
+
                 if (FrmGymControl.Instance._datePrevious)
                 {
                     var boxOpening = new FrmBoxOpening(FrmGymControl.Instance._datePrevious);
@@ -73,15 +73,15 @@ namespace SystemGymControl
             }
         }
 
-       private void SumValues()
+        private void SumValues()
         {
-            decimal discount = 0.00M,  valueCardCred = 0.00M, valueCardDeb = 0.00M;
+            decimal valueCardCred = 0.00M, valueCardDeb = 0.00M;
 
             foreach (DataGridViewRow row in dgvDataHistoryPayment.Rows)
             {
-               if(row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de crédito")
+                if (row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de crédito")
                     valueCardCred += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
-               else if(row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de débito")
+                else if (row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de débito")
                     valueCardDeb += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
             }
 
@@ -95,7 +95,7 @@ namespace SystemGymControl
             cash.GetDateOpeningCashFlow();
 
             var payment = new Payment().HistoryPayment(entryTimeCashFlow, cash._openingDate);
-            foreach(DataRow dr in payment.Rows)
+            foreach (DataRow dr in payment.Rows)
             {
                 int countRow = dgvDataHistoryPayment.Rows.Add();
                 dgvDataHistoryPayment.Rows[countRow].Cells["description"].Value = dr["description"].ToString();
@@ -135,7 +135,7 @@ namespace SystemGymControl
             lblDiscount.Text = !string.IsNullOrEmpty(payment.Rows[0]["discount"].ToString()) ? $"R$ {payment.Rows[0]["discount"]}" : "R$ 0,00";
         }
 
-       private void txtValueTotalBox_TextChanged(object sender, EventArgs e)
+        private void txtValueTotalBox_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtValueTotalBox.Text))
             {

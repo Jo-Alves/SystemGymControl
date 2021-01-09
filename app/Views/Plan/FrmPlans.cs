@@ -155,7 +155,7 @@ namespace SystemGymControl
                         return;
                     }
 
-                        if (dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower().Equals("mensal"))
+                    if (dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower().Equals("mensal"))
                     {
                         MessageBox.Show("Você será redirecionado para a tela de pagamento.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
