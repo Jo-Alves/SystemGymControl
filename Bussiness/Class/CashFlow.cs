@@ -107,5 +107,12 @@ namespace Bussiness
         {
             return cash.CheckedBoxClosing(idCash);
         }
+
+        public void GetDateOpeningCashFlow()
+        {
+            cash.GetDateOpeningCashFlow();
+            this._id = cash._id;
+            this._openingDate = cash._openingDate;
+        }
     }
 }

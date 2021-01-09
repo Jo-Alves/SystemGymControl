@@ -89,9 +89,9 @@ namespace Bussiness
             payment.UpdatePaymentPlanMensal(idPlan, duedate);
         }
 
-        public DataTable HistoryPayment(string entryTimeCashFlow)
+        public DataTable HistoryPayment(string entryTimeCashFlow, string openingDate)
         {
-            return payment.HistoryPayment(entryTimeCashFlow);
+            return payment.HistoryPayment(entryTimeCashFlow, openingDate);
         }
     }
 }

@@ -44,7 +44,7 @@
             this.btnMenuReport = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
             this.btnMenuPayment = new System.Windows.Forms.Button();
-            this.btnMenuRegistration = new System.Windows.Forms.Button();
+            this.btnMenuPlan = new System.Windows.Forms.Button();
             this.btnMenuSave = new System.Windows.Forms.Button();
             this.btnMenuHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -158,7 +158,7 @@
             this.panel3.Controls.Add(this.btnMenuReport);
             this.panel3.Controls.Add(this.btnMenuSales);
             this.panel3.Controls.Add(this.btnMenuPayment);
-            this.panel3.Controls.Add(this.btnMenuRegistration);
+            this.panel3.Controls.Add(this.btnMenuPlan);
             this.panel3.Controls.Add(this.btnMenuSave);
             this.panel3.Controls.Add(this.btnMenuHome);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -189,6 +189,7 @@
             this.btnSetting.Text = "Configurações";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnMenuQuestion
             // 
@@ -212,6 +213,7 @@
             this.btnMenuQuestion.Text = "Sobre";
             this.btnMenuQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuQuestion.UseVisualStyleBackColor = false;
+            this.btnMenuQuestion.Click += new System.EventHandler(this.btnMenuQuestion_Click);
             // 
             // btnCashFlow
             // 
@@ -259,6 +261,7 @@
             this.btnMenuReport.Text = "Relatório";
             this.btnMenuReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuReport.UseVisualStyleBackColor = false;
+            this.btnMenuReport.Click += new System.EventHandler(this.btnMenuReport_Click);
             // 
             // btnMenuSales
             // 
@@ -282,6 +285,7 @@
             this.btnMenuSales.Text = "Vendas";
             this.btnMenuSales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuSales.UseVisualStyleBackColor = false;
+            this.btnMenuSales.Click += new System.EventHandler(this.btnMenuSales_Click);
             // 
             // btnMenuPayment
             // 
@@ -307,29 +311,29 @@
             this.btnMenuPayment.UseVisualStyleBackColor = false;
             this.btnMenuPayment.Click += new System.EventHandler(this.btnMenuPayment_Click);
             // 
-            // btnMenuRegistration
+            // btnMenuPlan
             // 
-            this.btnMenuRegistration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnMenuRegistration.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuRegistration.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuRegistration.FlatAppearance.BorderSize = 0;
-            this.btnMenuRegistration.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnMenuRegistration.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnMenuRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuRegistration.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuRegistration.ForeColor = System.Drawing.Color.White;
-            this.btnMenuRegistration.Image = global::SystemGymControl.Properties.Resources.icons8_floor_plan_32px_1;
-            this.btnMenuRegistration.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuRegistration.Location = new System.Drawing.Point(0, 98);
-            this.btnMenuRegistration.Name = "btnMenuRegistration";
-            this.btnMenuRegistration.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuRegistration.Size = new System.Drawing.Size(235, 49);
-            this.btnMenuRegistration.TabIndex = 25;
-            this.btnMenuRegistration.TabStop = false;
-            this.btnMenuRegistration.Text = "Plano";
-            this.btnMenuRegistration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuRegistration.UseVisualStyleBackColor = false;
-            this.btnMenuRegistration.Click += new System.EventHandler(this.btnMenuPlan_Click);
+            this.btnMenuPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnMenuPlan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuPlan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuPlan.FlatAppearance.BorderSize = 0;
+            this.btnMenuPlan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnMenuPlan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnMenuPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuPlan.ForeColor = System.Drawing.Color.White;
+            this.btnMenuPlan.Image = global::SystemGymControl.Properties.Resources.icons8_floor_plan_32px_1;
+            this.btnMenuPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuPlan.Location = new System.Drawing.Point(0, 98);
+            this.btnMenuPlan.Name = "btnMenuPlan";
+            this.btnMenuPlan.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMenuPlan.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuPlan.TabIndex = 25;
+            this.btnMenuPlan.TabStop = false;
+            this.btnMenuPlan.Text = "Plano";
+            this.btnMenuPlan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuPlan.UseVisualStyleBackColor = false;
+            this.btnMenuPlan.Click += new System.EventHandler(this.btnMenuPlan_Click);
             // 
             // btnMenuSave
             // 
@@ -462,7 +466,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGymControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGymControl";
+            this.Text = "EXPLOSION ACADEMIA";
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             this.pnConjuctMenu.ResumeLayout(false);
@@ -491,7 +495,7 @@
         private System.Windows.Forms.Label lblDateNow;
         private System.Windows.Forms.Button btnMenuHome;
         private System.Windows.Forms.Button btnMenuSave;
-        private System.Windows.Forms.Button btnMenuRegistration;
+        private System.Windows.Forms.Button btnMenuPlan;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnMenuReport;
         private System.Windows.Forms.Button btnMenuSales;

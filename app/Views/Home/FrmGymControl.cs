@@ -14,6 +14,7 @@ namespace SystemGymControl
         Payment payment = new Payment();
         int idCashFlow, id;
         string nameUser, name;
+        bool datePrevious = false;
 
         public FrmGymControl()
         {
@@ -27,6 +28,7 @@ namespace SystemGymControl
             this.id = id;
             InitialSettings(id);
             loadFieldsPerfil(nameUser, avatar, name);
+            CheckedCashFlowItOpenig();
         }
 
         public FrmGymControl(string nameUser, string avatar, string name)
@@ -34,6 +36,21 @@ namespace SystemGymControl
             InitializeComponent();
             InitialSettings(cashFlow.GetMaxCashFlowID());
             loadFieldsPerfil(nameUser, avatar, name);
+            CheckedCashFlowItOpenig();
+        }
+
+        private void CheckedCashFlowItOpenig()
+        {
+            cashFlow.GetDateOpeningCashFlow();
+            if (!string.IsNullOrEmpty(cashFlow._openingDate))
+            {
+                if (!DateTime.Now.ToShortDateString().Equals(cashFlow._openingDate))
+                {
+                    MessageBox.Show("Verificamos que o caixa não foi fechado. Fecha o caixa para a liberação as operações do sistema.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    datePrevious = true;
+                    OpenForm.ShowForm(new FrmClosingCashFlow(), this);
+                }
+            }
         }
 
         private void loadFieldsPerfil(string nameUser, string avatar, string name)
@@ -152,6 +169,12 @@ namespace SystemGymControl
             set { nameUser = value; }
         }
         
+        public bool _datePrevious
+        {
+            get { return datePrevious; }
+            set { datePrevious = value; }
+        }
+        
         public string _name
         {
             get { return name; }
@@ -179,6 +202,7 @@ namespace SystemGymControl
         public int _IdCashFlow
         {
             get { return idCashFlow; }
+            set { idCashFlow = value; }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -218,18 +242,36 @@ namespace SystemGymControl
 
         private void btnMenuSave_Click(object sender, EventArgs e)
         {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            
             lblTitle.Text = "EXPLOSION ACADEMIA";
             OpenForm.ShowForm(new FrmOptionsSave(), this);
         }
 
         private void btnMenuHome_Click(object sender, EventArgs e)
         {
+           if(datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             lblTitle.Text = "EXPLOSION ACADEMIA";
             OpenForm.ShowForm(new FrmHome(), this);
         }
 
         private void btnMenuPlan_Click(object sender, EventArgs e)
         {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            
             try
             {
                 if (new Plan().SearchAll().Rows.Count > 0)
@@ -250,14 +292,70 @@ namespace SystemGymControl
             lblTitle.Text = "EXPLOSION ACADEMIA --- Plano";
         }
 
+        private void btnMenuSales_Click(object sender, EventArgs e)
+        {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+        }
+
+        private void btnMenuReport_Click(object sender, EventArgs e)
+        {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+        }
+
+        private void btnMenuQuestion_Click(object sender, EventArgs e)
+        {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
+        }
+
         private void btnCashFlow_Click(object sender, EventArgs e)
         {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             OpenForm.ShowForm(new frmOptionClosingCashFlow(), this);
             lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo de Caixa";
         }
 
         private void btnMenuPayment_Click(object sender, EventArgs e)
         {
+            if (datePrevious)
+            {
+                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos";
             OpenForm.ShowForm(new FrmPayments(), this);
         }

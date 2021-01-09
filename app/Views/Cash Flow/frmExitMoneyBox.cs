@@ -17,6 +17,7 @@ namespace SystemGymControl
         private void btnCancel_Click(object sender, EventArgs e)
         {
             OpenForm.ShowForm(new frmOptionClosingCashFlow(), this);
+            FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo de Caixa";
         }
 
         private void btnWithdraw_Click(object sender, EventArgs e)

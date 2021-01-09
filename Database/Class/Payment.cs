@@ -213,13 +213,13 @@ namespace Database
             }
         }
 
-        public DataTable HistoryPayment(string entryTimeCashFlow)
+        public DataTable HistoryPayment(string entryTimeCashFlow, string openingDate)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
-                    _sql = $"SELECT * FROM payments INNER JOIN plans ON planS.id = payments.plan_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id WHERE payments.payday = '{DateTime.Now.ToShortDateString()}' AND CONVERT(time, payment_time, 103) > CONVERT(time, '{entryTimeCashFlow}', 103)";
+                    _sql = $"SELECT * FROM payments INNER JOIN plans ON planS.id = payments.plan_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id WHERE payments.payday = '{openingDate}' AND CONVERT(time, payment_time, 103) > CONVERT(time, '{entryTimeCashFlow}', 103)";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);

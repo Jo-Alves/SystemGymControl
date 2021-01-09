@@ -9,6 +9,8 @@ namespace SystemGymControl
     {
         string nameUser, avatar, name;
 
+        // o valor foi informado
+        public bool theValueHasBeenInformed;
         public FrmBoxOpening(string nameUser, string avatar, string name)
         {
             InitializeComponent();
@@ -17,9 +19,23 @@ namespace SystemGymControl
             this.name = name;
         }
 
+        bool datePrevious;
+
+        public FrmBoxOpening(bool datePrevious)
+        {
+            InitializeComponent();
+            this.datePrevious = datePrevious;
+
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (datePrevious)
+            {
+                this.Close();
+            }
+            else
+                Application.Exit();
         }
 
         private void btnClose_MouseEnter(object sender, EventArgs e)
@@ -69,6 +85,12 @@ namespace SystemGymControl
                 };
 
                 cashFlow.Save(icomingCashFlow);
+                if (datePrevious)
+                {
+                    theValueHasBeenInformed = true;
+                    this.Close();
+                    return;
+                }
 
                 this.Visible = false;
                 new FrmGymControl(cashFlow._id, nameUser, avatar, name).ShowDialog();

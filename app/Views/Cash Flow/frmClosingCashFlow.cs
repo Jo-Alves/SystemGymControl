@@ -14,11 +14,15 @@ namespace SystemGymControl
         public FrmClosingCashFlow()
         {
             InitializeComponent();
+
+            if (FrmGymControl.Instance._datePrevious)
+                btnCancel.Visible = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             OpenForm.ShowForm(new frmOptionClosingCashFlow(), this);
+            FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo de Caixa";
         }
 
         private void btnCloseBox_Click(object sender, EventArgs e)
@@ -32,7 +36,20 @@ namespace SystemGymControl
 
             try
             {
-                new CashFlow().ClosingBox(balance, FrmGymControl.Instance._IdCashFlow);
+                CashFlow cash = new CashFlow();
+                cash.ClosingBox(balance, FrmGymControl.Instance._IdCashFlow);
+                
+                if (FrmGymControl.Instance._datePrevious)
+                {
+                    var boxOpening = new FrmBoxOpening(FrmGymControl.Instance._datePrevious);
+                    boxOpening.ShowDialog();
+
+                    if (!boxOpening.theValueHasBeenInformed) return;
+
+                    FrmGymControl.Instance._datePrevious = false;
+                    FrmGymControl.Instance._IdCashFlow = cash.GetMaxCashFlowID();
+                }
+
                 OpenForm.ShowForm(new FrmHome(), this);
             }
             catch (Exception ex)
@@ -80,7 +97,10 @@ namespace SystemGymControl
 
         private void LoadDataHistoryPayment()
         {
-            var payment = new Payment().HistoryPayment(entryTimeCashFlow);
+            var cash = new CashFlow();
+            cash.GetDateOpeningCashFlow();
+
+            var payment = new Payment().HistoryPayment(entryTimeCashFlow, cash._openingDate);
             foreach(DataRow dr in payment.Rows)
             {
                 int countRow = dgvDataHistoryPayment.Rows.Add();

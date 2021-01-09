@@ -142,6 +142,31 @@ namespace Database
             return maxId;
         }
 
+        public void GetDateOpeningCashFlow()
+        {
+
+            try
+            {
+                using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    connection.Open();
+                    _sql = "SELECT id, opening_date FROM cash_flow WHERE closing_date = ''";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    SqlDataReader dr = command.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        _openingDate = dr["opening_date"].ToString();
+                        _id = int.Parse(dr["id"].ToString());
+                    }
+                }
+         
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public void UpdateValueTotalCashFlow(int id, decimal valueTotal, SqlTransaction transaction)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
