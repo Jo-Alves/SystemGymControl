@@ -53,6 +53,7 @@ namespace SystemGymControl
             try
             {
                 FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo Caixa - Registro";
+                OpenForm.ShowForm(new FrmResgisterCashFlow(), this);
             }
             catch (Exception ex)
             {

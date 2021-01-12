@@ -176,7 +176,6 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGy
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.frmClosingCashFlow.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.frmOptionClosingCashFlow.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.frmExitMonewBox.resources
-C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.Views.Cash_Flow.FrmExitBox.resources
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmAuthentication.resources
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmReportTipPassword.resources
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmResetPassword.resources
@@ -193,3 +192,4 @@ C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmPlan
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmPackages.resources
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmStudents.resources
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmUsers.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmResgisterCashFlow.resources
