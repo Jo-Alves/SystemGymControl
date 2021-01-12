@@ -33,7 +33,6 @@ namespace SystemGymControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbSearchRegisterDiary = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSearchRegister = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +41,15 @@ namespace SystemGymControl
             this.rbSearchRegisterPeriod = new System.Windows.Forms.RadioButton();
             this.rbSearchAllRegister = new System.Windows.Forms.RadioButton();
             this.dgvDataRegisterCashFlow = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblValueTotalBoxInformed = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblValueTotalExit = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblBalances = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblValueTotalEntry = new System.Windows.Forms.Label();
+            this.printRegister = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +66,6 @@ namespace SystemGymControl
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rbSearchRegisterDiary);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.rbSearchRegisterPeriod);
             this.groupBox1.Controls.Add(this.rbSearchAllRegister);
@@ -68,28 +75,15 @@ namespace SystemGymControl
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // rbSearchRegisterDiary
-            // 
-            this.rbSearchRegisterDiary.AutoSize = true;
-            this.rbSearchRegisterDiary.Checked = true;
-            this.rbSearchRegisterDiary.Location = new System.Drawing.Point(6, 60);
-            this.rbSearchRegisterDiary.Name = "rbSearchRegisterDiary";
-            this.rbSearchRegisterDiary.Size = new System.Drawing.Size(192, 26);
-            this.rbSearchRegisterDiary.TabIndex = 28;
-            this.rbSearchRegisterDiary.TabStop = true;
-            this.rbSearchRegisterDiary.Text = "Buscar registro diário";
-            this.rbSearchRegisterDiary.UseVisualStyleBackColor = true;
-            this.rbSearchRegisterDiary.CheckedChanged += new System.EventHandler(this.rbSearchRegisterDiary_CheckedChanged);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnSearchRegister);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dtDateFinally);
             this.groupBox2.Controls.Add(this.dtDateInitial);
-            this.groupBox2.Location = new System.Drawing.Point(714, 19);
+            this.groupBox2.Location = new System.Drawing.Point(506, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(269, 108);
+            this.groupBox2.Size = new System.Drawing.Size(477, 108);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Período";
@@ -105,9 +99,9 @@ namespace SystemGymControl
             this.btnSearchRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchRegister.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchRegister.ForeColor = System.Drawing.Color.White;
-            this.btnSearchRegister.Location = new System.Drawing.Point(8, 63);
+            this.btnSearchRegister.Location = new System.Drawing.Point(257, 41);
             this.btnSearchRegister.Name = "btnSearchRegister";
-            this.btnSearchRegister.Size = new System.Drawing.Size(252, 39);
+            this.btnSearchRegister.Size = new System.Drawing.Size(214, 39);
             this.btnSearchRegister.TabIndex = 27;
             this.btnSearchRegister.Text = "Buscar";
             this.btnSearchRegister.UseVisualStyleBackColor = false;
@@ -116,7 +110,7 @@ namespace SystemGymControl
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(121, 33);
+            this.label1.Location = new System.Drawing.Point(121, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 22);
             this.label1.TabIndex = 2;
@@ -126,7 +120,7 @@ namespace SystemGymControl
             // 
             this.dtDateFinally.Enabled = false;
             this.dtDateFinally.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateFinally.Location = new System.Drawing.Point(146, 28);
+            this.dtDateFinally.Location = new System.Drawing.Point(146, 44);
             this.dtDateFinally.Name = "dtDateFinally";
             this.dtDateFinally.Size = new System.Drawing.Size(103, 29);
             this.dtDateFinally.TabIndex = 1;
@@ -135,7 +129,7 @@ namespace SystemGymControl
             // 
             this.dtDateInitial.Enabled = false;
             this.dtDateInitial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateInitial.Location = new System.Drawing.Point(6, 28);
+            this.dtDateInitial.Location = new System.Drawing.Point(6, 44);
             this.dtDateInitial.Name = "dtDateInitial";
             this.dtDateInitial.Size = new System.Drawing.Size(109, 29);
             this.dtDateInitial.TabIndex = 0;
@@ -143,7 +137,7 @@ namespace SystemGymControl
             // rbSearchRegisterPeriod
             // 
             this.rbSearchRegisterPeriod.AutoSize = true;
-            this.rbSearchRegisterPeriod.Location = new System.Drawing.Point(460, 60);
+            this.rbSearchRegisterPeriod.Location = new System.Drawing.Point(261, 63);
             this.rbSearchRegisterPeriod.Name = "rbSearchRegisterPeriod";
             this.rbSearchRegisterPeriod.Size = new System.Drawing.Size(239, 26);
             this.rbSearchRegisterPeriod.TabIndex = 2;
@@ -154,10 +148,12 @@ namespace SystemGymControl
             // rbSearchAllRegister
             // 
             this.rbSearchAllRegister.AutoSize = true;
-            this.rbSearchAllRegister.Location = new System.Drawing.Point(224, 60);
+            this.rbSearchAllRegister.Checked = true;
+            this.rbSearchAllRegister.Location = new System.Drawing.Point(25, 63);
             this.rbSearchAllRegister.Name = "rbSearchAllRegister";
             this.rbSearchAllRegister.Size = new System.Drawing.Size(222, 26);
             this.rbSearchAllRegister.TabIndex = 1;
+            this.rbSearchAllRegister.TabStop = true;
             this.rbSearchAllRegister.Text = "Buscar todos os registros";
             this.rbSearchAllRegister.UseVisualStyleBackColor = true;
             this.rbSearchAllRegister.CheckedChanged += new System.EventHandler(this.rbSearchAllRegister_CheckedChanged);
@@ -181,6 +177,7 @@ namespace SystemGymControl
             this.dgvDataRegisterCashFlow.ColumnHeadersHeight = 30;
             this.dgvDataRegisterCashFlow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataRegisterCashFlow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.printRegister,
             this.id,
             this.openingDate,
             this.openingTime,
@@ -208,8 +205,95 @@ namespace SystemGymControl
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             this.dgvDataRegisterCashFlow.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDataRegisterCashFlow.Size = new System.Drawing.Size(1002, 284);
+            this.dgvDataRegisterCashFlow.Size = new System.Drawing.Size(1002, 262);
             this.dgvDataRegisterCashFlow.TabIndex = 18;
+            this.dgvDataRegisterCashFlow.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataRegisterCashFlow_CellClick);
+            this.dgvDataRegisterCashFlow.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataRegisterCashFlow_CellDoubleClick);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(57, 416);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(243, 22);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Valor total informado no caixa:";
+            // 
+            // lblValueTotalBoxInformed
+            // 
+            this.lblValueTotalBoxInformed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblValueTotalBoxInformed.AutoSize = true;
+            this.lblValueTotalBoxInformed.Location = new System.Drawing.Point(302, 416);
+            this.lblValueTotalBoxInformed.Name = "lblValueTotalBoxInformed";
+            this.lblValueTotalBoxInformed.Size = new System.Drawing.Size(0, 22);
+            this.lblValueTotalBoxInformed.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(57, 438);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(196, 22);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Valor total das entradas:";
+            // 
+            // lblValueTotalExit
+            // 
+            this.lblValueTotalExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblValueTotalExit.AutoSize = true;
+            this.lblValueTotalExit.Location = new System.Drawing.Point(231, 462);
+            this.lblValueTotalExit.Name = "lblValueTotalExit";
+            this.lblValueTotalExit.Size = new System.Drawing.Size(0, 22);
+            this.lblValueTotalExit.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(57, 460);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(168, 22);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Valor total de saidas:";
+            // 
+            // lblBalances
+            // 
+            this.lblBalances.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBalances.AutoSize = true;
+            this.lblBalances.Location = new System.Drawing.Point(123, 484);
+            this.lblBalances.Name = "lblBalances";
+            this.lblBalances.Size = new System.Drawing.Size(0, 22);
+            this.lblBalances.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(57, 484);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 22);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Saldos:";
+            // 
+            // lblValueTotalEntry
+            // 
+            this.lblValueTotalEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblValueTotalEntry.AutoSize = true;
+            this.lblValueTotalEntry.Location = new System.Drawing.Point(259, 438);
+            this.lblValueTotalEntry.Name = "lblValueTotalEntry";
+            this.lblValueTotalEntry.Size = new System.Drawing.Size(0, 22);
+            this.lblValueTotalEntry.TabIndex = 27;
+            // 
+            // printRegister
+            // 
+            this.printRegister.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.printRegister.HeaderText = "Imprimir Registro";
+            this.printRegister.Name = "printRegister";
+            this.printRegister.ReadOnly = true;
+            this.printRegister.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.printRegister.Width = 149;
             // 
             // id
             // 
@@ -249,11 +333,11 @@ namespace SystemGymControl
             // cashValueTotal
             // 
             this.cashValueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cashValueTotal.HeaderText = "Valor total de entradas";
+            this.cashValueTotal.HeaderText = "Valor de entradas";
             this.cashValueTotal.Name = "cashValueTotal";
             this.cashValueTotal.ReadOnly = true;
             this.cashValueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cashValueTotal.Width = 190;
+            this.cashValueTotal.Width = 151;
             // 
             // outputValueTotal
             // 
@@ -295,7 +379,15 @@ namespace SystemGymControl
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 462);
+            this.ClientSize = new System.Drawing.Size(1131, 523);
+            this.Controls.Add(this.lblValueTotalEntry);
+            this.Controls.Add(this.lblBalances);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblValueTotalExit);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblValueTotalBoxInformed);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvDataRegisterCashFlow);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Open Sans", 12F);
@@ -309,6 +401,7 @@ namespace SystemGymControl
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataRegisterCashFlow)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -323,7 +416,15 @@ namespace SystemGymControl
         private System.Windows.Forms.RadioButton rbSearchAllRegister;
         private System.Windows.Forms.Button btnSearchRegister;
         private System.Windows.Forms.DataGridView dgvDataRegisterCashFlow;
-        private System.Windows.Forms.RadioButton rbSearchRegisterDiary;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblValueTotalBoxInformed;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblValueTotalExit;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblBalances;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblValueTotalEntry;
+        private System.Windows.Forms.DataGridViewImageColumn printRegister;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn openingDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn openingTime;

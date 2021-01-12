@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 
 namespace Bussiness
 {
@@ -83,9 +82,9 @@ namespace Bussiness
             return cash.SearchID(cashFlow);
         }
 
-        public DataTable SearchAll()
+        public DataTable SearchRegisterAll()
         {
-            return cash.SearchAll();
+            return cash.SearchRegisterAll();
         }
 
 

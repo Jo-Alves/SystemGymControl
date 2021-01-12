@@ -112,7 +112,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT * FROM cash_flow WHERE CONVERT(DATE, opening_date, 103) BETWEEN CONVERT(DATE, @dateInitial, 103) AND CONVERT(DATE, @dateFinally, 103)";
+                    _sql = "SELECT * FROM cash_flow WHERE CONVERT(DATE, opening_date, 103) BETWEEN CONVERT(DATE, @dateInitial, 103) AND CONVERT(DATE, @dateFinally, 103) AND closing_date <> ''";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@dateInitial", dateInitial);
                     adapter.SelectCommand.Parameters.AddWithValue("@dateFinally", dateFinally);
@@ -127,13 +127,13 @@ namespace Database
             }
         }
 
-        public DataTable SearchAll()
+        public DataTable SearchRegisterAll()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
-                    _sql = "SELECT * FROM cash_flow";
+                    _sql = "SELECT * FROM cash_flow WHERE closing_date <> ''";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
                     DataTable table = new DataTable();
