@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace Bussiness
 {
@@ -39,6 +40,7 @@ namespace Bussiness
             get { return outputValueTotal; }
             set { outputValueTotal = value; }
         }
+
         public string _closingDate
         {
             get { return closingDate; }
@@ -112,6 +114,11 @@ namespace Bussiness
             cash.GetDateOpeningCashFlow();
             this._id = cash._id;
             this._openingDate = cash._openingDate;
+        }
+
+        public DataTable SearchPeriod(string dateInitial, string dateFinally)
+        {
+            return cash.SearchPeriod(dateInitial, dateFinally);
         }
     }
 }

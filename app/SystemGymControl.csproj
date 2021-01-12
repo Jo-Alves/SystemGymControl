@@ -122,11 +122,11 @@
     <Compile Include="Views\Cash Flow\FrmOptionClosingCashFlow.Designer.cs">
       <DependentUpon>FrmOptionClosingCashFlow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cash Flow\FrmResgisterCashFlow.cs">
+    <Compile Include="Views\Cash Flow\FrmRegisterCashFlow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cash Flow\FrmResgisterCashFlow.Designer.cs">
-      <DependentUpon>FrmResgisterCashFlow.cs</DependentUpon>
+    <Compile Include="Views\Cash Flow\FrmRegisterCashFlow.Designer.cs">
+      <DependentUpon>FrmRegisterCashFlow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Initial\FrmLoadSystem.cs">
       <SubType>Form</SubType>
@@ -297,8 +297,8 @@
     <EmbeddedResource Include="Views\Cash Flow\FrmOptionClosingCashFlow.resx">
       <DependentUpon>FrmOptionClosingCashFlow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cash Flow\FrmResgisterCashFlow.resx">
-      <DependentUpon>FrmResgisterCashFlow.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Cash Flow\FrmRegisterCashFlow.resx">
+      <DependentUpon>FrmRegisterCashFlow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>

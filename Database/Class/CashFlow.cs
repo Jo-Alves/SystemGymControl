@@ -105,13 +105,35 @@ namespace Database
             }
         }
 
+        public DataTable SearchPeriod(string dateInitial, string dateFinally)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+                    _sql = "SELECT * FROM cash_flow WHERE CONVERT(DATE, opening_date, 103) BETWEEN CONVERT(DATE, @dateInitial, 103) AND CONVERT(DATE, @dateFinally, 103)";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@dateInitial", dateInitial);
+                    adapter.SelectCommand.Parameters.AddWithValue("@dateFinally", dateFinally);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
         public DataTable SearchAll()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
-                    _sql = "SELECT * FROM cash_flow WHERE id = @id";
+                    _sql = "SELECT * FROM cash_flow";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
                     DataTable table = new DataTable();

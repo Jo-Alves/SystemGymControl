@@ -192,4 +192,4 @@ C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmPlan
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmPackages.resources
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmStudents.resources
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmUsers.resources
-C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmResgisterCashFlow.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmRegisterCashFlow.resources
