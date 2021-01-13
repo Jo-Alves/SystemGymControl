@@ -121,6 +121,28 @@ namespace Database
             }
         }
 
+        public DataTable GetDataIcoming(int idCash, string entryTimeCashFlow, string openingDate)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    _sql = "SELECT * FROM icoming_cash_flow WHERE entry_date = @date AND CONVERT(TIME, entry_time, 103)  > CONVERT(TIME, @time, 103) AND cash_Flow_id = @idCash";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@idCash", idCash);
+                    adapter.SelectCommand.Parameters.AddWithValue("@date", openingDate);
+                    adapter.SelectCommand.Parameters.AddWithValue("@time", entryTimeCashFlow);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public decimal GetValueEntryInitial(int idCash)
         {
             decimal valueEntry = 0.00M;

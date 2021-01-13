@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -107,7 +108,7 @@ namespace Database
                 if (_id == 0)
                     _sql = "INSERT INTO payments VALUES (@portion, @valueTotal, @valueDiscount, @payday, @paymentTime, @duedate, @formPayment, @paymentOnAccount, @planID)";
                 else
-                    _sql = "UPDATE  payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_on_account = @paymentOnAccount, duedate =  @duedate WHERE id = @id";
+                    _sql = "UPDATE payments SET value_total = @valueTotal, value_discount = @valueDiscount, payday =  @payday, payment_time = @paymentTime, form_Payment = @formPayment, payment_on_account = @paymentOnAccount, duedate =  @duedate WHERE id = @id";
 
                 SqlCommand command = new SqlCommand(_sql, transaction.Connection, transaction);
                 command.Parameters.AddWithValue("@id", _id);
@@ -123,6 +124,52 @@ namespace Database
                 try
                 {
                     command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void UpdatePaymentOnAccount(int idPayment, IcomingCashFlow icomingCashFlow)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+
+                _sql = "UPDATE payments SET payment_on_account = 'yes' WHERE id = @id";
+
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand(_sql, connection, transaction);
+                command.Parameters.AddWithValue("@id", idPayment);
+                try
+                {
+                    icomingCashFlow.Save(transaction);
+
+                    command.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public DataTable SearchPaymentDateNow()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+                    _sql = $"SELECT id, duedate, form_payment, value_total FROM payments WHERE form_payment <> 'dinheiro' AND duedate = '{DateTime.Now.ToShortDateString()}' AND payment_on_account = 'no'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
                 catch
                 {

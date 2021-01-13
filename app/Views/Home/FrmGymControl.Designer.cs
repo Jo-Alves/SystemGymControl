@@ -467,6 +467,7 @@
             this.Name = "FrmGymControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EXPLOSION ACADEMIA";
+            this.Load += new System.EventHandler(this.FrmGymControl_Load);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             this.pnConjuctMenu.ResumeLayout(false);

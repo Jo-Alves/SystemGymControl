@@ -12,6 +12,8 @@ namespace Bussiness
         private decimal valueCard;
         private int cashFlowID;
 
+        Database.IcomingCashFlow icomingCashFlow = new Database.IcomingCashFlow();
+
         public int _id
         {
             get { return id; }
@@ -50,17 +52,22 @@ namespace Bussiness
 
         public DataTable SearchID(int idIcoming)
         {
-            return new Database.IcomingCashFlow().SearchID(idIcoming);
+            return icomingCashFlow.SearchID(idIcoming);
         }
 
         public DataTable SearchAll()
         {
-            return new Database.IcomingCashFlow().SearchAll();
+            return icomingCashFlow.SearchAll();
         }
 
         public decimal GetValueEntryInitial(int idCash)
         {
-            return new Database.IcomingCashFlow().GetValueEntryInitial(idCash);
+            return icomingCashFlow.GetValueEntryInitial(idCash);
+        }
+
+        public DataTable GetDataIcoming(int idCash, string entryTimeCashFlow, string openingDate)
+        {
+            return icomingCashFlow.GetDataIcoming(idCash, entryTimeCashFlow, openingDate);
         }
     }
 }

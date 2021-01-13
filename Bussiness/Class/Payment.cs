@@ -98,5 +98,25 @@ namespace Bussiness
         {
             return payment.GetSumValueTotalAndDiscount(entryTimeCashFlow, openingDate);
         }
+
+        public DataTable SearchPaymentDateNow()
+        {
+            return payment.SearchPaymentDateNow();
+        }
+
+        public void UpdatePaymentOnAccount(int idPayment, IcomingCashFlow icomingCashFlow)
+        {
+            Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow()
+            {
+                _descriptionIcoming = icomingCashFlow._descriptionIcoming,
+                _cashFlowID = icomingCashFlow._cashFlowID,
+                _entryDate = icomingCashFlow._entryDate,
+                _entryTime = icomingCashFlow._entryTime,
+                _valueCard = icomingCashFlow._valueCard,
+                _valueMoney = icomingCashFlow._valueMoney
+            };
+
+            payment.UpdatePaymentOnAccount(idPayment, icomingCash);
+        }
     }
 }

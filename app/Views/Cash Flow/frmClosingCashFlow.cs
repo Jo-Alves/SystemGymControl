@@ -75,16 +75,32 @@ namespace SystemGymControl
 
         private void SumValues()
         {
-            decimal valueCardCred = 0.00M, valueCardDeb = 0.00M;
+            decimal valueCardCred = 0.00M, valueCardDeb = 0.00M, valueCard = 0.00M;
 
             foreach (DataGridViewRow row in dgvDataHistoryPayment.Rows)
             {
-                if (row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de crédito")
-                    valueCardCred += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
-                else if (row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de débito")
-                    valueCardDeb += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
+                if (row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de crédito" || row.Cells["formPayment"].Value.ToString().ToLower() == "cartão de débito")
+                    valueCard += decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(row.Cells["value"].Value.ToString()));
             }
 
+            var cash = new CashFlow();
+            cash.GetDateOpeningCashFlow();
+
+            var icoming = new IcomingCashFlow().GetDataIcoming(FrmGymControl.Instance._IdCashFlow, entryTimeCashFlow, cash._openingDate);
+
+            foreach (DataRow dr in icoming.Rows)
+            {
+                if (dr["description_icoming"].ToString().ToLower().Equals("valor adicionado na conta do pagamento do cartão de crédito"))
+                {
+                    valueCardCred += decimal.Parse(dr["value_card"].ToString());
+                }
+                else if (dr["description_icoming"].ToString().ToLower().Equals("valor adicionado na conta do pagamento do cartão de débito"))
+                {
+                    valueCardDeb += decimal.Parse(dr["value_card"].ToString());
+                }
+            }
+
+            lblValueReceipt.Text = $"R$ {valueCard}";
             lblValueCardCred.Text = $"R$ {valueCardCred}";
             lblValueCardDeb.Text = $"R$ {valueCardDeb}";
         }

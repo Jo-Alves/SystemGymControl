@@ -29,11 +29,11 @@ namespace SystemGymControl
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNumberBox = new System.Windows.Forms.Label();
             this.lblDateEntry = new System.Windows.Forms.Label();
@@ -68,6 +68,8 @@ namespace SystemGymControl
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblBalance = new System.Windows.Forms.Label();
+            this.lblValueReceipt = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.gb.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataHistoryPayment)).BeginInit();
@@ -150,7 +152,9 @@ namespace SystemGymControl
             // 
             // gb
             // 
+            this.gb.Controls.Add(this.lblValueReceipt);
             this.gb.Controls.Add(this.lblValueReicept);
+            this.gb.Controls.Add(this.label8);
             this.gb.Controls.Add(this.label5);
             this.gb.Controls.Add(this.lblValueCardDeb);
             this.gb.Controls.Add(this.label13);
@@ -165,7 +169,7 @@ namespace SystemGymControl
             this.gb.ForeColor = System.Drawing.Color.Black;
             this.gb.Location = new System.Drawing.Point(33, 102);
             this.gb.Name = "gb";
-            this.gb.Size = new System.Drawing.Size(1053, 153);
+            this.gb.Size = new System.Drawing.Size(1053, 182);
             this.gb.TabIndex = 6;
             this.gb.TabStop = false;
             this.gb.Text = "Movimentação do dia";
@@ -176,7 +180,7 @@ namespace SystemGymControl
             this.lblValueReicept.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblValueReicept.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblValueReicept.ForeColor = System.Drawing.Color.Green;
-            this.lblValueReicept.Location = new System.Drawing.Point(536, 82);
+            this.lblValueReicept.Location = new System.Drawing.Point(536, 66);
             this.lblValueReicept.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValueReicept.Name = "lblValueReicept";
             this.lblValueReicept.Size = new System.Drawing.Size(152, 32);
@@ -189,7 +193,7 @@ namespace SystemGymControl
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(549, 49);
+            this.label5.Location = new System.Drawing.Point(549, 33);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 26);
@@ -202,7 +206,7 @@ namespace SystemGymControl
             this.lblValueCardDeb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblValueCardDeb.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblValueCardDeb.ForeColor = System.Drawing.Color.Black;
-            this.lblValueCardDeb.Location = new System.Drawing.Point(886, 82);
+            this.lblValueCardDeb.Location = new System.Drawing.Point(886, 66);
             this.lblValueCardDeb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValueCardDeb.Name = "lblValueCardDeb";
             this.lblValueCardDeb.Size = new System.Drawing.Size(152, 32);
@@ -215,7 +219,7 @@ namespace SystemGymControl
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(886, 47);
+            this.label13.Location = new System.Drawing.Point(886, 31);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(146, 26);
@@ -228,7 +232,7 @@ namespace SystemGymControl
             this.lblValueCardCred.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblValueCardCred.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblValueCardCred.ForeColor = System.Drawing.Color.Black;
-            this.lblValueCardCred.Location = new System.Drawing.Point(711, 82);
+            this.lblValueCardCred.Location = new System.Drawing.Point(711, 66);
             this.lblValueCardCred.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValueCardCred.Name = "lblValueCardCred";
             this.lblValueCardCred.Size = new System.Drawing.Size(152, 32);
@@ -241,7 +245,7 @@ namespace SystemGymControl
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(711, 47);
+            this.label11.Location = new System.Drawing.Point(711, 31);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(151, 26);
@@ -254,7 +258,7 @@ namespace SystemGymControl
             this.lblDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDiscount.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblDiscount.ForeColor = System.Drawing.Color.Black;
-            this.lblDiscount.Location = new System.Drawing.Point(361, 82);
+            this.lblDiscount.Location = new System.Drawing.Point(361, 66);
             this.lblDiscount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(152, 32);
@@ -267,7 +271,7 @@ namespace SystemGymControl
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(374, 49);
+            this.label9.Location = new System.Drawing.Point(374, 33);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 26);
@@ -280,7 +284,7 @@ namespace SystemGymControl
             this.lblExitBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblExitBox.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblExitBox.ForeColor = System.Drawing.Color.Black;
-            this.lblExitBox.Location = new System.Drawing.Point(189, 82);
+            this.lblExitBox.Location = new System.Drawing.Point(189, 66);
             this.lblExitBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExitBox.Name = "lblExitBox";
             this.lblExitBox.Size = new System.Drawing.Size(152, 32);
@@ -293,7 +297,7 @@ namespace SystemGymControl
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(180, 47);
+            this.label7.Location = new System.Drawing.Point(180, 31);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 26);
@@ -306,7 +310,7 @@ namespace SystemGymControl
             this.lblEntryBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblEntryBox.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblEntryBox.ForeColor = System.Drawing.Color.Black;
-            this.lblEntryBox.Location = new System.Drawing.Point(18, 82);
+            this.lblEntryBox.Location = new System.Drawing.Point(18, 66);
             this.lblEntryBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEntryBox.Name = "lblEntryBox";
             this.lblEntryBox.Size = new System.Drawing.Size(152, 32);
@@ -319,7 +323,7 @@ namespace SystemGymControl
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(18, 47);
+            this.label3.Location = new System.Drawing.Point(18, 31);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(163, 26);
@@ -330,9 +334,9 @@ namespace SystemGymControl
             // 
             this.groupBox1.Controls.Add(this.dgvDataHistoryPayment);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(33, 261);
+            this.groupBox1.Location = new System.Drawing.Point(33, 290);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1056, 319);
+            this.groupBox1.Size = new System.Drawing.Size(1056, 290);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Histórico de pagamento";
@@ -342,14 +346,14 @@ namespace SystemGymControl
             this.dgvDataHistoryPayment.AllowUserToAddRows = false;
             this.dgvDataHistoryPayment.AllowUserToDeleteRows = false;
             this.dgvDataHistoryPayment.BackgroundColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 14F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataHistoryPayment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Open Sans", 14F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataHistoryPayment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDataHistoryPayment.ColumnHeadersHeight = 30;
             this.dgvDataHistoryPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataHistoryPayment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -367,19 +371,19 @@ namespace SystemGymControl
             this.dgvDataHistoryPayment.MultiSelect = false;
             this.dgvDataHistoryPayment.Name = "dgvDataHistoryPayment";
             this.dgvDataHistoryPayment.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Open Sans", 14F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDataHistoryPayment.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 14F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataHistoryPayment.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDataHistoryPayment.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            this.dgvDataHistoryPayment.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvDataHistoryPayment.Size = new System.Drawing.Size(1050, 287);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            this.dgvDataHistoryPayment.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvDataHistoryPayment.Size = new System.Drawing.Size(1050, 258);
             this.dgvDataHistoryPayment.TabIndex = 31;
             this.dgvDataHistoryPayment.TabStop = false;
             // 
@@ -401,8 +405,8 @@ namespace SystemGymControl
             // value
             // 
             this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.value.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.value.DefaultCellStyle = dataGridViewCellStyle2;
             this.value.HeaderText = "Valor pago";
             this.value.Name = "value";
             this.value.ReadOnly = true;
@@ -412,8 +416,8 @@ namespace SystemGymControl
             // valueDiscount
             // 
             this.valueDiscount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.valueDiscount.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valueDiscount.DefaultCellStyle = dataGridViewCellStyle3;
             this.valueDiscount.HeaderText = "Desconto";
             this.valueDiscount.Name = "valueDiscount";
             this.valueDiscount.ReadOnly = true;
@@ -534,6 +538,32 @@ namespace SystemGymControl
             this.lblBalance.TabIndex = 14;
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblValueReceipt
+            // 
+            this.lblValueReceipt.BackColor = System.Drawing.Color.White;
+            this.lblValueReceipt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblValueReceipt.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.lblValueReceipt.ForeColor = System.Drawing.Color.Red;
+            this.lblValueReceipt.Location = new System.Drawing.Point(23, 139);
+            this.lblValueReceipt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValueReceipt.Name = "lblValueReceipt";
+            this.lblValueReceipt.Size = new System.Drawing.Size(152, 32);
+            this.lblValueReceipt.TabIndex = 15;
+            this.lblValueReceipt.Text = "R$ 0,00";
+            this.lblValueReceipt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(18, 107);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(149, 26);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Valor a receber";
+            // 
             // FrmClosingCashFlow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -608,5 +638,7 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn payday;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentTime;
         private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblValueReceipt;
+        private System.Windows.Forms.Label label8;
     }
 }

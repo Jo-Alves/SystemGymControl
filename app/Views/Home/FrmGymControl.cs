@@ -336,6 +336,32 @@ namespace SystemGymControl
 
         }
 
+        private void FrmGymControl_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime dateNow = DateTime.Now;
+                foreach (DataRow dr in payment.SearchPaymentDateNow().Rows)
+                {
+                    IcomingCashFlow icomingCashFlow = new IcomingCashFlow()
+                    {
+                        _cashFlowID = idCashFlow,
+                        _descriptionIcoming = $"Valor adicionado na conta do pagamento do {dr["form_payment"]}",
+                        _entryDate = dateNow.ToShortDateString(),
+                        _entryTime = dateNow.ToLongTimeString(),
+                        _valueCard = decimal.Parse(dr["value_total"].ToString()),
+                        _valueMoney = 0.00M
+                    };
+
+                    payment.UpdatePaymentOnAccount(int.Parse(dr["id"].ToString()), icomingCashFlow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnCashFlow_Click(object sender, EventArgs e)
         {
             if (datePrevious)

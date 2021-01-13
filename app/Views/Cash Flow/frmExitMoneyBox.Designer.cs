@@ -147,7 +147,7 @@
             this.lblValueReicept.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblValueReicept.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblValueReicept.ForeColor = System.Drawing.Color.Green;
-            this.lblValueReicept.Location = new System.Drawing.Point(178, 82);
+            this.lblValueReicept.Location = new System.Drawing.Point(190, 82);
             this.lblValueReicept.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValueReicept.Name = "lblValueReicept";
             this.lblValueReicept.Size = new System.Drawing.Size(152, 32);
@@ -160,7 +160,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(191, 49);
+            this.label5.Location = new System.Drawing.Point(189, 47);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 26);
@@ -173,7 +173,7 @@
             this.lblExitBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblExitBox.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblExitBox.ForeColor = System.Drawing.Color.Black;
-            this.lblExitBox.Location = new System.Drawing.Point(349, 82);
+            this.lblExitBox.Location = new System.Drawing.Point(361, 82);
             this.lblExitBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExitBox.Name = "lblExitBox";
             this.lblExitBox.Size = new System.Drawing.Size(152, 32);
@@ -186,7 +186,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(340, 47);
+            this.label7.Location = new System.Drawing.Point(352, 47);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 26);
