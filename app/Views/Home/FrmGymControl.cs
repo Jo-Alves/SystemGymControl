@@ -14,7 +14,7 @@ namespace SystemGymControl
         Payment payment = new Payment();
         int idCashFlow, id;
         string nameUser, name;
-        bool datePrevious = false;
+        bool dateBoxIsPrevious = false, existUsers = true;
 
         public FrmGymControl()
         {
@@ -39,6 +39,15 @@ namespace SystemGymControl
             CheckedCashFlowItOpenig();
         }
 
+        public FrmGymControl(string messageIfExistUser)
+        {
+            InitializeComponent();
+            InitialSettings(0);
+            MessageBox.Show("Crie o usuário para o sistema.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            existUsers = false;
+            OpenForm.ShowForm(new FrmSaveUser(0, messageIfExistUser), this);
+        }
+
         private void CheckedCashFlowItOpenig()
         {
             cashFlow.GetDateOpeningCashFlow();
@@ -47,7 +56,7 @@ namespace SystemGymControl
                 if (!DateTime.Now.ToShortDateString().Equals(cashFlow._openingDate))
                 {
                     MessageBox.Show("Verificamos que o caixa não foi fechado. Fecha o caixa para a liberação as operações do sistema.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    datePrevious = true;
+                    dateBoxIsPrevious = true;
                     OpenForm.ShowForm(new FrmClosingCashFlow(), this);
                 }
             }
@@ -78,6 +87,8 @@ namespace SystemGymControl
             this.ClientSize = new Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
             this.Top = 0;
             this.Left = 0;
+
+            if (id == 0) return;
 
             try
             {
@@ -169,10 +180,16 @@ namespace SystemGymControl
             set { nameUser = value; }
         }
 
-        public bool _datePrevious
+        public bool _dateBoxIsPrevious
         {
-            get { return datePrevious; }
-            set { datePrevious = value; }
+            get { return dateBoxIsPrevious; }
+            set { dateBoxIsPrevious = value; }
+        }
+        
+        public bool _existUsers
+        {
+            get { return existUsers; }
+            set { existUsers = value; }
         }
 
         public string _name
@@ -242,9 +259,14 @@ namespace SystemGymControl
 
         private void btnMenuSave_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -254,9 +276,14 @@ namespace SystemGymControl
 
         private void btnMenuHome_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -266,9 +293,14 @@ namespace SystemGymControl
 
         private void btnMenuPlan_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -294,46 +326,58 @@ namespace SystemGymControl
 
         private void btnMenuSales_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-
+            else if(!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
 
         private void btnMenuReport_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
 
         private void btnMenuQuestion_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
 
         private void FrmGymControl_Load(object sender, EventArgs e)
@@ -364,9 +408,14 @@ namespace SystemGymControl
 
         private void btnCashFlow_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -376,9 +425,14 @@ namespace SystemGymControl
 
         private void btnMenuPayment_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 

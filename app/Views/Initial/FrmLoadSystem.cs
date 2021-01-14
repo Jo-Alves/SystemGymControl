@@ -21,11 +21,33 @@ namespace SystemGymControl
             {
                 timer.Enabled = false;
                 this.Visible = false;
-                using (var authentication = new FrmAuthentication())
+                try
                 {
-                    authentication.ShowDialog();
+                    if (CheckedExistUsers())
+                    {
+                        using (var authentication = new FrmAuthentication())
+                        {
+                            authentication.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        using (var gymControl = new FrmGymControl("nenhum usuário"))
+                        {
+                            gymControl.ShowDialog();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private bool CheckedExistUsers()
+        {
+             return new Bussiness.User().SearchAll().Rows.Count > 0 ? true : false;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

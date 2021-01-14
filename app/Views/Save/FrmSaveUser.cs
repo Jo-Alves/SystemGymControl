@@ -20,35 +20,59 @@ namespace SystemGymControl
             dateRegistion = DateTime.Now.ToShortDateString();
         }
 
+        string messageIfExistUser;
+        bool existUsers;
+
+        public FrmSaveUser(int id, string messageIfExistUser)
+        {
+            InitializeComponent();
+
+            try
+            {
+                this.messageIfExistUser = messageIfExistUser;
+                btnCancel.Visible = false;
+                dateRegistion = DateTime.Now.ToShortDateString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
         public FrmSaveUser(int id)
         {
             InitializeComponent();
 
             try
             {
-                var dataUser = user.SearchID(id);
-                nameUser = dataUser.Rows[0]["name_user"].ToString();
-
-                txtUser.Enabled = false;
-                idUser = int.Parse(dataUser.Rows[0]["id"].ToString());
-                txtName.Text = dataUser.Rows[0]["name"].ToString();
-                txtEmail.Text = dataUser.Rows[0]["email"].ToString();
-                txtUser.Text = nameUser;
-                txtPassword1.Text = dataUser.Rows[0]["password"].ToString();
-                txtPassword2.Text = txtPassword1.Text;
-                cbQuestion.Text = dataUser.Rows[0]["question"].ToString();
-                txtAnswer.Text = dataUser.Rows[0]["answer"].ToString();
-                dateRegistion = dataUser.Rows[0]["date_registion"].ToString();
-                avatar = dataUser.Rows[0]["avatar"].ToString();
-                if (!string.IsNullOrEmpty(avatar))
-                {
-                    pcAvatar.ImageLocation = avatar;
-                    pcAvatar.Load();
-                }
+                LoadFields(id);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadFields(int id)
+        {
+            var dataUser = user.SearchID(id);
+            nameUser = dataUser.Rows[0]["name_user"].ToString();
+
+            txtUser.Enabled = false;
+            idUser = int.Parse(dataUser.Rows[0]["id"].ToString());
+            txtName.Text = dataUser.Rows[0]["name"].ToString();
+            txtEmail.Text = dataUser.Rows[0]["email"].ToString();
+            txtUser.Text = nameUser;
+            txtPassword1.Text = dataUser.Rows[0]["password"].ToString();
+            txtPassword2.Text = txtPassword1.Text;
+            cbQuestion.Text = dataUser.Rows[0]["question"].ToString();
+            txtAnswer.Text = dataUser.Rows[0]["answer"].ToString();
+            dateRegistion = dataUser.Rows[0]["date_registion"].ToString();
+            avatar = dataUser.Rows[0]["avatar"].ToString();
+            if (!string.IsNullOrEmpty(avatar))
+            {
+                pcAvatar.ImageLocation = avatar;
+                pcAvatar.Load();
             }
         }
 
@@ -104,7 +128,18 @@ namespace SystemGymControl
 
                 user._avatar = avatar;
                 user.Save();
-                OpenForm.ShowForm(new FrmUsers(), this);
+
+                existUsers = true;
+
+                if (messageIfExistUser == "nenhum usuário")
+                {
+                    FrmGymControl.Instance.Visible = false;
+
+                    var authentication = new FrmAuthentication();
+                    authentication.ShowDialog();
+                }
+                else
+                    OpenForm.ShowForm(new FrmUsers(), this);
 
                 ShowPerfilAvatar();
             }

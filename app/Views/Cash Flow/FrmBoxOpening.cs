@@ -19,18 +19,18 @@ namespace SystemGymControl
             this.name = name;
         }
 
-        bool datePrevious;
+        bool dateBoxIsPrevious;
 
-        public FrmBoxOpening(bool datePrevious)
+        public FrmBoxOpening(bool dateBoxIsPrevious)
         {
             InitializeComponent();
-            this.datePrevious = datePrevious;
+            this.dateBoxIsPrevious = dateBoxIsPrevious;
 
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (datePrevious)
+            if (dateBoxIsPrevious)
             {
                 this.Close();
             }
@@ -85,7 +85,8 @@ namespace SystemGymControl
                 };
 
                 cashFlow.Save(icomingCashFlow);
-                if (datePrevious)
+               
+                if (dateBoxIsPrevious)
                 {
                     theValueHasBeenInformed = true;
                     this.Close();

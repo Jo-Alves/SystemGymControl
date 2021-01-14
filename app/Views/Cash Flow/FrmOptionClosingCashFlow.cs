@@ -36,7 +36,7 @@ namespace SystemGymControl
                 if (!new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
                 {
                     FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo Caixa - Retirar dinheiro";
-                    OpenForm.ShowForm(new frmExitMonewBox(), this);
+                    OpenForm.ShowForm(new FrmExitMonewBox(), this);
                 }
                 else
                     MessageBox.Show("O caixa foi fechado.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);

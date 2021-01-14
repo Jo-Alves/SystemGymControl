@@ -15,6 +15,10 @@ namespace SystemGymControl
             LoadDataUsers();
         }
 
+        public FrmUsers(string save)
+        {
+        }
+
         private void LoadDataUsers()
         {
             try

@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace SystemGymControl
 {
-    public partial class frmExitMonewBox : Form
+    public partial class FrmExitMonewBox : Form
     {
         string entryTimeCashFlow;
         decimal valueEntryBox, valueExitBox, valueTotalCash;
 
-        public frmExitMonewBox()
+        public FrmExitMonewBox()
         {
             InitializeComponent();
         }

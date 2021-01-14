@@ -15,7 +15,7 @@ namespace SystemGymControl
         {
             InitializeComponent();
 
-            if (FrmGymControl.Instance._datePrevious)
+            if (FrmGymControl.Instance._dateBoxIsPrevious)
                 btnCancel.Visible = false;
         }
 
@@ -39,14 +39,14 @@ namespace SystemGymControl
                 CashFlow cash = new CashFlow();
                 cash.ClosingBox(balance, FrmGymControl.Instance._IdCashFlow);
 
-                if (FrmGymControl.Instance._datePrevious)
+                if (FrmGymControl.Instance._dateBoxIsPrevious)
                 {
-                    var boxOpening = new FrmBoxOpening(FrmGymControl.Instance._datePrevious);
+                    var boxOpening = new FrmBoxOpening(FrmGymControl.Instance._dateBoxIsPrevious);
                     boxOpening.ShowDialog();
 
                     if (!boxOpening.theValueHasBeenInformed) return;
 
-                    FrmGymControl.Instance._datePrevious = false;
+                    FrmGymControl.Instance._dateBoxIsPrevious = false;
                     FrmGymControl.Instance._IdCashFlow = cash.GetMaxCashFlowID();
                 }
 

@@ -399,7 +399,6 @@
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(100, 22);
             this.lblUser.TabIndex = 4;
-            this.lblUser.Text = "Silmara";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pcPerfil

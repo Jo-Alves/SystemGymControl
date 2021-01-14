@@ -1,6 +1,6 @@
 ﻿namespace SystemGymControl
 {
-    partial class frmExitMonewBox
+    partial class FrmExitMonewBox
     {
         /// <summary>
         /// Required designer variable.
