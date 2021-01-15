@@ -87,7 +87,7 @@
             // 
             this.dgvPortions.AllowUserToAddRows = false;
             this.dgvPortions.AllowUserToDeleteRows = false;
-            this.dgvPortions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.dgvPortions.BackgroundColor = System.Drawing.Color.Silver;
             this.dgvPortions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
@@ -97,7 +97,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPortions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPortions.ColumnHeadersHeight = 30;
+            this.dgvPortions.ColumnHeadersHeight = 35;
             this.dgvPortions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvPortions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.portion,
@@ -110,7 +110,7 @@
             this.dgvPortions.ReadOnly = true;
             this.dgvPortions.RowHeadersVisible = false;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dgvPortions.RowsDefaultCellStyle = dataGridViewCellStyle5;

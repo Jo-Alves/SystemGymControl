@@ -128,7 +128,7 @@ namespace Database
             {
                 try
                 {
-                    _sql = $"SELECT * FROM students WHERE name like '%{name}%'";
+                    _sql = $"SELECT * FROM students WHERE name LIKE '%{name}%'";
                     var adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
@@ -185,6 +185,25 @@ namespace Database
             }
 
             return maxId;
+        }
+
+        public DataTable GetBirthStudents(string dayAndMounth)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM students WHERE birth LIKE '%{dayAndMounth}%'";
+                    var adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
         }
     }
 }

@@ -150,7 +150,7 @@ namespace SystemGymControl
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvdataUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvdataUser.ColumnHeadersHeight = 30;
+            this.dgvdataUser.ColumnHeadersHeight = 35;
             this.dgvdataUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvdataUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.edit,
@@ -170,8 +170,8 @@ namespace SystemGymControl
             this.dgvdataUser.ReadOnly = true;
             this.dgvdataUser.RowHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dgvdataUser.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdataUser.Size = new System.Drawing.Size(577, 232);
             this.dgvdataUser.TabIndex = 14;
@@ -263,7 +263,7 @@ namespace SystemGymControl
             this.registion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.registion.Width = 142;
             // 
-            // FrmUser
+            // FrmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -277,7 +277,7 @@ namespace SystemGymControl
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmUser";
+            this.Name = "FrmUsers";
             this.Text = "FrmUser";
             ((System.ComponentModel.ISupportInitialize)(this.pcStudent)).EndInit();
             this.groupBox1.ResumeLayout(false);

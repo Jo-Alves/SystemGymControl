@@ -332,7 +332,7 @@ namespace SystemGymControl
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFormOfPagament.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvFormOfPagament.ColumnHeadersHeight = 30;
+            this.dgvFormOfPagament.ColumnHeadersHeight = 35;
             this.dgvFormOfPagament.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvFormOfPagament.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.edit,
@@ -356,9 +356,9 @@ namespace SystemGymControl
             this.dgvFormOfPagament.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFormOfPagament.RowHeadersVisible = false;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvFormOfPagament.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFormOfPagament.Size = new System.Drawing.Size(427, 257);
             this.dgvFormOfPagament.TabIndex = 57;
@@ -453,6 +453,8 @@ namespace SystemGymControl
             // 
             // cbFormOfPayment
             // 
+            this.cbFormOfPayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbFormOfPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFormOfPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFormOfPayment.FormattingEnabled = true;

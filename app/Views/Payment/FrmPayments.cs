@@ -63,6 +63,9 @@ namespace SystemGymControl
                 if (row.Cells["situation"].Value.ToString() == "Expirado")
                 {
                     row.DefaultCellStyle.BackColor = Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(45)))), ((int)(((byte)(47)))));
+                    row.DefaultCellStyle.ForeColor = Color.White;
+
+                    row.Cells["pay"].Value = Properties.Resources.icons8_pay_32px_2;
                 }
             }
         }

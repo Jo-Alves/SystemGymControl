@@ -50,7 +50,6 @@ namespace SystemGymControl
                 dgvDataPlan.Rows[countRow].Cells["receive"].Value = Properties.Resources.icons8_get_revenue_32px;
                 dgvDataPlan.Rows[countRow].Cells["idCash"].Value = dr["idCash"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["receipt"].Value = Properties.Resources.icons8_receipt_32px;
-                dgvDataPlan.Rows[countRow].Cells["receipt"].Value = Properties.Resources.icons8_receipt_32px;
                 dgvDataPlan.Rows[countRow].Cells["id"].Value = dr["idCash"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["valueTotal"].Value = $"R$ {dr["value_total"]}";
                 dgvDataPlan.Rows[countRow].Cells["valueDiscount"].Value = $"R$ {dr["value_discount"]}";

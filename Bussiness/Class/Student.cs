@@ -100,5 +100,10 @@ namespace Bussiness
             return student.GetMaxId();
 
         }
+
+        public DataTable GetBirthStudents(string dayAndMounth)
+        {
+            return student.GetBirthStudents(dayAndMounth);
+        }
     }
 }

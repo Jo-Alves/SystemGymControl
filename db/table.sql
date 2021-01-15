@@ -159,4 +159,13 @@ CREATE TABLE [dbo].[outgoing_cash_flow]
 	[description_exit] VARCHAR(MAX) NOT NULL,
 	[value_output] DECIMAL(18,2) NOT NULL,
 	[cash_flow_id] INT NOT NULL,
-	FOREIGN KEY ([cash_flow_id]) REFERENCES [dbo].[cash_flow]([id]) ON DELETE CASCADE)
+	FOREIGN KEY ([cash_flow_id]) REFERENCES [dbo].[cash_flow]([id]) ON DELETE CASCADE
+)
+
+CREATE TABLE [dbo].[notification] (
+    [id]        INT           IDENTITY (1, 1) NOT NULL,
+    [situation] VARCHAR (10)  NULL,
+    [message]   VARCHAR (MAX) NULL,
+    [date_notification] VARCHAR(10) NULL, 
+    PRIMARY KEY CLUSTERED ([id] ASC)
+)

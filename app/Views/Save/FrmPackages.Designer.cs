@@ -109,8 +109,8 @@
             this.dgvDataPackage.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDataPackage.RowHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataPackage.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDataPackage.Size = new System.Drawing.Size(636, 232);
             this.dgvDataPackage.TabIndex = 6;
@@ -230,7 +230,7 @@
             this.pcPackage.TabIndex = 8;
             this.pcPackage.TabStop = false;
             // 
-            // FrmPackage
+            // FrmPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,7 +244,7 @@
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmPackage";
+            this.Name = "FrmPackages";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPackage)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

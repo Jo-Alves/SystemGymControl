@@ -2,7 +2,9 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace SystemGymControl
 {
@@ -12,6 +14,8 @@ namespace SystemGymControl
         SituationsPlan situationPlan = new SituationsPlan();
         CashFlow cashFlow = new CashFlow();
         Payment payment = new Payment();
+        Student student = new Student();
+
         int idCashFlow, id;
         string nameUser, name;
         bool dateBoxIsPrevious = false, existUsers = true;
@@ -185,7 +189,7 @@ namespace SystemGymControl
             get { return dateBoxIsPrevious; }
             set { dateBoxIsPrevious = value; }
         }
-        
+
         public bool _existUsers
         {
             get { return existUsers; }
@@ -331,7 +335,7 @@ namespace SystemGymControl
                 MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            else if(!existUsers)
+            else if (!existUsers)
             {
                 MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -381,6 +385,28 @@ namespace SystemGymControl
         }
 
         private void FrmGymControl_Load(object sender, EventArgs e)
+        {
+            UpdatePaymentCardIfDueDateEqualDateNow();
+            NotificationSystem();
+        }
+
+        private void NotificationSystem()
+        {
+            if(student.GetBirthStudents(DateTime.Now.ToShortDateString().Substring(0, 5)).Rows.Count > 0)
+            {
+                btnNotification.Visible = true;
+                SoundPlayer sound = new SoundPlayer(Properties.Resources.hangouts);
+                sound.Play();
+
+                PopupNotifier popup = new PopupNotifier();
+                popup.Image = Properties.Resources.icons8_notification_25px;
+                popup.TitleText = "Notificação do sistema...";
+                popup.ContentText = "Verifique na caixa mensagem a notificação do dia.";
+                popup.Popup();
+            }
+        }
+
+        private void UpdatePaymentCardIfDueDateEqualDateNow()
         {
             try
             {

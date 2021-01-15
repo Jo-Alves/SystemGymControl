@@ -85,7 +85,7 @@ namespace SystemGymControl
                 };
 
                 cashFlow.Save(icomingCashFlow);
-               
+
                 if (dateBoxIsPrevious)
                 {
                     theValueHasBeenInformed = true;

@@ -47,6 +47,7 @@
     <Compile Include="Class\IcomingCashFlow.cs" />
     <Compile Include="Class\ItemsPackage.cs" />
     <Compile Include="Class\Modality.cs" />
+    <Compile Include="Class\Notification.cs" />
     <Compile Include="Class\OutgoingCashFlow.cs" />
     <Compile Include="Class\Package.cs" />
     <Compile Include="Class\Payment.cs" />

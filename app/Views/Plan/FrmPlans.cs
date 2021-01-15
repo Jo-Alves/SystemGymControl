@@ -80,7 +80,7 @@ namespace SystemGymControl
             dgvDataPlan.ClearSelection();
             ShowTimeInactivated();
             FormatFieldsTimeInactivated();
-            updateColorRowDataGridIfSituationPlanExpired();
+            updateColorAndIconsRowDataGridIfSituationPlanExpired();
         }
 
         private void ShowTimeInactivated()
@@ -117,13 +117,16 @@ namespace SystemGymControl
             }
         }
 
-        private void updateColorRowDataGridIfSituationPlanExpired()
+        private void updateColorAndIconsRowDataGridIfSituationPlanExpired()
         {
             foreach (DataGridViewRow row in dgvDataPlan.Rows)
             {
                 if (row.Cells["situation"].Value.ToString() == "Expirado")
                 {
                     row.DefaultCellStyle.BackColor = Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(45)))), ((int)(((byte)(47)))));
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                    row.Cells["showDetails"].Value = Properties.Resources.icons8_details_32px_1;
+                    row.Cells["renewPlan"].Value = Properties.Resources.icons8_renew_32px_1;
                 }
             }
         }

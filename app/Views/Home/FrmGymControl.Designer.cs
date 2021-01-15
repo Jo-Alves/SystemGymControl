@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGymControl));
             this.pnTitle = new System.Windows.Forms.Panel();
+            this.btnNotification = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDateNow = new System.Windows.Forms.Label();
             this.btnMimized = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@
             // pnTitle
             // 
             this.pnTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnTitle.Controls.Add(this.btnNotification);
             this.pnTitle.Controls.Add(this.lblTitle);
             this.pnTitle.Controls.Add(this.lblDateNow);
             this.pnTitle.Controls.Add(this.btnMimized);
@@ -75,6 +77,21 @@
             this.pnTitle.Name = "pnTitle";
             this.pnTitle.Size = new System.Drawing.Size(852, 40);
             this.pnTitle.TabIndex = 1;
+            // 
+            // btnNotification
+            // 
+            this.btnNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotification.FlatAppearance.BorderSize = 0;
+            this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotification.Image = global::SystemGymControl.Properties.Resources.icons8_notification_25px;
+            this.btnNotification.Location = new System.Drawing.Point(742, 7);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(25, 26);
+            this.btnNotification.TabIndex = 6;
+            this.btnNotification.TabStop = false;
+            this.btnNotification.UseVisualStyleBackColor = true;
+            this.btnNotification.Visible = false;
             // 
             // lblTitle
             // 
@@ -147,7 +164,7 @@
             this.pnConjuctMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnConjuctMenu.Location = new System.Drawing.Point(0, 40);
             this.pnConjuctMenu.Name = "pnConjuctMenu";
-            this.pnConjuctMenu.Size = new System.Drawing.Size(235, 709);
+            this.pnConjuctMenu.Size = new System.Drawing.Size(205, 709);
             this.pnConjuctMenu.TabIndex = 8;
             // 
             // panel3
@@ -164,7 +181,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 187);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(235, 504);
+            this.panel3.Size = new System.Drawing.Size(205, 504);
             this.panel3.TabIndex = 5;
             // 
             // btnSetting
@@ -183,7 +200,7 @@
             this.btnSetting.Location = new System.Drawing.Point(0, 392);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnSetting.Size = new System.Drawing.Size(235, 49);
+            this.btnSetting.Size = new System.Drawing.Size(205, 49);
             this.btnSetting.TabIndex = 42;
             this.btnSetting.TabStop = false;
             this.btnSetting.Text = "Configurações";
@@ -207,7 +224,7 @@
             this.btnMenuQuestion.Location = new System.Drawing.Point(0, 343);
             this.btnMenuQuestion.Name = "btnMenuQuestion";
             this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuQuestion.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuQuestion.Size = new System.Drawing.Size(205, 49);
             this.btnMenuQuestion.TabIndex = 41;
             this.btnMenuQuestion.TabStop = false;
             this.btnMenuQuestion.Text = "Sobre";
@@ -231,7 +248,7 @@
             this.btnCashFlow.Location = new System.Drawing.Point(0, 294);
             this.btnCashFlow.Name = "btnCashFlow";
             this.btnCashFlow.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCashFlow.Size = new System.Drawing.Size(235, 49);
+            this.btnCashFlow.Size = new System.Drawing.Size(205, 49);
             this.btnCashFlow.TabIndex = 40;
             this.btnCashFlow.TabStop = false;
             this.btnCashFlow.Text = "Fluxo de Caixa";
@@ -255,7 +272,7 @@
             this.btnMenuReport.Location = new System.Drawing.Point(0, 245);
             this.btnMenuReport.Name = "btnMenuReport";
             this.btnMenuReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuReport.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuReport.Size = new System.Drawing.Size(205, 49);
             this.btnMenuReport.TabIndex = 36;
             this.btnMenuReport.TabStop = false;
             this.btnMenuReport.Text = "Relatório";
@@ -279,7 +296,7 @@
             this.btnMenuSales.Location = new System.Drawing.Point(0, 196);
             this.btnMenuSales.Name = "btnMenuSales";
             this.btnMenuSales.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuSales.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuSales.Size = new System.Drawing.Size(205, 49);
             this.btnMenuSales.TabIndex = 35;
             this.btnMenuSales.TabStop = false;
             this.btnMenuSales.Text = "Vendas";
@@ -303,7 +320,7 @@
             this.btnMenuPayment.Location = new System.Drawing.Point(0, 147);
             this.btnMenuPayment.Name = "btnMenuPayment";
             this.btnMenuPayment.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuPayment.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuPayment.Size = new System.Drawing.Size(205, 49);
             this.btnMenuPayment.TabIndex = 34;
             this.btnMenuPayment.TabStop = false;
             this.btnMenuPayment.Text = "Pagamentos";
@@ -327,7 +344,7 @@
             this.btnMenuPlan.Location = new System.Drawing.Point(0, 98);
             this.btnMenuPlan.Name = "btnMenuPlan";
             this.btnMenuPlan.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuPlan.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuPlan.Size = new System.Drawing.Size(205, 49);
             this.btnMenuPlan.TabIndex = 25;
             this.btnMenuPlan.TabStop = false;
             this.btnMenuPlan.Text = "Plano";
@@ -351,7 +368,7 @@
             this.btnMenuSave.Location = new System.Drawing.Point(0, 49);
             this.btnMenuSave.Name = "btnMenuSave";
             this.btnMenuSave.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuSave.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuSave.Size = new System.Drawing.Size(205, 49);
             this.btnMenuSave.TabIndex = 20;
             this.btnMenuSave.TabStop = false;
             this.btnMenuSave.Text = "Cadastro";
@@ -373,7 +390,7 @@
             this.btnMenuHome.Location = new System.Drawing.Point(0, 0);
             this.btnMenuHome.Name = "btnMenuHome";
             this.btnMenuHome.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuHome.Size = new System.Drawing.Size(235, 49);
+            this.btnMenuHome.Size = new System.Drawing.Size(205, 49);
             this.btnMenuHome.TabIndex = 15;
             this.btnMenuHome.TabStop = false;
             this.btnMenuHome.Text = "Início";
@@ -389,13 +406,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(235, 187);
+            this.panel1.Size = new System.Drawing.Size(205, 187);
             this.panel1.TabIndex = 4;
             // 
             // lblUser
             // 
             this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(68, 153);
+            this.lblUser.Location = new System.Drawing.Point(54, 153);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(100, 22);
             this.lblUser.TabIndex = 4;
@@ -404,7 +421,7 @@
             // pcPerfil
             // 
             this.pcPerfil.Image = global::SystemGymControl.Properties.Resources.icons8_person_female_50px;
-            this.pcPerfil.Location = new System.Drawing.Point(51, 18);
+            this.pcPerfil.Location = new System.Drawing.Point(37, 18);
             this.pcPerfil.Name = "pcPerfil";
             this.pcPerfil.Size = new System.Drawing.Size(130, 130);
             this.pcPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -416,9 +433,9 @@
             this.pnPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPage.Location = new System.Drawing.Point(235, 40);
+            this.pnPage.Location = new System.Drawing.Point(205, 40);
             this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(617, 709);
+            this.pnPage.Size = new System.Drawing.Size(647, 709);
             this.pnPage.TabIndex = 11;
             // 
             // panel2
@@ -503,5 +520,6 @@
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnMenuQuestion;
         private System.Windows.Forms.Button btnCashFlow;
+        private System.Windows.Forms.Button btnNotification;
     }
 }

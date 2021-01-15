@@ -98,7 +98,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDataStudent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDataStudent.ColumnHeadersHeight = 30;
+            this.dgvDataStudent.ColumnHeadersHeight = 35;
             this.dgvDataStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.edit,
@@ -134,8 +134,8 @@
             this.dgvDataStudent.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDataStudent.RowHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataStudent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDataStudent.Size = new System.Drawing.Size(577, 234);
             this.dgvDataStudent.TabIndex = 6;
@@ -365,7 +365,7 @@
             this.pcStudent.TabIndex = 8;
             this.pcStudent.TabStop = false;
             // 
-            // FrmStudent
+            // FrmStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -379,7 +379,7 @@
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmStudent";
+            this.Name = "FrmStudents";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataStudent)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

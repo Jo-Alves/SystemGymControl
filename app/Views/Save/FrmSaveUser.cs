@@ -38,7 +38,7 @@ namespace SystemGymControl
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         public FrmSaveUser(int id)
         {
             InitializeComponent();

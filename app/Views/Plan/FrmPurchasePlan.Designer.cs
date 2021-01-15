@@ -136,7 +136,7 @@ namespace SystemGymControl
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDataPlan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDataPlan.ColumnHeadersHeight = 30;
+            this.dgvDataPlan.ColumnHeadersHeight = 35;
             this.dgvDataPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataPlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -158,9 +158,9 @@ namespace SystemGymControl
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDataPlan.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDataPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDataPlan.Size = new System.Drawing.Size(766, 218);

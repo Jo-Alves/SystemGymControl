@@ -41,7 +41,9 @@ namespace SystemGymControl
             this.lblOperator = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gb = new System.Windows.Forms.GroupBox();
+            this.lblValueReceipt = new System.Windows.Forms.Label();
             this.lblValueReicept = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblValueCardDeb = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -68,8 +70,6 @@ namespace SystemGymControl
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblBalance = new System.Windows.Forms.Label();
-            this.lblValueReceipt = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.gb.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataHistoryPayment)).BeginInit();
@@ -174,6 +174,20 @@ namespace SystemGymControl
             this.gb.TabStop = false;
             this.gb.Text = "Movimentação do dia";
             // 
+            // lblValueReceipt
+            // 
+            this.lblValueReceipt.BackColor = System.Drawing.Color.White;
+            this.lblValueReceipt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblValueReceipt.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.lblValueReceipt.ForeColor = System.Drawing.Color.Red;
+            this.lblValueReceipt.Location = new System.Drawing.Point(23, 139);
+            this.lblValueReceipt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValueReceipt.Name = "lblValueReceipt";
+            this.lblValueReceipt.Size = new System.Drawing.Size(152, 32);
+            this.lblValueReceipt.TabIndex = 15;
+            this.lblValueReceipt.Text = "R$ 0,00";
+            this.lblValueReceipt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblValueReicept
             // 
             this.lblValueReicept.BackColor = System.Drawing.Color.White;
@@ -187,6 +201,18 @@ namespace SystemGymControl
             this.lblValueReicept.TabIndex = 13;
             this.lblValueReicept.Text = "R$ 0,00";
             this.lblValueReicept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(18, 107);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(149, 26);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Valor a receber";
             // 
             // label5
             // 
@@ -354,7 +380,7 @@ namespace SystemGymControl
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDataHistoryPayment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDataHistoryPayment.ColumnHeadersHeight = 30;
+            this.dgvDataHistoryPayment.ColumnHeadersHeight = 35;
             this.dgvDataHistoryPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataHistoryPayment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idCash,
@@ -379,9 +405,9 @@ namespace SystemGymControl
             this.dgvDataHistoryPayment.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDataHistoryPayment.RowHeadersVisible = false;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Open Sans", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dgvDataHistoryPayment.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDataHistoryPayment.Size = new System.Drawing.Size(1050, 258);
             this.dgvDataHistoryPayment.TabIndex = 31;
@@ -507,7 +533,6 @@ namespace SystemGymControl
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
@@ -537,32 +562,6 @@ namespace SystemGymControl
             this.lblBalance.Size = new System.Drawing.Size(152, 33);
             this.lblBalance.TabIndex = 14;
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblValueReceipt
-            // 
-            this.lblValueReceipt.BackColor = System.Drawing.Color.White;
-            this.lblValueReceipt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblValueReceipt.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.lblValueReceipt.ForeColor = System.Drawing.Color.Red;
-            this.lblValueReceipt.Location = new System.Drawing.Point(23, 139);
-            this.lblValueReceipt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblValueReceipt.Name = "lblValueReceipt";
-            this.lblValueReceipt.Size = new System.Drawing.Size(152, 32);
-            this.lblValueReceipt.TabIndex = 15;
-            this.lblValueReceipt.Text = "R$ 0,00";
-            this.lblValueReceipt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(18, 107);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(149, 26);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Valor a receber";
             // 
             // FrmClosingCashFlow
             // 

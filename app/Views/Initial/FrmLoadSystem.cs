@@ -47,7 +47,7 @@ namespace SystemGymControl
 
         private bool CheckedExistUsers()
         {
-             return new Bussiness.User().SearchAll().Rows.Count > 0 ? true : false;
+            return new Bussiness.User().SearchAll().Rows.Count > 0 ? true : false;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
