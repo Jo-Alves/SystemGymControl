@@ -1,4 +1,6 @@
-﻿namespace Bussiness
+﻿using System.Data;
+
+namespace Bussiness
 {
     public class Notification
     {
@@ -38,9 +40,19 @@
             notification.GerateMessage();
         }
 
-        public void MarctMessage(int id)
+        public void MarctMessage(int id, string situationNotification)
         {
-            notification.MarctMessage(id);
+            notification.MarctMessage(id, situationNotification);
+        }
+
+        public DataTable GetNotification()
+        {
+            return notification.GetNotification();
+        }
+
+        public DataTable GetSituationNotification(int id)
+        {
+            return notification.GetSituationNotification(id);
         }
     }
 }

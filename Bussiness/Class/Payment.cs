@@ -99,6 +99,11 @@ namespace Bussiness
             return payment.GetSumValueTotalAndDiscount(entryTimeCashFlow, openingDate);
         }
 
+        public DataTable GetDataPaymentDueDateLate()
+        {
+            return payment.GetDataPaymentDueDateLate();
+        }
+
         public DataTable SearchPaymentDateNow()
         {
             return payment.SearchPaymentDateNow();

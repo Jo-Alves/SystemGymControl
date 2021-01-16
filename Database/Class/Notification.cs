@@ -1,4 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Database
 {
@@ -27,7 +29,8 @@ namespace Database
             set { message = value; }
         }
 
-        public string _dateNotification {
+        public string _dateNotification
+        {
             get { return dateNotification; }
             set { dateNotification = value; }
         }
@@ -56,7 +59,7 @@ namespace Database
             }
         }
 
-        public void MarctMessage(int id)
+        public void MarctMessage(int id, string situationNotification)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -66,11 +69,50 @@ namespace Database
 
                     _sql = "UPDATE notification SET situation = @situation WHERE id = @id";
                     SqlCommand command = new SqlCommand(_sql, connection);
-                    command.Parameters.AddWithValue("@situation", _situation);
+                    command.Parameters.AddWithValue("@situation", situationNotification);
                     command.Parameters.AddWithValue("@id", id);
 
                     command.ExecuteNonQuery();
 
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public DataTable GetNotification()
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM notification WHERE date_notification = '{DateTime.Now.ToShortDateString()}'";
+                    var adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+        
+        public DataTable GetSituationNotification(int id)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM notification WHERE id = @id";
+                    var adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
                 }
                 catch
                 {

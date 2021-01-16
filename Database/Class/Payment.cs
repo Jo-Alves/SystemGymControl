@@ -296,5 +296,26 @@ namespace Database
                 }
             }
         }
+
+        // retorna dados dos pagamentos atrasados
+
+        public DataTable GetDataPaymentDueDateLate()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM payments INNER JOIN plans ON plans.id = payments.plan_id INNER JOIN students ON students.id = plans.student_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id WHERE CONVERT(DATE, payments.duedate, 103) < CONVERT(DATE, '{DateTime.Now.ToShortDateString()}', 103) AND packages.period = 'mensal' AND payments.payment_on_account = 'no' AND payments.payday = ''";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

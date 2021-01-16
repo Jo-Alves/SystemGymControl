@@ -194,4 +194,4 @@ C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmStud
 C:\Users\Joelmir\Desktop\systemgymcontrol\app\obj\Debug\SystemGymControl.FrmUsers.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmRegisterCashFlow.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\Tulpep.NotificationWindow.dll
-C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.Views.Notification.FrmNotification.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmNotification.resources

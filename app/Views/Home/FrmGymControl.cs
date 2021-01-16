@@ -386,24 +386,75 @@ namespace SystemGymControl
 
         private void FrmGymControl_Load(object sender, EventArgs e)
         {
-            UpdatePaymentCardIfDueDateEqualDateNow();
-            NotificationSystem();
+            try
+            {
+                UpdatePaymentCardIfDueDateEqualDateNow();
+                NotificationSystem();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void NotificationSystem()
         {
-            if(student.GetBirthStudents(DateTime.Now.ToShortDateString().Substring(0, 5)).Rows.Count > 0)
-            {
-                btnNotification.Visible = true;
-                SoundPlayer sound = new SoundPlayer(Properties.Resources.hangouts);
-                sound.Play();
+            DataTable dataStudents = student.GetBirthStudents(DateTime.Now.ToShortDateString().Substring(0, 5)), dataPayments = payment.GetDataPaymentDueDateLate();
 
-                PopupNotifier popup = new PopupNotifier();
-                popup.Image = Properties.Resources.icons8_notification_25px;
-                popup.TitleText = "Notificação do sistema...";
-                popup.ContentText = "Verifique na caixa mensagem a notificação do dia.";
-                popup.Popup();
+            if (dataStudents.Rows.Count == 0 && dataPayments.Rows.Count == 0) return;
+
+            btnNotification.Visible = true;
+
+            if (new Notification().GetNotification().Rows.Count > 0) return;
+                
+            NotifyStudent(dataStudents);            
+            NotifyPayment(dataPayments);
+
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.hangouts);
+            sound.Play();
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.icons8_notification_25px;
+            popup.TitleText = "Notificação do sistema...";
+            popup.ContentText = "Verifique na caixa de mensagem a notificação do dia.";
+            popup.Popup();
+
+        }
+
+        private void NotifyPayment(DataTable dataPayments)
+        {
+            TimeSpan time;
+
+            foreach (DataRow dr in dataPayments.Rows)
+            {
+                DateTime dueDate = Convert.ToDateTime(dr["duedate"].ToString());
+                time = DateTime.Now.Subtract(dueDate);
+                new Notification()
+                {
+                    _dateNotification = DateTime.Now.ToShortDateString(),
+                    _message = $"Constamos que o pagamento do(a) aluno(a) {dr["name"]} está à {time.Days} dias de atraso.",
+                    _situation = "Não lida"
+                }.GerateMessage();
             }
+
+        }
+
+        private void NotifyStudent(DataTable dataStudents)
+        {
+            foreach (DataRow dr in dataStudents.Rows)
+            {
+                new Notification()
+                {
+                    _dateNotification = DateTime.Now.ToShortDateString(),
+                    _message = $"Constamos que o(a) aluno(a) {dr["name"]} está fazendo aniversário na data de hoje.",
+                    _situation = "Não lida"
+                }.GerateMessage();
+            }
+        }
+
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            OpenForm.ShowForm(new FrmNotification(), this);
         }
 
         private void UpdatePaymentCardIfDueDateEqualDateNow()

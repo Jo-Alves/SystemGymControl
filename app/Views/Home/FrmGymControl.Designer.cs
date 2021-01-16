@@ -92,6 +92,7 @@
             this.btnNotification.TabStop = false;
             this.btnNotification.UseVisualStyleBackColor = true;
             this.btnNotification.Visible = false;
+            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
             // 
             // lblTitle
             // 
