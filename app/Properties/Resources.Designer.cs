@@ -312,6 +312,16 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_get_revenue_32px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_get_revenue_32px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_handle_with_care_32px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_handle_with_care_32px_1", resourceCulture);
@@ -535,6 +545,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_receipt_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_receipt_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_receipt_32px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_receipt_32px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

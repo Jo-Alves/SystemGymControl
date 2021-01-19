@@ -692,6 +692,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
+    <None Include="Resources\icons8_receipt_32px_2.png" />
+    <None Include="Resources\icons8_receipt_32px_1.png" />
+    <None Include="Resources\icons8_get_revenue_32px_1.png" />
     <None Include="Resources\hangouts.wav" />
     <None Include="Resources\icons8_notification_25px.png" />
     <None Include="Resources\icons8_notification_32px.png" />

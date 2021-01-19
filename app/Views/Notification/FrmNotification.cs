@@ -19,7 +19,7 @@ namespace SystemGymControl
         {
             try
             {
-                DataTable dataNotification = notification.GetNotification();
+                DataTable dataNotification = notification.GetDataNotificationNotRead();
 
                 foreach (DataRow dr in dataNotification.Rows)
                 {

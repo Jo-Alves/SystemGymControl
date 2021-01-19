@@ -100,7 +100,26 @@ namespace Database
                 }
             }
         }
-        
+
+        public DataTable GetDataNotificationNotRead()
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT * FROM notification WHERE date_notification = '{DateTime.Now.ToShortDateString()}' AND situation <> 'Lida'";
+                    var adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
         public DataTable GetSituationNotification(int id)
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
@@ -113,6 +132,48 @@ namespace Database
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+        
+        public DataTable SearchAll()
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT * FROM notification";
+                    var adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@id", id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+
+                    _sql = "DELETE FROM notification WHERE id = @id";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    command.ExecuteNonQuery();
+
                 }
                 catch
                 {

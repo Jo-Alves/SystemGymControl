@@ -209,14 +209,7 @@ namespace Database
                     payment._valueTotal = valueTotal;
 
 
-                    // faz uma condição
-                    // Se a data atual for menor que a data do vencimento
-                    // deverá converter a data do vencimento e adicionar mais um mês
-                    // Se não converte a data atual adiciona mais um Mês pela mês atual
-                    if (Convert.ToDateTime(payment._duedate) >= DateTime.Now)
-                        payment._duedate = Convert.ToDateTime(payment._duedate).AddMonths(1).ToShortDateString();
-                    else
-                        payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
+                    payment._duedate = Convert.ToDateTime(payment._duedate).AddMonths(1).ToShortDateString();
 
                     payment.SavePaymentEffected(transaction);
 

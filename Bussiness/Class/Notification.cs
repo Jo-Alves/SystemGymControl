@@ -48,11 +48,26 @@ namespace Bussiness
         public DataTable GetNotification()
         {
             return notification.GetNotification();
+        } 
+        
+        public DataTable GetDataNotificationNotRead()
+        {
+            return notification.GetDataNotificationNotRead();
         }
 
         public DataTable GetSituationNotification(int id)
         {
             return notification.GetSituationNotification(id);
+        } 
+        
+        public DataTable SearchAll()
+        {
+            return notification.SearchAll();
+        }
+
+        public void Delete(int id)
+        {
+            notification.Delete(id);
         }
     }
 }

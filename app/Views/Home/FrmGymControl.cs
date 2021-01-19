@@ -390,10 +390,37 @@ namespace SystemGymControl
             {
                 UpdatePaymentCardIfDueDateEqualDateNow();
                 NotificationSystem();
+                DeleteNotification(new Notification());
+                CheckedHaveNotificationNotRead(new Notification());
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CheckedHaveNotificationNotRead(Notification notification)
+        {
+            if(notification.GetDataNotificationNotRead().Rows.Count  == 0)
+            {
+                btnNotification.Visible = false;
+            }
+        }
+
+        private void DeleteNotification(Notification notification)
+        {
+            DateTime dateNow;
+
+            foreach(DataRow row in notification.SearchAll().Rows)
+            {
+                dateNow = Convert.ToDateTime(row["date_notification"].ToString());
+
+                // Após ou durante os trinta dias a notificação é excluida do banco de dados
+
+                if(DateTime.Now.Subtract(dateNow).Days >= 30)
+                {
+                    notification.Delete(int.Parse(row[id].ToString()));
+                }                
             }
         }
 
@@ -403,7 +430,7 @@ namespace SystemGymControl
 
             if (dataStudents.Rows.Count == 0 && dataPayments.Rows.Count == 0) return;
 
-            btnNotification.Visible = true;
+                btnNotification.Visible = true;
 
             if (new Notification().GetNotification().Rows.Count > 0) return;
                 
@@ -454,7 +481,8 @@ namespace SystemGymControl
 
         private void btnNotification_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmNotification(), this);
+            if(new Notification().GetDataNotificationNotRead().Rows.Count > 0)
+                OpenForm.ShowForm(new FrmNotification(), this);
         }
 
         private void UpdatePaymentCardIfDueDateEqualDateNow()

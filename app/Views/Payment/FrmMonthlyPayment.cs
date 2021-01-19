@@ -8,7 +8,7 @@ namespace SystemGymControl
 {
     public partial class FrmMonthlyPayment : Form
     {
-        Bussiness.Payment payment = new Bussiness.Payment();
+        Payment payment = new Payment();
         int idPlan;
         public FrmMonthlyPayment()
         {
@@ -29,7 +29,12 @@ namespace SystemGymControl
                 DateTime dueDate = Convert.ToDateTime(row.Cells["duedate"].Value.ToString());
 
                 if (DateTime.Now > dueDate && row.Cells["situation"].Value.ToString().ToLower() == "a receber")
+                {
                     row.DefaultCellStyle.BackColor = Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(45)))), ((int)(((byte)(47)))));
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                    row.Cells["receive"].Value = Properties.Resources.icons8_get_revenue_32px_1;
+                    row.Cells["receipt"].Value = Properties.Resources.icons8_receipt_32px_1;
+                }
             }
         }
 
