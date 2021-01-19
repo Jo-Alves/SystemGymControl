@@ -265,7 +265,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -282,7 +282,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -299,7 +299,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -332,7 +332,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -346,7 +346,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -360,7 +360,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -374,7 +374,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -487,7 +487,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
@@ -504,7 +504,7 @@ namespace SystemGymControl
         {
             if (dateBoxIsPrevious)
             {
-                MessageBox.Show("Fecha o sistema para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             else if (!existUsers)
