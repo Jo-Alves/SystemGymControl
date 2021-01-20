@@ -41,7 +41,7 @@ namespace SystemGymControl
 
         private void dgvDataPlan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 try
                 {
@@ -69,7 +69,7 @@ namespace SystemGymControl
 
         private void dgvDataPlan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 dgvDataPlan.ClearSelection();
             }

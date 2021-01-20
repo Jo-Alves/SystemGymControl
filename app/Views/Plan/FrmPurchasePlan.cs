@@ -254,7 +254,7 @@ namespace SystemGymControl
             icomingCashFlow._entryDate = datePlan.ToShortDateString();
             icomingCashFlow._entryTime = datePlan.ToLongTimeString();
             icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;
-            icomingCashFlow._descriptionIcoming = $"Pagamento da aquisição do plano: {dgvDataPlan.CurrentRow.Cells["description"].Value}";
+            icomingCashFlow._descriptionIcoming = $"Pagamento da aquisição do plano: {dgvDataPlan.CurrentRow.Cells["description"].Value} do(a) aluno(a) {txtNameStudent.Text.Trim()}";
             plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, periodPackage, icomingCashFlow);
         }
 

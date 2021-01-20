@@ -18,7 +18,7 @@ namespace SystemGymControl
 
         int idCashFlow, id;
         string nameUser, name;
-        bool dateBoxIsPrevious = false, existUsers = true;
+        bool dateBoxIsPrevious = false, existUsers = true,  boxIsClosed = true;
 
         public FrmGymControl()
         {
@@ -61,6 +61,7 @@ namespace SystemGymControl
                 {
                     MessageBox.Show("Verificamos que o caixa não foi fechado. Fecha o caixa para a liberação as operações do sistema.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dateBoxIsPrevious = true;
+                    boxIsClosed = false;
                     OpenForm.ShowForm(new FrmClosingCashFlow(), this);
                 }
             }
@@ -176,6 +177,12 @@ namespace SystemGymControl
 
                 return _obj;
             }
+        }
+
+        public bool _boxIsClosed
+        {
+            get { return boxIsClosed; }
+            set { boxIsClosed = value; }
         }
 
         public string _nameUser
@@ -354,6 +361,8 @@ namespace SystemGymControl
                 MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+            OpenForm.ShowForm(new FrmReportCashFlow(), this);
         }
 
         private void btnMenuQuestion_Click(object sender, EventArgs e)
@@ -386,6 +395,12 @@ namespace SystemGymControl
 
         private void FrmGymControl_Load(object sender, EventArgs e)
         {
+            if (boxIsClosed)
+                LoadNotification();
+        }
+
+        public void LoadNotification()
+        {
             try
             {
                 UpdatePaymentCardIfDueDateEqualDateNow();
@@ -401,7 +416,7 @@ namespace SystemGymControl
 
         private void CheckedHaveNotificationNotRead(Notification notification)
         {
-            if(notification.GetDataNotificationNotRead().Rows.Count  == 0)
+            if (notification.GetDataNotificationNotRead().Rows.Count == 0)
             {
                 btnNotification.Visible = false;
             }
@@ -411,16 +426,16 @@ namespace SystemGymControl
         {
             DateTime dateNow;
 
-            foreach(DataRow row in notification.SearchAll().Rows)
+            foreach (DataRow row in notification.SearchAll().Rows)
             {
                 dateNow = Convert.ToDateTime(row["date_notification"].ToString());
 
                 // Após ou durante os trinta dias a notificação é excluida do banco de dados
 
-                if(DateTime.Now.Subtract(dateNow).Days >= 30)
+                if (DateTime.Now.Subtract(dateNow).Days >= 30)
                 {
                     notification.Delete(int.Parse(row[id].ToString()));
-                }                
+                }
             }
         }
 
@@ -430,11 +445,11 @@ namespace SystemGymControl
 
             if (dataStudents.Rows.Count == 0 && dataPayments.Rows.Count == 0) return;
 
-                btnNotification.Visible = true;
+            btnNotification.Visible = true;
 
             if (new Notification().GetNotification().Rows.Count > 0) return;
-                
-            NotifyStudent(dataStudents);            
+
+            NotifyStudent(dataStudents);
             NotifyPayment(dataPayments);
 
             SoundPlayer sound = new SoundPlayer(Properties.Resources.hangouts);
@@ -459,7 +474,7 @@ namespace SystemGymControl
                 new Notification()
                 {
                     _dateNotification = DateTime.Now.ToShortDateString(),
-                    _message = $"Constamos que o pagamento do(a) aluno(a) {dr["name"]} está à {time.Days} dias de atraso.",
+                    _message = $"Constamos que o pagamento do(a) aluno(a) {dr["name"]} está com {time.Days} dia(s) de atraso.",
                     _situation = "Não lida"
                 }.GerateMessage();
             }
@@ -481,7 +496,7 @@ namespace SystemGymControl
 
         private void btnNotification_Click(object sender, EventArgs e)
         {
-            if(new Notification().GetDataNotificationNotRead().Rows.Count > 0)
+            if (new Notification().GetDataNotificationNotRead().Rows.Count > 0)
                 OpenForm.ShowForm(new FrmNotification(), this);
         }
 

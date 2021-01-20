@@ -48,8 +48,8 @@ namespace Bussiness
         public DataTable GetNotification()
         {
             return notification.GetNotification();
-        } 
-        
+        }
+
         public DataTable GetDataNotificationNotRead()
         {
             return notification.GetDataNotificationNotRead();
@@ -58,8 +58,8 @@ namespace Bussiness
         public DataTable GetSituationNotification(int id)
         {
             return notification.GetSituationNotification(id);
-        } 
-        
+        }
+
         public DataTable SearchAll()
         {
             return notification.SearchAll();

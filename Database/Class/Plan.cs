@@ -138,16 +138,9 @@ namespace Database
                             int numberPortion = int.Parse(dr["portion"].ToString());
                             string dueDate = dr["dueDate"].ToString();
                             decimal valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
-                            //string payday = "";
-                            //string paymentTime = "";
 
                             payment._duedate = dueDate;
                             payment._numberPortion = numberPortion;
-                            //if (period != "mensal")
-                            //{
-                            //    payment._payday = payday;
-                            //    payment._paymentTime = paymentTime;
-                            //}
                             payment._valueTotal = valuePortion;
                             payment._valueDiscount = 0.00M;
                             payment._formPayment = formPayment;

@@ -47,6 +47,8 @@ namespace SystemGymControl
                     if (!boxOpening.theValueHasBeenInformed) return;
 
                     FrmGymControl.Instance._dateBoxIsPrevious = false;
+                    FrmGymControl.Instance._boxIsClosed = true;
+                    FrmGymControl.Instance.LoadNotification();
                     FrmGymControl.Instance._IdCashFlow = cash.GetMaxCashFlowID();
                 }
 

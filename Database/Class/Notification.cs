@@ -139,7 +139,7 @@ namespace Database
                 }
             }
         }
-        
+
         public DataTable SearchAll()
         {
             using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))

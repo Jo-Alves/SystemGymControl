@@ -219,6 +219,12 @@
     <Compile Include="Views\Plan\FrmPurchasePlan.Designer.cs">
       <DependentUpon>FrmPurchasePlan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Report\FrmReportCashFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Report\FrmReportCashFlow.Designer.cs">
+      <DependentUpon>FrmReportCashFlow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Save\FrmSearchStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Plan\FrmPurchasePlan.resx">
       <DependentUpon>FrmPurchasePlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Report\FrmReportCashFlow.resx">
+      <DependentUpon>FrmReportCashFlow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Save\FrmSearchStudent.resx">
       <DependentUpon>FrmSearchStudent.cs</DependentUpon>

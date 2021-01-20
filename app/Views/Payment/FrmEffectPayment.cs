@@ -239,7 +239,7 @@ namespace SystemGymControl
                     _entryTime = datePayment.ToLongTimeString(),
                     _cashFlowID = FrmGymControl.Instance._IdCashFlow,
                     _valueMoney = amountReceivable,
-                    _descriptionIcoming = "Pagamento da mensalidade"
+                    _descriptionIcoming = $"Pagamento da mensalidade do(a) aluno(a) {txtName.Text.Trim()}"
                 };
 
                 Payment payment = new Payment() { _id = idCash, _duedate = txtDuedate.Text, _formPayment = cbFormOfPayment.Text, _numberPortion = 1, _payday = txtPayDay.Text, _paymentTime = datePayment.ToLongTimeString(), _planID = idPlan, _valueDiscount = decimal.Parse(txtDiscount.Text), _valueTotal = amountReceivable, _paymentOnAccount = "yes" };
