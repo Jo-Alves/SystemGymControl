@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Database
@@ -107,9 +108,28 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT * FROM icoming_cash_flow WHERE id = @id";
+                    _sql = "SELECT * FROM icoming_cash_flow";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                    adapter.SelectCommand.Parameters.AddWithValue("@id", _id);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        } 
+        
+        public DataTable GetDataIcomingIdCash(int idCash)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    _sql = "SELECT * FROM icoming_cash_flow WHERE cash_flow_id = @idCash";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@idCash", idCash);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     return table;
@@ -166,6 +186,58 @@ namespace Database
             }
 
             return valueEntry;
+        }
+
+        public decimal GetSumValueEntryMoney(int idCash)
+        {
+            decimal sumValue = 0.00M;
+
+            using( var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+                    _sql = "SELECT SUM(value_money) FROM icoming_cash_flow WHERE cash_flow_id = @idCash AND description_icoming <> 'Valor inicial'";
+                    var command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@idCash", idCash);
+                    if(command.ExecuteScalar() != DBNull.Value)
+                    {
+                        sumValue = Convert.ToDecimal(command.ExecuteScalar());
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return sumValue;
+        }
+        
+        public decimal GetSumValueEntryCard(int idCash)
+        {
+            decimal sumValue = 0.00M;
+
+            using( var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+                    _sql = "SELECT SUM(value_card) FROM icoming_cash_flow WHERE cash_flow_id = @idCash AND description_icoming <> 'Valor inicial'";
+                    var command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@idCash", idCash);
+                    if(command.ExecuteScalar() != DBNull.Value)
+                    {
+                        sumValue = Convert.ToDecimal(command.ExecuteScalar());
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return sumValue;
         }
     }
 }
