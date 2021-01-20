@@ -163,6 +163,25 @@ namespace Database
 
             return maxId;
         }
+        
+        public int GetMaxCashFlowIdDatePrevious(int idCashCurrent)
+        {
+            int maxId = 0;
+
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                connection.Open();
+                _sql = "SELECT MAX(id) FROM cash_flow WHERE id < @id";
+                SqlCommand command = new SqlCommand(_sql, connection);
+                command.Parameters.AddWithValue("@id", idCashCurrent);
+
+                if (command.ExecuteScalar() != DBNull.Value)
+                    maxId = int.Parse(command.ExecuteScalar().ToString());
+
+            }
+
+            return maxId;
+        }
 
         public void GetDateOpeningCashFlow()
         {
