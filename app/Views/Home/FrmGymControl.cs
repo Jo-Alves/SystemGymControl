@@ -349,22 +349,6 @@ namespace SystemGymControl
             }
         }
 
-        private void btnMenuReport_Click(object sender, EventArgs e)
-        {
-            if (dateBoxIsPrevious)
-            {
-                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            else if (!existUsers)
-            {
-                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            OpenForm.ShowForm(new FrmReportCashFlow(), this);
-        }
-
         private void btnMenuQuestion_Click(object sender, EventArgs e)
         {
             if (dateBoxIsPrevious)
