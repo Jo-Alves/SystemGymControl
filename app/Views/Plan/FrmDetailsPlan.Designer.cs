@@ -102,13 +102,14 @@ namespace SystemGymControl
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.linkMoreDetails);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1165, 222);
+            this.panel1.Size = new System.Drawing.Size(1114, 241);
             this.panel1.TabIndex = 0;
             // 
             // btnBack
@@ -266,11 +267,12 @@ namespace SystemGymControl
             // 
             // pnMoreDetailsStudent
             // 
+            this.pnMoreDetailsStudent.AutoScroll = true;
             this.pnMoreDetailsStudent.Controls.Add(this.groupBox1);
             this.pnMoreDetailsStudent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnMoreDetailsStudent.Location = new System.Drawing.Point(0, 222);
+            this.pnMoreDetailsStudent.Location = new System.Drawing.Point(0, 241);
             this.pnMoreDetailsStudent.Name = "pnMoreDetailsStudent";
-            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1165, 288);
+            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1114, 298);
             this.pnMoreDetailsStudent.TabIndex = 1;
             this.pnMoreDetailsStudent.Visible = false;
             // 
@@ -295,7 +297,7 @@ namespace SystemGymControl
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(24, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1095, 267);
+            this.groupBox1.Size = new System.Drawing.Size(1078, 276);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço do aluno";
@@ -495,11 +497,12 @@ namespace SystemGymControl
             // 
             // panel3
             // 
+            this.panel3.AutoScroll = true;
             this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 510);
+            this.panel3.Location = new System.Drawing.Point(0, 539);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1165, 245);
+            this.panel3.Size = new System.Drawing.Size(1114, 264);
             this.panel3.TabIndex = 2;
             // 
             // groupBox3
@@ -522,9 +525,9 @@ namespace SystemGymControl
             this.groupBox3.Controls.Add(this.txtDatePurchasePlan);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(24, 6);
+            this.groupBox3.Location = new System.Drawing.Point(3, 15);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1095, 233);
+            this.groupBox3.Size = new System.Drawing.Size(1111, 227);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Plano";
@@ -624,7 +627,7 @@ namespace SystemGymControl
             this.txtObservation.Location = new System.Drawing.Point(15, 28);
             this.txtObservation.Multiline = true;
             this.txtObservation.Name = "txtObservation";
-            this.txtObservation.Size = new System.Drawing.Size(565, 78);
+            this.txtObservation.Size = new System.Drawing.Size(515, 78);
             this.txtObservation.TabIndex = 84;
             this.txtObservation.TextChanged += new System.EventHandler(this.txtObservation_TextChanged);
             // 
@@ -869,7 +872,7 @@ namespace SystemGymControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1182, 733);
+            this.ClientSize = new System.Drawing.Size(1131, 733);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnMoreDetailsStudent);
             this.Controls.Add(this.panel1);
