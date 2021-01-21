@@ -41,7 +41,7 @@ namespace SystemGymControl
                     dgvdataUser.Rows[countRow].Cells["name"].Value = dr["name"].ToString();
                     dgvdataUser.Rows[countRow].Cells["nameUser"].Value = dr["name_user"].ToString();
                     dgvdataUser.Rows[countRow].Cells["email"].Value = dr["email"].ToString();
-                    dgvdataUser.Rows[countRow].Cells["password"].Value = dr["password"].ToString();
+                    dgvdataUser.Rows[countRow].Cells["password"].Value = Security.Dry(dr["password"].ToString());
                     dgvdataUser.Rows[countRow].Cells["question"].Value = dr["question"].ToString();
                     dgvdataUser.Rows[countRow].Cells["answer"].Value = dr["answer"].ToString();
                     dgvdataUser.Rows[countRow].Cells["registion"].Value = dr["date_registion"].ToString();
@@ -99,6 +99,21 @@ namespace SystemGymControl
             if (e.RowIndex > -1)
             {
                 dgvdataUser.ClearSelection();
+            }
+        }
+
+        private void dgvdataUser_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(dgvdataUser.Columns[e.ColumnIndex].Name == "password" && e.Value != null)
+            {
+                dgvdataUser.Rows[e.RowIndex].Tag = e.Value;
+                e.Value = new String('*', e.Value.ToString().Length);
+            }
+            
+            if(dgvdataUser.Columns[e.ColumnIndex].Name == "answer" && e.Value != null)
+            {
+                dgvdataUser.Rows[e.RowIndex].Tag = e.Value;
+                e.Value = new String('*', e.Value.ToString().Length);
             }
         }
     }

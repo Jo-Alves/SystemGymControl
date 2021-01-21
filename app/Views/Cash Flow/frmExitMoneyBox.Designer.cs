@@ -109,7 +109,7 @@
             this.lblOperator.Location = new System.Drawing.Point(524, 48);
             this.lblOperator.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOperator.Name = "lblOperator";
-            this.lblOperator.Size = new System.Drawing.Size(562, 32);
+            this.lblOperator.Size = new System.Drawing.Size(517, 32);
             this.lblOperator.TabIndex = 5;
             this.lblOperator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -136,7 +136,7 @@
             this.gb.ForeColor = System.Drawing.Color.Black;
             this.gb.Location = new System.Drawing.Point(33, 102);
             this.gb.Name = "gb";
-            this.gb.Size = new System.Drawing.Size(1053, 153);
+            this.gb.Size = new System.Drawing.Size(1008, 153);
             this.gb.TabIndex = 6;
             this.gb.TabStop = false;
             this.gb.Text = "Movimentação do dia";
@@ -262,7 +262,6 @@
             // 
             // btnWithdraw
             // 
-            this.btnWithdraw.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnWithdraw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnWithdraw.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWithdraw.FlatAppearance.BorderSize = 0;
@@ -285,7 +284,7 @@
             this.txtDescription.Location = new System.Drawing.Point(33, 372);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(1053, 155);
+            this.txtDescription.Size = new System.Drawing.Size(1008, 155);
             this.txtDescription.TabIndex = 14;
             // 
             // label2
@@ -300,7 +299,7 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Descreva aqui por qual motivo está sendo retirado dinheiro do caixa.";
             // 
-            // frmExitMonewBox
+            // FrmExitMonewBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -324,7 +323,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "frmExitMonewBox";
+            this.Name = "FrmExitMonewBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmClosingCashFlow";
             this.Load += new System.EventHandler(this.frmExitMonewBox_Load);

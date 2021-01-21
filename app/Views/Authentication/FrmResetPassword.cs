@@ -95,7 +95,7 @@ namespace SystemGymControl
                 {
                     _user = lblUser.Text,
                     _email = txtPassword.Text.Trim(),
-                    _password = txtConfirmPassword.Text.Trim()
+                    _password = Security.Cry(txtConfirmPassword.Text.Trim())
                 }
         .ResetSecurity();
 

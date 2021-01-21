@@ -42,7 +42,6 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnMenuQuestion = new System.Windows.Forms.Button();
             this.btnCashFlow = new System.Windows.Forms.Button();
-            this.btnMenuReport = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
             this.btnMenuPayment = new System.Windows.Forms.Button();
             this.btnMenuPlan = new System.Windows.Forms.Button();
@@ -173,7 +172,6 @@
             this.panel3.Controls.Add(this.btnSetting);
             this.panel3.Controls.Add(this.btnMenuQuestion);
             this.panel3.Controls.Add(this.btnCashFlow);
-            this.panel3.Controls.Add(this.btnMenuReport);
             this.panel3.Controls.Add(this.btnMenuSales);
             this.panel3.Controls.Add(this.btnMenuPayment);
             this.panel3.Controls.Add(this.btnMenuPlan);
@@ -198,7 +196,7 @@
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSetting.Location = new System.Drawing.Point(0, 392);
+            this.btnSetting.Location = new System.Drawing.Point(0, 343);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnSetting.Size = new System.Drawing.Size(205, 49);
@@ -222,7 +220,7 @@
             this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
             this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_about_32px;
             this.btnMenuQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 343);
+            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 294);
             this.btnMenuQuestion.Name = "btnMenuQuestion";
             this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuQuestion.Size = new System.Drawing.Size(205, 49);
@@ -246,7 +244,7 @@
             this.btnCashFlow.ForeColor = System.Drawing.Color.White;
             this.btnCashFlow.Image = global::SystemGymControl.Properties.Resources.icons8_flow_32px_1;
             this.btnCashFlow.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCashFlow.Location = new System.Drawing.Point(0, 294);
+            this.btnCashFlow.Location = new System.Drawing.Point(0, 245);
             this.btnCashFlow.Name = "btnCashFlow";
             this.btnCashFlow.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCashFlow.Size = new System.Drawing.Size(205, 49);
@@ -256,30 +254,6 @@
             this.btnCashFlow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCashFlow.UseVisualStyleBackColor = false;
             this.btnCashFlow.Click += new System.EventHandler(this.btnCashFlow_Click);
-            // 
-            // btnMenuReport
-            // 
-            this.btnMenuReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnMenuReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuReport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuReport.FlatAppearance.BorderSize = 0;
-            this.btnMenuReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnMenuReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnMenuReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuReport.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuReport.ForeColor = System.Drawing.Color.White;
-            this.btnMenuReport.Image = global::SystemGymControl.Properties.Resources.icons8_report_file_32px;
-            this.btnMenuReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuReport.Location = new System.Drawing.Point(0, 245);
-            this.btnMenuReport.Name = "btnMenuReport";
-            this.btnMenuReport.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnMenuReport.Size = new System.Drawing.Size(205, 49);
-            this.btnMenuReport.TabIndex = 36;
-            this.btnMenuReport.TabStop = false;
-            this.btnMenuReport.Text = "Relatório";
-            this.btnMenuReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuReport.UseVisualStyleBackColor = false;
-            this.btnMenuReport.Click += new System.EventHandler(this.btnMenuReport_Click);
             // 
             // btnMenuSales
             // 
@@ -515,7 +489,6 @@
         private System.Windows.Forms.Button btnMenuSave;
         private System.Windows.Forms.Button btnMenuPlan;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnMenuReport;
         private System.Windows.Forms.Button btnMenuSales;
         private System.Windows.Forms.Button btnMenuPayment;
         private System.Windows.Forms.Button btnSetting;

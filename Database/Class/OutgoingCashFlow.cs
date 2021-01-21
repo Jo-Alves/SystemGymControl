@@ -112,5 +112,25 @@ namespace Database
                 throw;
             }
         }
+
+        public DataTable GetDataOutgoingIdCash(int idCash)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+                {
+                    _sql = "SELECT * FROM outgoing_cash_flow WHERE cash_flow_id = @idCash";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    adapter.SelectCommand.Parameters.AddWithValue("@idCash", idCash);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

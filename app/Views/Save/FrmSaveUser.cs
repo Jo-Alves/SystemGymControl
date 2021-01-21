@@ -63,7 +63,7 @@ namespace SystemGymControl
             txtName.Text = dataUser.Rows[0]["name"].ToString();
             txtEmail.Text = dataUser.Rows[0]["email"].ToString();
             txtUser.Text = nameUser;
-            txtPassword1.Text = dataUser.Rows[0]["password"].ToString();
+            txtPassword1.Text = Security.Dry(dataUser.Rows[0]["password"].ToString());
             txtPassword2.Text = txtPassword1.Text;
             cbQuestion.Text = dataUser.Rows[0]["question"].ToString();
             txtAnswer.Text = dataUser.Rows[0]["answer"].ToString();
@@ -114,7 +114,7 @@ namespace SystemGymControl
                 user._user = txtUser.Text.Trim();
                 user._name = txtName.Text.Trim();
                 user._email = txtEmail.Text.Trim();
-                user._password = txtPassword1.Text.Trim();
+                user._password = Security.Cry(txtPassword1.Text.Trim());
                 user._question = cbQuestion.Text.Trim();
                 user._answer = txtAnswer.Text.Trim();
 

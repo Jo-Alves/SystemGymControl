@@ -60,5 +60,10 @@ namespace SystemGymControl
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnRegisterEntyAndExit(object sender, EventArgs e)
+        {
+            OpenForm.ShowForm(new FrmReportCashFlow(), this);
+        }
     }
 }

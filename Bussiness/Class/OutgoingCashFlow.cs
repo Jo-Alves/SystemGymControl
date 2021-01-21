@@ -11,6 +11,8 @@ namespace Bussiness
         private decimal valueOutput;
         private int cashFlowID;
 
+        Database.OutgoingCashFlow outgoingCashFlow = new Database.OutgoingCashFlow();
+
         public int _id
         {
             get { return id; }
@@ -44,12 +46,12 @@ namespace Bussiness
 
         public DataTable SearchID(int idOutgoing)
         {
-            return new Database.OutgoingCashFlow().SearchID(idOutgoing);
+            return outgoingCashFlow.SearchID(idOutgoing);
         }
 
         public DataTable SearchAll()
         {
-            return new Database.OutgoingCashFlow().SearchAll();
+            return outgoingCashFlow.SearchAll();
         }
 
         public void ExitMoney()
@@ -62,6 +64,11 @@ namespace Bussiness
                 _exitTime = this._exitTime,
                 _valueOutput = this._valueOutput
             }.ExitMoney();
+        }
+
+        public DataTable GetDataOutgoingIdCash(int idCash)
+        {
+            return outgoingCashFlow.GetDataOutgoingIdCash(idCash);
         }
     }
 }

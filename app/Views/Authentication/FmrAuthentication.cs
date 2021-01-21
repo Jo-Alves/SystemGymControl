@@ -95,7 +95,7 @@ namespace SystemGymControl
 
                 Bussiness.User user = new Bussiness.User();
 
-                if (user.Logout(txtUser.Text.Trim(), txtPassword.Text.Trim()))
+                if (user.Logout(txtUser.Text.Trim(), Security.Cry(txtPassword.Text.Trim())))
                 {
                     var dataUser = new Bussiness.User().GetUserOrName(txtUser.Text.Trim());
                     string name = dataUser.Rows[0]["name"].ToString();

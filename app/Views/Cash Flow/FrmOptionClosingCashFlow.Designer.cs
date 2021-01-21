@@ -41,22 +41,28 @@ namespace SystemGymControl
             this.lblStudent = new System.Windows.Forms.Label();
             this.btnRemoveMoney = new System.Windows.Forms.Button();
             this.pcStudent = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnRegisterEntyAndExit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcUser)).BeginInit();
             this.pnPackage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcPackage)).BeginInit();
             this.pnStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcStudent)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnUser
             // 
-            this.pnUser.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pnUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnClosingBox);
             this.pnUser.Controls.Add(this.pcUser);
-            this.pnUser.Location = new System.Drawing.Point(818, 163);
+            this.pnUser.Location = new System.Drawing.Point(603, 22);
             this.pnUser.Name = "pnUser";
             this.pnUser.Size = new System.Drawing.Size(272, 245);
             this.pnUser.TabIndex = 5;
@@ -101,12 +107,12 @@ namespace SystemGymControl
             // 
             // pnPackage
             // 
-            this.pnPackage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnPackage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnRegister);
             this.pnPackage.Controls.Add(this.pcPackage);
-            this.pnPackage.Location = new System.Drawing.Point(431, 163);
+            this.pnPackage.Location = new System.Drawing.Point(205, 286);
             this.pnPackage.Name = "pnPackage";
             this.pnPackage.Size = new System.Drawing.Size(272, 245);
             this.pnPackage.TabIndex = 4;
@@ -115,13 +121,13 @@ namespace SystemGymControl
             // 
             this.lblPackage.AutoSize = true;
             this.lblPackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblPackage.Location = new System.Drawing.Point(103, 100);
+            this.lblPackage.Location = new System.Drawing.Point(68, 100);
             this.lblPackage.Name = "lblPackage";
-            this.lblPackage.Size = new System.Drawing.Size(73, 22);
+            this.lblPackage.Size = new System.Drawing.Size(139, 22);
             this.lblPackage.TabIndex = 3;
-            this.lblPackage.Text = "Registro";
+            this.lblPackage.Text = "Registro do caixa";
             // 
-            // btnSavePackage
+            // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -132,7 +138,7 @@ namespace SystemGymControl
             this.btnRegister.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
             this.btnRegister.Location = new System.Drawing.Point(9, 159);
-            this.btnRegister.Name = "btnSavePackage";
+            this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(252, 42);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Ir para a tela";
@@ -151,12 +157,11 @@ namespace SystemGymControl
             // 
             // pnStudent
             // 
-            this.pnStudent.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnStudent.Controls.Add(this.lblStudent);
             this.pnStudent.Controls.Add(this.btnRemoveMoney);
             this.pnStudent.Controls.Add(this.pcStudent);
-            this.pnStudent.Location = new System.Drawing.Point(41, 163);
+            this.pnStudent.Location = new System.Drawing.Point(205, 22);
             this.pnStudent.Name = "pnStudent";
             this.pnStudent.Size = new System.Drawing.Size(272, 245);
             this.pnStudent.TabIndex = 3;
@@ -171,7 +176,7 @@ namespace SystemGymControl
             this.lblStudent.TabIndex = 2;
             this.lblStudent.Text = "Retirar Dinheiro";
             // 
-            // btnSaveStudent
+            // btnRemoveMoney
             // 
             this.btnRemoveMoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnRemoveMoney.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -182,7 +187,7 @@ namespace SystemGymControl
             this.btnRemoveMoney.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveMoney.ForeColor = System.Drawing.Color.White;
             this.btnRemoveMoney.Location = new System.Drawing.Point(9, 159);
-            this.btnRemoveMoney.Name = "btnSaveStudent";
+            this.btnRemoveMoney.Name = "btnRemoveMoney";
             this.btnRemoveMoney.Size = new System.Drawing.Size(252, 42);
             this.btnRemoveMoney.TabIndex = 1;
             this.btnRemoveMoney.Text = "Ir para a tela";
@@ -199,12 +204,63 @@ namespace SystemGymControl
             this.pcStudent.TabIndex = 0;
             this.pcStudent.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnRegisterEntyAndExit);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(603, 286);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(272, 245);
+            this.panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(27, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(217, 22);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Registro de entrada e saída";
+            // 
+            // btnRegisterEntyAndExit
+            // 
+            this.btnRegisterEntyAndExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnRegisterEntyAndExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegisterEntyAndExit.FlatAppearance.BorderSize = 0;
+            this.btnRegisterEntyAndExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnRegisterEntyAndExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
+            this.btnRegisterEntyAndExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterEntyAndExit.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterEntyAndExit.ForeColor = System.Drawing.Color.White;
+            this.btnRegisterEntyAndExit.Location = new System.Drawing.Point(9, 159);
+            this.btnRegisterEntyAndExit.Name = "btnRegisterEntyAndExit";
+            this.btnRegisterEntyAndExit.Size = new System.Drawing.Size(252, 42);
+            this.btnRegisterEntyAndExit.TabIndex = 2;
+            this.btnRegisterEntyAndExit.Text = "Ir para a tela";
+            this.btnRegisterEntyAndExit.UseVisualStyleBackColor = false;
+            this.btnRegisterEntyAndExit.Click += new System.EventHandler(this.BtnRegisterEntyAndExit);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SystemGymControl.Properties.Resources.icons8_cash_register_64px;
+            this.pictureBox1.Location = new System.Drawing.Point(102, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmOptionClosingCashFlow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1131, 570);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnUser);
             this.Controls.Add(this.pnPackage);
             this.Controls.Add(this.pnStudent);
@@ -223,6 +279,9 @@ namespace SystemGymControl
             this.pnStudent.ResumeLayout(false);
             this.pnStudent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcStudent)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,5 +300,9 @@ namespace SystemGymControl
         private System.Windows.Forms.Label lblStudent;
         private System.Windows.Forms.Button btnRemoveMoney;
         private System.Windows.Forms.PictureBox pcStudent;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnRegisterEntyAndExit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -177,6 +177,7 @@ namespace SystemGymControl
             this.dgvdataUser.TabIndex = 14;
             this.dgvdataUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdataUser_CellClick);
             this.dgvdataUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdataUser_CellDoubleClick);
+            this.dgvdataUser.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvdataUser_CellFormatting);
             // 
             // edit
             // 
