@@ -240,17 +240,19 @@ namespace SystemGymControl
                 payment._valueDiscount = cashInPayment.discountMoney;
                 payment._paymentOnAccount = "yes";
                 icomingCashFlow._valueMoney = payment._valueTotal;
+                icomingCashFlow._valueCard = 0.00M;
             }
             else
             {
                 dataCardPayment = cardInPayment.dataPortion;
+                icomingCashFlow._valueMoney = 0.00M;
+                icomingCashFlow._valueCard = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
             }
 
             payment._formPayment = formPayment;
             payment._payday = datePlan.ToShortDateString();
             payment._paymentTime = datePlan.ToLongTimeString();
 
-            icomingCashFlow._valueCard = 0.00M;
             icomingCashFlow._entryDate = datePlan.ToShortDateString();
             icomingCashFlow._entryTime = datePlan.ToLongTimeString();
             icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;

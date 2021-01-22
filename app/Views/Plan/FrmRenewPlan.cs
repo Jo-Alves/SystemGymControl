@@ -118,11 +118,16 @@ namespace SystemGymControl
                     payment._numberPortion = 1;
                     payment._paymentOnAccount = "yes";
                     icomingCashFlow._valueMoney = payment._valueTotal;
+                    icomingCashFlow._valueCard = 0.00M;
                 }
                 else
+                {
                     dataCardPayment = cardInPayment.dataPortion;
+                    icomingCashFlow._valueMoney = 0.00M;
+                    icomingCashFlow._valueCard = decimal.Parse(txtValue.Text);
+                }
 
-                icomingCashFlow._valueCard = 0.00M;
+                
                 icomingCashFlow._entryDate = datePlan.ToShortDateString();
                 icomingCashFlow._entryTime = datePlan.ToLongTimeString();
                 icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;

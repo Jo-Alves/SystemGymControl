@@ -128,7 +128,6 @@ namespace Database
                             payment.Save(transaction);
                         }
 
-                        icomingCashFlow.Save(transaction);
                         new CashFlow().UpdateValueTotalCashFlow(icomingCashFlow._cashFlowID, payment._valueTotal, transaction);
                     }
                     else
@@ -142,6 +141,8 @@ namespace Database
                             payment._duedate = dueDate;
                             payment._numberPortion = numberPortion;
                             payment._valueTotal = valuePortion;
+                            payment._payday = DateTime.Now.ToShortDateString();
+                            payment._paymentTime = DateTime.Now.ToLongTimeString();
                             payment._valueDiscount = 0.00M;
                             payment._formPayment = formPayment;
                             payment._paymentOnAccount = "no";
@@ -163,6 +164,8 @@ namespace Database
                             payment.Save(transaction);
                         }
                     }
+
+                    icomingCashFlow.Save(transaction);
 
                     if (_id > 0)
                         command.ExecuteNonQuery();
@@ -208,13 +211,12 @@ namespace Database
 
                     new SituationsPlan().updateSituationPlan(transaction, payment._planID);
 
+                    icomingCashFlow.Save(transaction);
+
                     if (formPayment == "dinheiro")
-                    {
-                        icomingCashFlow.Save(transaction);
+                    {                       
                         new CashFlow().UpdateValueTotalCashFlow(icomingCashFlow._cashFlowID, (valueTotal - discount), transaction);
                     }
-
-
 
                     command.ExecuteNonQuery();
                     transaction.Commit();
