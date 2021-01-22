@@ -127,7 +127,7 @@ namespace Database
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
                 {
-                    _sql = "SELECT * FROM icoming_cash_flow WHERE cash_flow_id = @idCash";
+                    _sql = "SELECT * FROM icoming_cash_flow WHERE cash_flow_id = @idCash AND description_icoming <> 'Valor inicial'";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@idCash", idCash);
                     DataTable table = new DataTable();

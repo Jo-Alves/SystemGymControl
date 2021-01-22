@@ -32,7 +32,8 @@ namespace SystemGymControl
 
                 txtBoxEntry.Text = $"R$ {icomingCashFlow.GetSumValueEntryMoney(idCashFlowCurrent)}";
                 txtBoxExit.Text = $"R$ {dataCashFlow.Rows[0]["output_value_total"]}";
-                txtBalanceCurrent.Text = $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxEntry.Text)) - decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxExit.Text)))}";               
+                txtBalanceCurrent.Text = $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxEntry.Text)) - decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxExit.Text)))}";
+                txtBoxClosure.Text = $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxBalancePrevious.Text)) + decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxEntry.Text)) - decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxExit.Text)))}";
 
                 LoadDgvBoxIcoming(icomingCashFlow.GetDataIcomingIdCash(idCashFlowCurrent));
                 LoadDgvBoxOutgoing(outgoingCashFlow.GetDataOutgoingIdCash(idCashFlowCurrent));
