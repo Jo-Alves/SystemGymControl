@@ -99,16 +99,18 @@ CREATE TABLE [dbo].[situations_plan] (
 );
 
 CREATE TABLE [dbo].[payments] (
-    [id]             INT             IDENTITY (1, 1) NOT NULL,
-    [portion]        INT             NULL,
-    [value_total]    DECIMAL (18, 2) NOT NULL,
-    [value_discount] DECIMAL (18, 2) NOT NULL,
-    [payday]         VARCHAR (10)    NULL,
-    [payment_time]   VARCHAR (8)     NULL,
-    [duedate]        VARCHAR (10)    NULL,
-    [form_Payment]  VARCHAR (50)    NOT NULL,
-    [payment_on_account]   VARCHAR (10)    NULL,
-    [plan_id]        INT             NULL,
+    [id]                 INT             IDENTITY (1, 1) NOT NULL,
+    [portion]            INT             NULL,
+    [value_total]        DECIMAL (18, 2) NOT NULL,
+    [value_discount]     DECIMAL (18, 2) NOT NULL,
+    [value_interest]     DECIMAL (18, 2) NULL,
+    [value_penalty]      DECIMAL (18, 2) NULL,
+    [payday]             VARCHAR (10)    NULL,
+    [payment_time]       VARCHAR (8)     NULL,
+    [duedate]            VARCHAR (10)    NULL,
+    [form_Payment]       VARCHAR (50)    NOT NULL,
+    [payment_on_account] VARCHAR (10)    NULL,
+    [plan_id]            INT             NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
     FOREIGN KEY ([plan_id]) REFERENCES [dbo].[plans] ([id]) ON DELETE CASCADE
 );

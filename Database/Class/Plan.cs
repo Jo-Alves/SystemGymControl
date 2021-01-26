@@ -203,7 +203,8 @@ namespace Database
                     payment._paymentTime = "";
                     payment._valueDiscount = 0.00M;
                     payment._valueTotal = valueTotal;
-
+                    payment._valueInterest = 0.00M;
+                    payment._valuePenalty = 0.00M;
 
                     payment._duedate = Convert.ToDateTime(payment._duedate).AddMonths(1).ToShortDateString();
 

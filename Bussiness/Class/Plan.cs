@@ -141,7 +141,9 @@ namespace Bussiness
                 _paymentTime = payment._paymentTime,
                 _planID = payment._planID,
                 _valueDiscount = payment._valueDiscount,
-                _valueTotal = payment._valueTotal
+                _valueTotal = payment._valueTotal,
+                _valueInterest = payment._valueInterest,
+                _valuePenalty = payment._valuePenalty
             };
 
             Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow()

@@ -37,16 +37,6 @@ namespace SystemGymControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMonthlyPayment));
             this.dgvDataPlan = new System.Windows.Forms.DataGridView();
-            this.receive = new System.Windows.Forms.DataGridViewImageColumn();
-            this.receipt = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,6 +44,18 @@ namespace SystemGymControl
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
+            this.receive = new System.Windows.Forms.DataGridViewImageColumn();
+            this.receipt = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueInterest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuePenalty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Situation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +85,8 @@ namespace SystemGymControl
             this.idCash,
             this.valueTotal,
             this.valueDiscount,
+            this.valueInterest,
+            this.valuePenalty,
             this.Situation,
             this.duedate,
             this.payday,
@@ -109,98 +113,6 @@ namespace SystemGymControl
             this.dgvDataPlan.TabIndex = 30;
             this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
             this.dgvDataPlan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
-            // 
-            // receive
-            // 
-            this.receive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.receive.HeaderText = "Receber";
-            this.receive.Name = "receive";
-            this.receive.ReadOnly = true;
-            this.receive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.receive.Width = 78;
-            // 
-            // receipt
-            // 
-            this.receipt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.receipt.HeaderText = "Gerar recibo";
-            this.receipt.Name = "receipt";
-            this.receipt.ReadOnly = true;
-            this.receipt.Width = 112;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.HeaderText = "Código";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 88;
-            // 
-            // idCash
-            // 
-            this.idCash.HeaderText = "idCach";
-            this.idCash.Name = "idCash";
-            this.idCash.ReadOnly = true;
-            this.idCash.Visible = false;
-            // 
-            // valueTotal
-            // 
-            this.valueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.valueTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.valueTotal.HeaderText = "Valor Total";
-            this.valueTotal.Name = "valueTotal";
-            this.valueTotal.ReadOnly = true;
-            this.valueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valueTotal.Width = 98;
-            // 
-            // valueDiscount
-            // 
-            this.valueDiscount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.valueDiscount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.valueDiscount.HeaderText = "Desconto";
-            this.valueDiscount.Name = "valueDiscount";
-            this.valueDiscount.ReadOnly = true;
-            this.valueDiscount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valueDiscount.Width = 89;
-            // 
-            // Situation
-            // 
-            this.Situation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Situation.HeaderText = "Situação";
-            this.Situation.Name = "Situation";
-            this.Situation.ReadOnly = true;
-            this.Situation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Situation.Width = 81;
-            // 
-            // duedate
-            // 
-            this.duedate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.duedate.HeaderText = "Data de vencimento";
-            this.duedate.Name = "duedate";
-            this.duedate.ReadOnly = true;
-            this.duedate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.duedate.Width = 168;
-            // 
-            // payday
-            // 
-            this.payday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.payday.HeaderText = "Data de pagamento";
-            this.payday.Name = "payday";
-            this.payday.ReadOnly = true;
-            this.payday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.payday.Width = 166;
-            // 
-            // paymentTime
-            // 
-            this.paymentTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.paymentTime.HeaderText = "Hora do pagamento";
-            this.paymentTime.Name = "paymentTime";
-            this.paymentTime.ReadOnly = true;
-            this.paymentTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.paymentTime.Width = 169;
             // 
             // groupBox1
             // 
@@ -284,6 +196,116 @@ namespace SystemGymControl
             this.metroToolTip.StyleManager = null;
             this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // receive
+            // 
+            this.receive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.receive.HeaderText = "Receber";
+            this.receive.Name = "receive";
+            this.receive.ReadOnly = true;
+            this.receive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.receive.Width = 78;
+            // 
+            // receipt
+            // 
+            this.receipt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.receipt.HeaderText = "Gerar recibo";
+            this.receipt.Name = "receipt";
+            this.receipt.ReadOnly = true;
+            this.receipt.Width = 112;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "Código";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 88;
+            // 
+            // idCash
+            // 
+            this.idCash.HeaderText = "idCach";
+            this.idCash.Name = "idCash";
+            this.idCash.ReadOnly = true;
+            this.idCash.Visible = false;
+            // 
+            // valueTotal
+            // 
+            this.valueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valueTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.valueTotal.HeaderText = "Valor Total";
+            this.valueTotal.Name = "valueTotal";
+            this.valueTotal.ReadOnly = true;
+            this.valueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valueTotal.Width = 98;
+            // 
+            // valueDiscount
+            // 
+            this.valueDiscount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valueDiscount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.valueDiscount.HeaderText = "Desconto";
+            this.valueDiscount.Name = "valueDiscount";
+            this.valueDiscount.ReadOnly = true;
+            this.valueDiscount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valueDiscount.Width = 89;
+            // 
+            // valueInterest
+            // 
+            this.valueInterest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valueInterest.HeaderText = "Valor do juros";
+            this.valueInterest.Name = "valueInterest";
+            this.valueInterest.ReadOnly = true;
+            this.valueInterest.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valueInterest.Width = 123;
+            // 
+            // valuePenalty
+            // 
+            this.valuePenalty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valuePenalty.HeaderText = "Valor da multa diária";
+            this.valuePenalty.Name = "valuePenalty";
+            this.valuePenalty.ReadOnly = true;
+            this.valuePenalty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valuePenalty.Width = 174;
+            // 
+            // Situation
+            // 
+            this.Situation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Situation.HeaderText = "Situação";
+            this.Situation.Name = "Situation";
+            this.Situation.ReadOnly = true;
+            this.Situation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Situation.Width = 81;
+            // 
+            // duedate
+            // 
+            this.duedate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.duedate.HeaderText = "Data de vencimento";
+            this.duedate.Name = "duedate";
+            this.duedate.ReadOnly = true;
+            this.duedate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.duedate.Width = 168;
+            // 
+            // payday
+            // 
+            this.payday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.payday.HeaderText = "Data de pagamento";
+            this.payday.Name = "payday";
+            this.payday.ReadOnly = true;
+            this.payday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.payday.Width = 166;
+            // 
+            // paymentTime
+            // 
+            this.paymentTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.paymentTime.HeaderText = "Hora do pagamento";
+            this.paymentTime.Name = "paymentTime";
+            this.paymentTime.ReadOnly = true;
+            this.paymentTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.paymentTime.Width = 169;
+            // 
             // FrmMonthlyPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
@@ -321,6 +343,8 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn idCash;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueInterest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valuePenalty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situation;
         private System.Windows.Forms.DataGridViewTextBoxColumn duedate;
         private System.Windows.Forms.DataGridViewTextBoxColumn payday;

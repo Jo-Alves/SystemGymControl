@@ -14,6 +14,8 @@ namespace Bussiness
         private string formPayment;
         private string paymentOnAccount;
         private int planID;
+        private decimal valuePenalty;
+        private decimal valueInterest;
 
         Database.Payment payment = new Database.Payment();
 
@@ -41,6 +43,16 @@ namespace Bussiness
         {
             get { return payday; }
             set { payday = value; }
+        }
+        public decimal _valueInterest
+        {
+            get { return valueInterest; }
+            set { valueInterest = value; }
+        }        
+        public decimal _valuePenalty
+        {
+            get { return valuePenalty; }
+            set { valuePenalty = value; }
         }
         public string _paymentTime
         {

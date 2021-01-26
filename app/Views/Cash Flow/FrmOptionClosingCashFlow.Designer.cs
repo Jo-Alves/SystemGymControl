@@ -220,11 +220,11 @@ namespace SystemGymControl
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(27, 100);
+            this.label1.Location = new System.Drawing.Point(59, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 22);
+            this.label1.Size = new System.Drawing.Size(166, 22);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Registro de entrada e saída";
+            this.label1.Text = "Registro atual de E\\S";
             // 
             // btnRegisterEntyAndExit
             // 

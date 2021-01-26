@@ -62,7 +62,7 @@ namespace SystemGymControl
             daysDelay = GetValueDaysDelay();
             txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
             cbFormOfPayment.Text = dataPlanCash.Rows[0]["form_payment"].ToString();
-
+            
             txtValuePlan.Text = $"R$ {new Package().GetValuePackageFormPayment(cbFormOfPayment.Text).Rows[0]["value"]}";
 
             DisableAndEnabledTextBoxsInPaymentInMoney();
@@ -80,20 +80,20 @@ namespace SystemGymControl
             decimal valueInterestMoney, valuePenaltyMoney;
             if (dataPlanCash.Rows[0]["type_interest"].ToString().ToLower() == "percentage")
             {
-                decimal valueInterest = decimal.Parse(dataPlanCash.Rows[0]["value_interest"].ToString());
+                decimal valueInterest = decimal.Parse(dataPlanCash.Rows[0]["valueInterest"].ToString());
 
                 valueInterestMoney = (valueInterest * valueTotal) / 100;
                 txtValueInterest.Text = $"R$ {valueInterestMoney.ToString("0.00")}";
             }
             else
             {
-                valueInterestMoney = decimal.Parse(dataPlanCash.Rows[0]["value_interest"].ToString());
+                valueInterestMoney = decimal.Parse(dataPlanCash.Rows[0]["valueInterest"].ToString());
                 txtValueInterest.Text = $"R$ {valueInterestMoney}";
             }
 
             if (dataPlanCash.Rows[0]["type_penalty"].ToString().ToLower() == "percentage")
             {
-                decimal valuePenalty = decimal.Parse(dataPlanCash.Rows[0]["value_penalty"].ToString());
+                decimal valuePenalty = decimal.Parse(dataPlanCash.Rows[0]["valuePenalty"].ToString());
 
                 valuePenaltyMoney = (valuePenalty * valueTotal) / 100;
 
@@ -101,7 +101,7 @@ namespace SystemGymControl
             }
             else
             {
-                valuePenaltyMoney = decimal.Parse(dataPlanCash.Rows[0]["value_penalty"].ToString());
+                valuePenaltyMoney = decimal.Parse(dataPlanCash.Rows[0]["valuePenalty"].ToString());
                 txtValuePenalty.Text = $"R$ {valuePenaltyMoney}";
             }
 
@@ -251,9 +251,10 @@ namespace SystemGymControl
                     icomingCashFlow._valueMoney = 0.00M;
                 }
 
-                Payment payment = new Payment() { _id = idCash, _duedate = txtDuedate.Text, _formPayment = cbFormOfPayment.Text, _numberPortion = 1, _payday = txtPayDay.Text, _paymentTime = datePayment.ToLongTimeString(), _planID = idPlan, _valueDiscount = decimal.Parse(txtDiscount.Text), _valueTotal = amountReceivable, _paymentOnAccount = "yes" };
+                Payment payment = new Payment() { _id = idCash, _duedate = txtDuedate.Text, _formPayment = cbFormOfPayment.Text, _numberPortion = 1, _payday = txtPayDay.Text, _paymentTime = datePayment.ToLongTimeString(), _planID = idPlan, _valueDiscount = decimal.Parse(txtDiscount.Text), _valueTotal = amountReceivable, _paymentOnAccount = "yes", _valueInterest = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValueInterest.Text)) : 0.00M, _valuePenalty = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValuePenalty.Text)) : 0.00M
+            };
 
-                if (cbFormOfPayment.Text.ToLower() != "dinheiro")
+            if (cbFormOfPayment.Text.ToLower() != "dinheiro")
                 {
                     payment._paymentOnAccount = "no";
                     payment._valueDiscount = 0.00M;

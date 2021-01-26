@@ -19,6 +19,12 @@ namespace SystemGymControl
             LoadInitialFieldsCashFlowAndBank(idCashFlowCurrent);
         }
 
+        public FrmReportCashFlow(int idCash)
+        {
+            InitializeComponent();
+            LoadInitialFieldsCashFlowAndBank(idCash);
+        }
+
         private void LoadInitialFieldsCashFlowAndBank(int idCashFlowCurrent)
         {
             try
@@ -26,7 +32,7 @@ namespace SystemGymControl
 
                 var dataCashFlow = cash.SearchID(idCashFlowCurrent);
 
-                int idCashPrevious = cash.GetMaxCashFlowIdDatePrevious(cash.GetMaxCashFlowID());
+                int idCashPrevious = cash.GetMaxCashFlowIdDatePrevious(idCashFlowCurrent);//cash.GetMaxCashFlowID());
 
                 // BOX
                 txtBoxBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumValueEntryMoney(idCashPrevious)}" : "R$ 0,00";
@@ -85,7 +91,7 @@ namespace SystemGymControl
                     dgvDataBox.Rows[countRow].MinimumHeight = 40;
                     dgvDataBox.ClearSelection();
                 }
-                else if (decimal.Parse(dr["value_card"].ToString()) > 0.00M)
+                if (decimal.Parse(dr["value_card"].ToString()) > 0.00M)
                 {
                     int countRow = dgvDataBank.Rows.Add();
                     dgvDataBank.Rows[countRow].Cells["bankDateEntry"].Value = dr["entry_date"].ToString();

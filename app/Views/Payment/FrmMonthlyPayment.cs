@@ -58,6 +58,8 @@ namespace SystemGymControl
                 dgvDataPlan.Rows[countRow].Cells["id"].Value = dr["idCash"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["valueTotal"].Value = $"R$ {dr["value_total"]}";
                 dgvDataPlan.Rows[countRow].Cells["valueDiscount"].Value = $"R$ {dr["value_discount"]}";
+                dgvDataPlan.Rows[countRow].Cells["valueInterest"].Value = !string.IsNullOrEmpty(dr["value_interest"].ToString()) ? $"R$ {dr["value_interest"]}" : "R$ 0,00";
+                dgvDataPlan.Rows[countRow].Cells["valuePenalty"].Value = !string.IsNullOrEmpty(dr["value_penalty"].ToString()) ? $"R$ {dr["value_penalty"]}" : "R$ 0,00";
 
                 if (string.IsNullOrEmpty(dr["payday"].ToString()))
                     dgvDataPlan.Rows[countRow].Cells["situation"].Value = "A RECEBER";
