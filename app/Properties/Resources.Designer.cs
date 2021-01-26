@@ -142,6 +142,16 @@ namespace SystemGymControl.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cash_register_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cash_register_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_cash_register_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_cash_register_64px", resourceCulture);

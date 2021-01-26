@@ -14,21 +14,22 @@ namespace SystemGymControl
         public FrmReportCashFlow()
         {
             InitializeComponent();
-            LoadInitialFields();
+            int idCashFlowCurrent = FrmGymControl.Instance._IdCashFlow;
+
+            LoadInitialFieldsCashFlowAndBank(idCashFlowCurrent);
         }
 
-        private void LoadInitialFields()
+        private void LoadInitialFieldsCashFlowAndBank(int idCashFlowCurrent)
         {
             try
-            {
-                int idCashFlowCurrent = FrmGymControl.Instance._IdCashFlow;
+            {             
 
                 var dataCashFlow = cash.SearchID(idCashFlowCurrent);
 
                 int idCashPrevious = cash.GetMaxCashFlowIdDatePrevious(cash.GetMaxCashFlowID());
 
                 // BOX
-                txtBoxBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {cash.SearchID(idCashPrevious).Rows[0]["cash_value_total"]}" : "R$ 0,00";
+                txtBoxBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumValueEntryMoney(idCashPrevious)}" : "R$ 0,00";
 
                 txtBoxEntry.Text = $"R$ {icomingCashFlow.GetSumValueEntryMoney(idCashFlowCurrent)}";
                 txtBoxExit.Text = $"R$ {dataCashFlow.Rows[0]["output_value_total"]}";
@@ -41,6 +42,9 @@ namespace SystemGymControl
                 // BANK
 
                 txtBankEntry.Text = $"R$ {icomingCashFlow.GetSumValueEntryCard(idCashFlowCurrent)}";
+                txtBankBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumAllValueEntryCard(idCashPrevious)}" : "R$ 0,00";
+                txtBankBalanceCurrent.Text = txtBankEntry.Text;
+                txtBankClosure.Text = $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBankBalancePrevious.Text)) + decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxEntry.Text)))}";
 
             }
             catch (Exception ex)

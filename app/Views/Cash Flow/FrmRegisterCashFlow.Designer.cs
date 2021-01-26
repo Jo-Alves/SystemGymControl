@@ -41,7 +41,15 @@ namespace SystemGymControl
             this.rbSearchRegisterPeriod = new System.Windows.Forms.RadioButton();
             this.rbSearchAllRegister = new System.Windows.Forms.RadioButton();
             this.dgvDataRegisterCashFlow = new System.Windows.Forms.DataGridView();
-            this.printRegister = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblValueTotalBoxInformed = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblValueTotalExit = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblBalances = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblValueTotalEntry = new System.Windows.Forms.Label();
+            this.showResgisterEntryExit = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,14 +59,6 @@ namespace SystemGymControl
             this.balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblValueTotalBoxInformed = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblValueTotalExit = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblBalances = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblValueTotalEntry = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataRegisterCashFlow)).BeginInit();
@@ -177,7 +177,7 @@ namespace SystemGymControl
             this.dgvDataRegisterCashFlow.ColumnHeadersHeight = 35;
             this.dgvDataRegisterCashFlow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDataRegisterCashFlow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.printRegister,
+            this.showResgisterEntryExit,
             this.id,
             this.openingDate,
             this.openingTime,
@@ -209,94 +209,6 @@ namespace SystemGymControl
             this.dgvDataRegisterCashFlow.TabIndex = 18;
             this.dgvDataRegisterCashFlow.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataRegisterCashFlow_CellClick);
             this.dgvDataRegisterCashFlow.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataRegisterCashFlow_CellDoubleClick);
-            // 
-            // printRegister
-            // 
-            this.printRegister.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.printRegister.HeaderText = "Imprimir Registro";
-            this.printRegister.Name = "printRegister";
-            this.printRegister.ReadOnly = true;
-            this.printRegister.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.printRegister.Width = 149;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.HeaderText = "Nº Caixa";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 78;
-            // 
-            // openingDate
-            // 
-            this.openingDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.openingDate.HeaderText = "Data de entrada";
-            this.openingDate.Name = "openingDate";
-            this.openingDate.ReadOnly = true;
-            this.openingDate.Width = 158;
-            // 
-            // openingTime
-            // 
-            this.openingTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.openingTime.HeaderText = "Hora da entrada";
-            this.openingTime.Name = "openingTime";
-            this.openingTime.ReadOnly = true;
-            this.openingTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.openingTime.Width = 141;
-            // 
-            // valueInformed
-            // 
-            this.valueInformed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.valueInformed.HeaderText = "Valor informado no caixa";
-            this.valueInformed.Name = "valueInformed";
-            this.valueInformed.ReadOnly = true;
-            this.valueInformed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.valueInformed.Width = 206;
-            // 
-            // cashValueTotal
-            // 
-            this.cashValueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cashValueTotal.HeaderText = "Valor de entradas";
-            this.cashValueTotal.Name = "cashValueTotal";
-            this.cashValueTotal.ReadOnly = true;
-            this.cashValueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cashValueTotal.Width = 151;
-            // 
-            // outputValueTotal
-            // 
-            this.outputValueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.outputValueTotal.HeaderText = "Valor total de saídas";
-            this.outputValueTotal.Name = "outputValueTotal";
-            this.outputValueTotal.ReadOnly = true;
-            this.outputValueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.outputValueTotal.Width = 170;
-            // 
-            // balance
-            // 
-            this.balance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.balance.HeaderText = "saldo";
-            this.balance.Name = "balance";
-            this.balance.ReadOnly = true;
-            this.balance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.balance.Width = 57;
-            // 
-            // closingDate
-            // 
-            this.closingDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.closingDate.HeaderText = "Data de Saída";
-            this.closingDate.Name = "closingDate";
-            this.closingDate.ReadOnly = true;
-            this.closingDate.Width = 139;
-            // 
-            // closingTime
-            // 
-            this.closingTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.closingTime.HeaderText = "Hora da saída";
-            this.closingTime.Name = "closingTime";
-            this.closingTime.ReadOnly = true;
-            this.closingTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.closingTime.Width = 121;
             // 
             // label2
             // 
@@ -378,6 +290,94 @@ namespace SystemGymControl
             this.lblValueTotalEntry.Size = new System.Drawing.Size(0, 22);
             this.lblValueTotalEntry.TabIndex = 27;
             // 
+            // showResgisterEntryExit
+            // 
+            this.showResgisterEntryExit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.showResgisterEntryExit.HeaderText = "Exibir registro de E\\S";
+            this.showResgisterEntryExit.Name = "showResgisterEntryExit";
+            this.showResgisterEntryExit.ReadOnly = true;
+            this.showResgisterEntryExit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.showResgisterEntryExit.Width = 173;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.HeaderText = "Nº Caixa";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Width = 78;
+            // 
+            // openingDate
+            // 
+            this.openingDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.openingDate.HeaderText = "Data de entrada";
+            this.openingDate.Name = "openingDate";
+            this.openingDate.ReadOnly = true;
+            this.openingDate.Width = 158;
+            // 
+            // openingTime
+            // 
+            this.openingTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.openingTime.HeaderText = "Hora da entrada";
+            this.openingTime.Name = "openingTime";
+            this.openingTime.ReadOnly = true;
+            this.openingTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.openingTime.Width = 141;
+            // 
+            // valueInformed
+            // 
+            this.valueInformed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valueInformed.HeaderText = "Valor informado no caixa";
+            this.valueInformed.Name = "valueInformed";
+            this.valueInformed.ReadOnly = true;
+            this.valueInformed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valueInformed.Width = 206;
+            // 
+            // cashValueTotal
+            // 
+            this.cashValueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cashValueTotal.HeaderText = "Valor de entradas";
+            this.cashValueTotal.Name = "cashValueTotal";
+            this.cashValueTotal.ReadOnly = true;
+            this.cashValueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cashValueTotal.Width = 151;
+            // 
+            // outputValueTotal
+            // 
+            this.outputValueTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.outputValueTotal.HeaderText = "Valor total de saídas";
+            this.outputValueTotal.Name = "outputValueTotal";
+            this.outputValueTotal.ReadOnly = true;
+            this.outputValueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.outputValueTotal.Width = 170;
+            // 
+            // balance
+            // 
+            this.balance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.balance.HeaderText = "saldo";
+            this.balance.Name = "balance";
+            this.balance.ReadOnly = true;
+            this.balance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.balance.Width = 57;
+            // 
+            // closingDate
+            // 
+            this.closingDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.closingDate.HeaderText = "Data de Saída";
+            this.closingDate.Name = "closingDate";
+            this.closingDate.ReadOnly = true;
+            this.closingDate.Width = 139;
+            // 
+            // closingTime
+            // 
+            this.closingTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.closingTime.HeaderText = "Hora da saída";
+            this.closingTime.Name = "closingTime";
+            this.closingTime.ReadOnly = true;
+            this.closingTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.closingTime.Width = 121;
+            // 
             // FrmRegisterCashFlow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
@@ -428,7 +428,7 @@ namespace SystemGymControl
         private System.Windows.Forms.Label lblBalances;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblValueTotalEntry;
-        private System.Windows.Forms.DataGridViewImageColumn printRegister;
+        private System.Windows.Forms.DataGridViewImageColumn showResgisterEntryExit;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn openingDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn openingTime;

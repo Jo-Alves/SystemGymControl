@@ -80,6 +80,11 @@ namespace Bussiness
             return icomingCashFlow.GetSumValueEntryCard(idCash);
         }
 
+        public decimal GetSumAllValueEntryCard(int idCash)
+        {
+            return icomingCashFlow.GetSumAllValueEntryCard(idCash);
+        }
+
         public DataTable GetDataIcomingIdCash(int idCash)
         {
             return icomingCashFlow.GetDataIcomingIdCash(idCash);

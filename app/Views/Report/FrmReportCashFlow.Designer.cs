@@ -60,8 +60,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtBankBalanceCurrent = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtBankExit = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtBankEntry = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtBankBalancePrevious = new System.Windows.Forms.TextBox();
@@ -275,8 +273,6 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtBankBalanceCurrent);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtBankExit);
-            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtBankEntry);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtBankBalancePrevious);
@@ -369,7 +365,7 @@
             // 
             // txtBankClosure
             // 
-            this.txtBankClosure.Location = new System.Drawing.Point(581, 65);
+            this.txtBankClosure.Location = new System.Drawing.Point(443, 65);
             this.txtBankClosure.Name = "txtBankClosure";
             this.txtBankClosure.ReadOnly = true;
             this.txtBankClosure.Size = new System.Drawing.Size(132, 29);
@@ -380,7 +376,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(577, 40);
+            this.label6.Location = new System.Drawing.Point(439, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 22);
             this.label6.TabIndex = 8;
@@ -388,7 +384,7 @@
             // 
             // txtBankBalanceCurrent
             // 
-            this.txtBankBalanceCurrent.Location = new System.Drawing.Point(443, 65);
+            this.txtBankBalanceCurrent.Location = new System.Drawing.Point(305, 65);
             this.txtBankBalanceCurrent.Name = "txtBankBalanceCurrent";
             this.txtBankBalanceCurrent.ReadOnly = true;
             this.txtBankBalanceCurrent.Size = new System.Drawing.Size(132, 29);
@@ -399,30 +395,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(439, 40);
+            this.label7.Location = new System.Drawing.Point(301, 40);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 22);
             this.label7.TabIndex = 6;
             this.label7.Text = "Saldo atual";
-            // 
-            // txtBankExit
-            // 
-            this.txtBankExit.Location = new System.Drawing.Point(305, 65);
-            this.txtBankExit.Name = "txtBankExit";
-            this.txtBankExit.ReadOnly = true;
-            this.txtBankExit.Size = new System.Drawing.Size(132, 29);
-            this.txtBankExit.TabIndex = 5;
-            this.txtBankExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(301, 40);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 22);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Saída";
             // 
             // txtBankEntry
             // 
@@ -507,8 +484,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBankBalanceCurrent;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtBankExit;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBankEntry;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtBankBalancePrevious;

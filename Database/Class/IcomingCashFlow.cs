@@ -197,7 +197,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT SUM(value_money) FROM icoming_cash_flow WHERE cash_flow_id = @idCash AND description_icoming <> 'Valor inicial'";
+                    _sql = "SELECT SUM(value_money) FROM icoming_cash_flow WHERE cash_flow_id <= @idCash AND description_icoming <> 'Valor inicial'";
                     var command = new SqlCommand(_sql, connection);
                     command.Parameters.AddWithValue("@idCash", idCash);
                     if(command.ExecuteScalar() != DBNull.Value)
@@ -223,10 +223,36 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT SUM(value_card) FROM icoming_cash_flow WHERE cash_flow_id = @idCash AND description_icoming <> 'Valor inicial'";
+                    _sql = "SELECT SUM(value_card) FROM icoming_cash_flow WHERE cash_flow_id = @idCash";
                     var command = new SqlCommand(_sql, connection);
                     command.Parameters.AddWithValue("@idCash", idCash);
                     if(command.ExecuteScalar() != DBNull.Value)
+                    {
+                        sumValue = Convert.ToDecimal(command.ExecuteScalar());
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return sumValue;
+        }
+
+        public decimal GetSumAllValueEntryCard(int idCash)
+        {
+            decimal sumValue = 0.00M;
+
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+                    _sql = "SELECT SUM(value_card) FROM icoming_cash_flow WHERE cash_flow_id <= @idCash";
+                    var command = new SqlCommand(_sql, connection);
+                    command.Parameters.AddWithValue("@idCash", idCash);
+                    if (command.ExecuteScalar() != DBNull.Value)
                     {
                         sumValue = Convert.ToDecimal(command.ExecuteScalar());
                     }

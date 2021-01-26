@@ -40,7 +40,7 @@ namespace SystemGymControl
                     foreach (DataRow dr in dataCash.Rows)
                     {
                         int countRow = dgvDataRegisterCashFlow.Rows.Add();
-                        dgvDataRegisterCashFlow.Rows[countRow].Cells["printRegister"].Value = Properties.Resources.icons8_receipt_32px;
+                        dgvDataRegisterCashFlow.Rows[countRow].Cells["showResgisterEntryExit"].Value = Properties.Resources.icons8_cash_register_32px;
                         dgvDataRegisterCashFlow.Rows[countRow].Cells["id"].Value = dr["id"].ToString();
                         dgvDataRegisterCashFlow.Rows[countRow].Cells["openingDate"].Value = dr["opening_date"].ToString();
                         dgvDataRegisterCashFlow.Rows[countRow].Cells["openingTime"].Value = dr["opening_time"].ToString();
