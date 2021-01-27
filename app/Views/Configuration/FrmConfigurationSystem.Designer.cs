@@ -51,6 +51,8 @@ namespace SystemGymControl
             this.cbGeneratesBackupAutomatically = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.mkPhone = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -164,6 +166,8 @@ namespace SystemGymControl
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.mkPhone);
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.txtEmail);
             this.groupBox3.Controls.Add(this.mkCNPJ);
@@ -200,14 +204,14 @@ namespace SystemGymControl
             this.txtEmail.Size = new System.Drawing.Size(595, 29);
             this.txtEmail.TabIndex = 2;
             // 
-            // mkCPF
+            // mkCNPJ
             // 
             this.mkCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mkCNPJ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mkCNPJ.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mkCNPJ.Location = new System.Drawing.Point(617, 55);
             this.mkCNPJ.Mask = "00,000,000/0000-00";
-            this.mkCNPJ.Name = "mkCPF";
+            this.mkCNPJ.Name = "mkCNPJ";
             this.mkCNPJ.Size = new System.Drawing.Size(169, 29);
             this.mkCNPJ.TabIndex = 1;
             this.mkCNPJ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -225,7 +229,7 @@ namespace SystemGymControl
             this.lblCPF.TabIndex = 69;
             this.lblCPF.Text = "CNPJ";
             // 
-            // txtName
+            // txtNameFantasy
             // 
             this.txtNameFantasy.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -234,7 +238,7 @@ namespace SystemGymControl
             this.txtNameFantasy.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameFantasy.ForeColor = System.Drawing.Color.Black;
             this.txtNameFantasy.Location = new System.Drawing.Point(16, 55);
-            this.txtNameFantasy.Name = "txtName";
+            this.txtNameFantasy.Name = "txtNameFantasy";
             this.txtNameFantasy.Size = new System.Drawing.Size(595, 29);
             this.txtNameFantasy.TabIndex = 0;
             this.txtNameFantasy.WordWrap = false;
@@ -346,6 +350,31 @@ namespace SystemGymControl
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // mkPhone
+            // 
+            this.mkPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mkPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mkPhone.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mkPhone.Location = new System.Drawing.Point(617, 128);
+            this.mkPhone.Mask = "(00) 00000-0000";
+            this.mkPhone.Name = "mkPhone";
+            this.mkPhone.Size = new System.Drawing.Size(132, 29);
+            this.mkPhone.TabIndex = 78;
+            this.mkPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(613, 102);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 22);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Celular|Telefone";
+            // 
             // FrmConfigurationSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
@@ -400,5 +429,7 @@ namespace SystemGymControl
         private System.Windows.Forms.CheckBox cbGeneratesBackupAutomatically;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.MaskedTextBox mkPhone;
+        private System.Windows.Forms.Label label4;
     }
 }

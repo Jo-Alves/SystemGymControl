@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using SystemGymControl.Properties;
 
 namespace SystemGymControl
 {
@@ -11,6 +12,7 @@ namespace SystemGymControl
         User user = new User();
         int idUser;
         string dateRegistion, nameUser;
+        string path;
 
         DialogResult dr;
 
@@ -96,8 +98,6 @@ namespace SystemGymControl
             }
         }
 
-        string path = @"C:\System-GYM-Control\Galery\User";
-
         private void CreateDirectory()
         {
             if (!Directory.Exists(path))
@@ -159,7 +159,7 @@ namespace SystemGymControl
                     FrmGymControl.Instance._pcPerfil.Load();
                 }
                 else
-                    FrmGymControl.Instance._pcPerfil.Image = Properties.Resources.icons8_person_female_50px;
+                    FrmGymControl.Instance._pcPerfil.Image = Resources.icons8_person_female_50px;
 
             }
         }
@@ -294,6 +294,11 @@ namespace SystemGymControl
                 btnCancel_Click(sender, e);
         }
 
+        private void FrmSaveUser_Load(object sender, EventArgs e)
+        {
+            path = string.IsNullOrEmpty(Settings.Default["directory"].ToString()) ? @"C:\System-GYM-Control\Galery\Students" : $@"{Settings.Default["directory"]}\Galery\Users";
+        }
+
         private void pcUpdateFormatPassword_Click(object sender, EventArgs e)
         {
             isPasswordHidden = !isPasswordHidden;
@@ -303,13 +308,13 @@ namespace SystemGymControl
                 case true:
                     txtPassword1.UseSystemPasswordChar = false;
                     txtPassword2.UseSystemPasswordChar = false;
-                    pcUpdateFormatPassword.Image = Properties.Resources.ocultar_32x32;
+                    pcUpdateFormatPassword.Image = Resources.ocultar_32x32;
                     metroToolTip.SetToolTip(pcUpdateFormatPassword, "Ocultar");
                     break;
                 case false:
                     txtPassword1.UseSystemPasswordChar = true;
                     txtPassword2.UseSystemPasswordChar = true;
-                    pcUpdateFormatPassword.Image = Properties.Resources.ver_32x32;
+                    pcUpdateFormatPassword.Image = Resources.ver_32x32;
                     metroToolTip.SetToolTip(pcUpdateFormatPassword, "Ver");
                     break;
             }

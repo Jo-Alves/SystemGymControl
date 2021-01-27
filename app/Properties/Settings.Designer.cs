@@ -106,5 +106,17 @@ namespace SystemGymControl.Properties {
                 this["optionBackup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string phone {
+            get {
+                return ((string)(this["phone"]));
+            }
+            set {
+                this["phone"] = value;
+            }
+        }
     }
 }

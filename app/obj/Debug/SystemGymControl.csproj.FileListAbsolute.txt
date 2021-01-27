@@ -255,3 +255,4 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\ru\Micro
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmConfigurationSystem.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmBackup.resources

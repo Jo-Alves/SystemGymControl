@@ -546,6 +546,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSaveStudent";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.Load += new System.EventHandler(this.FrmSaveStudent_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaveStudent_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ndNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcPhoto)).EndInit();

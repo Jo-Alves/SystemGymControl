@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using SystemGymControl.Properties;
 
 namespace SystemGymControl
 {
@@ -15,6 +16,7 @@ namespace SystemGymControl
         int idResponsible, studendtIdResponsible, id;
         DialogResult dr;
         bool goSaveResponsible = false, isEdition;
+        string path;
 
         public FrmSaveStudent()
         {
@@ -72,8 +74,6 @@ namespace SystemGymControl
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        string path = @"C:\System-GYM-Control\Galery\Students";
 
         private void CreateDirectory()
         {
@@ -320,6 +320,11 @@ namespace SystemGymControl
                 btnSave_Click(sender, e);
             else if (e.KeyCode == Keys.Escape)
                 btnCancel_Click(sender, e);
+        }
+
+        private void FrmSaveStudent_Load(object sender, EventArgs e)
+        {
+            path = string.IsNullOrEmpty(Settings.Default["directory"].ToString()) ? @"C:\System-GYM-Control\Galery\Students" : $@"{Settings.Default["directory"]}\Galery\Students";
         }
 
         private void btnClearImage_Click(object sender, EventArgs e)

@@ -22,6 +22,7 @@ namespace SystemGymControl
             txtEmail.Text = Settings.Default["email"].ToString();
             cbGeneratesBackupAutomatically.Checked = bool.Parse(Settings.Default["generatesBackupAutomatically"].ToString());
             cbxSelectOptions.Text = Settings.Default["optionBackup"].ToString();
+            mkPhone.Text = Settings.Default["phone"].ToString();
         }
 
         private void btnOpenDirectory_Click(object sender, EventArgs e)
@@ -59,10 +60,11 @@ namespace SystemGymControl
             Settings.Default["directory"] = txtDirectory.Text;
             Settings.Default["optionPreviewIsDirecty"] = rbPrintDirecty.Checked ? true : false;
             Settings.Default["nameFantasy"] = txtNameFantasy.Text.Trim();
-            Settings.Default["CNPJ"] = mkCNPJ.Text;
+            Settings.Default["CNPJ"] = mkCNPJ.Text.Length < 18 ? "" : mkCNPJ.Text;
             Settings.Default["email"] = txtEmail.Text.Trim();
             Settings.Default["generatesBackupAutomatically"] = cbGeneratesBackupAutomatically.Checked ? true : false;
             Settings.Default["optionBackup"] = cbxSelectOptions.Text.Trim();
+            Settings.Default["phone"] = mkPhone.Text.Length < 15 ? "" : mkPhone.Text;
 
             FrmGymControl.Instance._btnBackup.Visible = cbxSelectOptions.SelectedIndex == 2 && cbGeneratesBackupAutomatically.Checked ? true : false;
 
@@ -92,7 +94,7 @@ namespace SystemGymControl
             else
                 fieldsValidated = true;
 
-            return fieldsValidated;                
+            return fieldsValidated;
         }
     }
 }

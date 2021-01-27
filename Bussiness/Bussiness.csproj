@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Backup.cs" />
     <Compile Include="Class\BillingParametersPackage.cs" />
     <Compile Include="Class\CashFlow.cs" />
     <Compile Include="Class\FormsOfPayment.cs" />
