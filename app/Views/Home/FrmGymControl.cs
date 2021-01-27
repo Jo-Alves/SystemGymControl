@@ -18,7 +18,7 @@ namespace SystemGymControl
 
         int idCashFlow, id;
         string nameUser, name;
-        bool dateBoxIsPrevious = false, existUsers = true,  boxIsClosed = true;
+        bool dateBoxIsPrevious = false, existUsers = true, boxIsClosed = true;
 
         public FrmGymControl()
         {
@@ -363,7 +363,7 @@ namespace SystemGymControl
             }
         }
 
-        private void btnSetting_Click(object sender, EventArgs e)
+        private void btnConfigurationSystem_Click(object sender, EventArgs e)
         {
             if (dateBoxIsPrevious)
             {
@@ -375,6 +375,8 @@ namespace SystemGymControl
                 MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+            OpenForm.ShowForm(new FrmConfigurationSystem(), this);
         }
 
         private void FrmGymControl_Load(object sender, EventArgs e)
@@ -544,7 +546,7 @@ namespace SystemGymControl
                 MessageBox.Show("Não há registros de planos cadastrados no sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-         
+
             lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos";
             OpenForm.ShowForm(new FrmPayments(), this);
         }

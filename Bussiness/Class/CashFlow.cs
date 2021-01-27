@@ -91,8 +91,8 @@ namespace Bussiness
         public int GetMaxCashFlowID()
         {
             return cash.GetMaxCashFlowID();
-        } 
-        
+        }
+
         public int GetMaxCashFlowIdDatePrevious(int idCashCurrent)
         {
             return cash.GetMaxCashFlowIdDatePrevious(idCashCurrent);

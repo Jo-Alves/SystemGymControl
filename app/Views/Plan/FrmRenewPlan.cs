@@ -127,7 +127,7 @@ namespace SystemGymControl
                     icomingCashFlow._valueCard = decimal.Parse(txtValue.Text);
                 }
 
-                
+
                 icomingCashFlow._entryDate = datePlan.ToShortDateString();
                 icomingCashFlow._entryTime = datePlan.ToLongTimeString();
                 icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;

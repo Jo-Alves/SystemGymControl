@@ -48,7 +48,7 @@ namespace Bussiness
         {
             get { return valueInterest; }
             set { valueInterest = value; }
-        }        
+        }
         public decimal _valuePenalty
         {
             get { return valuePenalty; }

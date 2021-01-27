@@ -254,3 +254,4 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\pt\Micro
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmConfigurationSystem.resources

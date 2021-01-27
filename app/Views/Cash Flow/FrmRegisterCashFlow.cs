@@ -119,7 +119,7 @@ namespace SystemGymControl
         {
             if (e.RowIndex > -1)
             {
-                if(dgvDataRegisterCashFlow.CurrentCell.ColumnIndex == 0)
+                if (dgvDataRegisterCashFlow.CurrentCell.ColumnIndex == 0)
                 {
                     OpenForm.ShowForm(new FrmReportCashFlow(int.Parse(dgvDataRegisterCashFlow.CurrentRow.Cells["id"].Value.ToString())), this);
                 }

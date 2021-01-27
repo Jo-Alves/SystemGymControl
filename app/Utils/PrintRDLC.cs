@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
- 
+
 namespace Microsoft.Reporting.WinForms
 {
     public static class LocalReportExtensions
@@ -17,7 +17,7 @@ namespace Microsoft.Reporting.WinForms
             pageSettings.Margins = report.GetDefaultPageSettings().Margins;
             Print(report, pageSettings);
         }
- 
+
         public static void Print(this LocalReport report, PageSettings pageSettings)
         {
             string deviceInfo =

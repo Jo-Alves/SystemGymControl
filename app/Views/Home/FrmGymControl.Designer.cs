@@ -39,7 +39,8 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.pnConjuctMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnConfigurationSystem = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.btnMenuQuestion = new System.Windows.Forms.Button();
             this.btnCashFlow = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
@@ -169,7 +170,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnSetting);
+            this.panel3.Controls.Add(this.btnConfigurationSystem);
+            this.panel3.Controls.Add(this.btnBackup);
             this.panel3.Controls.Add(this.btnMenuQuestion);
             this.panel3.Controls.Add(this.btnCashFlow);
             this.panel3.Controls.Add(this.btnMenuSales);
@@ -183,29 +185,53 @@
             this.panel3.Size = new System.Drawing.Size(205, 504);
             this.panel3.TabIndex = 5;
             // 
-            // btnSetting
+            // btnConfigurationSystem
             // 
-            this.btnSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSetting.FlatAppearance.BorderSize = 0;
-            this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetting.ForeColor = System.Drawing.Color.White;
-            this.btnSetting.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
-            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSetting.Location = new System.Drawing.Point(0, 343);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnSetting.Size = new System.Drawing.Size(205, 49);
-            this.btnSetting.TabIndex = 42;
-            this.btnSetting.TabStop = false;
-            this.btnSetting.Text = "Configurações";
-            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.UseVisualStyleBackColor = false;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            this.btnConfigurationSystem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnConfigurationSystem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfigurationSystem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConfigurationSystem.FlatAppearance.BorderSize = 0;
+            this.btnConfigurationSystem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnConfigurationSystem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnConfigurationSystem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfigurationSystem.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfigurationSystem.ForeColor = System.Drawing.Color.White;
+            this.btnConfigurationSystem.Image = global::SystemGymControl.Properties.Resources.icons8_settings_32px;
+            this.btnConfigurationSystem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConfigurationSystem.Location = new System.Drawing.Point(0, 392);
+            this.btnConfigurationSystem.Name = "btnConfigurationSystem";
+            this.btnConfigurationSystem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnConfigurationSystem.Size = new System.Drawing.Size(205, 49);
+            this.btnConfigurationSystem.TabIndex = 44;
+            this.btnConfigurationSystem.TabStop = false;
+            this.btnConfigurationSystem.Text = "Configurações";
+            this.btnConfigurationSystem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfigurationSystem.UseVisualStyleBackColor = false;
+            this.btnConfigurationSystem.Click += new System.EventHandler(this.btnConfigurationSystem_Click);
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBackup.FlatAppearance.BorderSize = 0;
+            this.btnBackup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.Color.White;
+            this.btnBackup.Image = global::SystemGymControl.Properties.Resources.icons8_data_backup_32px;
+            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBackup.Location = new System.Drawing.Point(0, 343);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBackup.Size = new System.Drawing.Size(205, 49);
+            this.btnBackup.TabIndex = 43;
+            this.btnBackup.TabStop = false;
+            this.btnBackup.Text = "Backup";
+            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Visible = false;
             // 
             // btnMenuQuestion
             // 
@@ -491,9 +517,10 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnMenuSales;
         private System.Windows.Forms.Button btnMenuPayment;
-        private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnMenuQuestion;
         private System.Windows.Forms.Button btnCashFlow;
         private System.Windows.Forms.Button btnNotification;
+        private System.Windows.Forms.Button btnConfigurationSystem;
+        private System.Windows.Forms.Button btnBackup;
     }
 }

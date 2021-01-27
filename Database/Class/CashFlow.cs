@@ -163,7 +163,7 @@ namespace Database
 
             return maxId;
         }
-        
+
         public int GetMaxCashFlowIdDatePrevious(int idCashCurrent)
         {
             int maxId = 0;

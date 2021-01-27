@@ -104,13 +104,13 @@ namespace SystemGymControl
 
         private void dgvdataUser_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if(dgvdataUser.Columns[e.ColumnIndex].Name == "password" && e.Value != null)
+            if (dgvdataUser.Columns[e.ColumnIndex].Name == "password" && e.Value != null)
             {
                 dgvdataUser.Rows[e.RowIndex].Tag = e.Value;
                 e.Value = new String('*', e.Value.ToString().Length);
             }
-            
-            if(dgvdataUser.Columns[e.ColumnIndex].Name == "answer" && e.Value != null)
+
+            if (dgvdataUser.Columns[e.ColumnIndex].Name == "answer" && e.Value != null)
             {
                 dgvdataUser.Rows[e.RowIndex].Tag = e.Value;
                 e.Value = new String('*', e.Value.ToString().Length);

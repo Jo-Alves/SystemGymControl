@@ -80,6 +80,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -102,7 +103,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utils\ValidateCNPJ.cs" />
     <Compile Include="Utils\PrintRDLC.cs" />
+    <Compile Include="Utils\ValidateEmail.cs" />
     <Compile Include="Views\Authentication\FmrAuthentication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +153,12 @@
     </Compile>
     <Compile Include="Views\Cash Flow\FrmRegisterCashFlow.Designer.cs">
       <DependentUpon>FrmRegisterCashFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration\FrmConfigurationSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Configuration\FrmConfigurationSystem.Designer.cs">
+      <DependentUpon>FrmConfigurationSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Initial\FrmLoadSystem.cs">
       <SubType>Form</SubType>
@@ -239,10 +248,10 @@
     <Compile Include="Views\Plan\FrmPurchasePlan.Designer.cs">
       <DependentUpon>FrmPurchasePlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Report\FrmReportCashFlow.cs">
+    <Compile Include="Views\Cash Flow\FrmReportCashFlow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Report\FrmReportCashFlow.Designer.cs">
+    <Compile Include="Views\Cash Flow\FrmReportCashFlow.Designer.cs">
       <DependentUpon>FrmReportCashFlow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Save\FrmSearchStudent.cs">
@@ -335,6 +344,9 @@
     <EmbeddedResource Include="Views\Cash Flow\FrmRegisterCashFlow.resx">
       <DependentUpon>FrmRegisterCashFlow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Configuration\FrmConfigurationSystem.resx">
+      <DependentUpon>FrmConfigurationSystem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\FrmGymControl.resx">
       <DependentUpon>FrmGymControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -377,7 +389,7 @@
     <EmbeddedResource Include="Views\Plan\FrmPurchasePlan.resx">
       <DependentUpon>FrmPurchasePlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Report\FrmReportCashFlow.resx">
+    <EmbeddedResource Include="Views\Cash Flow\FrmReportCashFlow.resx">
       <DependentUpon>FrmReportCashFlow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Save\FrmSearchStudent.resx">
@@ -722,6 +734,7 @@
   <ItemGroup>
     <Content Include="IMG-20201119-WA0000.ico" />
     <None Include="Resources\icons8_cash_register_32px.png" />
+    <None Include="Resources\icons8_data_backup_32px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -811,6 +824,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Report\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

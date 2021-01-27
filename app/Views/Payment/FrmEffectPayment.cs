@@ -62,7 +62,7 @@ namespace SystemGymControl
             daysDelay = GetValueDaysDelay();
             txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
             cbFormOfPayment.Text = dataPlanCash.Rows[0]["form_payment"].ToString();
-            
+
             txtValuePlan.Text = $"R$ {new Package().GetValuePackageFormPayment(cbFormOfPayment.Text).Rows[0]["value"]}";
 
             DisableAndEnabledTextBoxsInPaymentInMoney();
@@ -233,10 +233,10 @@ namespace SystemGymControl
                 DateTime datePayment = DateTime.Now;
 
                 IcomingCashFlow icomingCashFlow = new IcomingCashFlow()
-                {                   
+                {
                     _entryDate = txtPayDay.Text,
                     _entryTime = datePayment.ToLongTimeString(),
-                    _cashFlowID = FrmGymControl.Instance._IdCashFlow,                   
+                    _cashFlowID = FrmGymControl.Instance._IdCashFlow,
                     _descriptionIcoming = $"Pagamento da mensalidade do(a) aluno(a) {txtName.Text.Trim()}"
                 };
 
@@ -245,16 +245,30 @@ namespace SystemGymControl
                     icomingCashFlow._valueCard = 0.00M;
                     icomingCashFlow._valueMoney = amountReceivable;
 
-                }else
+                }
+                else
                 {
                     icomingCashFlow._valueCard = amountReceivable;
                     icomingCashFlow._valueMoney = 0.00M;
                 }
 
-                Payment payment = new Payment() { _id = idCash, _duedate = txtDuedate.Text, _formPayment = cbFormOfPayment.Text, _numberPortion = 1, _payday = txtPayDay.Text, _paymentTime = datePayment.ToLongTimeString(), _planID = idPlan, _valueDiscount = decimal.Parse(txtDiscount.Text), _valueTotal = amountReceivable, _paymentOnAccount = "yes", _valueInterest = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValueInterest.Text)) : 0.00M, _valuePenalty = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValuePenalty.Text)) : 0.00M
-            };
+                Payment payment = new Payment()
+                {
+                    _id = idCash,
+                    _duedate = txtDuedate.Text,
+                    _formPayment = cbFormOfPayment.Text,
+                    _numberPortion = 1,
+                    _payday = txtPayDay.Text,
+                    _paymentTime = datePayment.ToLongTimeString(),
+                    _planID = idPlan,
+                    _valueDiscount = decimal.Parse(txtDiscount.Text),
+                    _valueTotal = amountReceivable,
+                    _paymentOnAccount = "yes",
+                    _valueInterest = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValueInterest.Text)) : 0.00M,
+                    _valuePenalty = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValuePenalty.Text)) : 0.00M
+                };
 
-            if (cbFormOfPayment.Text.ToLower() != "dinheiro")
+                if (cbFormOfPayment.Text.ToLower() != "dinheiro")
                 {
                     payment._paymentOnAccount = "no";
                     payment._valueDiscount = 0.00M;

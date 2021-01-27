@@ -215,7 +215,7 @@ namespace Database
                     icomingCashFlow.Save(transaction);
 
                     if (formPayment == "dinheiro")
-                    {                       
+                    {
                         new CashFlow().UpdateValueTotalCashFlow(icomingCashFlow._cashFlowID, (valueTotal - discount), transaction);
                     }
 
