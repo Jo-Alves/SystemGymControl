@@ -41,7 +41,7 @@ namespace SystemGymControl
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.mkCPF = new System.Windows.Forms.MaskedTextBox();
+            this.mkCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
             this.txtNameFantasy = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -166,7 +166,7 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.txtEmail);
-            this.groupBox3.Controls.Add(this.mkCPF);
+            this.groupBox3.Controls.Add(this.mkCNPJ);
             this.groupBox3.Controls.Add(this.lblCPF);
             this.groupBox3.Controls.Add(this.txtNameFantasy);
             this.groupBox3.Controls.Add(this.lblName);
@@ -202,15 +202,15 @@ namespace SystemGymControl
             // 
             // mkCPF
             // 
-            this.mkCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mkCPF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mkCPF.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mkCPF.Location = new System.Drawing.Point(617, 55);
-            this.mkCPF.Mask = "00,000,000/0000-00";
-            this.mkCPF.Name = "mkCPF";
-            this.mkCPF.Size = new System.Drawing.Size(169, 29);
-            this.mkCPF.TabIndex = 1;
-            this.mkCPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mkCNPJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mkCNPJ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mkCNPJ.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mkCNPJ.Location = new System.Drawing.Point(617, 55);
+            this.mkCNPJ.Mask = "00,000,000/0000-00";
+            this.mkCNPJ.Name = "mkCPF";
+            this.mkCNPJ.Size = new System.Drawing.Size(169, 29);
+            this.mkCNPJ.TabIndex = 1;
+            this.mkCNPJ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCPF
             // 
@@ -390,7 +390,7 @@ namespace SystemGymControl
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.MaskedTextBox mkCPF;
+        private System.Windows.Forms.MaskedTextBox mkCNPJ;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.TextBox txtNameFantasy;
         private System.Windows.Forms.Label lblName;

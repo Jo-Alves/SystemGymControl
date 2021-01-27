@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using SystemGymControl.Properties;
 using Tulpep.NotificationWindow;
 
 namespace SystemGymControl
@@ -233,6 +234,12 @@ namespace SystemGymControl
             set { idCashFlow = value; }
         }
 
+        public Button _btnBackup
+        {
+            get { return btnBackup; }
+            set { btnBackup = value; }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -383,6 +390,8 @@ namespace SystemGymControl
         {
             if (boxIsClosed)
                 LoadNotification();
+
+            btnBackup.Visible = string.IsNullOrEmpty(Settings.Default["optionBackup"].ToString()) || !Settings.Default["optionBackup"].ToString().ToLower().Equals("manualmente") ? false : true;
         }
 
         public void LoadNotification()
@@ -477,6 +486,20 @@ namespace SystemGymControl
                     _message = $"Constamos que o(a) aluno(a) {dr["name"]} está fazendo aniversário na data de hoje.",
                     _situation = "Não lida"
                 }.GerateMessage();
+            }
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            if (dateBoxIsPrevious)
+            {
+                MessageBox.Show("Faça o fechamento do caixa para liberar essa operação!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (!existUsers)
+            {
+                MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
         }
 

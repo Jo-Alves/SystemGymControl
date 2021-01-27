@@ -40,8 +40,8 @@
             this.pnConjuctMenu = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnConfigurationSystem = new System.Windows.Forms.Button();
-            this.btnBackup = new System.Windows.Forms.Button();
             this.btnMenuQuestion = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.btnCashFlow = new System.Windows.Forms.Button();
             this.btnMenuSales = new System.Windows.Forms.Button();
             this.btnMenuPayment = new System.Windows.Forms.Button();
@@ -171,8 +171,8 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.btnConfigurationSystem);
-            this.panel3.Controls.Add(this.btnBackup);
             this.panel3.Controls.Add(this.btnMenuQuestion);
+            this.panel3.Controls.Add(this.btnBackup);
             this.panel3.Controls.Add(this.btnCashFlow);
             this.panel3.Controls.Add(this.btnMenuSales);
             this.panel3.Controls.Add(this.btnMenuPayment);
@@ -202,36 +202,12 @@
             this.btnConfigurationSystem.Name = "btnConfigurationSystem";
             this.btnConfigurationSystem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnConfigurationSystem.Size = new System.Drawing.Size(205, 49);
-            this.btnConfigurationSystem.TabIndex = 44;
+            this.btnConfigurationSystem.TabIndex = 46;
             this.btnConfigurationSystem.TabStop = false;
             this.btnConfigurationSystem.Text = "Configurações";
             this.btnConfigurationSystem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfigurationSystem.UseVisualStyleBackColor = false;
             this.btnConfigurationSystem.Click += new System.EventHandler(this.btnConfigurationSystem_Click);
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBackup.FlatAppearance.BorderSize = 0;
-            this.btnBackup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.btnBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackup.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackup.ForeColor = System.Drawing.Color.White;
-            this.btnBackup.Image = global::SystemGymControl.Properties.Resources.icons8_data_backup_32px;
-            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBackup.Location = new System.Drawing.Point(0, 343);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnBackup.Size = new System.Drawing.Size(205, 49);
-            this.btnBackup.TabIndex = 43;
-            this.btnBackup.TabStop = false;
-            this.btnBackup.Text = "Backup";
-            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackup.UseVisualStyleBackColor = false;
-            this.btnBackup.Visible = false;
             // 
             // btnMenuQuestion
             // 
@@ -246,16 +222,41 @@
             this.btnMenuQuestion.ForeColor = System.Drawing.Color.White;
             this.btnMenuQuestion.Image = global::SystemGymControl.Properties.Resources.icons8_about_32px;
             this.btnMenuQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 294);
+            this.btnMenuQuestion.Location = new System.Drawing.Point(0, 343);
             this.btnMenuQuestion.Name = "btnMenuQuestion";
             this.btnMenuQuestion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenuQuestion.Size = new System.Drawing.Size(205, 49);
-            this.btnMenuQuestion.TabIndex = 41;
+            this.btnMenuQuestion.TabIndex = 45;
             this.btnMenuQuestion.TabStop = false;
             this.btnMenuQuestion.Text = "Sobre";
             this.btnMenuQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuQuestion.UseVisualStyleBackColor = false;
             this.btnMenuQuestion.Click += new System.EventHandler(this.btnMenuQuestion_Click);
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBackup.FlatAppearance.BorderSize = 0;
+            this.btnBackup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnBackup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.Color.White;
+            this.btnBackup.Image = global::SystemGymControl.Properties.Resources.icons8_data_backup_32px;
+            this.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBackup.Location = new System.Drawing.Point(0, 294);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBackup.Size = new System.Drawing.Size(205, 49);
+            this.btnBackup.TabIndex = 43;
+            this.btnBackup.TabStop = false;
+            this.btnBackup.Text = "Backup";
+            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackup.UseVisualStyleBackColor = false;
+            this.btnBackup.Visible = false;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // btnCashFlow
             // 
@@ -517,10 +518,10 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnMenuSales;
         private System.Windows.Forms.Button btnMenuPayment;
-        private System.Windows.Forms.Button btnMenuQuestion;
         private System.Windows.Forms.Button btnCashFlow;
         private System.Windows.Forms.Button btnNotification;
-        private System.Windows.Forms.Button btnConfigurationSystem;
         private System.Windows.Forms.Button btnBackup;
+        private System.Windows.Forms.Button btnConfigurationSystem;
+        private System.Windows.Forms.Button btnMenuQuestion;
     }
 }

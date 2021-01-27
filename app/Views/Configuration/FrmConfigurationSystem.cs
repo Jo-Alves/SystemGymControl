@@ -18,7 +18,7 @@ namespace SystemGymControl
             rbPrintDirecty.Checked = bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()) || string.IsNullOrEmpty(Settings.Default["optionPreviewIsDirecty"].ToString()) ? true : false;
             rbVisualize.Checked = bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()) ? false : true;
             txtNameFantasy.Text = Settings.Default["nameFantasy"].ToString();
-            mkCPF.Text = Settings.Default["CNPJ"].ToString();
+            mkCNPJ.Text = Settings.Default["CNPJ"].ToString();
             txtEmail.Text = Settings.Default["email"].ToString();
             cbGeneratesBackupAutomatically.Checked = bool.Parse(Settings.Default["generatesBackupAutomatically"].ToString());
             cbxSelectOptions.Text = Settings.Default["optionBackup"].ToString();
@@ -54,15 +54,45 @@ namespace SystemGymControl
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!ValidateFields()) return;
+
             Settings.Default["directory"] = txtDirectory.Text;
             Settings.Default["optionPreviewIsDirecty"] = rbPrintDirecty.Checked ? true : false;
             Settings.Default["nameFantasy"] = txtNameFantasy.Text.Trim();
-            Settings.Default["CNPJ"] = mkCPF.Text;
+            Settings.Default["CNPJ"] = mkCNPJ.Text;
             Settings.Default["email"] = txtEmail.Text.Trim();
             Settings.Default["generatesBackupAutomatically"] = cbGeneratesBackupAutomatically.Checked ? true : false;
             Settings.Default["optionBackup"] = cbxSelectOptions.Text.Trim();
+
+            FrmGymControl.Instance._btnBackup.Visible = cbxSelectOptions.SelectedIndex == 2 && cbGeneratesBackupAutomatically.Checked ? true : false;
+
             Settings.Default.Save();
             OpenForm.ShowForm(new FrmHome(), this);
+        }
+
+        private bool ValidateFields()
+        {
+            bool fieldsValidated = false;
+
+            if (string.IsNullOrWhiteSpace(txtNameFantasy.Text))
+            {
+                MessageBox.Show("Informe o nome fantasia!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNameFantasy.Focus();
+            }
+            else if (mkCNPJ.Text.Length == 18 && !ValidateCNPJ.Validate(mkCNPJ.Text))
+            {
+                MessageBox.Show("CNPJ inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                mkCNPJ.Focus();
+            }
+            else if (!string.IsNullOrWhiteSpace(txtEmail.Text) && !ValidateEmail.Validate(txtEmail.Text))
+            {
+                MessageBox.Show("Email inválido!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtEmail.Focus();
+            }
+            else
+                fieldsValidated = true;
+
+            return fieldsValidated;                
         }
     }
 }
