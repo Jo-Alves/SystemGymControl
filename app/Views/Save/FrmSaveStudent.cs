@@ -324,7 +324,7 @@ namespace SystemGymControl
 
         private void FrmSaveStudent_Load(object sender, EventArgs e)
         {
-            path = string.IsNullOrEmpty(Settings.Default["directory"].ToString()) ? @"C:\System-GYM-Control\Galery\Students" : $@"{Settings.Default["directory"]}\Galery\Students";
+            path = string.IsNullOrEmpty(Settings.Default["directory"].ToString()) ? @"C:\GYM-Control\Galery\Students" : $@"{Settings.Default["directory"]}\Galery\Students";
         }
 
         private void btnClearImage_Click(object sender, EventArgs e)

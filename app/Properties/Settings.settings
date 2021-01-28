@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="directory" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\GYM-Control\</Value>
     </Setting>
     <Setting Name="optionPreviewIsDirecty" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

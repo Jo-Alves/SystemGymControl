@@ -74,6 +74,11 @@ namespace Bussiness
         {
             return icomingCashFlow.GetSumValueEntryMoney(idCash);
         }
+        
+        public decimal GetSumAllValueEntryMoney(int idCash)
+        {
+            return icomingCashFlow.GetSumAllValueEntryMoney(idCash);
+        }
 
         public decimal GetSumValueEntryCard(int idCash)
         {

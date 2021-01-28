@@ -485,6 +485,7 @@
             this.Name = "FrmGymControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EXPLOSION ACADEMIA";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGymControl_FormClosing);
             this.Load += new System.EventHandler(this.FrmGymControl_Load);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();

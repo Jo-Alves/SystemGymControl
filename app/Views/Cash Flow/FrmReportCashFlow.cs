@@ -29,13 +29,12 @@ namespace SystemGymControl
         {
             try
             {
-
                 var dataCashFlow = cash.SearchID(idCashFlowCurrent);
 
                 int idCashPrevious = cash.GetMaxCashFlowIdDatePrevious(idCashFlowCurrent);//cash.GetMaxCashFlowID());
 
                 // BOX
-                txtBoxBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumValueEntryMoney(idCashPrevious)}" : "R$ 0,00";
+                txtBoxBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumAllValueEntryMoney(idCashPrevious)}" : "R$ 0,00";
 
                 txtBoxEntry.Text = $"R$ {icomingCashFlow.GetSumValueEntryMoney(idCashFlowCurrent)}";
                 txtBoxExit.Text = $"R$ {dataCashFlow.Rows[0]["output_value_total"]}";
@@ -51,6 +50,8 @@ namespace SystemGymControl
                 txtBankBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumAllValueEntryCard(idCashPrevious)}" : "R$ 0,00";
                 txtBankBalanceCurrent.Text = txtBankEntry.Text;
                 txtBankClosure.Text = $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBankBalancePrevious.Text)) + decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBankEntry.Text)))}";
+
+                lblBalanceBankWhithBox.Text = $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBankClosure.Text)) + decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBoxClosure.Text)))}";
 
             }
             catch (Exception ex)

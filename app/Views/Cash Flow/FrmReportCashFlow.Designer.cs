@@ -64,6 +64,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtBankBalancePrevious = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblBalanceBankWhithBox = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataBox)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -84,9 +86,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtBoxBalancePrevious);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(24, -36);
+            this.groupBox1.Location = new System.Drawing.Point(24, -25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(746, 293);
+            this.groupBox1.Size = new System.Drawing.Size(746, 271);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Caixa";
@@ -114,7 +116,7 @@
             this.ValueExit});
             this.dgvDataBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDataBox.EnableHeadersVisualStyles = false;
-            this.dgvDataBox.Location = new System.Drawing.Point(29, 120);
+            this.dgvDataBox.Location = new System.Drawing.Point(29, 109);
             this.dgvDataBox.MultiSelect = false;
             this.dgvDataBox.Name = "dgvDataBox";
             this.dgvDataBox.ReadOnly = true;
@@ -129,7 +131,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataBox.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDataBox.Size = new System.Drawing.Size(684, 167);
+            this.dgvDataBox.Size = new System.Drawing.Size(684, 145);
             this.dgvDataBox.TabIndex = 19;
             this.dgvDataBox.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBox_CellClick);
             this.dgvDataBox.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBox_CellDoubleClick);
@@ -277,7 +279,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtBankBalancePrevious);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(24, 263);
+            this.groupBox2.Location = new System.Drawing.Point(24, 252);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(746, 284);
             this.groupBox2.TabIndex = 28;
@@ -439,13 +441,36 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Saldo anterior";
             // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(20, 539);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(345, 22);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Disponibilidade do dia (Caixa + banco): ";
+            // 
+            // lblBalanceBankWhithBox
+            // 
+            this.lblBalanceBankWhithBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblBalanceBankWhithBox.AutoSize = true;
+            this.lblBalanceBankWhithBox.Font = new System.Drawing.Font("Open Sans", 12F);
+            this.lblBalanceBankWhithBox.Location = new System.Drawing.Point(361, 539);
+            this.lblBalanceBankWhithBox.Name = "lblBalanceBankWhithBox";
+            this.lblBalanceBankWhithBox.Size = new System.Drawing.Size(0, 22);
+            this.lblBalanceBankWhithBox.TabIndex = 29;
+            // 
             // FrmReportCashFlow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(797, 551);
+            this.ClientSize = new System.Drawing.Size(797, 572);
+            this.Controls.Add(this.lblBalanceBankWhithBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Open Sans", 12F);
@@ -461,6 +486,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataBank)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -496,5 +522,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bankDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueBankEntry;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueBankExit;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblBalanceBankWhithBox;
     }
 }

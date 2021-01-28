@@ -20,7 +20,7 @@ namespace SystemGymControl
             txtNameFantasy.Text = Settings.Default["nameFantasy"].ToString();
             mkCNPJ.Text = Settings.Default["CNPJ"].ToString();
             txtEmail.Text = Settings.Default["email"].ToString();
-            cbGeneratesBackupAutomatically.Checked = bool.Parse(Settings.Default["generatesBackupAutomatically"].ToString());
+            cbGeneratesBackup.Checked = bool.Parse(Settings.Default["generatesBackupAutomatically"].ToString());
             cbxSelectOptions.Text = Settings.Default["optionBackup"].ToString();
             mkPhone.Text = Settings.Default["phone"].ToString();
         }
@@ -39,9 +39,9 @@ namespace SystemGymControl
             OpenForm.ShowForm(new FrmHome(), this);
         }
 
-        private void cbGeneratesBackupAutomatically_CheckedChanged(object sender, EventArgs e)
+        private void cbGeneratesBackup_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbGeneratesBackupAutomatically.Checked)
+            if (cbGeneratesBackup.Checked)
             {
                 cbxSelectOptions.SelectedIndex = 0;
                 cbxSelectOptions.Enabled = true;
@@ -62,11 +62,11 @@ namespace SystemGymControl
             Settings.Default["nameFantasy"] = txtNameFantasy.Text.Trim();
             Settings.Default["CNPJ"] = mkCNPJ.Text.Length < 18 ? "" : mkCNPJ.Text;
             Settings.Default["email"] = txtEmail.Text.Trim();
-            Settings.Default["generatesBackupAutomatically"] = cbGeneratesBackupAutomatically.Checked ? true : false;
+            Settings.Default["generatesBackupAutomatically"] = cbGeneratesBackup.Checked ? true : false;
             Settings.Default["optionBackup"] = cbxSelectOptions.Text.Trim();
             Settings.Default["phone"] = mkPhone.Text.Length < 15 ? "" : mkPhone.Text;
 
-            FrmGymControl.Instance._btnBackup.Visible = cbxSelectOptions.SelectedIndex == 2 && cbGeneratesBackupAutomatically.Checked ? true : false;
+            FrmGymControl.Instance._btnBackup.Visible = cbxSelectOptions.SelectedIndex == 1 && cbGeneratesBackup.Checked ? true : false;
 
             Settings.Default.Save();
             OpenForm.ShowForm(new FrmHome(), this);

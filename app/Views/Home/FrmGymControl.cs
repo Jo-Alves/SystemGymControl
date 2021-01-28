@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Media;
 using System.Windows.Forms;
 using SystemGymControl.Properties;
@@ -19,7 +20,7 @@ namespace SystemGymControl
 
         int idCashFlow, id;
         string nameUser, name;
-        bool dateBoxIsPrevious = false, existUsers = true, boxIsClosed = true;
+        bool dateBoxIsPrevious = false, existUsers = true, boxIsClosed = true, confirmExit;
 
         public FrmGymControl()
         {
@@ -242,7 +243,20 @@ namespace SystemGymControl
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+        }
+
+        private string FormatTime()
+        {
+            return $"{DateTime.Now.Day}-{DateTime.Now.Month}-{DateTime.Now.Year}_{DateTime.Now.Hour}-{DateTime.Now.Minute}-{DateTime.Now.Second}";
+        }
+
+        private void CreateDirectory(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -398,7 +412,6 @@ namespace SystemGymControl
         {
             try
             {
-                UpdatePaymentCardIfDueDateEqualDateNow();
                 NotificationSystem();
                 DeleteNotification(new Notification());
                 CheckedHaveNotificationNotRead(new Notification());
@@ -505,37 +518,46 @@ namespace SystemGymControl
             new FrmBackup().ShowDialog();
         }
 
+        private void FrmGymControl_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (!confirmExit)
+                {
+                    if (Settings.Default["optionBackup"].ToString().ToLower().Equals("ao fechar o sistema"))
+                    {
+                        DialogResult dr = MessageBox.Show("Deseja fazer o backup, agora?", "System GYM Control", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                        if (dr == DialogResult.Yes)
+                        {
+                            string path = @"C:\GYM-Control\Backup\";
+                            CreateDirectory(path);
+                            path += $"{FormatTime()}.bak";
+
+                            new Backup().Generatebackup(path);
+                        }
+                        else if (dr == DialogResult.Cancel)
+                        {
+                            e.Cancel = true;
+                            return;
+                        }
+                    }
+
+                    confirmExit = true;
+                    Application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+        }
+
         private void btnNotification_Click(object sender, EventArgs e)
         {
             if (new Notification().GetDataNotificationNotRead().Rows.Count > 0)
                 OpenForm.ShowForm(new FrmNotification(), this);
-        }
-
-        private void UpdatePaymentCardIfDueDateEqualDateNow()
-        {
-            //try
-            //{
-            //    DateTime dateNow = DateTime.Now;
-            //    foreach (DataRow dr in payment.SearchPaymentDateNow().Rows)
-            //    {
-            //        IcomingCashFlow icomingCashFlow = new IcomingCashFlow()
-            //        {
-            //            _cashFlowID = idCashFlow,
-            //            _descriptionIcoming = $"Valor adicionado na conta do pagamento do {dr["form_payment"]}",
-            //            _entryDate = dateNow.ToShortDateString(),
-            //            _entryTime = dateNow.ToLongTimeString(),
-            //            _valueCard = decimal.Parse(dr["value_total"].ToString()),
-            //            _valueMoney = 0.00M
-            //        };
-
-            //        payment.UpdatePaymentOnAccount(int.Parse(dr["id"].ToString()), icomingCashFlow);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
+        }       
 
         private void btnCashFlow_Click(object sender, EventArgs e)
         {

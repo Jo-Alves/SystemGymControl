@@ -296,7 +296,7 @@ namespace SystemGymControl
 
         private void FrmSaveUser_Load(object sender, EventArgs e)
         {
-            path = string.IsNullOrEmpty(Settings.Default["directory"].ToString()) ? @"C:\System-GYM-Control\Galery\Students" : $@"{Settings.Default["directory"]}\Galery\Users";
+            path = string.IsNullOrEmpty(Settings.Default["directory"].ToString()) ? @"C:\GYM-Control\Galery\Students" : $@"{Settings.Default["directory"]}\Galery\Users";
         }
 
         private void pcUpdateFormatPassword_Click(object sender, EventArgs e)

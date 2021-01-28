@@ -39,6 +39,8 @@ namespace SystemGymControl
             this.rbPrintDirecty = new System.Windows.Forms.RadioButton();
             this.rbVisualize = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.mkPhone = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.mkCNPJ = new System.Windows.Forms.MaskedTextBox();
@@ -48,11 +50,9 @@ namespace SystemGymControl
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxSelectOptions = new System.Windows.Forms.ComboBox();
-            this.cbGeneratesBackupAutomatically = new System.Windows.Forms.CheckBox();
+            this.cbGeneratesBackup = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.mkPhone = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -72,8 +72,8 @@ namespace SystemGymControl
             this.groupBox1.Size = new System.Drawing.Size(792, 125);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Escolha a pasta onde serão armazenadas os arquivos de bakup e imagens do usuário " +
-    "do sistema e alunos.";
+            this.groupBox1.Text = "Escolha a pasta onde serão armazenadas os arquivos de imagens do usuário do siste" +
+    "ma e alunos.";
             // 
             // btnOpenDirectory
             // 
@@ -182,6 +182,31 @@ namespace SystemGymControl
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cadastro da academia";
             // 
+            // mkPhone
+            // 
+            this.mkPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mkPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mkPhone.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mkPhone.Location = new System.Drawing.Point(617, 128);
+            this.mkPhone.Mask = "(00) 00000-0000";
+            this.mkPhone.Name = "mkPhone";
+            this.mkPhone.Size = new System.Drawing.Size(132, 29);
+            this.mkPhone.TabIndex = 78;
+            this.mkPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(613, 102);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 22);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Celular|Telefone";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -261,7 +286,7 @@ namespace SystemGymControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.cbxSelectOptions);
-            this.groupBox4.Controls.Add(this.cbGeneratesBackupAutomatically);
+            this.groupBox4.Controls.Add(this.cbGeneratesBackup);
             this.groupBox4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox4.Location = new System.Drawing.Point(12, 428);
             this.groupBox4.Name = "groupBox4";
@@ -275,7 +300,7 @@ namespace SystemGymControl
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(289, 25);
+            this.label3.Location = new System.Drawing.Point(150, 25);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(163, 22);
@@ -290,10 +315,9 @@ namespace SystemGymControl
             this.cbxSelectOptions.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSelectOptions.FormattingEnabled = true;
             this.cbxSelectOptions.Items.AddRange(new object[] {
-            "Ao abrir o sistema",
             "Ao fechar o sistema",
             "Manualmente"});
-            this.cbxSelectOptions.Location = new System.Drawing.Point(293, 54);
+            this.cbxSelectOptions.Location = new System.Drawing.Point(154, 54);
             this.cbxSelectOptions.Name = "cbxSelectOptions";
             this.cbxSelectOptions.Size = new System.Drawing.Size(275, 30);
             this.cbxSelectOptions.TabIndex = 1;
@@ -301,16 +325,16 @@ namespace SystemGymControl
             // 
             // cbGeneratesBackupAutomatically
             // 
-            this.cbGeneratesBackupAutomatically.AutoSize = true;
-            this.cbGeneratesBackupAutomatically.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGeneratesBackupAutomatically.Location = new System.Drawing.Point(16, 56);
-            this.cbGeneratesBackupAutomatically.Name = "cbGeneratesBackupAutomatically";
-            this.cbGeneratesBackupAutomatically.Size = new System.Drawing.Size(271, 26);
-            this.cbGeneratesBackupAutomatically.TabIndex = 0;
-            this.cbGeneratesBackupAutomatically.TabStop = false;
-            this.cbGeneratesBackupAutomatically.Text = "Gerar backup automaticamente";
-            this.cbGeneratesBackupAutomatically.UseVisualStyleBackColor = true;
-            this.cbGeneratesBackupAutomatically.CheckedChanged += new System.EventHandler(this.cbGeneratesBackupAutomatically_CheckedChanged);
+            this.cbGeneratesBackup.AutoSize = true;
+            this.cbGeneratesBackup.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGeneratesBackup.Location = new System.Drawing.Point(16, 56);
+            this.cbGeneratesBackup.Name = "cbGeneratesBackupAutomatically";
+            this.cbGeneratesBackup.Size = new System.Drawing.Size(132, 26);
+            this.cbGeneratesBackup.TabIndex = 0;
+            this.cbGeneratesBackup.TabStop = false;
+            this.cbGeneratesBackup.Text = "Gerar backup";
+            this.cbGeneratesBackup.UseVisualStyleBackColor = true;
+            this.cbGeneratesBackup.CheckedChanged += new System.EventHandler(this.cbGeneratesBackup_CheckedChanged);
             // 
             // btnCancel
             // 
@@ -349,31 +373,6 @@ namespace SystemGymControl
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // mkPhone
-            // 
-            this.mkPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mkPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mkPhone.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mkPhone.Location = new System.Drawing.Point(617, 128);
-            this.mkPhone.Mask = "(00) 00000-0000";
-            this.mkPhone.Name = "mkPhone";
-            this.mkPhone.Size = new System.Drawing.Size(132, 29);
-            this.mkPhone.TabIndex = 78;
-            this.mkPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(613, 102);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 22);
-            this.label4.TabIndex = 79;
-            this.label4.Text = "Celular|Telefone";
             // 
             // FrmConfigurationSystem
             // 
@@ -426,7 +425,7 @@ namespace SystemGymControl
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxSelectOptions;
-        private System.Windows.Forms.CheckBox cbGeneratesBackupAutomatically;
+        private System.Windows.Forms.CheckBox cbGeneratesBackup;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.MaskedTextBox mkPhone;

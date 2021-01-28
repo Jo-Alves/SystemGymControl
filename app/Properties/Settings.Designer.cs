@@ -25,7 +25,7 @@ namespace SystemGymControl.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\GYM-Control\\")]
         public string directory {
             get {
                 return ((string)(this["directory"]));
