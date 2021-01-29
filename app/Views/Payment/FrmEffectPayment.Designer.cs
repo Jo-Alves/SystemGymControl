@@ -66,7 +66,7 @@ namespace SystemGymControl
             this.txtValueWithDiscount = new System.Windows.Forms.TextBox();
             this.txtPaidOut = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGenerateReceipt = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -528,22 +528,23 @@ namespace SystemGymControl
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(505, 450);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 40);
-            this.button1.TabIndex = 86;
-            this.button1.TabStop = false;
-            this.button1.Text = "Gerar recibo";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnGenerateReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerateReceipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnGenerateReceipt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerateReceipt.FlatAppearance.BorderSize = 0;
+            this.btnGenerateReceipt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnGenerateReceipt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
+            this.btnGenerateReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateReceipt.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnGenerateReceipt.Location = new System.Drawing.Point(505, 450);
+            this.btnGenerateReceipt.Name = "button1";
+            this.btnGenerateReceipt.Size = new System.Drawing.Size(154, 40);
+            this.btnGenerateReceipt.TabIndex = 86;
+            this.btnGenerateReceipt.TabStop = false;
+            this.btnGenerateReceipt.Text = "Gerar recibo";
+            this.btnGenerateReceipt.UseVisualStyleBackColor = false;
+            this.btnGenerateReceipt.Click += new System.EventHandler(this.btnGenerateReceipt_Click);
             // 
             // FrmEffectPayment
             // 
@@ -551,7 +552,7 @@ namespace SystemGymControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(803, 509);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGenerateReceipt);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtValueWithDiscount);
             this.Controls.Add(this.cbFormOfPayment);
@@ -630,6 +631,6 @@ namespace SystemGymControl
         private System.Windows.Forms.TextBox txtValueWithDiscount;
         private System.Windows.Forms.TextBox txtPaidOut;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGenerateReceipt;
     }
 }

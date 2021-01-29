@@ -256,3 +256,6 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\zh-CHS\M
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmConfigurationSystem.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmBackup.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\RdlCompile.cache
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\RdlCompile.compiled
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmReportReceipt.resources

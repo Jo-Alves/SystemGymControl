@@ -86,7 +86,7 @@ namespace SystemGymControl
 
                 if (dgvDataPlan.CurrentCell.ColumnIndex == 0)
                 {
-                    OpenForm.ShowForm(new FrmMonthlyPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString())), this);
+                    OpenForm.ShowForm(new FrmMonthlyPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString()), dgvDataPlan.CurrentRow.Cells["descriptionPackage"].Value.ToString(), dgvDataPlan.CurrentRow.Cells["descriptionModality"].Value.ToString()), this);
                 }
             }
         }

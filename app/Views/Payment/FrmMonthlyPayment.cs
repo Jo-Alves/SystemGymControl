@@ -9,17 +9,22 @@ namespace SystemGymControl
     public partial class FrmMonthlyPayment : Form
     {
         Payment payment = new Payment();
+        string package, modality;
+
         int idPlan;
         public FrmMonthlyPayment()
         {
             InitializeComponent();
         }
 
-        public FrmMonthlyPayment(int idPlan)
+        public FrmMonthlyPayment(int idPlan, string package, string modality)
         {
             InitializeComponent();
             LoadDataCashPayment(idPlan);
             CheckedDueDate();
+            this.package = package;
+            this.modality = modality;
+
         }
 
         private void CheckedDueDate()
@@ -53,9 +58,9 @@ namespace SystemGymControl
                 txtIdStudent.Text = dr["idStudent"].ToString();
 
                 dgvDataPlan.Rows[countRow].Cells["receive"].Value = Properties.Resources.icons8_get_revenue_32px;
-                dgvDataPlan.Rows[countRow].Cells["idCash"].Value = dr["idCash"].ToString();
+                dgvDataPlan.Rows[countRow].Cells["idCash"].Value = dr["plan_id"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["receipt"].Value = Properties.Resources.icons8_receipt_32px;
-                dgvDataPlan.Rows[countRow].Cells["id"].Value = dr["idCash"].ToString();
+                dgvDataPlan.Rows[countRow].Cells["id"].Value = dr["idPayment"].ToString();
                 dgvDataPlan.Rows[countRow].Cells["valueTotal"].Value = $"R$ {dr["value_total"]}";
                 dgvDataPlan.Rows[countRow].Cells["valueDiscount"].Value = $"R$ {dr["value_discount"]}";
                 dgvDataPlan.Rows[countRow].Cells["valueInterest"].Value = !string.IsNullOrEmpty(dr["value_interest"].ToString()) ? $"R$ {dr["value_interest"]}" : "R$ 0,00";
@@ -100,7 +105,7 @@ namespace SystemGymControl
                     {
                         if (!new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
                         {
-                            var effectPayment = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idCash"].Value.ToString()));
+                            var effectPayment = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["id"].Value.ToString()), package, modality);
                             effectPayment.ShowDialog();
                             if (effectPayment.paymentEffected)
                             {

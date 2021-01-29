@@ -1,8 +1,11 @@
 ﻿using Bussiness;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using SystemGymControl.Properties;
 
 namespace SystemGymControl
 {
@@ -11,25 +14,29 @@ namespace SystemGymControl
         public bool paymentEffected { get; set; }
         decimal discountMoney = 0.00m, valuePaidOut;
         decimal valueTotal, amountReceivable;
-        DataTable dataPlanCash;
-        int daysDelay, idPlan, idCash;
+        DataTable dataPayment;
+        int daysDelay, idPlan, idPayment;
+        DateTime datePayment;
+        string package, modality;
 
         public FrmEffectPayment()
         {
             InitializeComponent();
         }
 
-        public FrmEffectPayment(int idCash)
+        public FrmEffectPayment(int idPayment, string package, string modality)
         {
             InitializeComponent();
 
             try
             {
                 cbFormOfPayment.SelectedIndex = 2;
-                this.idCash = idCash;
-                dataPlanCash = new Payment().SearchCashPaymentPlanIDCash(idCash);
-                idPlan = int.Parse(dataPlanCash.Rows[0]["plan_id"].ToString());
-                LoadFields(dataPlanCash);
+                this.idPayment = idPayment;
+                dataPayment = new Payment().SearchCashPaymentPlanIDCash(idPayment);
+                idPlan = int.Parse(dataPayment.Rows[0]["plan_id"].ToString());
+                LoadFields(dataPayment);
+                this.package = package;
+                this.modality = modality;
             }
             catch (Exception ex)
             {
@@ -52,16 +59,16 @@ namespace SystemGymControl
             return daysDelay;
         }
 
-        private void LoadFields(DataTable dataPlanCash)
+        private void LoadFields(DataTable dataPayment)
         {
-            txtIdStudent.Text = dataPlanCash.Rows[0]["idStudent"].ToString();
-            txtName.Text = dataPlanCash.Rows[0]["name"].ToString();
-            txtValuePlan.Text = $"R$ {dataPlanCash.Rows[0]["valuePackage"]}";
-            txtDuedate.Text = dataPlanCash.Rows[0]["duedate"].ToString();
+            txtIdStudent.Text = dataPayment.Rows[0]["idStudent"].ToString();
+            txtName.Text = dataPayment.Rows[0]["name"].ToString();
+            txtValuePlan.Text = $"R$ {dataPayment.Rows[0]["valuePackage"]}";
+            txtDuedate.Text = dataPayment.Rows[0]["duedate"].ToString();
             txtPayDay.Text = DateTime.Now.ToShortDateString();
             daysDelay = GetValueDaysDelay();
             txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
-            cbFormOfPayment.Text = dataPlanCash.Rows[0]["form_payment"].ToString();
+            cbFormOfPayment.Text = dataPayment.Rows[0]["form_payment"].ToString();
 
             txtValuePlan.Text = $"R$ {new Package().GetValuePackageFormPayment(cbFormOfPayment.Text).Rows[0]["value"]}";
 
@@ -78,22 +85,22 @@ namespace SystemGymControl
             valueTotal = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValuePlan.Text));
 
             decimal valueInterestMoney, valuePenaltyMoney;
-            if (dataPlanCash.Rows[0]["type_interest"].ToString().ToLower() == "percentage")
+            if (dataPayment.Rows[0]["type_interest"].ToString().ToLower() == "percentage")
             {
-                decimal valueInterest = decimal.Parse(dataPlanCash.Rows[0]["valueInterest"].ToString());
+                decimal valueInterest = decimal.Parse(dataPayment.Rows[0]["valueInterest"].ToString());
 
                 valueInterestMoney = (valueInterest * valueTotal) / 100;
                 txtValueInterest.Text = $"R$ {valueInterestMoney.ToString("0.00")}";
             }
             else
             {
-                valueInterestMoney = decimal.Parse(dataPlanCash.Rows[0]["valueInterest"].ToString());
+                valueInterestMoney = decimal.Parse(dataPayment.Rows[0]["valueInterest"].ToString());
                 txtValueInterest.Text = $"R$ {valueInterestMoney}";
             }
 
-            if (dataPlanCash.Rows[0]["type_penalty"].ToString().ToLower() == "percentage")
+            if (dataPayment.Rows[0]["type_penalty"].ToString().ToLower() == "percentage")
             {
-                decimal valuePenalty = decimal.Parse(dataPlanCash.Rows[0]["valuePenalty"].ToString());
+                decimal valuePenalty = decimal.Parse(dataPayment.Rows[0]["valuePenalty"].ToString());
 
                 valuePenaltyMoney = (valuePenalty * valueTotal) / 100;
 
@@ -101,7 +108,7 @@ namespace SystemGymControl
             }
             else
             {
-                valuePenaltyMoney = decimal.Parse(dataPlanCash.Rows[0]["valuePenalty"].ToString());
+                valuePenaltyMoney = decimal.Parse(dataPayment.Rows[0]["valuePenalty"].ToString());
                 txtValuePenalty.Text = $"R$ {valuePenaltyMoney}";
             }
 
@@ -218,8 +225,6 @@ namespace SystemGymControl
 
             EffectPayment();
 
-            paymentEffected = true;
-
             this.Close();
         }
 
@@ -230,7 +235,7 @@ namespace SystemGymControl
 
                 decimal amountReceivable = (decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)) - decimal.Parse(txtDiscount.Text));
 
-                DateTime datePayment = DateTime.Now;
+                datePayment = DateTime.Now;
 
                 IcomingCashFlow icomingCashFlow = new IcomingCashFlow()
                 {
@@ -254,7 +259,7 @@ namespace SystemGymControl
 
                 Payment payment = new Payment()
                 {
-                    _id = idCash,
+                    _id = idPayment,
                     _duedate = txtDuedate.Text,
                     _formPayment = cbFormOfPayment.Text,
                     _numberPortion = 1,
@@ -285,6 +290,7 @@ namespace SystemGymControl
                 }
                 .EffectPaymentPlan(payment, valueTotal, icomingCashFlow, cbFormOfPayment.Text.ToLower());
 
+                paymentEffected = true;
             }
             catch (Exception ex)
             {
@@ -294,7 +300,7 @@ namespace SystemGymControl
 
         private void cbFormOfPayment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dataPlanCash != null)
+            if (dataPayment != null)
             {
                 txtValuePlan.Text = $"R$ {new Package().GetValuePackageFormPayment(cbFormOfPayment.Text).Rows[0]["value"]}";
                 SetValueInterestAndPanaltyFurType();
@@ -343,6 +349,58 @@ namespace SystemGymControl
             else if (e.KeyCode == Keys.Escape)
                 btnCancel_Click(sender, e);
 
+        }
+
+        DateTime duedate;
+
+        private void btnGenerateReceipt_Click(object sender, EventArgs e)
+        {
+           duedate = Convert.ToDateTime(txtDuedate.Text).AddDays(1);
+
+            btnFinish_Click(sender, e);
+
+            if (!paymentEffected) return;
+
+            if(bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
+                GenerateReceipt();
+            else 
+                OpenForm.ShowForm(new FrmReportReceipt(idPayment, modality, package, cbFormOfPayment.Text, txtName.Text.Trim(), daysDelay, datePayment, cbCalculateInaterastAndPenalty.Checked, $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)) - decimal.Parse(txtDiscount.Text))}", duedate, idPlan, txtValuePlan.Text), this);
+        }
+
+        private void GenerateReceipt()
+        {
+            SetParametersReport();
+
+            string path = Path.GetDirectoryName(Application.ExecutablePath);
+            string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = fullPath;
+            localReport.SetParameters(SetParametersReport());
+            localReport.PrintToPrinter();
+        }
+
+        private ReportParameterCollection SetParametersReport()
+        {
+            ReportParameterCollection reportParameters = new ReportParameterCollection();
+            reportParameters.Add(new ReportParameter("name", txtName.Text.Trim()));
+            reportParameters.Add(new ReportParameter("date", datePayment.ToShortDateString()));
+            reportParameters.Add(new ReportParameter("time", datePayment.ToLongTimeString()));
+            reportParameters.Add(new ReportParameter("package", package));
+            reportParameters.Add(new ReportParameter("modality", modality));
+            reportParameters.Add(new ReportParameter("value", txtValuePlan.Text));
+            reportParameters.Add(new ReportParameter("interest", daysDelay > 0 && cbCalculateInaterastAndPenalty.Checked ? txtValueInterest.Text : "R$ 0,00"));
+            reportParameters.Add(new ReportParameter("penalty", daysDelay > 0 && cbCalculateInaterastAndPenalty.Checked ? txtValuePenalty.Text : "R$ 0,00"));
+            reportParameters.Add(new ReportParameter("total", $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)) - decimal.Parse(txtDiscount.Text))}"));
+            reportParameters.Add(new ReportParameter("nPortions", "1"));
+            reportParameters.Add(new ReportParameter("formPayment", cbFormOfPayment.Text));           
+            reportParameters.Add(new ReportParameter("duedate", duedate.ToShortDateString()));
+            reportParameters.Add(new ReportParameter("nameFantasy", Settings.Default["nameFantasy"].ToString()));
+            reportParameters.Add(new ReportParameter("cnpj", Settings.Default["CNPJ"].ToString()));
+            reportParameters.Add(new ReportParameter("phone", Settings.Default["phone"].ToString()));
+            reportParameters.Add(new ReportParameter("discount", $"R$ {discountMoney}"));
+
+            return reportParameters;
         }
 
         private void cbCalculateInaterastAndPenalty_CheckedChanged(object sender, EventArgs e)

@@ -219,7 +219,7 @@ namespace Database
             {
                 try
                 {
-                    _sql = "SELECT *, payments.id as idCash, students.id as idStudent FROM payments INNER JOIN plans ON plans.id = payments.plan_id INNER JOIN students ON students.id = plans.student_id WHERE plans.id = @id ORDER BY payments.id DESC";
+                    _sql = "SELECT *, payments.id as idPayment, students.id as idStudent FROM payments INNER JOIN plans ON plans.id = payments.plan_id INNER JOIN students ON students.id = plans.student_id WHERE plans.id = @id ORDER BY payments.id DESC";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@id", idPlan);
                     DataTable table = new DataTable();

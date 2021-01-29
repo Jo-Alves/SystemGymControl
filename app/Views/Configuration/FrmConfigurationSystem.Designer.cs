@@ -310,7 +310,6 @@ namespace SystemGymControl
             // cbxSelectOptions
             // 
             this.cbxSelectOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSelectOptions.Enabled = false;
             this.cbxSelectOptions.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbxSelectOptions.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSelectOptions.FormattingEnabled = true;
@@ -323,12 +322,14 @@ namespace SystemGymControl
             this.cbxSelectOptions.TabIndex = 1;
             this.cbxSelectOptions.TabStop = false;
             // 
-            // cbGeneratesBackupAutomatically
+            // cbGeneratesBackup
             // 
             this.cbGeneratesBackup.AutoSize = true;
+            this.cbGeneratesBackup.Checked = true;
+            this.cbGeneratesBackup.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbGeneratesBackup.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGeneratesBackup.Location = new System.Drawing.Point(16, 56);
-            this.cbGeneratesBackup.Name = "cbGeneratesBackupAutomatically";
+            this.cbGeneratesBackup.Name = "cbGeneratesBackup";
             this.cbGeneratesBackup.Size = new System.Drawing.Size(132, 26);
             this.cbGeneratesBackup.TabIndex = 0;
             this.cbGeneratesBackup.TabStop = false;
