@@ -396,7 +396,7 @@ namespace SystemGymControl
                 MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
+            lblTitle.Text = "EXPLOSION ACADEMIA --- Configuração";
             OpenForm.ShowForm(new FrmConfigurationSystem(), this);
         }
 
