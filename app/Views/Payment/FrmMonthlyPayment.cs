@@ -132,7 +132,12 @@ namespace SystemGymControl
                 else if (dgvDataPlan.CurrentCell.ColumnIndex == 1 && !string.IsNullOrEmpty(dgvDataPlan.CurrentRow.Cells["payday"].Value.ToString()))
                 {
                     if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
-                        GenerateReceipt(idPayment);
+                    {
+                        string path = Path.GetDirectoryName(Application.ExecutablePath);
+                        string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+
+                        CreateReceipt.GenerateReceipt(idPayment, fullPath);
+                    }
                     else
                         OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan), this);
                 }
@@ -141,17 +146,6 @@ namespace SystemGymControl
                     MessageBox.Show("Para a impressão do recibo o pagamento tem que ser efetuado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-        }
-
-        private void GenerateReceipt(int idPayment)
-        {
-            string path = Path.GetDirectoryName(Application.ExecutablePath);
-            string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
-
-            LocalReport localReport = new LocalReport();
-            localReport.ReportPath = fullPath;
-            localReport.SetParameters(ParametersReport.SetParametersReport(new Payment().GetDataPayments(idPayment)));
-            localReport.PrintToPrinter();
         }
     }
 }

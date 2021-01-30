@@ -358,21 +358,16 @@ namespace SystemGymControl
             if (!paymentEffected) return;
 
             if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
-                GenerateReceipt();
+            {
+                string path = Path.GetDirectoryName(Application.ExecutablePath);
+                string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+                CreateReceipt.GenerateReceipt(idPayment, fullPath);
+            }
             else
                 OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan), this);
         }
 
-        private void GenerateReceipt()
-        {
-            string path = Path.GetDirectoryName(Application.ExecutablePath);
-            string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
-
-            LocalReport localReport = new LocalReport();
-            localReport.ReportPath = fullPath;
-            localReport.SetParameters(ParametersReport.SetParametersReport(new Payment().GetDataPayments(idPayment)));
-            localReport.PrintToPrinter();
-        }
+       
 
         private void cbCalculateInaterastAndPenalty_CheckedChanged(object sender, EventArgs e)
         {
