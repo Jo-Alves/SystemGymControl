@@ -126,6 +126,11 @@ namespace Bussiness
             return payment.GetDataPayments(idPayment);
         }
 
+        public int GetMaxIdPayment()
+        {
+            return payment.GetMaxIdPayment();
+        }
+
         public void UpdatePaymentOnAccount(int idPayment, IcomingCashFlow icomingCashFlow)
         {
             Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow()

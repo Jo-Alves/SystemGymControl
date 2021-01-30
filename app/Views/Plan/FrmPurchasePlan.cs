@@ -1,7 +1,9 @@
 ﻿using Bussiness;
 using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
+using SystemGymControl.Properties;
 
 namespace SystemGymControl
 {
@@ -170,18 +172,49 @@ namespace SystemGymControl
 
                     cashInPayment.ShowDialog();
 
-                    if (!cashInPayment.paymentCancel) return;
+                    if (!cashInPayment.paymentEffected) return;
                 }
                 else
                 {
                     cardInPayment = new FrmCardInPayment(valuePackage, int.Parse(dgvDataPlan.CurrentRow.Cells["duration"].Value.ToString()), dgvDataPlan.CurrentRow.Cells["formOfPayment"].Value.ToString(), dgvDataPlan.CurrentRow.Cells["period"].Value.ToString());
                     cardInPayment.ShowDialog();
 
-                    if (!cardInPayment.paymentCancel) return;
+                    if (!cardInPayment.paymentEffected) return;
                 }
                 datePlan = DateTime.Now;
 
                 PurchasePlan();
+
+                bool generateReceipt = false;
+
+                if (formPayment.ToLower() == "dinheiro" )
+                {
+                    if (cashInPayment.generateReceipt)
+                    {
+                        generateReceipt = true;
+                    }                    
+                }
+                else if (formPayment.ToLower() != "dinheiro" )
+                {
+                    if (cardInPayment.generateReceipt)
+                    {
+                        generateReceipt = true;
+                    }                    
+                }
+
+                if(generateReceipt)
+                {
+                    if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
+                    {
+                        string path = Path.GetDirectoryName(Application.ExecutablePath);
+                        string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+                        CreateReceipt.GenerateReceipt(payment.GetMaxIdPayment(), fullPath);
+                    }
+                    else
+                        OpenForm.ShowForm(new FrmReportReceipt(payment.GetMaxIdPayment()), this);
+
+                    return;
+                }
 
                 OpenForm.ShowForm(new FrmPlans(), this);
             }

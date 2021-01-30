@@ -10,10 +10,18 @@ namespace SystemGymControl
         public static ReportParameterCollection SetParametersReport(DataTable dataPayment)
         {
             DateTime duedate = Convert.ToDateTime(dataPayment.Rows[0]["duedate"].ToString()).AddMonths(1);
+            int portion = int.Parse(dataPayment.Rows[0]["portion"].ToString());
+
             decimal valueTotal = Convert.ToDecimal(dataPayment.Rows[0]["value_total"]);
             decimal valueDiscount = Convert.ToDecimal(dataPayment.Rows[0]["value_discount"]);
-            decimal valueInterest = Convert.ToDecimal(dataPayment.Rows[0]["value_interest"]);
-            decimal valuePenalty = Convert.ToDecimal(dataPayment.Rows[0]["value_penalty"]);
+            decimal valueInterest = string.IsNullOrEmpty(dataPayment.Rows[0]["value_interest"].ToString()) ? 0.00M : Convert.ToDecimal(dataPayment.Rows[0]["value_interest"]);
+            decimal valuePenalty = string.IsNullOrEmpty(dataPayment.Rows[0]["value_penalty"].ToString()) ? 0.00M : Convert.ToDecimal(dataPayment.Rows[0]["value_penalty"]);
+          
+            if (portion > 1)
+            {
+                valueTotal *= portion;
+            }
+
             decimal valuePackage = valueTotal + valueDiscount - (valueInterest + valuePenalty);
 
             ReportParameterCollection reportParameters = new ReportParameterCollection();

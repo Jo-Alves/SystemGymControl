@@ -46,6 +46,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnGenerateReceipt = new System.Windows.Forms.Button();
             this.gbParcelas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberPortions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPortions)).BeginInit();
@@ -185,7 +186,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(195, 402);
+            this.btnCancel.Location = new System.Drawing.Point(349, 402);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 40);
             this.btnCancel.TabIndex = 320;
@@ -232,12 +233,33 @@
             this.btnClose.MouseEnter += new System.EventHandler(this.btnClose_MouseEnter);
             this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
             // 
+            // btnGenerateReceipt
+            // 
+            this.btnGenerateReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerateReceipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnGenerateReceipt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerateReceipt.FlatAppearance.BorderSize = 0;
+            this.btnGenerateReceipt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnGenerateReceipt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
+            this.btnGenerateReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateReceipt.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateReceipt.ForeColor = System.Drawing.Color.White;
+            this.btnGenerateReceipt.Location = new System.Drawing.Point(195, 402);
+            this.btnGenerateReceipt.Name = "btnGenerateReceipt";
+            this.btnGenerateReceipt.Size = new System.Drawing.Size(148, 40);
+            this.btnGenerateReceipt.TabIndex = 322;
+            this.btnGenerateReceipt.TabStop = false;
+            this.btnGenerateReceipt.Text = "Gerar Recibo";
+            this.btnGenerateReceipt.UseVisualStyleBackColor = false;
+            this.btnGenerateReceipt.Click += new System.EventHandler(this.btnGenerateReceipt_Click);
+            // 
             // FrmCardInPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(625, 457);
+            this.Controls.Add(this.btnGenerateReceipt);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnFinish);
@@ -276,5 +298,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuePortion;
         private System.Windows.Forms.NumericUpDown ndNumberPortions;
+        private System.Windows.Forms.Button btnGenerateReceipt;
     }
 }

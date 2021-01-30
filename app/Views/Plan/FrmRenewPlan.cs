@@ -1,8 +1,10 @@
 ﻿using Bussiness;
 using System;
 using System.Data;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using SystemGymControl.Properties;
 
 namespace SystemGymControl
 {
@@ -77,14 +79,14 @@ namespace SystemGymControl
 
                 cashInPayment.ShowDialog();
 
-                if (!cashInPayment.paymentCancel) return;
+                if (!cashInPayment.paymentEffected) return;
             }
             else
             {
                 cardInPayment = new FrmCardInPayment(decimal.Parse(txtValue.Text), duration, cbFormOfPayment.Text, period);
                 cardInPayment.ShowDialog();
 
-                if (!cardInPayment.paymentCancel) return;
+                if (!cardInPayment.paymentEffected) return;
             }
 
             RenewPlan();
@@ -134,6 +136,15 @@ namespace SystemGymControl
                 icomingCashFlow._descriptionIcoming = $"Pagamento da renovação do plano: {txtPackage.Text} do(a) aluno(a) {txtNameStudent.Text}";
 
                 plan.Save(new Modality(), situationsPlan, dataCardPayment, payment, cbFormOfPayment.Text, period, icomingCashFlow);
+
+                if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
+                {
+                    string path = Path.GetDirectoryName(Application.ExecutablePath);
+                    string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+                    CreateReceipt.GenerateReceipt(payment.GetMaxIdPayment(), fullPath);
+                }
+                else
+                    OpenForm.ShowForm(new FrmReportReceipt(payment.GetMaxIdPayment()), this);
             }
             catch (Exception ex)
             {

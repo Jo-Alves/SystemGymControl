@@ -7,7 +7,8 @@ namespace SystemGymControl
     public partial class FrmCashInPayment : Form
     {
         decimal valuePackage;
-        public bool paymentCancel { get; set; }
+        public bool paymentEffected { get; set; }
+        public bool generateReceipt = false;
         public decimal valuePaidOut { get; set; }
         public decimal valueDiscount = 0.00m;
         public decimal change { get; set; }
@@ -224,7 +225,8 @@ namespace SystemGymControl
 
         private void btnGenerateReceipt_Click(object sender, EventArgs e)
         {
-
+            generateReceipt = true;
+            btnFinish_Click(sender, e);
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
@@ -245,7 +247,7 @@ namespace SystemGymControl
                 return;
             }
 
-            paymentCancel = true;
+            paymentEffected = true;
 
             this.Close();
         }

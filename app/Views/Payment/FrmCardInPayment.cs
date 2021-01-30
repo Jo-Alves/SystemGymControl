@@ -7,8 +7,10 @@ namespace SystemGymControl
 {
     public partial class FrmCardInPayment : Form
     {
-        public bool paymentCancel { get; set; }
+        public bool paymentEffected { get; set; }
+        public bool generateReceipt = false;
         public DataTable dataPortion { get; set; }
+        public int nPortion { get; set; }
 
         decimal valuePackage;
         string formPayment;
@@ -82,8 +84,9 @@ namespace SystemGymControl
             {
                 dataPortion.Rows.Add(row.Cells["portion"].Value.ToString(), row.Cells["dueDate"].Value.ToString(), row.Cells["valuePortion"].Value.ToString());
             }
-
-            paymentCancel = true;
+           
+            nPortion = int.Parse(ndNumberPortions.Value.ToString());
+            paymentEffected = true;
             this.Close();
         }
 
@@ -112,6 +115,12 @@ namespace SystemGymControl
                 btnFinish_Click(sender, e);
             else if (e.KeyCode == Keys.Escape)
                 btnCancel_Click(sender, e);
+        }
+
+        private void btnGenerateReceipt_Click(object sender, EventArgs e)
+        {
+            generateReceipt = true;
+            btnFinish_Click(sender, e);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace SystemGymControl
             InitializeComponent();
         }
 
-        public FrmReportReceipt(int idPayment, int idPlan)
+        public FrmReportReceipt(int idPayment, int idPlan = 0)
         {
             InitializeComponent();
 
@@ -26,7 +26,10 @@ namespace SystemGymControl
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            OpenForm.ShowForm(new FrmMonthlyPayment(idPlan, package, modality), this);
+            if (idPlan > 0)
+                OpenForm.ShowForm(new FrmMonthlyPayment(idPlan, package, modality), this);
+            else
+                OpenForm.ShowForm(new FrmPlans(), this);
         }
     }
 }

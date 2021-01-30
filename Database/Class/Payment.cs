@@ -351,5 +351,29 @@ namespace Database
                 }
             }
         }
+
+        public int GetMaxIdPayment()
+        {
+            int idPayment = 0;
+
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    connection.Open();
+                    _sql = "SELECT MAX(id) AS maxID FROM payments WHERE payday <> ''";
+                    SqlCommand command = new SqlCommand(_sql, connection);
+                    var dr = command.ExecuteReader();
+                    if (dr.Read())
+                        idPayment = int.Parse(dr["maxID"].ToString());
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
+            return idPayment;
+        }
     }
 }
