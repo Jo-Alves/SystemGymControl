@@ -103,6 +103,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utils\ParametersReport.cs" />
     <Compile Include="Utils\ValidateCNPJ.cs" />
     <Compile Include="Utils\PrintRDLC.cs" />
     <Compile Include="Utils\ValidateEmail.cs" />

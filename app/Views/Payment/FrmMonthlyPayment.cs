@@ -1,8 +1,11 @@
 ﻿using Bussiness;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using SystemGymControl.Properties;
 
 namespace SystemGymControl
 {
@@ -48,7 +51,7 @@ namespace SystemGymControl
             dgvDataPlan.Rows.Clear();
 
             this.idPlan = idPlan;
-            var dataCashPayment = payment.SearchCashPaymentPlanMounth(idPlan);
+            var dataCashPayment = payment.GetDataCashPaymentPlanMounth(idPlan);
 
             foreach (DataRow dr in dataCashPayment.Rows)
             {
@@ -99,6 +102,8 @@ namespace SystemGymControl
             if (e.RowIndex > -1)
             {
                 dgvDataPlan.ClearSelection();
+                int idPayment = int.Parse(dgvDataPlan.CurrentRow.Cells["id"].Value.ToString());
+
                 if (dgvDataPlan.CurrentCell.ColumnIndex == 0 && dgvDataPlan.CurrentRow.Cells["situation"].Value.ToString().ToLower() == "a receber")
                 {
                     try
@@ -124,7 +129,29 @@ namespace SystemGymControl
                 {
                     MessageBox.Show("Esta mensalidade já foi paga!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                else if (dgvDataPlan.CurrentCell.ColumnIndex == 1 && !string.IsNullOrEmpty(dgvDataPlan.CurrentRow.Cells["payday"].Value.ToString()))
+                {
+                    if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
+                        GenerateReceipt(idPayment);
+                    else
+                        OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan), this);
+                }
+                else if (dgvDataPlan.CurrentCell.ColumnIndex == 1 && string.IsNullOrEmpty(dgvDataPlan.CurrentRow.Cells["payday"].Value.ToString()))
+                {
+                    MessageBox.Show("Para a impressão do recibo o pagamento tem que ser efetuado!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
+        }
+
+        private void GenerateReceipt(int idPayment)
+        {
+            string path = Path.GetDirectoryName(Application.ExecutablePath);
+            string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = fullPath;
+            localReport.SetParameters(ParametersReport.SetParametersReport(new Payment().GetDataPayments(idPayment)));
+            localReport.PrintToPrinter();
         }
     }
 }

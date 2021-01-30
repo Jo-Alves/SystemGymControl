@@ -8,7 +8,7 @@ namespace SystemGymControl
     {
         public FrmConfigurationSystem()
         {
-            InitializeComponent();            
+            InitializeComponent();
             LoadFields();
         }
 
@@ -21,7 +21,7 @@ namespace SystemGymControl
             mkCNPJ.Text = Settings.Default["CNPJ"].ToString();
             txtEmail.Text = Settings.Default["email"].ToString();
             cbGeneratesBackup.Checked = bool.Parse(Settings.Default["generatesBackupAutomatically"].ToString()) || !string.IsNullOrEmpty(Settings.Default["generatesBackupAutomatically"].ToString()) ? true : false;
-            cbxSelectOptions.Text =  Settings.Default["optionBackup"].ToString() == null ? "Ao fechar o sistema" :  Settings.Default["optionBackup"].ToString();
+            cbxSelectOptions.Text = Settings.Default["optionBackup"].ToString() == null ? "Ao fechar o sistema" : Settings.Default["optionBackup"].ToString();
             mkPhone.Text = Settings.Default["phone"].ToString();
         }
 

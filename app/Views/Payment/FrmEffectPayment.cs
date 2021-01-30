@@ -32,7 +32,7 @@ namespace SystemGymControl
             {
                 cbFormOfPayment.SelectedIndex = 2;
                 this.idPayment = idPayment;
-                dataPayment = new Payment().SearchCashPaymentPlanIDCash(idPayment);
+                dataPayment = new Payment().GetDataCashPaymentPlanIDCash(idPayment);
                 idPlan = int.Parse(dataPayment.Rows[0]["plan_id"].ToString());
                 LoadFields(dataPayment);
                 this.package = package;
@@ -269,8 +269,8 @@ namespace SystemGymControl
                     _valueDiscount = decimal.Parse(txtDiscount.Text),
                     _valueTotal = amountReceivable,
                     _paymentOnAccount = "yes",
-                    _valueInterest = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValueInterest.Text)) : 0.00M,
-                    _valuePenalty = (daysDelay > 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValuePenalty.Text)) : 0.00M
+                    _valueInterest = (daysDelay >= 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValueInterest.Text)) : 0.00M,
+                    _valuePenalty = (daysDelay >= 1 && cbCalculateInaterastAndPenalty.Checked) ? decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtValuePenalty.Text)) : 0.00M
                 };
 
                 if (cbFormOfPayment.Text.ToLower() != "dinheiro")
@@ -351,56 +351,27 @@ namespace SystemGymControl
 
         }
 
-        DateTime duedate;
-
         private void btnGenerateReceipt_Click(object sender, EventArgs e)
         {
-           duedate = Convert.ToDateTime(txtDuedate.Text).AddDays(1);
-
             btnFinish_Click(sender, e);
 
             if (!paymentEffected) return;
 
-            if(bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
+            if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
                 GenerateReceipt();
-            else 
-                OpenForm.ShowForm(new FrmReportReceipt(idPayment, modality, package, cbFormOfPayment.Text, txtName.Text.Trim(), daysDelay, datePayment, cbCalculateInaterastAndPenalty.Checked, $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)) - decimal.Parse(txtDiscount.Text))}", duedate, idPlan, txtValuePlan.Text), this);
+            else
+                OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan), this);
         }
 
         private void GenerateReceipt()
         {
-            SetParametersReport();
-
             string path = Path.GetDirectoryName(Application.ExecutablePath);
             string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
 
             LocalReport localReport = new LocalReport();
             localReport.ReportPath = fullPath;
-            localReport.SetParameters(SetParametersReport());
+            localReport.SetParameters(ParametersReport.SetParametersReport(new Payment().GetDataPayments(idPayment)));
             localReport.PrintToPrinter();
-        }
-
-        private ReportParameterCollection SetParametersReport()
-        {
-            ReportParameterCollection reportParameters = new ReportParameterCollection();
-            reportParameters.Add(new ReportParameter("name", txtName.Text.Trim()));
-            reportParameters.Add(new ReportParameter("date", datePayment.ToShortDateString()));
-            reportParameters.Add(new ReportParameter("time", datePayment.ToLongTimeString()));
-            reportParameters.Add(new ReportParameter("package", package));
-            reportParameters.Add(new ReportParameter("modality", modality));
-            reportParameters.Add(new ReportParameter("value", txtValuePlan.Text));
-            reportParameters.Add(new ReportParameter("interest", daysDelay > 0 && cbCalculateInaterastAndPenalty.Checked ? txtValueInterest.Text : "R$ 0,00"));
-            reportParameters.Add(new ReportParameter("penalty", daysDelay > 0 && cbCalculateInaterastAndPenalty.Checked ? txtValuePenalty.Text : "R$ 0,00"));
-            reportParameters.Add(new ReportParameter("total", $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtAmountReceivable.Text)) - decimal.Parse(txtDiscount.Text))}"));
-            reportParameters.Add(new ReportParameter("nPortions", "1"));
-            reportParameters.Add(new ReportParameter("formPayment", cbFormOfPayment.Text));           
-            reportParameters.Add(new ReportParameter("duedate", duedate.ToShortDateString()));
-            reportParameters.Add(new ReportParameter("nameFantasy", Settings.Default["nameFantasy"].ToString()));
-            reportParameters.Add(new ReportParameter("cnpj", Settings.Default["CNPJ"].ToString()));
-            reportParameters.Add(new ReportParameter("phone", Settings.Default["phone"].ToString()));
-            reportParameters.Add(new ReportParameter("discount", $"R$ {discountMoney}"));
-
-            return reportParameters;
         }
 
         private void cbCalculateInaterastAndPenalty_CheckedChanged(object sender, EventArgs e)

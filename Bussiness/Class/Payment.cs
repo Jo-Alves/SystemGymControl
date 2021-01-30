@@ -86,14 +86,14 @@ namespace Bussiness
             return payment.SearchPlanID(planID);
         }
 
-        public DataTable SearchCashPaymentPlanMounth(int idPlan)
+        public DataTable GetDataCashPaymentPlanMounth(int idPlan)
         {
-            return payment.SearchCashPaymentPlanMounth(idPlan);
+            return payment.GetDataCashPaymentPlanMounth(idPlan);
         }
 
-        public DataTable SearchCashPaymentPlanIDCash(int idCash)
+        public DataTable GetDataCashPaymentPlanIDCash(int idCash)
         {
-            return payment.SearchCashPaymentPlanIDCash(idCash);
+            return payment.GetDataCashPaymentPlanIDCash(idCash);
         }
 
         public void UpdatePaymentPlanMensal(int idPlan, string duedate)
@@ -119,6 +119,11 @@ namespace Bussiness
         public DataTable SearchPaymentDateNow()
         {
             return payment.SearchPaymentDateNow();
+        }
+
+        public DataTable GetDataPayments(int idPayment)
+        {
+            return payment.GetDataPayments(idPayment);
         }
 
         public void UpdatePaymentOnAccount(int idPayment, IcomingCashFlow icomingCashFlow)

@@ -557,7 +557,7 @@ namespace SystemGymControl
         {
             if (new Notification().GetDataNotificationNotRead().Rows.Count > 0)
                 OpenForm.ShowForm(new FrmNotification(), this);
-        }       
+        }
 
         private void btnCashFlow_Click(object sender, EventArgs e)
         {

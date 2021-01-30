@@ -213,7 +213,7 @@ namespace Database
 
             return sumValue;
         }
-        
+
         public decimal GetSumAllValueEntryMoney(int idCash)
         {
             decimal sumValue = 0.00M;
