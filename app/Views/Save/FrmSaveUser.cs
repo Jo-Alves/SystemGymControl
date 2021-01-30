@@ -14,8 +14,6 @@ namespace SystemGymControl
         string dateRegistion, nameUser;
         string path;
 
-        DialogResult dr;
-
         public FrmSaveUser()
         {
             InitializeComponent();

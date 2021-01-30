@@ -6,10 +6,10 @@
       <Value Profile="(Default)">C:\GYM-Control\</Value>
     </Setting>
     <Setting Name="optionPreviewIsDirecty" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="nameFantasy" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">EXPLOSION ACADEMIA</Value>
     </Setting>
     <Setting Name="CNPJ" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -18,10 +18,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="generatesBackupAutomatically" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="optionBackup" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Ao fechar o sistema</Value>
     </Setting>
     <Setting Name="phone" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

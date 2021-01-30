@@ -37,7 +37,7 @@ namespace SystemGymControl.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool optionPreviewIsDirecty {
             get {
                 return ((bool)(this["optionPreviewIsDirecty"]));
@@ -49,7 +49,7 @@ namespace SystemGymControl.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("EXPLOSION ACADEMIA")]
         public string nameFantasy {
             get {
                 return ((string)(this["nameFantasy"]));
@@ -85,7 +85,7 @@ namespace SystemGymControl.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool generatesBackupAutomatically {
             get {
                 return ((bool)(this["generatesBackupAutomatically"]));
@@ -97,7 +97,7 @@ namespace SystemGymControl.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ao fechar o sistema")]
         public string optionBackup {
             get {
                 return ((string)(this["optionBackup"]));
