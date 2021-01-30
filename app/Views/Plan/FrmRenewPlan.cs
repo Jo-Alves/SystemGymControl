@@ -137,14 +137,34 @@ namespace SystemGymControl
 
                 plan.Save(new Modality(), situationsPlan, dataCardPayment, payment, cbFormOfPayment.Text, period, icomingCashFlow);
 
-                if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
+                bool generateReceipt = false;
+
+                if (cbFormOfPayment.Text.ToLower() == "dinheiro")
                 {
-                    string path = Path.GetDirectoryName(Application.ExecutablePath);
-                    string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
-                    CreateReceipt.GenerateReceipt(payment.GetMaxIdPayment(), fullPath);
+                    if (cashInPayment.generateReceipt)
+                    {
+                        generateReceipt = true;
+                    }
                 }
-                else
-                    OpenForm.ShowForm(new FrmReportReceipt(payment.GetMaxIdPayment()), this);
+                else if (cbFormOfPayment.Text.ToLower() != "dinheiro")
+                {
+                    if (cardInPayment.generateReceipt)
+                    {
+                        generateReceipt = true;
+                    }
+                }
+
+                if (generateReceipt)
+                {
+                    if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
+                    {
+                        string path = Path.GetDirectoryName(Application.ExecutablePath);
+                        string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+                        CreateReceipt.GenerateReceipt(payment.GetMaxIdPayment(), fullPath);
+                    }
+                    else
+                        OpenForm.ShowForm(new FrmReportReceipt(payment.GetMaxIdPayment()), this);
+                }
             }
             catch (Exception ex)
             {
