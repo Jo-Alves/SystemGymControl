@@ -31,6 +31,7 @@ namespace SystemGymControl
                 int coutRow = dgvDataStudent.Rows.Add();
                 dgvDataStudent.Rows[coutRow].Cells["edit"].Value = Properties.Resources.icons8_pencil_25px;
                 dgvDataStudent.Rows[coutRow].Cells["delete"].Value = Properties.Resources.icons8_trash_25px;
+                dgvDataStudent.Rows[coutRow].Cells["quiz"].Value = Properties.Resources.icons8_quiz_32px;
                 dgvDataStudent.Rows[coutRow].Cells["id"].Value = dr["id"].ToString();
                 dgvDataStudent.Rows[coutRow].Cells["name"].Value = dr["name"].ToString();
                 dgvDataStudent.Rows[coutRow].Cells["CPF"].Value = dr["cpf"].ToString();
@@ -79,7 +80,7 @@ namespace SystemGymControl
                     }
                     else if (dgvDataStudent.CurrentCell.ColumnIndex == 1)
                     {
-                        if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDataStudent.CurrentRow.Cells["name"].Value.ToString()}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        if (MessageBox.Show($"Deseja realmente excluir os dados de {dgvDataStudent.CurrentRow.Cells["name"].Value}?", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                         {
                             student.Delete(id);
                             LoadDataStudents();
@@ -88,6 +89,10 @@ namespace SystemGymControl
                                 OpenForm.ShowForm(new FrmOptionsSave(), this);
                             }
                         }
+                    }
+                    else if(dgvDataStudent.CurrentCell.ColumnIndex == 2)
+                    {
+                        OpenForm.ShowForm(new FrmQuizParq(Convert.ToInt32(dgvDataStudent.CurrentRow.Cells["id"].Value), dgvDataStudent.CurrentRow.Cells["name"].Value.ToString()), this);
                     }
                 }
             }

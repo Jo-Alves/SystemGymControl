@@ -34,8 +34,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudents));
             this.btnAddStudent = new System.Windows.Forms.Button();
             this.dgvDataStudent = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
+            this.lblStudent = new System.Windows.Forms.Label();
+            this.pcStudent = new System.Windows.Forms.PictureBox();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.quiz = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +58,6 @@
             this.cpfResponsible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kinship = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneResponsible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtSearchName = new System.Windows.Forms.TextBox();
-            this.lblStudent = new System.Windows.Forms.Label();
-            this.pcStudent = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,6 +104,7 @@
             this.dgvDataStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.edit,
             this.delete,
+            this.quiz,
             this.id,
             this.name,
             this.CPF,
@@ -142,6 +144,67 @@
             this.dgvDataStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataStudent_CellClick);
             this.dgvDataStudent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataStudent_CellDoubleClick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.txtSearchName);
+            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 108);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(577, 80);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(450, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtSearchName
+            // 
+            this.txtSearchName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchName.BackColor = System.Drawing.Color.White;
+            this.txtSearchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchName.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtSearchName.Location = new System.Drawing.Point(109, 37);
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.Size = new System.Drawing.Size(340, 33);
+            this.txtSearchName.TabIndex = 9;
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
+            // 
+            // lblStudent
+            // 
+            this.lblStudent.AutoSize = true;
+            this.lblStudent.BackColor = System.Drawing.Color.Transparent;
+            this.lblStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.lblStudent.Location = new System.Drawing.Point(18, 83);
+            this.lblStudent.Name = "lblStudent";
+            this.lblStudent.Size = new System.Drawing.Size(59, 22);
+            this.lblStudent.TabIndex = 9;
+            this.lblStudent.Text = "Aluno";
+            // 
+            // pcStudent
+            // 
+            this.pcStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.pcStudent.Image = global::SystemGymControl.Properties.Resources.icons8_client_management_64px_1;
+            this.pcStudent.Location = new System.Drawing.Point(12, 12);
+            this.pcStudent.Name = "pcStudent";
+            this.pcStudent.Size = new System.Drawing.Size(64, 64);
+            this.pcStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcStudent.TabIndex = 8;
+            this.pcStudent.TabStop = false;
+            // 
             // edit
             // 
             this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -159,6 +222,15 @@
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.delete.Width = 66;
+            // 
+            // quiz
+            // 
+            this.quiz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.quiz.HeaderText = "P|E Questionário";
+            this.quiz.Name = "quiz";
+            this.quiz.ReadOnly = true;
+            this.quiz.ToolTipText = "Preencher ou Editar questionário";
+            this.quiz.Width = 147;
             // 
             // id
             // 
@@ -304,67 +376,6 @@
             this.phoneResponsible.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.phoneResponsible.Width = 65;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.txtSearchName);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 108);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(577, 80);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pesquisar";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(450, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // txtSearchName
-            // 
-            this.txtSearchName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchName.BackColor = System.Drawing.Color.White;
-            this.txtSearchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchName.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtSearchName.Location = new System.Drawing.Point(109, 37);
-            this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(340, 33);
-            this.txtSearchName.TabIndex = 9;
-            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
-            // 
-            // lblStudent
-            // 
-            this.lblStudent.AutoSize = true;
-            this.lblStudent.BackColor = System.Drawing.Color.Transparent;
-            this.lblStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.lblStudent.Location = new System.Drawing.Point(18, 83);
-            this.lblStudent.Name = "lblStudent";
-            this.lblStudent.Size = new System.Drawing.Size(59, 22);
-            this.lblStudent.TabIndex = 9;
-            this.lblStudent.Text = "Aluno";
-            // 
-            // pcStudent
-            // 
-            this.pcStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.pcStudent.Image = global::SystemGymControl.Properties.Resources.icons8_client_management_64px_1;
-            this.pcStudent.Location = new System.Drawing.Point(12, 12);
-            this.pcStudent.Name = "pcStudent";
-            this.pcStudent.Size = new System.Drawing.Size(64, 64);
-            this.pcStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcStudent.TabIndex = 8;
-            this.pcStudent.TabStop = false;
-            // 
             // FrmStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
@@ -401,6 +412,7 @@
         private System.Windows.Forms.PictureBox pcStudent;
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridViewImageColumn quiz;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;

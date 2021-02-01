@@ -44,9 +44,17 @@ namespace SystemGymControl
             txtEmail.Text = DataStudent.Rows[0]["email"].ToString();
             if (!string.IsNullOrEmpty(DataStudent.Rows[0]["photo"].ToString()))
             {
-                image = DataStudent.Rows[0]["photo"].ToString();
-                pcPhoto.ImageLocation = image;
-                pcPhoto.Load();
+                try
+                {
+                    image = DataStudent.Rows[0]["photo"].ToString();
+                    pcPhoto.ImageLocation = image;
+                    pcPhoto.Load();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    image = "";
+                }
             }
 
             if (responsible.SearchID(id).Rows.Count > 0)

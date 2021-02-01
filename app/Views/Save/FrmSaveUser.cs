@@ -71,8 +71,16 @@ namespace SystemGymControl
             avatar = dataUser.Rows[0]["avatar"].ToString();
             if (!string.IsNullOrEmpty(avatar))
             {
-                pcAvatar.ImageLocation = avatar;
-                pcAvatar.Load();
+                try
+                {
+                    pcAvatar.ImageLocation = avatar;
+                    pcAvatar.Load();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    avatar = "";
+                }
             }
         }
 

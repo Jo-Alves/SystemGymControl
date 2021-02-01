@@ -54,6 +54,7 @@
     <Compile Include="Class\Payment.cs" />
     <Compile Include="Class\Person.cs" />
     <Compile Include="Class\Plan.cs" />
+    <Compile Include="Class\QuizParq.cs" />
     <Compile Include="Class\ResponsibleStudent.cs" />
     <Compile Include="Class\SituationsPlan.cs" />
     <Compile Include="Class\Student.cs" />

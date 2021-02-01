@@ -268,6 +268,12 @@
     <Compile Include="Views\Report\FrmReportReceipt.Designer.cs">
       <DependentUpon>FrmReportReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Save\FrmQuizParq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Save\FrmQuizParq.Designer.cs">
+      <DependentUpon>FrmQuizParq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Save\FrmSearchStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,6 +419,9 @@
       <DependentUpon>FrmReportReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Report\Recibo de Pagamento.rdlc" />
+    <EmbeddedResource Include="Views\Save\FrmQuizParq.resx">
+      <DependentUpon>FrmQuizParq.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Save\FrmSearchStudent.resx">
       <DependentUpon>FrmSearchStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -756,6 +765,7 @@
     <Content Include="IMG-20201119-WA0000.ico" />
     <None Include="Resources\icons8_cash_register_32px.png" />
     <None Include="Resources\icons8_data_backup_32px.png" />
+    <None Include="Resources\icons8_quiz_32px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
