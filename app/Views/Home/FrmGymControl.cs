@@ -382,6 +382,8 @@ namespace SystemGymControl
                 MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+            new FrmAbout().ShowDialog();
         }
 
         private void btnConfigurationSystem_Click(object sender, EventArgs e)

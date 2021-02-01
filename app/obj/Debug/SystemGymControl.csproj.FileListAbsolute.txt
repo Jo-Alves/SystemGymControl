@@ -260,3 +260,4 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\RdlCompi
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\RdlCompile.compiled
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmReportReceipt.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmQuizParq.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmAbout.resources

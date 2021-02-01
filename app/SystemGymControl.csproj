@@ -108,6 +108,12 @@
     <Compile Include="Utils\ValidateCNPJ.cs" />
     <Compile Include="Utils\PrintRDLC.cs" />
     <Compile Include="Utils\ValidateEmail.cs" />
+    <Compile Include="Views\About\FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\About\FrmAbout.designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Authentication\FmrAuthentication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\About\FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Authentication\FmrAuthentication.resx">
       <DependentUpon>FmrAuthentication.cs</DependentUpon>
     </EmbeddedResource>
@@ -766,6 +775,8 @@
     <None Include="Resources\icons8_cash_register_32px.png" />
     <None Include="Resources\icons8_data_backup_32px.png" />
     <None Include="Resources\icons8_quiz_32px.png" />
+    <None Include="Resources\LAS Technology.png" />
+    <None Include="Resources\Sem título.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
