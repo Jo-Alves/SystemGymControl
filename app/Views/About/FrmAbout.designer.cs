@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcLogo = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -43,17 +43,21 @@
             this.label2.Size = new System.Drawing.Size(273, 198);
             this.label2.TabIndex = 4;
             this.label2.Text = "Aplicativo: System GYM Control\r\nVersão: 1.0\r\n\r\nDesenvolvida pela LAS Technology\r\n" +
-    "       Joelmir Rogério Carvalho\r\n\r\nTelefone: (38) 9 99093710";
+    "       Joelmir Rogério Carvalho\r\n\r\nTelefone: (38) 9 99093710\r\nTelegram: (38) 9 9" +
+    "9093710";
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblInformation_MouseDown);
             // 
-            // pictureBox1
+            // pcLogo
             // 
-            this.pictureBox1.Image = global::SystemGymControl.Properties.Resources.Sem_título;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(270, 241);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pcLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pcLogo.Image = global::SystemGymControl.Properties.Resources.Sem_título;
+            this.pcLogo.Location = new System.Drawing.Point(0, 0);
+            this.pcLogo.Name = "pcLogo";
+            this.pcLogo.Size = new System.Drawing.Size(306, 264);
+            this.pcLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcLogo.TabIndex = 3;
+            this.pcLogo.TabStop = false;
+            this.pcLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcLogo_MouseDown);
             // 
             // btnClose
             // 
@@ -80,15 +84,15 @@
             this.ClientSize = new System.Drawing.Size(610, 264);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pcLogo);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sobre";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmSobre_MouseDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmAbout_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pcLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -96,7 +100,7 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pcLogo;
         private System.Windows.Forms.Button btnClose;
     }
 }

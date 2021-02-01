@@ -36,11 +36,21 @@ namespace SystemGymControl
 
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void FrmSobre_MouseDown(object sender, MouseEventArgs e)
+        private void FrmAbout_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
 
+        }
+
+        private void pcLogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            FrmAbout_MouseDown(sender, e);
+        }
+
+        private void lblInformation_MouseDown(object sender, MouseEventArgs e)
+        {
+            FrmAbout_MouseDown(sender, e);
         }
     }
 }
