@@ -15,7 +15,7 @@ namespace Database
         private string answer7;
         private int studentID;
 
-        string _sql;        
+        string _sql;
 
         public int _id
         {
@@ -65,7 +65,7 @@ namespace Database
 
         public void Save()
         {
-            using(var connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {

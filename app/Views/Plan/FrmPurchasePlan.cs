@@ -187,22 +187,22 @@ namespace SystemGymControl
 
                 bool generateReceipt = false;
 
-                if (formPayment.ToLower() == "dinheiro" )
+                if (formPayment.ToLower() == "dinheiro")
                 {
                     if (cashInPayment.generateReceipt)
                     {
                         generateReceipt = true;
-                    }                    
+                    }
                 }
-                else if (formPayment.ToLower() != "dinheiro" )
+                else if (formPayment.ToLower() != "dinheiro")
                 {
                     if (cardInPayment.generateReceipt)
                     {
                         generateReceipt = true;
-                    }                    
+                    }
                 }
 
-                if(generateReceipt)
+                if (generateReceipt)
                 {
                     if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
                     {

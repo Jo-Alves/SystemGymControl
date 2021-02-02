@@ -16,7 +16,7 @@ namespace SystemGymControl
             decimal valueDiscount = Convert.ToDecimal(dataPayment.Rows[0]["value_discount"]);
             decimal valueInterest = string.IsNullOrEmpty(dataPayment.Rows[0]["value_interest"].ToString()) ? 0.00M : Convert.ToDecimal(dataPayment.Rows[0]["value_interest"]);
             decimal valuePenalty = string.IsNullOrEmpty(dataPayment.Rows[0]["value_penalty"].ToString()) ? 0.00M : Convert.ToDecimal(dataPayment.Rows[0]["value_penalty"]);
-          
+
             if (portion > 1)
             {
                 valueTotal *= portion;

@@ -6,7 +6,7 @@ namespace SystemGymControl
 {
     public partial class FrmReportReceipt : Form
     {
-        int idPlan;
+        int idPlan, idPackage;
         string modality, package;
 
 
@@ -15,11 +15,12 @@ namespace SystemGymControl
             InitializeComponent();
         }
 
-        public FrmReportReceipt(int idPayment, int idPlan = 0)
+        public FrmReportReceipt(int idPayment, int idPlan = 0, int idPackage = 0)
         {
             InitializeComponent();
 
             this.idPlan = idPlan;
+            this.idPackage = idPackage;
             this.rvReceipt.LocalReport.SetParameters(ParametersReport.SetParametersReport(new Payment().GetDataPayments(idPayment)));
             this.rvReceipt.RefreshReport();
         }
@@ -27,7 +28,7 @@ namespace SystemGymControl
         private void btnBack_Click(object sender, EventArgs e)
         {
             if (idPlan > 0)
-                OpenForm.ShowForm(new FrmMonthlyPayment(idPlan, package, modality), this);
+                OpenForm.ShowForm(new FrmMonthlyPayment(idPlan, package, modality, idPackage), this);
             else
                 OpenForm.ShowForm(new FrmPlans(), this);
         }

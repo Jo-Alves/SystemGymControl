@@ -50,7 +50,7 @@ namespace SystemGymControl
                     pcPhoto.ImageLocation = image;
                     pcPhoto.Load();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     image = "";

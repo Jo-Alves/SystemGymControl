@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using SystemGymControl.Properties;
@@ -11,7 +10,7 @@ namespace SystemGymControl
         public FrmAbout()
         {
             InitializeComponent();
-        }       
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {

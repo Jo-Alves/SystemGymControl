@@ -84,7 +84,7 @@ namespace SystemGymControl
             {
                 dataPortion.Rows.Add(row.Cells["portion"].Value.ToString(), row.Cells["dueDate"].Value.ToString(), row.Cells["valuePortion"].Value.ToString());
             }
-           
+
             nPortion = int.Parse(ndNumberPortions.Value.ToString());
             paymentEffected = true;
             this.Close();

@@ -1,5 +1,4 @@
 ﻿using Bussiness;
-using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
 using System.Drawing;
@@ -14,19 +13,20 @@ namespace SystemGymControl
         Payment payment = new Payment();
         string package, modality;
 
-        int idPlan;
+        int idPlan, idPackage;
         public FrmMonthlyPayment()
         {
             InitializeComponent();
         }
 
-        public FrmMonthlyPayment(int idPlan, string package, string modality)
+        public FrmMonthlyPayment(int idPlan, string package, string modality, int idPackage)
         {
             InitializeComponent();
             LoadDataCashPayment(idPlan);
             CheckedDueDate();
             this.package = package;
             this.modality = modality;
+            this.idPackage = idPackage;
 
         }
 
@@ -110,7 +110,7 @@ namespace SystemGymControl
                     {
                         if (!new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
                         {
-                            var effectPayment = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["id"].Value.ToString()), package, modality);
+                            var effectPayment = new FrmEffectPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["id"].Value.ToString()), package, modality, idPackage);
                             effectPayment.ShowDialog();
                             if (effectPayment.paymentEffected)
                             {
@@ -139,7 +139,7 @@ namespace SystemGymControl
                         CreateReceipt.GenerateReceipt(idPayment, fullPath);
                     }
                     else
-                        OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan), this);
+                        OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan, idPackage), this);
                 }
                 else if (dgvDataPlan.CurrentCell.ColumnIndex == 1 && string.IsNullOrEmpty(dgvDataPlan.CurrentRow.Cells["payday"].Value.ToString()))
                 {

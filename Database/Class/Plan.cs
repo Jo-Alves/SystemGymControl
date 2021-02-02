@@ -184,12 +184,13 @@ namespace Database
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
-                _sql = "UPDATE plans SET date_terminal_plan = @dateTerminalPlan WHERE id = @planID";
+                _sql = "UPDATE plans SET date_terminal_plan = @dateTerminalPlan, items_package_id = @idItems WHERE id = @planID";
 
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
                 SqlCommand command = new SqlCommand(_sql, connection, transaction);
                 command.Parameters.AddWithValue("@dateTerminalPlan", _dateTerminalPlan);
+                command.Parameters.AddWithValue("@idItems", _itemsPackageID);
                 command.Parameters.AddWithValue("@planID", payment._planID);
                 try
                 {

@@ -157,6 +157,7 @@ namespace Bussiness
             };
 
             plan._dateTerminalPlan = this._dateTerminalPlan;
+            plan._itemsPackageID = this._itemsPackageID;
             plan.EffectPaymentPlan(paymentDataBase, valueTotal, icomingCash, formPayment);
         }
     }

@@ -247,26 +247,6 @@ namespace Database
             }
         }
 
-        public DataTable GetValuePackageFormPayment(string descriptionForms)
-        {
-            using (var connection = new SqlConnection(ConnectionDataBase.stringConnection))
-            {
-                try
-                {
-                    _sql = "SELECT items_package.value, items_package.id FROM items_package INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id WHERE packages.period = 'Mensal' AND forms_of_payment.description = @descriptionForms";
-                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
-                    adapter.SelectCommand.Parameters.AddWithValue("@descriptionForms", descriptionForms);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-                    return table;
-                }
-                catch
-                {
-                    throw;
-                }
-            }
-        }
-
         public int GetMaxId()
         {
             int maxId = 0;
@@ -288,6 +268,23 @@ namespace Database
             }
 
             return maxId;
+        }
+
+        public DataTable GetDescriptionFormPayment(int idPackage)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection);
+                _sql = $"SELECT forms_of_payment.description FROM packages INNER JOIN items_package ON items_package.package_id = packages.id  INNER JOIN forms_of_payment ON forms_of_payment.items_package_id = items_package.id WHERE packages.id = {idPackage}";
+                SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

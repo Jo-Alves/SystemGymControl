@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 
 namespace Bussiness
 {
@@ -15,7 +14,7 @@ namespace Bussiness
         private string answer7;
         private int studentID;
 
-        string _sql;        
+        string _sql;
 
         public int _id
         {

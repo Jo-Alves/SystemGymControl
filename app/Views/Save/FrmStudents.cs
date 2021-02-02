@@ -90,7 +90,7 @@ namespace SystemGymControl
                             }
                         }
                     }
-                    else if(dgvDataStudent.CurrentCell.ColumnIndex == 2)
+                    else if (dgvDataStudent.CurrentCell.ColumnIndex == 2)
                     {
                         OpenForm.ShowForm(new FrmQuizParq(Convert.ToInt32(dgvDataStudent.CurrentRow.Cells["id"].Value), dgvDataStudent.CurrentRow.Cells["name"].Value.ToString()), this);
                     }

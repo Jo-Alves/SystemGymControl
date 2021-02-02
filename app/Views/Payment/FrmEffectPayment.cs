@@ -1,5 +1,4 @@
 ﻿using Bussiness;
-using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
 using System.IO;
@@ -15,27 +14,28 @@ namespace SystemGymControl
         decimal discountMoney = 0.00m, valuePaidOut;
         decimal valueTotal, amountReceivable;
         DataTable dataPayment;
-        int daysDelay, idPlan, idPayment;
+        int idItemsPackage, daysDelay, idPlan, idPackage, idPayment;
         DateTime datePayment;
-        string package, modality;
+        string descriptionPackage, modality;
+        Package package = new Package();
 
         public FrmEffectPayment()
         {
             InitializeComponent();
         }
 
-        public FrmEffectPayment(int idPayment, string package, string modality)
+        public FrmEffectPayment(int idPayment, string package, string modality, int idPackage)
         {
             InitializeComponent();
 
             try
             {
-                cbFormOfPayment.SelectedIndex = 2;
                 this.idPayment = idPayment;
+                this.idPackage = idPackage;
                 dataPayment = new Payment().GetDataCashPaymentPlanIDCash(idPayment);
                 idPlan = int.Parse(dataPayment.Rows[0]["plan_id"].ToString());
-                LoadFields(dataPayment);
-                this.package = package;
+                LoadFields(dataPayment, idPackage);
+                this.descriptionPackage = package;
                 this.modality = modality;
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace SystemGymControl
             return daysDelay;
         }
 
-        private void LoadFields(DataTable dataPayment)
+        private void LoadFields(DataTable dataPayment, int idPackage)
         {
             txtIdStudent.Text = dataPayment.Rows[0]["idStudent"].ToString();
             txtName.Text = dataPayment.Rows[0]["name"].ToString();
@@ -68,10 +68,17 @@ namespace SystemGymControl
             txtPayDay.Text = DateTime.Now.ToShortDateString();
             daysDelay = GetValueDaysDelay();
             txtDaysOfDelay.Text = $"{daysDelay} dia(s)";
+
+            var dataDescriptionForm = new Package().GetDescriptionFormPayment(idPackage);
+
+            foreach (DataRow row in dataDescriptionForm.Rows)
+            {
+                cbFormOfPayment.Items.Add(row["description"].ToString());
+            }
+
             cbFormOfPayment.Text = dataPayment.Rows[0]["form_payment"].ToString();
-
-            txtValuePlan.Text = $"R$ {new Package().GetValuePackageFormPayment(cbFormOfPayment.Text).Rows[0]["value"]}";
-
+            
+            idItemsPackage = int.Parse(package.GetValuePackageAndId(idPackage, cbFormOfPayment.Text).Rows[0]["id"].ToString());
             DisableAndEnabledTextBoxsInPaymentInMoney();
 
             SetValueInterestAndPanaltyFurType();
@@ -286,7 +293,8 @@ namespace SystemGymControl
 
                 new Plan()
                 {
-                    _dateTerminalPlan = dueDate.AddDays(time.TotalDays - 1).ToShortDateString()
+                    _dateTerminalPlan = dueDate.AddDays(time.TotalDays - 1).ToShortDateString(),
+                    _itemsPackageID = idItemsPackage
                 }
                 .EffectPaymentPlan(payment, valueTotal, icomingCashFlow, cbFormOfPayment.Text.ToLower());
 
@@ -296,13 +304,16 @@ namespace SystemGymControl
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }        
 
         private void cbFormOfPayment_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dataPayment != null)
             {
-                txtValuePlan.Text = $"R$ {new Package().GetValuePackageFormPayment(cbFormOfPayment.Text).Rows[0]["value"]}";
+                var dataValuePackageAndId = package.GetValuePackageAndId(idPackage, cbFormOfPayment.Text);
+
+                txtValuePlan.Text = $"R$ {dataValuePackageAndId.Rows[0]["value"]}";
+                idItemsPackage = int.Parse(dataValuePackageAndId.Rows[0]["id"].ToString());
                 SetValueInterestAndPanaltyFurType();
                 DisableAndEnabledTextBoxsInPaymentInMoney();
                 cbCalculateInaterastAndPenalty_CheckedChanged(sender, e);
@@ -364,10 +375,8 @@ namespace SystemGymControl
                 CreateReceipt.GenerateReceipt(idPayment, fullPath);
             }
             else
-                OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan), this);
+                OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan, idPackage), this);
         }
-
-       
 
         private void cbCalculateInaterastAndPenalty_CheckedChanged(object sender, EventArgs e)
         {

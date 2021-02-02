@@ -469,10 +469,6 @@ namespace SystemGymControl
             this.cbFormOfPayment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbFormOfPayment.Font = new System.Drawing.Font("Open Sans", 14F);
             this.cbFormOfPayment.FormattingEnabled = true;
-            this.cbFormOfPayment.Items.AddRange(new object[] {
-            "Cartão de Crédito",
-            "Cartão de Débito",
-            "Dinheiro"});
             this.cbFormOfPayment.Location = new System.Drawing.Point(19, 456);
             this.cbFormOfPayment.Name = "cbFormOfPayment";
             this.cbFormOfPayment.Size = new System.Drawing.Size(207, 34);
@@ -526,7 +522,7 @@ namespace SystemGymControl
             this.label11.TabIndex = 73;
             this.label11.Text = "Valor Pago - R$";
             // 
-            // button1
+            // btnGenerateReceipt
             // 
             this.btnGenerateReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGenerateReceipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
@@ -538,7 +534,7 @@ namespace SystemGymControl
             this.btnGenerateReceipt.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerateReceipt.ForeColor = System.Drawing.Color.White;
             this.btnGenerateReceipt.Location = new System.Drawing.Point(505, 450);
-            this.btnGenerateReceipt.Name = "button1";
+            this.btnGenerateReceipt.Name = "btnGenerateReceipt";
             this.btnGenerateReceipt.Size = new System.Drawing.Size(154, 40);
             this.btnGenerateReceipt.TabIndex = 86;
             this.btnGenerateReceipt.TabStop = false;

@@ -83,6 +83,11 @@ namespace Bussiness
             return package.GetMaxId();
         }
 
+        public DataTable GetDescriptionFormPayment(int idPackage)
+        {
+            return package.GetDescriptionFormPayment(idPackage);
+        }
+
         public DataTable SearchAllItemsAndPackage()
         {
             return package.SearchAllItemsAndPackage();
@@ -101,11 +106,6 @@ namespace Bussiness
         public DataTable GetValuePackageAndId(int idPackage, string descriptionForms)
         {
             return package.GetValuePackageAndId(idPackage, descriptionForms);
-        }
-
-        public DataTable GetValuePackageFormPayment(string descriptionForms)
-        {
-            return package.GetValuePackageFormPayment(descriptionForms);
         }
     }
 }

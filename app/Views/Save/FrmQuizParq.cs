@@ -13,7 +13,7 @@ namespace SystemGymControl
         public FrmQuizParq(int studentId, string name)
         {
             InitializeComponent();
-            
+
             this.studentId = studentId;
 
             LoadLabelQuestion(name);
@@ -89,7 +89,8 @@ namespace SystemGymControl
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 quizParq._answer1 = rbYes1.Checked ? "Sim" : "Não";
                 quizParq._answer2 = rbYes2.Checked ? "Sim" : "Não";
                 quizParq._answer3 = rbYes3.Checked ? "Sim" : "Não";
@@ -102,7 +103,7 @@ namespace SystemGymControl
                 quizParq.Save();
                 OpenForm.ShowForm(new FrmStudents(), this);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

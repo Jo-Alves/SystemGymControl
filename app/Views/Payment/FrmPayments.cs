@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -86,7 +87,7 @@ namespace SystemGymControl
 
                 if (dgvDataPlan.CurrentCell.ColumnIndex == 0)
                 {
-                    OpenForm.ShowForm(new FrmMonthlyPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString()), dgvDataPlan.CurrentRow.Cells["descriptionPackage"].Value.ToString(), dgvDataPlan.CurrentRow.Cells["descriptionModality"].Value.ToString()), this);
+                    OpenForm.ShowForm(new FrmMonthlyPayment(int.Parse(dgvDataPlan.CurrentRow.Cells["idPlan"].Value.ToString()), dgvDataPlan.CurrentRow.Cells["descriptionPackage"].Value.ToString(), dgvDataPlan.CurrentRow.Cells["descriptionModality"].Value.ToString(), Convert.ToInt32(dgvDataPlan.CurrentRow.Cells["idPackage"].Value)), this);
                 }
             }
         }

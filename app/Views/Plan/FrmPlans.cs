@@ -162,7 +162,7 @@ namespace SystemGymControl
                     {
                         MessageBox.Show("Você será redirecionado para a tela de pagamento.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        OpenForm.ShowForm(new FrmMonthlyPayment(idPlan, dgvDataPlan.CurrentRow.Cells["descriptionPackage"].Value.ToString(), dgvDataPlan.CurrentRow.Cells["descriptionModality"].Value.ToString()), this);
+                        OpenForm.ShowForm(new FrmMonthlyPayment(idPlan, dgvDataPlan.CurrentRow.Cells["descriptionPackage"].Value.ToString(), dgvDataPlan.CurrentRow.Cells["descriptionModality"].Value.ToString(), Convert.ToInt32(dgvDataPlan.CurrentRow.Cells["descriptionModality"].Value)), this);
 
                         return;
                     }
