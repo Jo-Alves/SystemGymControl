@@ -220,11 +220,23 @@
     <Compile Include="Views\Payment\FrmCardInPayment.designer.cs">
       <DependentUpon>FrmCardInPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Payment\FrmPaymentHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payment\FrmPaymentHistory.Designer.cs">
+      <DependentUpon>FrmPaymentHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Payment\FrmMonthlyPayment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Payment\FrmMonthlyPayment.Designer.cs">
       <DependentUpon>FrmMonthlyPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payment\FrmOptionsPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payment\FrmOptionsPayment.Designer.cs">
+      <DependentUpon>FrmOptionsPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Payment\FrmPayments.cs">
       <SubType>Form</SubType>
@@ -400,8 +412,14 @@
     <EmbeddedResource Include="Views\Payment\FrmCardInPayment.resx">
       <DependentUpon>FrmCardInPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payment\FrmPaymentHistory.resx">
+      <DependentUpon>FrmPaymentHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Payment\FrmMonthlyPayment.resx">
       <DependentUpon>FrmMonthlyPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payment\FrmOptionsPayment.resx">
+      <DependentUpon>FrmOptionsPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Payment\FrmPayments.resx">
       <DependentUpon>FrmPayments.cs</DependentUpon>
@@ -777,6 +795,8 @@
     <None Include="Resources\icons8_quiz_32px.png" />
     <None Include="Resources\LAS Technology.png" />
     <None Include="Resources\Sem título.jpg" />
+    <None Include="Resources\icons8_card_payment_64px1.png" />
+    <None Include="Resources\Actions-view-history-icon.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

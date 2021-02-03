@@ -101,9 +101,19 @@ namespace Bussiness
             payment.UpdatePaymentPlanMensal(idPlan, duedate);
         }
 
-        public DataTable HistoryPayment(string entryTimeCashFlow, string openingDate)
+        public DataTable HistoryAllPayment(string entryTimeCashFlow, string openingDate)
         {
-            return payment.HistoryPayment(entryTimeCashFlow, openingDate);
+            return payment.HistoryAllPayment(entryTimeCashFlow, openingDate);
+        }
+
+        public DataTable GetHistoryPaymentDifferencesMonthly()
+        {
+            return payment.GetHistoryPaymentDifferencesMonthly();
+        }
+
+        public DataTable GetHistoryPaymentDifferencesMonthlySearchNameStudent(string name)
+        {
+            return payment.GetHistoryPaymentDifferencesMonthlySearchNameStudent(name);
         }
 
         public DataTable GetSumValueTotalAndDiscount(string entryTimeCashFlow, string openingDate)

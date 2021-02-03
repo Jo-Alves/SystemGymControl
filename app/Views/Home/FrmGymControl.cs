@@ -590,14 +590,9 @@ namespace SystemGymControl
                 MessageBox.Show("Crie o usuário do sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (new Plan().SearchAllWhereMoney().Rows.Count == 0)
-            {
-                MessageBox.Show("Não há registros de planos cadastrados no sistema!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
 
-            lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos";
-            OpenForm.ShowForm(new FrmPayments(), this);
+            OpenForm.ShowForm(new FrmOptionsPayment(), this);
+            lblTitle.Text = "EXPLOSION ACADEMIA";
         }
     }
 }

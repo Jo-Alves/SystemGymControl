@@ -261,3 +261,5 @@ C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\RdlCompi
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmReportReceipt.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmQuizParq.resources
 C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmAbout.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmOptionsPayment.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\app\obj\Debug\SystemGymControl.FrmPaymentHistory.resources

@@ -77,7 +77,7 @@ namespace SystemGymControl
             }
 
             cbFormOfPayment.Text = dataPayment.Rows[0]["form_payment"].ToString();
-            
+
             idItemsPackage = int.Parse(package.GetValuePackageAndId(idPackage, cbFormOfPayment.Text).Rows[0]["id"].ToString());
             DisableAndEnabledTextBoxsInPaymentInMoney();
 
@@ -304,7 +304,7 @@ namespace SystemGymControl
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }        
+        }
 
         private void cbFormOfPayment_SelectedIndexChanged(object sender, EventArgs e)
         {

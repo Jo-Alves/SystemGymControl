@@ -273,13 +273,51 @@ namespace Database
             }
         }
 
-        public DataTable HistoryPayment(string entryTimeCashFlow, string openingDate)
+        public DataTable HistoryAllPayment(string entryTimeCashFlow, string openingDate)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
                 try
                 {
                     _sql = $"SELECT * FROM payments INNER JOIN plans ON planS.id = payments.plan_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id WHERE payments.payday = '{openingDate}' AND CONVERT(time, payment_time, 103) > CONVERT(time, '{entryTimeCashFlow}', 103)";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public DataTable GetHistoryPaymentDifferencesMonthly()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = "SELECT payments.id, students.name, plans.id as idPlan, packages.description, payments.value_total, payments.value_discount, payments.payday, payments.payment_time FROM payments INNER JOIN plans ON  plans.id = payments.plan_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN students ON students.id = plans.student_id WHERE packages.period <> 'Mensal' AND payments.payday <> ''";
+                    SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public DataTable GetHistoryPaymentDifferencesMonthlySearchNameStudent(string name)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
+            {
+                try
+                {
+                    _sql = $"SELECT payments.id, students.name, packages.description, payments.value_total, payments.value_discount, payments.payday, payments.payment_time FROM payments INNER JOIN plans ON  plans.id = payments.plan_id INNER JOIN items_package ON items_package.id = plans.items_package_id INNER JOIN packages ON packages.id = items_package.package_id INNER JOIN students ON students.id = plans.student_id WHERE students.name LIKE '%{name}%' AND packages.period <> 'Mensal' AND payments.payday <> ''";
                     SqlDataAdapter adapter = new SqlDataAdapter(_sql, connection);
                     DataTable table = new DataTable();
                     adapter.Fill(table);

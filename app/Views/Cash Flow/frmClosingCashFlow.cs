@@ -112,7 +112,7 @@ namespace SystemGymControl
             var cash = new CashFlow();
             cash.GetDateOpeningCashFlow();
 
-            var payment = new Payment().HistoryPayment(entryTimeCashFlow, cash._openingDate);
+            var payment = new Payment().HistoryAllPayment(entryTimeCashFlow, cash._openingDate);
             foreach (DataRow dr in payment.Rows)
             {
                 int countRow = dgvDataHistoryPayment.Rows.Add();

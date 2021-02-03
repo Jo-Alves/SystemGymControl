@@ -8,6 +8,7 @@ namespace SystemGymControl
     {
         int idPlan, idPackage;
         string modality, package;
+        bool isHistoryPayment;
 
 
         public FrmReportReceipt()
@@ -15,12 +16,14 @@ namespace SystemGymControl
             InitializeComponent();
         }
 
-        public FrmReportReceipt(int idPayment, int idPlan = 0, int idPackage = 0)
+        public FrmReportReceipt(int idPayment, int idPlan = 0, int idPackage = 0, bool isHistoryPayment = false)
         {
             InitializeComponent();
 
             this.idPlan = idPlan;
             this.idPackage = idPackage;
+            this.isHistoryPayment = isHistoryPayment;
+
             this.rvReceipt.LocalReport.SetParameters(ParametersReport.SetParametersReport(new Payment().GetDataPayments(idPayment)));
             this.rvReceipt.RefreshReport();
         }
@@ -29,6 +32,8 @@ namespace SystemGymControl
         {
             if (idPlan > 0)
                 OpenForm.ShowForm(new FrmMonthlyPayment(idPlan, package, modality, idPackage), this);
+            else if (isHistoryPayment)
+                OpenForm.ShowForm(new FrmPaymentHistory(), this);
             else
                 OpenForm.ShowForm(new FrmPlans(), this);
         }

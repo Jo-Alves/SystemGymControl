@@ -61,6 +61,16 @@ namespace SystemGymControl.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_view_history_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-view-history-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.IO.UnmanagedMemoryStream semelhante a System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream hangouts {
@@ -135,6 +145,16 @@ namespace SystemGymControl.Properties {
         internal static System.Drawing.Bitmap icons8_card_payment_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_card_payment_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_card_payment_64px1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_card_payment_64px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
