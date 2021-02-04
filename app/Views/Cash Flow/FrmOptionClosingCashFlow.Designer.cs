@@ -62,7 +62,7 @@ namespace SystemGymControl
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnClosingBox);
             this.pnUser.Controls.Add(this.pcUser);
-            this.pnUser.Location = new System.Drawing.Point(603, 22);
+            this.pnUser.Location = new System.Drawing.Point(481, 31);
             this.pnUser.Name = "pnUser";
             this.pnUser.Size = new System.Drawing.Size(272, 245);
             this.pnUser.TabIndex = 5;
@@ -112,7 +112,7 @@ namespace SystemGymControl
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnRegister);
             this.pnPackage.Controls.Add(this.pcPackage);
-            this.pnPackage.Location = new System.Drawing.Point(205, 286);
+            this.pnPackage.Location = new System.Drawing.Point(88, 295);
             this.pnPackage.Name = "pnPackage";
             this.pnPackage.Size = new System.Drawing.Size(272, 245);
             this.pnPackage.TabIndex = 4;
@@ -161,7 +161,7 @@ namespace SystemGymControl
             this.pnStudent.Controls.Add(this.lblStudent);
             this.pnStudent.Controls.Add(this.btnRemoveMoney);
             this.pnStudent.Controls.Add(this.pcStudent);
-            this.pnStudent.Location = new System.Drawing.Point(205, 22);
+            this.pnStudent.Location = new System.Drawing.Point(88, 31);
             this.pnStudent.Name = "pnStudent";
             this.pnStudent.Size = new System.Drawing.Size(272, 245);
             this.pnStudent.TabIndex = 3;
@@ -211,7 +211,7 @@ namespace SystemGymControl
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnRegisterEntyAndExit);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(603, 286);
+            this.panel1.Location = new System.Drawing.Point(481, 295);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(272, 245);
             this.panel1.TabIndex = 5;
@@ -259,7 +259,7 @@ namespace SystemGymControl
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 570);
+            this.ClientSize = new System.Drawing.Size(817, 570);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnUser);
             this.Controls.Add(this.pnPackage);

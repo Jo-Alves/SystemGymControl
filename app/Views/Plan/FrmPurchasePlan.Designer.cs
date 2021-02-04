@@ -39,13 +39,6 @@ namespace SystemGymControl
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearchStudent = new System.Windows.Forms.Button();
             this.dgvDataPlan = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.period = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idItemsPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPurchasePlan = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,6 +47,13 @@ namespace SystemGymControl
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblDateTerminalPlan = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.period = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idItemsPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -87,7 +87,7 @@ namespace SystemGymControl
             this.txtNameStudent.Location = new System.Drawing.Point(162, 54);
             this.txtNameStudent.Name = "txtNameStudent";
             this.txtNameStudent.ReadOnly = true;
-            this.txtNameStudent.Size = new System.Drawing.Size(510, 29);
+            this.txtNameStudent.Size = new System.Drawing.Size(300, 29);
             this.txtNameStudent.TabIndex = 2;
             // 
             // label2
@@ -111,7 +111,7 @@ namespace SystemGymControl
             this.btnSearchStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchStudent.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchStudent.ForeColor = System.Drawing.Color.White;
-            this.btnSearchStudent.Location = new System.Drawing.Point(678, 48);
+            this.btnSearchStudent.Location = new System.Drawing.Point(468, 48);
             this.btnSearchStudent.Name = "btnSearchStudent";
             this.btnSearchStudent.Size = new System.Drawing.Size(117, 38);
             this.btnSearchStudent.TabIndex = 4;
@@ -163,9 +163,124 @@ namespace SystemGymControl
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDataPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDataPlan.Size = new System.Drawing.Size(766, 218);
+            this.dgvDataPlan.Size = new System.Drawing.Size(556, 218);
             this.dgvDataPlan.TabIndex = 17;
             this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
+            // 
+            // btnPurchasePlan
+            // 
+            this.btnPurchasePlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPurchasePlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnPurchasePlan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPurchasePlan.FlatAppearance.BorderSize = 0;
+            this.btnPurchasePlan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnPurchasePlan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
+            this.btnPurchasePlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPurchasePlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPurchasePlan.ForeColor = System.Drawing.Color.White;
+            this.btnPurchasePlan.Location = new System.Drawing.Point(591, 100);
+            this.btnPurchasePlan.Name = "btnPurchasePlan";
+            this.btnPurchasePlan.Size = new System.Drawing.Size(214, 43);
+            this.btnPurchasePlan.TabIndex = 19;
+            this.btnPurchasePlan.TabStop = false;
+            this.btnPurchasePlan.Text = "Adquirir plano";
+            this.btnPurchasePlan.UseVisualStyleBackColor = false;
+            this.btnPurchasePlan.Click += new System.EventHandler(this.btnPurchasePlan_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(69)))), ((int)(((byte)(72)))));
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(591, 149);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(214, 43);
+            this.btnCancel.TabIndex = 20;
+            this.btnCancel.TabStop = false;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(25, 390);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 22);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Modalidade";
+            // 
+            // cbModalities
+            // 
+            this.cbModalities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbModalities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbModalities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbModalities.FormattingEnabled = true;
+            this.cbModalities.Items.AddRange(new object[] {
+            "Musculação",
+            "Cross Training Funcional",
+            "Cross Training Funcional Kids"});
+            this.cbModalities.Location = new System.Drawing.Point(29, 415);
+            this.cbModalities.Name = "cbModalities";
+            this.cbModalities.Size = new System.Drawing.Size(251, 30);
+            this.cbModalities.TabIndex = 22;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(29, 89);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(556, 65);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pesquisar";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(434, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtSearch.Location = new System.Drawing.Point(133, 21);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(300, 33);
+            this.txtSearch.TabIndex = 9;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // lblDateTerminalPlan
+            // 
+            this.lblDateTerminalPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDateTerminalPlan.AutoSize = true;
+            this.lblDateTerminalPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.lblDateTerminalPlan.Location = new System.Drawing.Point(301, 418);
+            this.lblDateTerminalPlan.Name = "lblDateTerminalPlan";
+            this.lblDateTerminalPlan.Size = new System.Drawing.Size(0, 22);
+            this.lblDateTerminalPlan.TabIndex = 25;
+            this.lblDateTerminalPlan.Visible = false;
             // 
             // id
             // 
@@ -178,11 +293,12 @@ namespace SystemGymControl
             // 
             // description
             // 
-            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.description.HeaderText = "Descrição";
             this.description.Name = "description";
             this.description.ReadOnly = true;
             this.description.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.description.Width = 91;
             // 
             // duration
             // 
@@ -229,127 +345,12 @@ namespace SystemGymControl
             this.formOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.formOfPayment.Width = 179;
             // 
-            // btnPurchasePlan
-            // 
-            this.btnPurchasePlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPurchasePlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.btnPurchasePlan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPurchasePlan.FlatAppearance.BorderSize = 0;
-            this.btnPurchasePlan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnPurchasePlan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
-            this.btnPurchasePlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPurchasePlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPurchasePlan.ForeColor = System.Drawing.Color.White;
-            this.btnPurchasePlan.Location = new System.Drawing.Point(801, 100);
-            this.btnPurchasePlan.Name = "btnPurchasePlan";
-            this.btnPurchasePlan.Size = new System.Drawing.Size(214, 43);
-            this.btnPurchasePlan.TabIndex = 19;
-            this.btnPurchasePlan.TabStop = false;
-            this.btnPurchasePlan.Text = "Adquirir plano";
-            this.btnPurchasePlan.UseVisualStyleBackColor = false;
-            this.btnPurchasePlan.Click += new System.EventHandler(this.btnPurchasePlan_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(69)))), ((int)(((byte)(72)))));
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(46)))), ((int)(((byte)(48)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(801, 149);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(214, 43);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.TabStop = false;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(25, 390);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 22);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Modalidade";
-            // 
-            // cbModalities
-            // 
-            this.cbModalities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cbModalities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbModalities.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbModalities.FormattingEnabled = true;
-            this.cbModalities.Items.AddRange(new object[] {
-            "Musculação",
-            "Cross Training Funcional",
-            "Cross Training Funcional Kids"});
-            this.cbModalities.Location = new System.Drawing.Point(29, 415);
-            this.cbModalities.Name = "cbModalities";
-            this.cbModalities.Size = new System.Drawing.Size(251, 30);
-            this.cbModalities.TabIndex = 22;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(29, 89);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 65);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pesquisar";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(644, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtSearch.Location = new System.Drawing.Point(133, 21);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(510, 33);
-            this.txtSearch.TabIndex = 9;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // lblDateTerminalPlan
-            // 
-            this.lblDateTerminalPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDateTerminalPlan.AutoSize = true;
-            this.lblDateTerminalPlan.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDateTerminalPlan.Location = new System.Drawing.Point(301, 418);
-            this.lblDateTerminalPlan.Name = "lblDateTerminalPlan";
-            this.lblDateTerminalPlan.Size = new System.Drawing.Size(0, 22);
-            this.lblDateTerminalPlan.TabIndex = 25;
-            this.lblDateTerminalPlan.Visible = false;
-            // 
             // FrmPurchasePlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1027, 462);
+            this.ClientSize = new System.Drawing.Size(817, 462);
             this.Controls.Add(this.lblDateTerminalPlan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbModalities);
@@ -390,6 +391,10 @@ namespace SystemGymControl
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbModalities;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblDateTerminalPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn duration;
@@ -397,9 +402,5 @@ namespace SystemGymControl
         private System.Windows.Forms.DataGridViewTextBoxColumn idItemsPackage;
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
         private System.Windows.Forms.DataGridViewTextBoxColumn formOfPayment;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label lblDateTerminalPlan;
     }
 }

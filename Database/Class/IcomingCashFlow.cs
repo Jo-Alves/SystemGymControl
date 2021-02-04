@@ -214,7 +214,7 @@ namespace Database
             return sumValue;
         }
 
-        public decimal GetSumAllValueEntryMoney(int idCash)
+        public decimal GetSumAllValueEntryMoney(int idCash, string mouthAndYear)
         {
             decimal sumValue = 0.00M;
 
@@ -223,7 +223,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT SUM(value_money) FROM icoming_cash_flow WHERE cash_flow_id <= @idCash AND description_icoming <> 'Valor inicial'";
+                    _sql = $"SELECT SUM(value_money) FROM icoming_cash_flow WHERE cash_flow_id <= @idCash AND description_icoming <> 'Valor inicial' AND entry_date LIKE '%{mouthAndYear}%'";
                     var command = new SqlCommand(_sql, connection);
                     command.Parameters.AddWithValue("@idCash", idCash);
                     if (command.ExecuteScalar() != DBNull.Value)
@@ -266,7 +266,7 @@ namespace Database
             return sumValue;
         }
 
-        public decimal GetSumAllValueEntryCard(int idCash)
+        public decimal GetSumAllValueEntryCard(int idCash, string mouthAndYear)
         {
             decimal sumValue = 0.00M;
 
@@ -275,7 +275,7 @@ namespace Database
                 try
                 {
                     connection.Open();
-                    _sql = "SELECT SUM(value_card) FROM icoming_cash_flow WHERE cash_flow_id <= @idCash";
+                    _sql = $"SELECT SUM(value_card) FROM icoming_cash_flow WHERE cash_flow_id <= @idCash AND entry_date LIKE '%{mouthAndYear}%'";
                     var command = new SqlCommand(_sql, connection);
                     command.Parameters.AddWithValue("@idCash", idCash);
                     if (command.ExecuteScalar() != DBNull.Value)

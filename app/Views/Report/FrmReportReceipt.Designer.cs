@@ -57,7 +57,7 @@ namespace SystemGymControl
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(520, 417);
+            this.btnBack.Location = new System.Drawing.Point(509, 417);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(136, 40);
             this.btnBack.TabIndex = 3;
@@ -75,7 +75,7 @@ namespace SystemGymControl
             this.Controls.Add(this.rvReceipt);
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmReportReceipt";
             this.Text = "FrmReportReceipt";
             this.ResumeLayout(false);

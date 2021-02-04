@@ -114,7 +114,7 @@
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataStudent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDataStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDataStudent.Size = new System.Drawing.Size(1076, 419);
+            this.dgvDataStudent.Size = new System.Drawing.Size(793, 419);
             this.dgvDataStudent.TabIndex = 6;
             this.dgvDataStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataStudent_CellClick);
             // 
@@ -271,7 +271,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1076, 80);
+            this.groupBox1.Size = new System.Drawing.Size(793, 80);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
@@ -285,7 +285,7 @@
             this.txtSearchName.Font = new System.Drawing.Font("Open Sans", 14F);
             this.txtSearchName.Location = new System.Drawing.Point(109, 37);
             this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(839, 33);
+            this.txtSearchName.Size = new System.Drawing.Size(556, 33);
             this.txtSearchName.TabIndex = 9;
             this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
@@ -319,7 +319,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::SystemGymControl.Properties.Resources.icons8_close_window_32px_leavee;
-            this.btnClose.Location = new System.Drawing.Point(1067, 1);
+            this.btnClose.Location = new System.Drawing.Point(784, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(25, 30);
             this.btnClose.TabIndex = 10;
@@ -334,7 +334,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(1100, 625);
+            this.ClientSize = new System.Drawing.Size(817, 625);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblStudent);
             this.Controls.Add(this.pcStudent);

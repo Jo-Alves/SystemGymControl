@@ -50,7 +50,7 @@
             this.pnPlan.Controls.Add(this.lblPlan);
             this.pnPlan.Controls.Add(this.btnPlan);
             this.pnPlan.Controls.Add(this.pcPlan);
-            this.pnPlan.Location = new System.Drawing.Point(229, 170);
+            this.pnPlan.Location = new System.Drawing.Point(94, 170);
             this.pnPlan.Name = "pnPlan";
             this.pnPlan.Size = new System.Drawing.Size(272, 245);
             this.pnPlan.TabIndex = 1;
@@ -100,7 +100,7 @@
             this.pnPausedPlan.Controls.Add(this.lblPausedPlan);
             this.pnPausedPlan.Controls.Add(this.btnPausedPlan);
             this.pnPausedPlan.Controls.Add(this.pcPausedPlan);
-            this.pnPausedPlan.Location = new System.Drawing.Point(680, 170);
+            this.pnPausedPlan.Location = new System.Drawing.Point(460, 170);
             this.pnPausedPlan.Name = "pnPausedPlan";
             this.pnPausedPlan.Size = new System.Drawing.Size(272, 245);
             this.pnPausedPlan.TabIndex = 2;
@@ -148,7 +148,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 570);
+            this.ClientSize = new System.Drawing.Size(817, 570);
             this.Controls.Add(this.pnPausedPlan);
             this.Controls.Add(this.pnPlan);
             this.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

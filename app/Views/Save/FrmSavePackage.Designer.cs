@@ -53,17 +53,17 @@ namespace SystemGymControl
             this.txtValuePenalty = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvFormOfPagament = new System.Windows.Forms.DataGridView();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
+            this.txtValue = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idFormsOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
-            this.txtValue = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ndDuration)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,7 +75,7 @@ namespace SystemGymControl
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(16, 41);
+            this.label1.Location = new System.Drawing.Point(14, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 26);
@@ -85,17 +85,17 @@ namespace SystemGymControl
             // txtDescription
             // 
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDescription.Location = new System.Drawing.Point(21, 71);
+            this.txtDescription.Location = new System.Drawing.Point(19, 39);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(558, 33);
+            this.txtDescription.Size = new System.Drawing.Size(433, 33);
             this.txtDescription.TabIndex = 1;
             // 
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
             this.lblDuration.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.lblDuration.Location = new System.Drawing.Point(169, 118);
+            this.lblDuration.Location = new System.Drawing.Point(167, 86);
             this.lblDuration.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(95, 26);
@@ -105,7 +105,7 @@ namespace SystemGymControl
             // ndDuration
             // 
             this.ndDuration.Enabled = false;
-            this.ndDuration.Location = new System.Drawing.Point(174, 147);
+            this.ndDuration.Location = new System.Drawing.Point(172, 115);
             this.ndDuration.Minimum = new decimal(new int[] {
             1,
             0,
@@ -131,7 +131,7 @@ namespace SystemGymControl
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(153, 405);
+            this.btnCancel.Location = new System.Drawing.Point(151, 373);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 43);
             this.btnCancel.TabIndex = 14;
@@ -150,7 +150,7 @@ namespace SystemGymControl
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(21, 405);
+            this.btnSave.Location = new System.Drawing.Point(19, 373);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 43);
             this.btnSave.TabIndex = 13;
@@ -163,7 +163,7 @@ namespace SystemGymControl
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(16, 118);
+            this.label4.Location = new System.Drawing.Point(14, 86);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 26);
@@ -185,7 +185,7 @@ namespace SystemGymControl
             "Quinzena",
             "Quarentena",
             "Outros"});
-            this.cbPeriod.Location = new System.Drawing.Point(21, 147);
+            this.cbPeriod.Location = new System.Drawing.Point(19, 115);
             this.cbPeriod.Name = "cbPeriod";
             this.cbPeriod.Size = new System.Drawing.Size(147, 34);
             this.cbPeriod.TabIndex = 2;
@@ -195,9 +195,9 @@ namespace SystemGymControl
             // 
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(19, 187);
+            this.groupBox1.Location = new System.Drawing.Point(17, 155);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(560, 207);
+            this.groupBox1.Size = new System.Drawing.Size(435, 207);
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parâmetros:";
@@ -211,13 +211,13 @@ namespace SystemGymControl
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 117);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(554, 81);
+            this.panel2.Size = new System.Drawing.Size(429, 81);
             this.panel2.TabIndex = 1;
             // 
             // rbPercentageInterest
             // 
             this.rbPercentageInterest.AutoSize = true;
-            this.rbPercentageInterest.Location = new System.Drawing.Point(405, 31);
+            this.rbPercentageInterest.Location = new System.Drawing.Point(276, 27);
             this.rbPercentageInterest.Name = "rbPercentageInterest";
             this.rbPercentageInterest.Size = new System.Drawing.Size(149, 30);
             this.rbPercentageInterest.TabIndex = 9;
@@ -228,7 +228,7 @@ namespace SystemGymControl
             // 
             this.rbValueInterest.AutoSize = true;
             this.rbValueInterest.Checked = true;
-            this.rbValueInterest.Location = new System.Drawing.Point(288, 31);
+            this.rbValueInterest.Location = new System.Drawing.Point(159, 27);
             this.rbValueInterest.Name = "rbValueInterest";
             this.rbValueInterest.Size = new System.Drawing.Size(111, 30);
             this.rbValueInterest.TabIndex = 8;
@@ -239,7 +239,7 @@ namespace SystemGymControl
             // txtValueInterest
             // 
             this.txtValueInterest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValueInterest.Location = new System.Drawing.Point(169, 28);
+            this.txtValueInterest.Location = new System.Drawing.Point(16, 40);
             this.txtValueInterest.Margin = new System.Windows.Forms.Padding(4);
             this.txtValueInterest.Name = "txtValueInterest";
             this.txtValueInterest.Size = new System.Drawing.Size(110, 33);
@@ -252,7 +252,7 @@ namespace SystemGymControl
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(11, 28);
+            this.label5.Location = new System.Drawing.Point(11, 11);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 26);
@@ -268,13 +268,13 @@ namespace SystemGymControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 88);
+            this.panel1.Size = new System.Drawing.Size(429, 88);
             this.panel1.TabIndex = 0;
             // 
             // rbPercentagePenalty
             // 
             this.rbPercentagePenalty.AutoSize = true;
-            this.rbPercentagePenalty.Location = new System.Drawing.Point(406, 26);
+            this.rbPercentagePenalty.Location = new System.Drawing.Point(276, 43);
             this.rbPercentagePenalty.Name = "rbPercentagePenalty";
             this.rbPercentagePenalty.Size = new System.Drawing.Size(149, 30);
             this.rbPercentagePenalty.TabIndex = 6;
@@ -285,7 +285,7 @@ namespace SystemGymControl
             // 
             this.rbValuePenalty.AutoSize = true;
             this.rbValuePenalty.Checked = true;
-            this.rbValuePenalty.Location = new System.Drawing.Point(289, 26);
+            this.rbValuePenalty.Location = new System.Drawing.Point(159, 43);
             this.rbValuePenalty.Name = "rbValuePenalty";
             this.rbValuePenalty.Size = new System.Drawing.Size(111, 30);
             this.rbValuePenalty.TabIndex = 5;
@@ -296,7 +296,7 @@ namespace SystemGymControl
             // txtValuePenalty
             // 
             this.txtValuePenalty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValuePenalty.Location = new System.Drawing.Point(171, 26);
+            this.txtValuePenalty.Location = new System.Drawing.Point(16, 43);
             this.txtValuePenalty.Margin = new System.Windows.Forms.Padding(4);
             this.txtValuePenalty.Name = "txtValuePenalty";
             this.txtValuePenalty.Size = new System.Drawing.Size(110, 33);
@@ -309,7 +309,7 @@ namespace SystemGymControl
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(5, 28);
+            this.label3.Location = new System.Drawing.Point(5, 13);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 26);
@@ -343,7 +343,7 @@ namespace SystemGymControl
             this.value});
             this.dgvFormOfPagament.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvFormOfPagament.EnableHeadersVisualStyles = false;
-            this.dgvFormOfPagament.Location = new System.Drawing.Point(582, 71);
+            this.dgvFormOfPagament.Location = new System.Drawing.Point(459, 39);
             this.dgvFormOfPagament.MultiSelect = false;
             this.dgvFormOfPagament.Name = "dgvFormOfPagament";
             this.dgvFormOfPagament.ReadOnly = true;
@@ -360,11 +360,79 @@ namespace SystemGymControl
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvFormOfPagament.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvFormOfPagament.Size = new System.Drawing.Size(427, 257);
+            this.dgvFormOfPagament.Size = new System.Drawing.Size(346, 257);
             this.dgvFormOfPagament.TabIndex = 57;
             this.dgvFormOfPagament.TabStop = false;
             this.dgvFormOfPagament.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormOfPagament_CellClick);
             this.dgvFormOfPagament.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormOfPagament_CellDoubleClick);
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
+            this.btnInsert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInsert.FlatAppearance.BorderSize = 0;
+            this.btnInsert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
+            this.btnInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
+            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsert.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsert.ForeColor = System.Drawing.Color.White;
+            this.btnInsert.Location = new System.Drawing.Point(456, 368);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(143, 43);
+            this.btnInsert.TabIndex = 1;
+            this.btnInsert.TabStop = false;
+            this.btnInsert.Text = "Inserir";
+            this.btnInsert.UseVisualStyleBackColor = false;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(601, 300);
+            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(220, 26);
+            this.label6.TabIndex = 62;
+            this.label6.Text = "Forma d/ pagamento";
+            // 
+            // cbFormOfPayment
+            // 
+            this.cbFormOfPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFormOfPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbFormOfPayment.FormattingEnabled = true;
+            this.cbFormOfPayment.Items.AddRange(new object[] {
+            "Cartão de Crédito",
+            "Cartão de Débito",
+            "Dinheiro"});
+            this.cbFormOfPayment.Location = new System.Drawing.Point(606, 329);
+            this.cbFormOfPayment.Name = "cbFormOfPayment";
+            this.cbFormOfPayment.Size = new System.Drawing.Size(199, 34);
+            this.cbFormOfPayment.Sorted = true;
+            this.cbFormOfPayment.TabIndex = 11;
+            // 
+            // txtValue
+            // 
+            this.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValue.Location = new System.Drawing.Point(456, 329);
+            this.txtValue.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(143, 33);
+            this.txtValue.TabIndex = 10;
+            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValue_KeyPress);
+            this.txtValue.Leave += new System.EventHandler(this.txtValue_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(473, 299);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 26);
+            this.label7.TabIndex = 59;
+            this.label7.Text = "Valor";
             // 
             // edit
             // 
@@ -403,11 +471,12 @@ namespace SystemGymControl
             // 
             // formOfPayment
             // 
-            this.formOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.formOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.formOfPayment.HeaderText = "Forma de Pagamento";
             this.formOfPayment.Name = "formOfPayment";
             this.formOfPayment.ReadOnly = true;
             this.formOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.formOfPayment.Width = 211;
             // 
             // value
             // 
@@ -421,83 +490,12 @@ namespace SystemGymControl
             this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.value.Width = 64;
             // 
-            // btnInsert
-            // 
-            this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
-            this.btnInsert.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInsert.FlatAppearance.BorderSize = 0;
-            this.btnInsert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(49)))), ((int)(((byte)(75)))));
-            this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsert.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.ForeColor = System.Drawing.Color.White;
-            this.btnInsert.Location = new System.Drawing.Point(588, 405);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(143, 43);
-            this.btnInsert.TabIndex = 1;
-            this.btnInsert.TabStop = false;
-            this.btnInsert.Text = "Inserir";
-            this.btnInsert.UseVisualStyleBackColor = false;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(733, 331);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(224, 26);
-            this.label6.TabIndex = 62;
-            this.label6.Text = "Forma de pagamento";
-            // 
-            // cbFormOfPayment
-            // 
-            this.cbFormOfPayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbFormOfPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFormOfPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbFormOfPayment.FormattingEnabled = true;
-            this.cbFormOfPayment.Items.AddRange(new object[] {
-            "Cartão de Crédito",
-            "Cartão de Débito",
-            "Dinheiro"});
-            this.cbFormOfPayment.Location = new System.Drawing.Point(738, 361);
-            this.cbFormOfPayment.Name = "cbFormOfPayment";
-            this.cbFormOfPayment.Size = new System.Drawing.Size(271, 34);
-            this.cbFormOfPayment.Sorted = true;
-            this.cbFormOfPayment.TabIndex = 11;
-            // 
-            // txtValue
-            // 
-            this.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValue.Location = new System.Drawing.Point(588, 361);
-            this.txtValue.Margin = new System.Windows.Forms.Padding(4);
-            this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(143, 33);
-            this.txtValue.TabIndex = 10;
-            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValue_KeyPress);
-            this.txtValue.Leave += new System.EventHandler(this.txtValue_Leave);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Open Sans", 14F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(605, 331);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 26);
-            this.label7.TabIndex = 59;
-            this.label7.Text = "Valor";
-            // 
             // FrmSavePackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1024, 461);
+            this.ClientSize = new System.Drawing.Size(817, 461);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbFormOfPayment);
             this.Controls.Add(this.txtValue);

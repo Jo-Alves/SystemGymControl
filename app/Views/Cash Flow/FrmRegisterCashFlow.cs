@@ -13,7 +13,6 @@ namespace SystemGymControl
         public FrmRegisterCashFlow()
         {
             InitializeComponent();
-            LoadDataCashFlow();
         }
 
         private void LoadDataCashFlow()
@@ -121,7 +120,7 @@ namespace SystemGymControl
             {
                 if (dgvDataRegisterCashFlow.CurrentCell.ColumnIndex == 0)
                 {
-                    OpenForm.ShowForm(new FrmReportCashFlow(int.Parse(dgvDataRegisterCashFlow.CurrentRow.Cells["id"].Value.ToString())), this);
+                    OpenForm.ShowForm(new FrmReportCashFlow(int.Parse(dgvDataRegisterCashFlow.CurrentRow.Cells["id"].Value.ToString()), dgvDataRegisterCashFlow.CurrentRow.Cells["openingDate"].Value.ToString()), this);
                 }
                 dgvDataRegisterCashFlow.ClearSelection();
             }
@@ -133,6 +132,11 @@ namespace SystemGymControl
             {
                 dgvDataRegisterCashFlow.ClearSelection();
             }
+        }
+
+        private void FrmRegisterCashFlow_Load(object sender, EventArgs e)
+        {
+            LoadDataCashFlow();
         }
     }
 }

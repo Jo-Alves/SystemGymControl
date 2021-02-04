@@ -71,7 +71,7 @@
             this.lblNumberBox.Location = new System.Drawing.Point(39, 48);
             this.lblNumberBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumberBox.Name = "lblNumberBox";
-            this.lblNumberBox.Size = new System.Drawing.Size(231, 32);
+            this.lblNumberBox.Size = new System.Drawing.Size(176, 32);
             this.lblNumberBox.TabIndex = 1;
             this.lblNumberBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -81,7 +81,7 @@
             this.lblDateEntry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDateEntry.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblDateEntry.ForeColor = System.Drawing.Color.Black;
-            this.lblDateEntry.Location = new System.Drawing.Point(278, 48);
+            this.lblDateEntry.Location = new System.Drawing.Point(223, 48);
             this.lblDateEntry.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDateEntry.Name = "lblDateEntry";
             this.lblDateEntry.Size = new System.Drawing.Size(238, 32);
@@ -93,7 +93,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(278, 13);
+            this.label4.Location = new System.Drawing.Point(223, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 26);
@@ -102,14 +102,16 @@
             // 
             // lblOperator
             // 
+            this.lblOperator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOperator.BackColor = System.Drawing.Color.White;
             this.lblOperator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblOperator.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblOperator.ForeColor = System.Drawing.Color.Black;
-            this.lblOperator.Location = new System.Drawing.Point(524, 48);
+            this.lblOperator.Location = new System.Drawing.Point(469, 48);
             this.lblOperator.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOperator.Name = "lblOperator";
-            this.lblOperator.Size = new System.Drawing.Size(517, 32);
+            this.lblOperator.Size = new System.Drawing.Size(315, 32);
             this.lblOperator.TabIndex = 5;
             this.lblOperator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -118,7 +120,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(524, 13);
+            this.label6.Location = new System.Drawing.Point(469, 13);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(123, 26);
@@ -127,6 +129,8 @@
             // 
             // gb
             // 
+            this.gb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gb.Controls.Add(this.lblValueReicept);
             this.gb.Controls.Add(this.label5);
             this.gb.Controls.Add(this.lblExitBox);
@@ -136,7 +140,7 @@
             this.gb.ForeColor = System.Drawing.Color.Black;
             this.gb.Location = new System.Drawing.Point(33, 102);
             this.gb.Name = "gb";
-            this.gb.Size = new System.Drawing.Size(1008, 153);
+            this.gb.Size = new System.Drawing.Size(751, 153);
             this.gb.TabIndex = 6;
             this.gb.TabStop = false;
             this.gb.Text = "Movimentação do dia";
@@ -281,10 +285,12 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescription.Location = new System.Drawing.Point(33, 372);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(1008, 155);
+            this.txtDescription.Size = new System.Drawing.Size(751, 155);
             this.txtDescription.TabIndex = 14;
             // 
             // label2
@@ -305,7 +311,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 594);
+            this.ClientSize = new System.Drawing.Size(817, 594);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnCancel);

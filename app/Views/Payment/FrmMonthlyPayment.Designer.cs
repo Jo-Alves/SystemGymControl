@@ -37,13 +37,6 @@ namespace SystemGymControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMonthlyPayment));
             this.dgvDataPlan = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtIdStudent = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.receive = new System.Windows.Forms.DataGridViewImageColumn();
             this.receipt = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +49,13 @@ namespace SystemGymControl
             this.duedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIdStudent = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPlan)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -109,92 +109,10 @@ namespace SystemGymControl
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvDataPlan.Size = new System.Drawing.Size(1001, 326);
+            this.dgvDataPlan.Size = new System.Drawing.Size(791, 326);
             this.dgvDataPlan.TabIndex = 30;
             this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
             this.dgvDataPlan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtIdStudent);
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(14, 61);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1003, 100);
-            this.groupBox1.TabIndex = 31;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Aluno";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(177, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 22);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Nome";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(71, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 22);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Código";
-            // 
-            // txtIdStudent
-            // 
-            this.txtIdStudent.BackColor = System.Drawing.Color.White;
-            this.txtIdStudent.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtIdStudent.Location = new System.Drawing.Point(75, 47);
-            this.txtIdStudent.Name = "txtIdStudent";
-            this.txtIdStudent.ReadOnly = true;
-            this.txtIdStudent.Size = new System.Drawing.Size(100, 33);
-            this.txtIdStudent.TabIndex = 35;
-            // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.BackColor = System.Drawing.Color.White;
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Font = new System.Drawing.Font("Open Sans", 14F);
-            this.txtName.Location = new System.Drawing.Point(181, 48);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(709, 33);
-            this.txtName.TabIndex = 34;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = global::SystemGymControl.Properties.Resources.icons8_back_arrow_32px;
-            this.btnBack.Location = new System.Drawing.Point(23, 25);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(28, 30);
-            this.btnBack.TabIndex = 61;
-            this.btnBack.TabStop = false;
-            this.metroToolTip.SetToolTip(this.btnBack, "Voltar a janela anterior");
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // metroToolTip
-            // 
-            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroToolTip.StyleManager = null;
-            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // receive
             // 
@@ -306,12 +224,94 @@ namespace SystemGymControl
             this.paymentTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.paymentTime.Width = 169;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtIdStudent);
+            this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(14, 61);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(793, 100);
+            this.groupBox1.TabIndex = 31;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Aluno";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(72, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 22);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Nome";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(-34, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 22);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Código";
+            // 
+            // txtIdStudent
+            // 
+            this.txtIdStudent.BackColor = System.Drawing.Color.White;
+            this.txtIdStudent.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtIdStudent.Location = new System.Drawing.Point(75, 47);
+            this.txtIdStudent.Name = "txtIdStudent";
+            this.txtIdStudent.ReadOnly = true;
+            this.txtIdStudent.Size = new System.Drawing.Size(100, 33);
+            this.txtIdStudent.TabIndex = 35;
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.BackColor = System.Drawing.Color.White;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName.Font = new System.Drawing.Font("Open Sans", 14F);
+            this.txtName.Location = new System.Drawing.Point(181, 48);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(499, 33);
+            this.txtName.TabIndex = 34;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Image = global::SystemGymControl.Properties.Resources.icons8_back_arrow_32px;
+            this.btnBack.Location = new System.Drawing.Point(23, 25);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(28, 30);
+            this.btnBack.TabIndex = 61;
+            this.btnBack.TabStop = false;
+            this.metroToolTip.SetToolTip(this.btnBack, "Voltar a janela anterior");
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // metroToolTip
+            // 
+            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip.StyleManager = null;
+            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // FrmMonthlyPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1027, 523);
+            this.ClientSize = new System.Drawing.Size(817, 523);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDataPlan);

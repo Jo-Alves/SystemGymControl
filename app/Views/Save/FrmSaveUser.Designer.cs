@@ -102,7 +102,7 @@
             this.txtAnswer.Location = new System.Drawing.Point(450, 189);
             this.txtAnswer.MaxLength = 100;
             this.txtAnswer.Name = "txtAnswer";
-            this.txtAnswer.Size = new System.Drawing.Size(427, 33);
+            this.txtAnswer.Size = new System.Drawing.Size(183, 33);
             this.txtAnswer.TabIndex = 6;
             this.txtAnswer.WordWrap = false;
             // 
@@ -129,7 +129,7 @@
             this.btnOpenImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenImage.ForeColor = System.Drawing.Color.White;
-            this.btnOpenImage.Location = new System.Drawing.Point(953, 160);
+            this.btnOpenImage.Location = new System.Drawing.Point(639, 160);
             this.btnOpenImage.Name = "btnOpenImage";
             this.btnOpenImage.Size = new System.Drawing.Size(156, 33);
             this.btnOpenImage.TabIndex = 9;
@@ -161,7 +161,7 @@
             this.txtUser.Location = new System.Drawing.Point(445, 121);
             this.txtUser.MaxLength = 50;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(480, 33);
+            this.txtUser.Size = new System.Drawing.Size(188, 33);
             this.txtUser.TabIndex = 2;
             this.txtUser.WordWrap = false;
             // 
@@ -181,7 +181,7 @@
             // 
             this.pcAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pcAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcAvatar.Location = new System.Drawing.Point(965, 19);
+            this.pcAvatar.Location = new System.Drawing.Point(651, 19);
             this.pcAvatar.Name = "pcAvatar";
             this.pcAvatar.Size = new System.Drawing.Size(130, 135);
             this.pcAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -214,7 +214,7 @@
             this.pcUpdateFormatPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pcUpdateFormatPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pcUpdateFormatPassword.Image = global::SystemGymControl.Properties.Resources.ver_32x32;
-            this.pcUpdateFormatPassword.Location = new System.Drawing.Point(858, 256);
+            this.pcUpdateFormatPassword.Location = new System.Drawing.Point(599, 256);
             this.pcUpdateFormatPassword.Name = "pcUpdateFormatPassword";
             this.pcUpdateFormatPassword.Size = new System.Drawing.Size(34, 33);
             this.pcUpdateFormatPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -234,7 +234,7 @@
             this.txtName.Location = new System.Drawing.Point(23, 50);
             this.txtName.MaxLength = 100;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(902, 33);
+            this.txtName.Size = new System.Drawing.Size(610, 33);
             this.txtName.TabIndex = 0;
             this.txtName.WordWrap = false;
             // 
@@ -286,7 +286,7 @@
             this.btnClearImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearImage.ForeColor = System.Drawing.Color.White;
-            this.btnClearImage.Location = new System.Drawing.Point(953, 199);
+            this.btnClearImage.Location = new System.Drawing.Point(639, 199);
             this.btnClearImage.Name = "btnClearImage";
             this.btnClearImage.Size = new System.Drawing.Size(156, 33);
             this.btnClearImage.TabIndex = 63;
@@ -305,7 +305,7 @@
             this.txtPassword2.ForeColor = System.Drawing.Color.Black;
             this.txtPassword2.Location = new System.Drawing.Point(443, 256);
             this.txtPassword2.Name = "txtPassword2";
-            this.txtPassword2.Size = new System.Drawing.Size(416, 33);
+            this.txtPassword2.Size = new System.Drawing.Size(159, 33);
             this.txtPassword2.TabIndex = 65;
             this.txtPassword2.UseSystemPasswordChar = true;
             this.txtPassword2.WordWrap = false;
@@ -353,7 +353,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 365);
+            this.ClientSize = new System.Drawing.Size(817, 365);
             this.Controls.Add(this.pcUpdateFormatPassword);
             this.Controls.Add(this.txtPassword2);
             this.Controls.Add(this.label1);

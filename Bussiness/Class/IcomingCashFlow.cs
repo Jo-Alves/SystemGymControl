@@ -75,9 +75,9 @@ namespace Bussiness
             return icomingCashFlow.GetSumValueEntryMoney(idCash);
         }
 
-        public decimal GetSumAllValueEntryMoney(int idCash)
+        public decimal GetSumAllValueEntryMoney(int idCash, string mouthAndYear)
         {
-            return icomingCashFlow.GetSumAllValueEntryMoney(idCash);
+            return icomingCashFlow.GetSumAllValueEntryMoney(idCash, mouthAndYear);
         }
 
         public decimal GetSumValueEntryCard(int idCash)
@@ -85,9 +85,9 @@ namespace Bussiness
             return icomingCashFlow.GetSumValueEntryCard(idCash);
         }
 
-        public decimal GetSumAllValueEntryCard(int idCash)
+        public decimal GetSumAllValueEntryCard(int idCash, string mouthAndYear)
         {
-            return icomingCashFlow.GetSumAllValueEntryCard(idCash);
+            return icomingCashFlow.GetSumAllValueEntryCard(idCash, mouthAndYear);
         }
 
         public DataTable GetDataIcomingIdCash(int idCash)

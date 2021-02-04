@@ -95,7 +95,7 @@ namespace SystemGymControl
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 137);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1003, 65);
+            this.groupBox1.Size = new System.Drawing.Size(793, 65);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
@@ -104,7 +104,7 @@ namespace SystemGymControl
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(844, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(634, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(42, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -120,7 +120,7 @@ namespace SystemGymControl
             this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
             this.txtSearch.Location = new System.Drawing.Point(133, 21);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(709, 33);
+            this.txtSearch.Size = new System.Drawing.Size(499, 33);
             this.txtSearch.TabIndex = 9;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -181,7 +181,7 @@ namespace SystemGymControl
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDataPlan.Size = new System.Drawing.Size(1001, 218);
+            this.dgvDataPlan.Size = new System.Drawing.Size(791, 218);
             this.dgvDataPlan.TabIndex = 30;
             this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
             this.dgvDataPlan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
@@ -367,7 +367,7 @@ namespace SystemGymControl
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1027, 438);
+            this.ClientSize = new System.Drawing.Size(817, 438);
             this.Controls.Add(this.dgvDataPlan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblPlan);

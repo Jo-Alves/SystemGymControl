@@ -36,8 +36,6 @@ namespace SystemGymControl
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaymentHistory));
             this.dgvDataPayment = new System.Windows.Forms.DataGridView();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.receipt = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,7 @@ namespace SystemGymControl
             this.valueDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -83,7 +82,7 @@ namespace SystemGymControl
             this.paymentTime});
             this.dgvDataPayment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDataPayment.EnableHeadersVisualStyles = false;
-            this.dgvDataPayment.Location = new System.Drawing.Point(14, 149);
+            this.dgvDataPayment.Location = new System.Drawing.Point(14, 112);
             this.dgvDataPayment.MultiSelect = false;
             this.dgvDataPayment.Name = "dgvDataPayment";
             this.dgvDataPayment.ReadOnly = true;
@@ -99,31 +98,10 @@ namespace SystemGymControl
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
             this.dgvDataPayment.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvDataPayment.Size = new System.Drawing.Size(791, 326);
+            this.dgvDataPayment.Size = new System.Drawing.Size(791, 363);
             this.dgvDataPayment.TabIndex = 30;
             this.dgvDataPayment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
             this.dgvDataPayment.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Image = global::SystemGymControl.Properties.Resources.icons8_back_arrow_32px;
-            this.btnBack.Location = new System.Drawing.Point(23, 25);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(28, 30);
-            this.btnBack.TabIndex = 61;
-            this.btnBack.TabStop = false;
-            this.metroToolTip.SetToolTip(this.btnBack, "Voltar a janela anterior");
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // metroToolTip
-            // 
-            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroToolTip.StyleManager = null;
-            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // receipt
             // 
@@ -199,6 +177,12 @@ namespace SystemGymControl
             this.paymentTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.paymentTime.Width = 169;
             // 
+            // metroToolTip
+            // 
+            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip.StyleManager = null;
+            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -206,7 +190,7 @@ namespace SystemGymControl
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 63);
+            this.groupBox1.Location = new System.Drawing.Point(14, 26);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(791, 80);
             this.groupBox1.TabIndex = 63;
@@ -244,7 +228,6 @@ namespace SystemGymControl
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(817, 523);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvDataPayment);
             this.Font = new System.Drawing.Font("Open Sans", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -252,6 +235,7 @@ namespace SystemGymControl
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPaymentHistory";
             this.Text = "FrmPayment";
+            this.Load += new System.EventHandler(this.FrmPaymentHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataPayment)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -262,7 +246,6 @@ namespace SystemGymControl
 
         #endregion
         private System.Windows.Forms.DataGridView dgvDataPayment;
-        private System.Windows.Forms.Button btnBack;
         private MetroFramework.Components.MetroToolTip metroToolTip;
         private System.Windows.Forms.DataGridViewImageColumn receipt;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;

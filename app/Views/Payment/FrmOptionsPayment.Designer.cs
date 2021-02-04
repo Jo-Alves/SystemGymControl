@@ -49,7 +49,7 @@
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnHistory);
             this.pnUser.Controls.Add(this.pcUser);
-            this.pnUser.Location = new System.Drawing.Point(466, 163);
+            this.pnUser.Location = new System.Drawing.Point(500, 163);
             this.pnUser.Name = "pnUser";
             this.pnUser.Size = new System.Drawing.Size(272, 245);
             this.pnUser.TabIndex = 3;
@@ -99,7 +99,7 @@
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnPayment);
             this.pnPackage.Controls.Add(this.pcPackage);
-            this.pnPackage.Location = new System.Drawing.Point(79, 163);
+            this.pnPackage.Location = new System.Drawing.Point(46, 163);
             this.pnPackage.Name = "pnPackage";
             this.pnPackage.Size = new System.Drawing.Size(272, 245);
             this.pnPackage.TabIndex = 4;

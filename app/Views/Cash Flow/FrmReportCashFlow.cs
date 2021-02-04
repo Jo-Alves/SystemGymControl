@@ -14,27 +14,27 @@ namespace SystemGymControl
         public FrmReportCashFlow()
         {
             InitializeComponent();
+            string mouthAndYearNow = DateTime.Now.ToShortDateString().Substring(3, 7);
             int idCashFlowCurrent = FrmGymControl.Instance._IdCashFlow;
-
-            LoadInitialFieldsCashFlowAndBank(idCashFlowCurrent);
+            LoadInitialFieldsCashFlowAndBank(idCashFlowCurrent, mouthAndYearNow);
         }
 
-        public FrmReportCashFlow(int idCash)
+        public FrmReportCashFlow(int idCash, string entryDate)
         {
             InitializeComponent();
-            LoadInitialFieldsCashFlowAndBank(idCash);
+            LoadInitialFieldsCashFlowAndBank(idCash, entryDate.Substring(3, 7));
         }
 
-        private void LoadInitialFieldsCashFlowAndBank(int idCashFlowCurrent)
+        private void LoadInitialFieldsCashFlowAndBank(int idCashFlowCurrent, string mouthAndYear)
         {
             try
             {
                 var dataCashFlow = cash.SearchID(idCashFlowCurrent);
 
-                int idCashPrevious = cash.GetMaxCashFlowIdDatePrevious(idCashFlowCurrent);//cash.GetMaxCashFlowID());
+                int idCashPrevious = cash.GetMaxCashFlowIdDatePrevious(idCashFlowCurrent);
 
                 // BOX
-                txtBoxBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumAllValueEntryMoney(idCashPrevious)}" : "R$ 0,00";
+                txtBoxBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumAllValueEntryMoney(idCashPrevious, mouthAndYear)}" : "R$ 0,00";
 
                 txtBoxEntry.Text = $"R$ {icomingCashFlow.GetSumValueEntryMoney(idCashFlowCurrent)}";
                 txtBoxExit.Text = $"R$ {dataCashFlow.Rows[0]["output_value_total"]}";
@@ -47,7 +47,7 @@ namespace SystemGymControl
                 // BANK
 
                 txtBankEntry.Text = $"R$ {icomingCashFlow.GetSumValueEntryCard(idCashFlowCurrent)}";
-                txtBankBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumAllValueEntryCard(idCashPrevious)}" : "R$ 0,00";
+                txtBankBalancePrevious.Text = idCashPrevious > 0 ? $"R$ {icomingCashFlow.GetSumAllValueEntryCard(idCashPrevious, mouthAndYear)}" : "R$ 0,00";
                 txtBankBalanceCurrent.Text = txtBankEntry.Text;
                 txtBankClosure.Text = $"R$ {(decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBankBalancePrevious.Text)) + decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(txtBankEntry.Text)))}";
 

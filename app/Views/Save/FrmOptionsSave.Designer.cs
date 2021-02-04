@@ -55,16 +55,17 @@
             this.pnStudent.Controls.Add(this.lblStudent);
             this.pnStudent.Controls.Add(this.btnSaveStudent);
             this.pnStudent.Controls.Add(this.pcStudent);
-            this.pnStudent.Location = new System.Drawing.Point(44, 176);
+            this.pnStudent.Location = new System.Drawing.Point(36, 157);
             this.pnStudent.Name = "pnStudent";
-            this.pnStudent.Size = new System.Drawing.Size(272, 245);
+            this.pnStudent.Size = new System.Drawing.Size(230, 245);
             this.pnStudent.TabIndex = 1;
             // 
             // lblStudent
             // 
+            this.lblStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStudent.AutoSize = true;
             this.lblStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblStudent.Location = new System.Drawing.Point(109, 100);
+            this.lblStudent.Location = new System.Drawing.Point(88, 100);
             this.lblStudent.Name = "lblStudent";
             this.lblStudent.Size = new System.Drawing.Size(54, 22);
             this.lblStudent.TabIndex = 2;
@@ -72,6 +73,8 @@
             // 
             // btnSaveStudent
             // 
+            this.btnSaveStudent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSaveStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveStudent.FlatAppearance.BorderSize = 0;
@@ -82,7 +85,7 @@
             this.btnSaveStudent.ForeColor = System.Drawing.Color.White;
             this.btnSaveStudent.Location = new System.Drawing.Point(9, 159);
             this.btnSaveStudent.Name = "btnSaveStudent";
-            this.btnSaveStudent.Size = new System.Drawing.Size(252, 42);
+            this.btnSaveStudent.Size = new System.Drawing.Size(210, 42);
             this.btnSaveStudent.TabIndex = 1;
             this.btnSaveStudent.Text = "Ir para a tela";
             this.btnSaveStudent.UseVisualStyleBackColor = false;
@@ -90,8 +93,9 @@
             // 
             // pcStudent
             // 
+            this.pcStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcStudent.Image = global::SystemGymControl.Properties.Resources.icons8_client_management_64px_1;
-            this.pcStudent.Location = new System.Drawing.Point(102, 28);
+            this.pcStudent.Location = new System.Drawing.Point(81, 28);
             this.pcStudent.Name = "pcStudent";
             this.pcStudent.Size = new System.Drawing.Size(64, 64);
             this.pcStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -105,16 +109,17 @@
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnSavePackage);
             this.pnPackage.Controls.Add(this.pcPackage);
-            this.pnPackage.Location = new System.Drawing.Point(434, 176);
+            this.pnPackage.Location = new System.Drawing.Point(308, 157);
             this.pnPackage.Name = "pnPackage";
-            this.pnPackage.Size = new System.Drawing.Size(272, 245);
+            this.pnPackage.Size = new System.Drawing.Size(230, 245);
             this.pnPackage.TabIndex = 2;
             // 
             // lblPackage
             // 
+            this.lblPackage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPackage.AutoSize = true;
             this.lblPackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblPackage.Location = new System.Drawing.Point(103, 100);
+            this.lblPackage.Location = new System.Drawing.Point(82, 100);
             this.lblPackage.Name = "lblPackage";
             this.lblPackage.Size = new System.Drawing.Size(62, 22);
             this.lblPackage.TabIndex = 3;
@@ -122,6 +127,8 @@
             // 
             // btnSavePackage
             // 
+            this.btnSavePackage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSavePackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSavePackage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSavePackage.FlatAppearance.BorderSize = 0;
@@ -132,7 +139,7 @@
             this.btnSavePackage.ForeColor = System.Drawing.Color.White;
             this.btnSavePackage.Location = new System.Drawing.Point(9, 159);
             this.btnSavePackage.Name = "btnSavePackage";
-            this.btnSavePackage.Size = new System.Drawing.Size(252, 42);
+            this.btnSavePackage.Size = new System.Drawing.Size(210, 42);
             this.btnSavePackage.TabIndex = 2;
             this.btnSavePackage.Text = "Ir para a tela";
             this.btnSavePackage.UseVisualStyleBackColor = false;
@@ -140,8 +147,9 @@
             // 
             // pcPackage
             // 
+            this.pcPackage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcPackage.Image = global::SystemGymControl.Properties.Resources.icons8_handle_with_care_64px_1;
-            this.pcPackage.Location = new System.Drawing.Point(102, 28);
+            this.pcPackage.Location = new System.Drawing.Point(81, 28);
             this.pcPackage.Name = "pcPackage";
             this.pcPackage.Size = new System.Drawing.Size(64, 64);
             this.pcPackage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -155,16 +163,17 @@
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnSaveUser);
             this.pnUser.Controls.Add(this.pcUser);
-            this.pnUser.Location = new System.Drawing.Point(821, 176);
+            this.pnUser.Location = new System.Drawing.Point(569, 157);
             this.pnUser.Name = "pnUser";
-            this.pnUser.Size = new System.Drawing.Size(272, 245);
+            this.pnUser.Size = new System.Drawing.Size(230, 245);
             this.pnUser.TabIndex = 2;
             // 
             // lblUser
             // 
+            this.lblUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUser.AutoSize = true;
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblUser.Location = new System.Drawing.Point(99, 100);
+            this.lblUser.Location = new System.Drawing.Point(74, 100);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(70, 22);
             this.lblUser.TabIndex = 3;
@@ -172,6 +181,8 @@
             // 
             // btnSaveUser
             // 
+            this.btnSaveUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
             this.btnSaveUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveUser.FlatAppearance.BorderSize = 0;
@@ -182,7 +193,7 @@
             this.btnSaveUser.ForeColor = System.Drawing.Color.White;
             this.btnSaveUser.Location = new System.Drawing.Point(9, 159);
             this.btnSaveUser.Name = "btnSaveUser";
-            this.btnSaveUser.Size = new System.Drawing.Size(252, 42);
+            this.btnSaveUser.Size = new System.Drawing.Size(201, 42);
             this.btnSaveUser.TabIndex = 2;
             this.btnSaveUser.Text = "Ir para a tela";
             this.btnSaveUser.UseVisualStyleBackColor = false;
@@ -190,8 +201,9 @@
             // 
             // pcUser
             // 
+            this.pcUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pcUser.Image = global::SystemGymControl.Properties.Resources.icons8_user_64px;
-            this.pcUser.Location = new System.Drawing.Point(102, 28);
+            this.pcUser.Location = new System.Drawing.Point(77, 28);
             this.pcUser.Name = "pcUser";
             this.pcUser.Size = new System.Drawing.Size(64, 64);
             this.pcUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -203,7 +215,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 570);
+            this.ClientSize = new System.Drawing.Size(817, 570);
             this.Controls.Add(this.pnUser);
             this.Controls.Add(this.pnPackage);
             this.Controls.Add(this.pnStudent);

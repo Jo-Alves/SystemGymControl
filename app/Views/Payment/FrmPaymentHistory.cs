@@ -14,7 +14,6 @@ namespace SystemGymControl
         public FrmPaymentHistory()
         {
             InitializeComponent();
-            LoadDataHistoryPayment();
         }
 
         private void LoadDataHistoryPayment()
@@ -41,12 +40,6 @@ namespace SystemGymControl
             }
 
             dgvDataPayment.ClearSelection();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            OpenForm.ShowForm(new FrmOptionsPayment(), this);
-            FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA";
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -81,6 +74,11 @@ namespace SystemGymControl
                 }
                 dgvDataPayment.ClearSelection();
             }
+        }
+
+        private void FrmPaymentHistory_Load(object sender, EventArgs e)
+        {
+            LoadDataHistoryPayment();
         }
     }
 }

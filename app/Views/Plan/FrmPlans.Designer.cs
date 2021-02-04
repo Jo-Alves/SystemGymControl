@@ -77,7 +77,7 @@ namespace SystemGymControl
             this.txtSearch.Font = new System.Drawing.Font("Open Sans", 14F);
             this.txtSearch.Location = new System.Drawing.Point(133, 21);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(693, 33);
+            this.txtSearch.Size = new System.Drawing.Size(483, 33);
             this.txtSearch.TabIndex = 9;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -85,7 +85,7 @@ namespace SystemGymControl
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(828, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(618, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(42, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -101,7 +101,7 @@ namespace SystemGymControl
             this.groupBox1.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 144);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(987, 65);
+            this.groupBox1.Size = new System.Drawing.Size(777, 65);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
@@ -139,7 +139,7 @@ namespace SystemGymControl
             this.btnPlan.ForeColor = System.Drawing.Color.White;
             this.btnPlan.Location = new System.Drawing.Point(113, 38);
             this.btnPlan.Name = "btnPlan";
-            this.btnPlan.Size = new System.Drawing.Size(252, 42);
+            this.btnPlan.Size = new System.Drawing.Size(225, 42);
             this.btnPlan.TabIndex = 26;
             this.btnPlan.Text = "Realizar novo plano";
             this.btnPlan.UseVisualStyleBackColor = false;
@@ -204,7 +204,7 @@ namespace SystemGymControl
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Open Sans", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.dgvDataPlan.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDataPlan.Size = new System.Drawing.Size(987, 218);
+            this.dgvDataPlan.Size = new System.Drawing.Size(777, 218);
             this.dgvDataPlan.TabIndex = 17;
             this.dgvDataPlan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellClick);
             this.dgvDataPlan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPlan_CellDoubleClick);
@@ -406,7 +406,7 @@ namespace SystemGymControl
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1027, 462);
+            this.ClientSize = new System.Drawing.Size(817, 462);
             this.Controls.Add(this.btnPlan);
             this.Controls.Add(this.lblPlan);
             this.Controls.Add(this.pcPlan);
