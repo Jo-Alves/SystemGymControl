@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\CreateReceipth.cs" />
+    <Compile Include="Utils\Email.cs" />
     <Compile Include="Utils\ParametersReport.cs" />
     <Compile Include="Utils\ValidateCNPJ.cs" />
     <Compile Include="Utils\PrintRDLC.cs" />

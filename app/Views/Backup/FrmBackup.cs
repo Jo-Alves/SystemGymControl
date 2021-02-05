@@ -43,6 +43,19 @@ namespace SystemGymControl
 
                 new Backup().Generatebackup(txtDirectory.Text);
 
+
+                if (!string.IsNullOrEmpty(Settings.Default["email"].ToString()))
+                {
+                    try
+                    {
+                        string message = "<html><body> <h3>Backup - System GYM Control</h3> <br> <br>" +
+                            $"<p>Enviado em anexo o arquivo de backup realizado no(a) {DateTime.Now.ToLongDateString()}</p></body></html>";
+
+                        Email.Submit(Settings.Default["email"].ToString(), "Arquivo de Backup enviado por System GYM Control'", txtDirectory.Text, message);
+                    }
+                    catch {}
+                }
+
                 this.Close();
 
             }
