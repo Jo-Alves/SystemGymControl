@@ -22,13 +22,34 @@ namespace SystemGymControl
             {   
                 try
                 {
+                    timer.Enabled = false;
+
                     if (!database.ExistsDatabase())
                     {
-                        database.CreateDatabase();
-                        database.CreateTables();
-                    }
+                        DialogResult dr = MessageBox.Show("Não existe Base de dados. Caso você tenha o arquivo de backup clica no 'sim' para restauração do banco de dados.", "System GYM Control", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                    timer.Enabled = false;
+                        if (dr == DialogResult.Yes)
+                        {
+                            var openFileBackup = new OpenFileDialog();
+                            openFileBackup.Title = "Buscar arquivo 'bak' para restauração da base de dados.";
+                            openFileBackup.Filter = "Backup |*.bak";
+                            if (DialogResult.OK == openFileBackup.ShowDialog())
+                            {
+                                new Backup().RestoreDatabase(openFileBackup.FileName);
+                            }
+                            else
+                            {
+                                MessageBox.Show("O sistema será fechado.", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Application.Exit();
+                            }
+                        }
+                        else
+                        {
+                            database.CreateDatabase();
+                            database.CreateTables();
+                        }
+                    }                  
+
                     this.Visible = false;
 
                     if (CheckedExistUsers())
@@ -55,7 +76,7 @@ namespace SystemGymControl
 
         private bool CheckedExistUsers()
         {
-            return new Bussiness.User().SearchAll().Rows.Count > 0 ? true : false;
+            return new User().SearchAll().Rows.Count > 0 ? true : false;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

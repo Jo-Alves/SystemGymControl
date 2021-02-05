@@ -22,5 +22,24 @@ namespace Database
                 }
             }
         }
+        
+        public void RestoreDatabase(string path)
+        {
+            using (var connection = new SqlConnection(ConnectionDataBase.stringConnectionMaster))
+            {
+                try
+                {
+                    connection.Open();
+                    var command = new SqlCommand("", connection);
+                    command.CommandText = $"RESTORE DATABASE dbGymControl FROM DISK = '{path}'";
+
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

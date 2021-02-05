@@ -6,5 +6,10 @@
         {
             new Database.Backup().Generatebackup(path);
         }
+        
+        public void RestoreDatabase(string path)
+        {
+            new Database.Backup().RestoreDatabase(path);
+        }
     }
 }

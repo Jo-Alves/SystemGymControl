@@ -36,6 +36,7 @@ namespace SystemGymControl
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            FrmGymControl.Instance._lblTitle.Text = "EXPLISION ACADEMIA";
             OpenForm.ShowForm(new FrmHome(), this);
         }
 
