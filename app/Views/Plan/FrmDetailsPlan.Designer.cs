@@ -109,7 +109,7 @@ namespace SystemGymControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1114, 241);
+            this.panel1.Size = new System.Drawing.Size(1027, 241);
             this.panel1.TabIndex = 0;
             // 
             // btnBack
@@ -272,7 +272,7 @@ namespace SystemGymControl
             this.pnMoreDetailsStudent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMoreDetailsStudent.Location = new System.Drawing.Point(0, 241);
             this.pnMoreDetailsStudent.Name = "pnMoreDetailsStudent";
-            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1114, 298);
+            this.pnMoreDetailsStudent.Size = new System.Drawing.Size(1027, 298);
             this.pnMoreDetailsStudent.TabIndex = 1;
             this.pnMoreDetailsStudent.Visible = false;
             // 
@@ -502,7 +502,7 @@ namespace SystemGymControl
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 539);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1114, 264);
+            this.panel3.Size = new System.Drawing.Size(1027, 264);
             this.panel3.TabIndex = 2;
             // 
             // groupBox3
@@ -872,7 +872,7 @@ namespace SystemGymControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1131, 733);
+            this.ClientSize = new System.Drawing.Size(1044, 733);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnMoreDetailsStudent);
             this.Controls.Add(this.panel1);

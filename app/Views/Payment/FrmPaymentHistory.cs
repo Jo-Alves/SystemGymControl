@@ -13,7 +13,8 @@ namespace SystemGymControl
 
         public FrmPaymentHistory()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            LoadDataHistoryPayment();
         }
 
         private void LoadDataHistoryPayment()
@@ -59,7 +60,7 @@ namespace SystemGymControl
         {
             if (e.RowIndex > -1)
             {
-                if(dgvDataPayment.CurrentCell.ColumnIndex == 0)
+                if (dgvDataPayment.CurrentCell.ColumnIndex == 0)
                 {
                     int idPayment = Convert.ToInt32(dgvDataPayment.CurrentRow.Cells["id"].Value);
                     if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
@@ -78,11 +79,6 @@ namespace SystemGymControl
                 }
                 dgvDataPayment.ClearSelection();
             }
-        }
-
-        private void FrmPaymentHistory_Load(object sender, EventArgs e)
-        {
-            LoadDataHistoryPayment();
         }
     }
 }

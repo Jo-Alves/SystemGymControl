@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bussiness;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -18,11 +19,18 @@ namespace SystemGymControl
                 pbLoadProgress.Value += 2;
             }
             else
-            {
-                timer.Enabled = false;
-                this.Visible = false;
+            {   
                 try
                 {
+                    if (!database.ExistsDatabase())
+                    {
+                        database.CreateDatabase();
+                        database.CreateTables();
+                    }
+
+                    timer.Enabled = false;
+                    this.Visible = false;
+
                     if (CheckedExistUsers())
                     {
                         using (var authentication = new FrmAuthentication())

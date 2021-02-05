@@ -44,6 +44,7 @@
     <Compile Include="Class\Backup.cs" />
     <Compile Include="Class\BillingParametersPackage.cs" />
     <Compile Include="Class\CashFlow.cs" />
+    <Compile Include="Class\Database.cs" />
     <Compile Include="Class\FormsOfPayment.cs" />
     <Compile Include="Class\IcomingCashFlow.cs" />
     <Compile Include="Class\ItemsPackage.cs" />

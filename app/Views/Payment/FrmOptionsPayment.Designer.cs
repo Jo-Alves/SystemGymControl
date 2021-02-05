@@ -108,11 +108,11 @@
             // 
             this.lblPackage.AutoSize = true;
             this.lblPackage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.lblPackage.Location = new System.Drawing.Point(80, 100);
+            this.lblPackage.Location = new System.Drawing.Point(47, 100);
             this.lblPackage.Name = "lblPackage";
-            this.lblPackage.Size = new System.Drawing.Size(97, 22);
+            this.lblPackage.Size = new System.Drawing.Size(171, 22);
             this.lblPackage.TabIndex = 3;
-            this.lblPackage.Text = "Pagamento";
+            this.lblPackage.Text = "Pagamentos Mensais";
             // 
             // btnPayment
             // 
