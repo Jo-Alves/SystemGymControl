@@ -97,12 +97,12 @@ namespace SystemGymControl
                 decimal valueInterest = decimal.Parse(dataPayment.Rows[0]["valueInterest"].ToString());
 
                 valueInterestMoney = (valueInterest * valueTotal) / 100;
-                txtValueInterest.Text = $"R$ {valueInterestMoney.ToString("0.00")}";
+                txtValueInterest.Text = daysDelay > 0 ? $"R$ {(valueInterestMoney * daysDelay).ToString("0.00")}" : "R$ 0,00";
             }
             else
             {
                 valueInterestMoney = decimal.Parse(dataPayment.Rows[0]["valueInterest"].ToString());
-                txtValueInterest.Text = $"R$ {valueInterestMoney}";
+                txtValueInterest.Text = daysDelay > 0 ? $"R$ {(valueInterestMoney * daysDelay)}" : "R$ 0,00";
             }
 
             if (dataPayment.Rows[0]["type_penalty"].ToString().ToLower() == "percentage")
@@ -111,12 +111,12 @@ namespace SystemGymControl
 
                 valuePenaltyMoney = (valuePenalty * valueTotal) / 100;
 
-                txtValuePenalty.Text = $"R$ {valuePenaltyMoney.ToString("0.00")}";
+                txtValuePenalty.Text = daysDelay > 0 ? $"R$ {valuePenaltyMoney.ToString("0.00")}" : "R$ 0,00";
             }
             else
             {
                 valuePenaltyMoney = decimal.Parse(dataPayment.Rows[0]["valuePenalty"].ToString());
-                txtValuePenalty.Text = $"R$ {valuePenaltyMoney}";
+                txtValuePenalty.Text = daysDelay > 0 ? $"R$ {valuePenaltyMoney}" : "R$ 0,00";
             }
 
             if (daysDelay >= 1)
