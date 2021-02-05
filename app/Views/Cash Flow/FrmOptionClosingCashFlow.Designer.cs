@@ -57,7 +57,7 @@ namespace SystemGymControl
             // 
             // pnUser
             // 
-            this.pnUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnClosingBox);
@@ -107,7 +107,7 @@ namespace SystemGymControl
             // 
             // pnPackage
             // 
-            this.pnPackage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnPackage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnPackage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnRegister);
@@ -157,6 +157,7 @@ namespace SystemGymControl
             // 
             // pnStudent
             // 
+            this.pnStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnStudent.Controls.Add(this.lblStudent);
             this.pnStudent.Controls.Add(this.btnRemoveMoney);
@@ -206,7 +207,7 @@ namespace SystemGymControl
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnRegisterEntyAndExit);

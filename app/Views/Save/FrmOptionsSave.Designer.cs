@@ -50,12 +50,12 @@
             // 
             // pnStudent
             // 
-            this.pnStudent.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pnStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnStudent.Controls.Add(this.lblStudent);
             this.pnStudent.Controls.Add(this.btnSaveStudent);
             this.pnStudent.Controls.Add(this.pcStudent);
-            this.pnStudent.Location = new System.Drawing.Point(36, 157);
+            this.pnStudent.Location = new System.Drawing.Point(31, 157);
             this.pnStudent.Name = "pnStudent";
             this.pnStudent.Size = new System.Drawing.Size(230, 245);
             this.pnStudent.TabIndex = 1;
@@ -109,7 +109,7 @@
             this.pnPackage.Controls.Add(this.lblPackage);
             this.pnPackage.Controls.Add(this.btnSavePackage);
             this.pnPackage.Controls.Add(this.pcPackage);
-            this.pnPackage.Location = new System.Drawing.Point(308, 157);
+            this.pnPackage.Location = new System.Drawing.Point(303, 157);
             this.pnPackage.Name = "pnPackage";
             this.pnPackage.Size = new System.Drawing.Size(230, 245);
             this.pnPackage.TabIndex = 2;
@@ -158,12 +158,12 @@
             // 
             // pnUser
             // 
-            this.pnUser.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pnUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnUser.Controls.Add(this.lblUser);
             this.pnUser.Controls.Add(this.btnSaveUser);
             this.pnUser.Controls.Add(this.pcUser);
-            this.pnUser.Location = new System.Drawing.Point(569, 157);
+            this.pnUser.Location = new System.Drawing.Point(564, 157);
             this.pnUser.Name = "pnUser";
             this.pnUser.Size = new System.Drawing.Size(230, 245);
             this.pnUser.TabIndex = 2;

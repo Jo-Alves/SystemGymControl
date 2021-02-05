@@ -133,10 +133,14 @@ namespace SystemGymControl
                 {
                     if (bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()))
                     {
-                        string path = Path.GetDirectoryName(Application.ExecutablePath);
-                        string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 10) + @"\Views\Report\Recibo de Pagamento.rdlc";
+                        string path = $"{Path.GetDirectoryName(Application.ExecutablePath)}\\Recibo de Pagamento.rdlc";
+                        //string path = Path.GetDirectoryName(Application.ExecutablePath);
 
-                        CreateReceipt.GenerateReceipt(idPayment, fullPath);
+                        //string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 0) + @"\Views\Report\Recibo de Pagamento.rdlc";
+                        //string fullPath = Path.GetDirectoryName(Application.ExecutablePath).Remove(path.Length - 0) + @"\Views\Report\Recibo de Pagamento.rdlc";
+
+                        //CreateReceipt.GenerateReceipt(idPayment, fullPath);
+                        CreateReceipt.GenerateReceipt(idPayment, path);
                     }
                     else
                         OpenForm.ShowForm(new FrmReportReceipt(idPayment, idPlan, idPackage), this);
