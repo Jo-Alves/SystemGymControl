@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace DeposityBillit
@@ -140,19 +137,29 @@ namespace DeposityBillit
             }
             else
             {
-                string status = "Não Pago";
                 try
                 {
-                    MessageBox.Show("Valores gravados no banco de dados com sucesso!", "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btn_Limpar_Click(sender, e);
+                    new BillyToPay()
+                    {
+                        recipient = txt_Beneficiario.Text.Trim(),
+                        refering = txt_Referente.Text.Trim(),
+                        duedate = dt_Vencimento.Text.Trim(),
+                        number = txt_NumeroDocumento.Text.Trim(),
+                        value = decimal.Parse(txt_ValorDocumento.Text),
+                        discount = decimal.Parse(txt_Desconto.Text)
+                    }.Save();
+
+                    MessageBox.Show("Inserido com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetDataBillyToPay();
+                    Limpar();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-        private void btn_Limpar_Click(object sender, EventArgs e)
+        private void Limpar()
         {
             errorProvider.Clear();
             txt_Beneficiario.Clear();
@@ -161,7 +168,7 @@ namespace DeposityBillit
             dt_Vencimento.Value = DateTime.Now;
             txt_ValorDocumento.Clear();
             txt_Desconto.Clear();
-        }       
+        }
         int X = 0, Y = 0;
 
         private void panelCabecalho_MouseMove(object sender, MouseEventArgs e)
@@ -170,7 +177,7 @@ namespace DeposityBillit
             this.Left = X + MousePosition.X;
             this.Top = Y + MousePosition.Y;
         }
-        
+
         private void txt_Referente_TextChanged(object sender, EventArgs e)
         {
             errorProvider.Clear();
@@ -248,7 +255,6 @@ namespace DeposityBillit
 
         private void btn_Quitar_Click(object sender, EventArgs e)
         {
-            string Status = "Pago";
             try
             {
                 if (txt_BeneficiarioQuitar.Text == string.Empty)
@@ -307,22 +313,45 @@ namespace DeposityBillit
                     txt_ValorPago.Focus();
                     return;
                 }
+                else if (decimal.Parse(txt_ValorPago.Text) < decimal.Parse(txt_ValorDocumentoQuitar.Text))
+                {
+                    errorProvider.Clear();
+                    errorProvider.SetError(txt_ValorPago, "Valor é menor que o valor do documento");
+                    MessageBox.Show("Valor é menor que o valor do documento!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txt_ValorPago.Focus();
+                    return;
+                }
                 else
                 {
-                    MessageBox.Show("Boleto quitado com sucesso", "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new BillyToPay()
+                    {
+                        id = idBilly,
+                        recipient = txt_BeneficiarioQuitar.Text.Trim(),
+                        refering = txt_ReferenteQuitar.Text.Trim(),
+                        duedate = mask_VencimentoQuitar.Text.Trim(),
+                        number = txt_NumeroDocumentoQuitar.Text.Trim(),
+                        value = decimal.Parse(txt_ValorDocumentoQuitar.Text),
+                        discount = decimal.Parse(txt_DescontoQuitar.Text),
+                        amountPaid = decimal.Parse(txt_ValorPago.Text),
+                        penalty = decimal.Parse(txt_Multa.Text)
+                    }.Save();
 
-                    btn_LimparQuitar_Click(sender, e);
+                    GetDataBillyToPay();
+                    MessageBox.Show("Boleto quitado com sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LimparCampos();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btn_LimparQuitar_Click(object sender, EventArgs e)
+        private void LimparCampos()
         {
             errorProvider.Clear();
+            idBilly = 0;
             txt_ValorDocumentoQuitar.Clear();
             txt_BeneficiarioQuitar.Clear();
             txt_DescontoQuitar.Clear();
@@ -395,7 +424,7 @@ namespace DeposityBillit
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_ValorDocumento.Clear();
             }
         }
@@ -411,7 +440,7 @@ namespace DeposityBillit
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Desconto.Clear();
             }
         }
@@ -427,7 +456,7 @@ namespace DeposityBillit
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_Desconto.Clear();
             }
         }
@@ -443,13 +472,59 @@ namespace DeposityBillit
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_ValorPago.Clear();
                 txt_ValorPago.Clear();
             }
         }
 
+        private void FrmContasPagar_Load(object sender, EventArgs e)
+        {
+            GetDataBillyToPay();
+        }
 
+        private void GetDataBillyToPay()
+        {
+            try
+            {
+                dgv.DataSource = new BillyToPay().GetDataBillyToPay();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                tabControl1.SelectedTab = tabPage3;
+                CarregarCampos();
+                dgv.ClearSelection();
+            }
+        }
+
+        int idBilly;
+
+        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dgv.ClearSelection();
+            }
+        }
+
+        private void CarregarCampos()
+        {
+            idBilly = int.Parse(dgv.CurrentRow.Cells["id"].Value.ToString());
+            txt_BeneficiarioQuitar.Text = dgv.CurrentRow.Cells["recipient"].Value.ToString();
+            txt_DescontoQuitar.Text = dgv.CurrentRow.Cells["discount"].Value.ToString();
+            txt_NumeroDocumentoQuitar.Text = dgv.CurrentRow.Cells["number"].Value.ToString();
+            txt_ReferenteQuitar.Text = dgv.CurrentRow.Cells["refering"].Value.ToString();
+            txt_ValorDocumentoQuitar.Text = dgv.CurrentRow.Cells["value"].Value.ToString();
+            mask_VencimentoQuitar.Text = dgv.CurrentRow.Cells["duedate"].Value.ToString();
+        }
 
         private void cbMaxRows_KeyPress(object sender, KeyPressEventArgs e)
         {

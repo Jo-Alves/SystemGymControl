@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContasPagar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.btnPesquisar = new System.Windows.Forms.TabPage();
+            this.dt_Vencimento = new System.Windows.Forms.DateTimePicker();
             this.txt_Desconto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Referente = new System.Windows.Forms.TextBox();
@@ -46,7 +51,7 @@
             this.txt_Beneficiario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.contasPagarBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btn_Quitar = new System.Windows.Forms.Button();
             this.txt_ValorPago = new System.Windows.Forms.TextBox();
@@ -66,15 +71,19 @@
             this.mask_VencimentoQuitar = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dataGridView_Consulta = new System.Windows.Forms.DataGridView();
-            this.dt_Vencimento = new System.Windows.Forms.DateTimePicker();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recipient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refering = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.btnPesquisar.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contasPagarBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Consulta)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -127,6 +136,14 @@
             this.btnPesquisar.Size = new System.Drawing.Size(591, 350);
             this.btnPesquisar.TabIndex = 0;
             this.btnPesquisar.Text = "Inserir Boletos a pagar";
+            // 
+            // dt_Vencimento
+            // 
+            this.dt_Vencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_Vencimento.Location = new System.Drawing.Point(201, 254);
+            this.dt_Vencimento.Name = "dt_Vencimento";
+            this.dt_Vencimento.Size = new System.Drawing.Size(99, 26);
+            this.dt_Vencimento.TabIndex = 30;
             // 
             // txt_Desconto
             // 
@@ -273,7 +290,7 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage2.Controls.Add(this.dataGridView_Consulta);
+            this.tabPage2.Controls.Add(this.dgv);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
@@ -282,9 +299,42 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consultar Boletos a vencer ou vencidos";
             // 
-            // contasPagarBindingSource
+            // dgv
             // 
-            this.contasPagarBindingSource.DataMember = "ContasPagar";
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.AllowUserToDeleteRows = false;
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv.ColumnHeadersHeight = 32;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.recipient,
+            this.refering,
+            this.number,
+            this.duedate,
+            this.value,
+            this.discount});
+            this.dgv.Location = new System.Drawing.Point(4, 4);
+            this.dgv.MultiSelect = false;
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(578, 318);
+            this.dgv.TabIndex = 2;
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
+            this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             // 
             // tabPage3
             // 
@@ -510,28 +560,74 @@
             this.label16.TabIndex = 18;
             this.label16.Text = "Beneficiário:";
             // 
-            // dataGridView_Consulta
+            // id
             // 
-            this.dataGridView_Consulta.AllowUserToAddRows = false;
-            this.dataGridView_Consulta.AllowUserToDeleteRows = false;
-            this.dataGridView_Consulta.AutoGenerateColumns = false;
-            this.dataGridView_Consulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_Consulta.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView_Consulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView_Consulta.DataSource = this.contasPagarBindingSource;
-            this.dataGridView_Consulta.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView_Consulta.Name = "dataGridView_Consulta";
-            this.dataGridView_Consulta.ReadOnly = true;
-            this.dataGridView_Consulta.Size = new System.Drawing.Size(578, 318);
-            this.dataGridView_Consulta.TabIndex = 2;
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
             // 
-            // dt_Vencimento
+            // recipient
             // 
-            this.dt_Vencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_Vencimento.Location = new System.Drawing.Point(201, 254);
-            this.dt_Vencimento.Name = "dt_Vencimento";
-            this.dt_Vencimento.Size = new System.Drawing.Size(99, 26);
-            this.dt_Vencimento.TabIndex = 30;
+            this.recipient.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.recipient.DataPropertyName = "recipient";
+            this.recipient.HeaderText = "Destinatário";
+            this.recipient.Name = "recipient";
+            this.recipient.ReadOnly = true;
+            this.recipient.Width = 106;
+            // 
+            // refering
+            // 
+            this.refering.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.refering.DataPropertyName = "refering";
+            this.refering.HeaderText = "Referência";
+            this.refering.Name = "refering";
+            this.refering.ReadOnly = true;
+            this.refering.Width = 98;
+            // 
+            // number
+            // 
+            this.number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.number.DataPropertyName = "document_number";
+            this.number.HeaderText = "Número do documento";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            this.number.Width = 175;
+            // 
+            // duedate
+            // 
+            this.duedate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.duedate.DataPropertyName = "due_date";
+            this.duedate.HeaderText = "Vencimento";
+            this.duedate.Name = "duedate";
+            this.duedate.ReadOnly = true;
+            this.duedate.Width = 104;
+            // 
+            // value
+            // 
+            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.value.DataPropertyName = "document_value";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.value.DefaultCellStyle = dataGridViewCellStyle2;
+            this.value.HeaderText = "Valor do documento";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
+            this.value.Width = 157;
+            // 
+            // discount
+            // 
+            this.discount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.discount.DataPropertyName = "discount";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.discount.DefaultCellStyle = dataGridViewCellStyle3;
+            this.discount.HeaderText = "Desconto";
+            this.discount.Name = "discount";
+            this.discount.ReadOnly = true;
+            this.discount.Width = 92;
             // 
             // FrmContasPagar
             // 
@@ -548,15 +644,15 @@
             this.Name = "FrmContasPagar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contas a Pagar";
+            this.Load += new System.EventHandler(this.FrmContasPagar_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.btnPesquisar.ResumeLayout(false);
             this.btnPesquisar.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.contasPagarBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Consulta)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -598,14 +694,20 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_Desconto;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.BindingSource contasPagarBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn beneficiarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroDocumentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vencimentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorDocumentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn referenciaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descontoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView_Consulta;
+        private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.DateTimePicker dt_Vencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recipient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn refering;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duedate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
     }
 }

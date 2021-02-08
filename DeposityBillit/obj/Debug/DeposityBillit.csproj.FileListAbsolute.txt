@@ -8,3 +8,13 @@ C:\Users\Joelmir\Desktop\DeposityBillit\bin\Debug\DeposityBillit.exe
 C:\Users\Joelmir\Desktop\DeposityBillit\bin\Debug\DeposityBillit.pdb
 C:\Users\Joelmir\Desktop\DeposityBillit\obj\Debug\DeposityBillit.exe
 C:\Users\Joelmir\Desktop\DeposityBillit\obj\Debug\DeposityBillit.pdb
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\bin\Debug\DeposityBillit.exe.config
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\bin\Debug\DeposityBillit.exe
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\bin\Debug\DeposityBillit.pdb
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\obj\Debug\DeposityBillit.csprojAssemblyReference.cache
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\obj\Debug\DeposityBillit.FrmContasPagar.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\obj\Debug\DeposityBillit.Properties.Resources.resources
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\obj\Debug\DeposityBillit.csproj.GenerateResource.cache
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\obj\Debug\DeposityBillit.csproj.CoreCompileInputs.cache
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\obj\Debug\DeposityBillit.exe
+C:\Users\Joelmir\Desktop\projects-freela\SystemGymControl\DeposityBillit\obj\Debug\DeposityBillit.pdb

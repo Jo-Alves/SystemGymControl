@@ -172,14 +172,15 @@ CREATE TABLE [dbo].[notification] (
     PRIMARY KEY CLUSTERED ([id] ASC)
 )
 
-CREATE TABLE [dbo].[billy_to_pay]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY (1, 1),
-	recipient VARCHAR(100) NOT NULL,
-	referring VARCHAR(MAX) NOT NULL,
-	document_number INT NULL,
-	due_date VARCHAR(10) NULL,
-	document_value DECIMAL(18, 2) NOT NULL,
-	discount  DECIMAL(18, 2) NULL,
-	amount_paid  DECIMAL(18, 2) NULL,
-)
+CREATE TABLE [dbo].[billy_to_pay] (
+    [Id]              INT             IDENTITY (1, 1) NOT NULL,
+    [recipient]       VARCHAR (100)   NULL,
+    [refering]       VARCHAR (MAX)	  NULL,
+    [document_number] INT             NULL,
+    [due_date]        VARCHAR (10)    NULL,
+    [document_value]  DECIMAL (18, 2) NULL,
+    [discount]        DECIMAL (18, 2) NULL,
+	[penalty]         DECIMAL(18,2) NULL,
+    [amount_paid]     DECIMAL (18, 2) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
