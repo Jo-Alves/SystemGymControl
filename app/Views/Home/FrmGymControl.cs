@@ -100,12 +100,29 @@ namespace SystemGymControl
             try
             {
                 idCashFlow = id;
-                CheckedPlanExpired();
                 UpdateTimeInactivated();
+                CheckedPlanExpired();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CancelAfterThirtyDayTerminalPlan()
+        {
+            DateTime dateNow = DateTime.Now;
+            TimeSpan timeSpan;
+            foreach (DataRow row in new Plan().SearchAll().Rows)
+            {
+                DateTime dateTerminal = Convert.ToDateTime(row["date_terminal_plan"].ToString());
+                timeSpan = dateNow.Subtract(dateTerminal);
+                int idPlan = int.Parse(row["idPlan"].ToString());
+
+                if (timeSpan.Days > 30)
+                {
+                    new SituationsPlan().updateSituationPlan(idPlan, "Cancelado");
+                }
             }
         }
 
@@ -408,6 +425,8 @@ namespace SystemGymControl
                 LoadNotification();
 
             btnBackup.Visible = string.IsNullOrEmpty(Settings.Default["optionBackup"].ToString()) || !Settings.Default["optionBackup"].ToString().ToLower().Equals("manualmente") ? false : true;
+
+            CancelAfterThirtyDayTerminalPlan();
         }
 
         public void LoadNotification()

@@ -15,12 +15,12 @@ namespace SystemGymControl
         private void LoadFields()
         {
             txtDirectory.Text = Settings.Default["directory"].ToString();
-            rbPrintDirecty.Checked = bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()) || string.IsNullOrEmpty(Settings.Default["optionPreviewIsDirecty"].ToString()) ? true : false;
+            rbPrintDirecty.Checked = bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()) ? true : false;
             rbVisualize.Checked = bool.Parse(Settings.Default["optionPreviewIsDirecty"].ToString()) ? false : true;
             txtNameFantasy.Text = Settings.Default["nameFantasy"].ToString();
             mkCNPJ.Text = Settings.Default["CNPJ"].ToString();
             txtEmail.Text = Settings.Default["email"].ToString();
-            cbGeneratesBackup.Checked = bool.Parse(Settings.Default["generatesBackupAutomatically"].ToString()) || !string.IsNullOrEmpty(Settings.Default["generatesBackupAutomatically"].ToString()) ? true : false;
+            cbGeneratesBackup.Checked = bool.Parse(Settings.Default["generatesBackupAutomatically"].ToString())  ? true : false;
             cbxSelectOptions.Text = Settings.Default["optionBackup"].ToString() == null ? "Ao fechar o sistema" : Settings.Default["optionBackup"].ToString();
             mkPhone.Text = Settings.Default["phone"].ToString();
         }

@@ -53,17 +53,17 @@ namespace SystemGymControl
             this.txtValuePenalty = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvFormOfPagament = new System.Windows.Forms.DataGridView();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
-            this.txtValue = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idFormsOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbFormOfPayment = new System.Windows.Forms.ComboBox();
+            this.txtValue = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ndDuration)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -183,8 +183,7 @@ namespace SystemGymControl
             "Semestral",
             "Anual",
             "Quinzena",
-            "Quarentena",
-            "Outros"});
+            "Quarentena"});
             this.cbPeriod.Location = new System.Drawing.Point(19, 115);
             this.cbPeriod.Name = "cbPeriod";
             this.cbPeriod.Size = new System.Drawing.Size(147, 34);
@@ -366,6 +365,62 @@ namespace SystemGymControl
             this.dgvFormOfPagament.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormOfPagament_CellClick);
             this.dgvFormOfPagament.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFormOfPagament_CellDoubleClick);
             // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.HeaderText = "Editar";
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.edit.Width = 72;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.delete.HeaderText = "Excluir";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.Width = 78;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Visible = false;
+            this.id.Width = 35;
+            // 
+            // idFormsOfPayment
+            // 
+            this.idFormsOfPayment.HeaderText = "id";
+            this.idFormsOfPayment.Name = "idFormsOfPayment";
+            this.idFormsOfPayment.ReadOnly = true;
+            this.idFormsOfPayment.Visible = false;
+            // 
+            // formOfPayment
+            // 
+            this.formOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.formOfPayment.HeaderText = "Forma de Pagamento";
+            this.formOfPayment.Name = "formOfPayment";
+            this.formOfPayment.ReadOnly = true;
+            this.formOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.formOfPayment.Width = 211;
+            // 
+            // value
+            // 
+            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.value.DefaultCellStyle = dataGridViewCellStyle2;
+            this.value.HeaderText = "Valor";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
+            this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.value.Width = 64;
+            // 
             // btnInsert
             // 
             this.btnInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(74)))), ((int)(((byte)(113)))));
@@ -433,62 +488,6 @@ namespace SystemGymControl
             this.label7.Size = new System.Drawing.Size(63, 26);
             this.label7.TabIndex = 59;
             this.label7.Text = "Valor";
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.HeaderText = "Editar";
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit.Width = 72;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.delete.HeaderText = "Excluir";
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.Width = 78;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Visible = false;
-            this.id.Width = 35;
-            // 
-            // idFormsOfPayment
-            // 
-            this.idFormsOfPayment.HeaderText = "id";
-            this.idFormsOfPayment.Name = "idFormsOfPayment";
-            this.idFormsOfPayment.ReadOnly = true;
-            this.idFormsOfPayment.Visible = false;
-            // 
-            // formOfPayment
-            // 
-            this.formOfPayment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.formOfPayment.HeaderText = "Forma de Pagamento";
-            this.formOfPayment.Name = "formOfPayment";
-            this.formOfPayment.ReadOnly = true;
-            this.formOfPayment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.formOfPayment.Width = 211;
-            // 
-            // value
-            // 
-            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.value.DefaultCellStyle = dataGridViewCellStyle2;
-            this.value.HeaderText = "Valor";
-            this.value.Name = "value";
-            this.value.ReadOnly = true;
-            this.value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.value.Width = 64;
             // 
             // FrmSavePackage
             // 

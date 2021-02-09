@@ -17,12 +17,14 @@ namespace SystemGymControl
             decimal valueInterest = string.IsNullOrEmpty(dataPayment.Rows[0]["value_interest"].ToString()) ? 0.00M : Convert.ToDecimal(dataPayment.Rows[0]["value_interest"]);
             decimal valuePenalty = string.IsNullOrEmpty(dataPayment.Rows[0]["value_penalty"].ToString()) ? 0.00M : Convert.ToDecimal(dataPayment.Rows[0]["value_penalty"]);
 
-            if (portion > 1)
+            string valuePortion = "1x";
+
+            if (!dataPayment.Rows[0]["form_payment"].ToString().ToLower().Equals("dinheiro"))
             {
-                valueTotal *= portion;
+                valuePortion = $"{portion}x de R$ {(valueTotal / portion).ToString("0.00")}";
             }
 
-            decimal valuePackage = valueTotal + valueDiscount - (valueInterest + valuePenalty);
+           decimal valuePackage = valueTotal + valueDiscount - (valueInterest + valuePenalty);
 
             ReportParameterCollection reportParameters = new ReportParameterCollection();
             reportParameters.Add(new ReportParameter("name", dataPayment.Rows[0]["name"].ToString()));
@@ -33,8 +35,8 @@ namespace SystemGymControl
             reportParameters.Add(new ReportParameter("value", $"R$ {valuePackage}"));
             reportParameters.Add(new ReportParameter("interest", string.IsNullOrEmpty(dataPayment.Rows[0]["value_interest"].ToString()) ? "R$ 0,00" : $"R$ {dataPayment.Rows[0]["value_interest"]}"));
             reportParameters.Add(new ReportParameter("penalty", string.IsNullOrEmpty(dataPayment.Rows[0]["value_penalty"].ToString()) ? "R$ 0,00" : $"R$ {dataPayment.Rows[0]["value_penalty"]}"));
-            reportParameters.Add(new ReportParameter("total", $"R$ {dataPayment.Rows[0]["value_total"]}"));
-            reportParameters.Add(new ReportParameter("nPortions", dataPayment.Rows[0]["portion"].ToString()));
+            reportParameters.Add(new ReportParameter("total", $"R$ {valueTotal}"));
+            reportParameters.Add(new ReportParameter("nPortions", valuePortion));
             reportParameters.Add(new ReportParameter("formPayment", dataPayment.Rows[0]["form_payment"].ToString()));
             reportParameters.Add(new ReportParameter("duedate", dataPayment.Rows[0]["period"].ToString().ToLower() == "mensal" ? duedate.ToShortDateString() : " --- "));
             reportParameters.Add(new ReportParameter("nameFantasy", Settings.Default["nameFantasy"].ToString()));

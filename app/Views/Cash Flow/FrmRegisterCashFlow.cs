@@ -13,6 +13,7 @@ namespace SystemGymControl
         public FrmRegisterCashFlow()
         {
             InitializeComponent();
+            LoadDataCashFlow();
         }
 
         private void LoadDataCashFlow()
@@ -132,11 +133,6 @@ namespace SystemGymControl
             {
                 dgvDataRegisterCashFlow.ClearSelection();
             }
-        }
-
-        private void FrmRegisterCashFlow_Load(object sender, EventArgs e)
-        {
-            LoadDataCashFlow();
         }
     }
 }

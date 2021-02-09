@@ -241,9 +241,9 @@
             this.label14.Location = new System.Drawing.Point(28, 265);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(155, 26);
+            this.label14.Size = new System.Drawing.Size(58, 26);
             this.label14.TabIndex = 9;
-            this.label14.Text = "Retirar dinheiro";
+            this.label14.Text = "Valor";
             // 
             // btnCancel
             // 

@@ -9,34 +9,12 @@ namespace SystemGymControl
     public partial class FrmPlans : Form
     {
         Plan plan = new Plan();
-        SituationsPlan situationsPlan = new SituationsPlan();
 
         public FrmPlans()
         {
             InitializeComponent();
             LoadDataPlan();
-            CancelAfterThirtyDayTerminalPlan();
         }
-
-        private void CancelAfterThirtyDayTerminalPlan()
-        {
-            DateTime dateNow = DateTime.Now;
-            TimeSpan timeSpan;
-            foreach (DataGridViewRow row in dgvDataPlan.Rows)
-            {
-                DateTime dateTerminal = Convert.ToDateTime(row.Cells["dateTerminalPlan"].Value.ToString());
-                timeSpan = dateNow.Subtract(dateTerminal);
-                int idPlan = int.Parse(row.Cells["idPlan"].Value.ToString());
-
-                if (timeSpan.Days > 30)
-                {
-                    situationsPlan.updateSituationPlan(idPlan, "Cancelado");
-                }
-
-                LoadDataPlan();
-            }
-        }
-
 
         private void LoadDataPlan()
         {

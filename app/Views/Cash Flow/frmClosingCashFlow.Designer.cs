@@ -248,7 +248,7 @@ namespace SystemGymControl
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(541, 33);
+            this.label5.Location = new System.Drawing.Point(523, 33);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 26);
@@ -261,7 +261,7 @@ namespace SystemGymControl
             this.lblDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDiscount.Font = new System.Drawing.Font("Open Sans", 14F);
             this.lblDiscount.ForeColor = System.Drawing.Color.Black;
-            this.lblDiscount.Location = new System.Drawing.Point(353, 66);
+            this.lblDiscount.Location = new System.Drawing.Point(358, 66);
             this.lblDiscount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(152, 32);
@@ -274,7 +274,7 @@ namespace SystemGymControl
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(366, 33);
+            this.label9.Location = new System.Drawing.Point(353, 33);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 26);
@@ -300,7 +300,7 @@ namespace SystemGymControl
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(172, 31);
+            this.label7.Location = new System.Drawing.Point(176, 33);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 26);
@@ -326,7 +326,7 @@ namespace SystemGymControl
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Open Sans", 14F);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(10, 31);
+            this.label3.Location = new System.Drawing.Point(5, 33);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(163, 26);

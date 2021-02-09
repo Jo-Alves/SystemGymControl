@@ -60,7 +60,7 @@ namespace Database
             set { studentID = value; }
         }
 
-        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, Payment payment, string formPayment, string period, IcomingCashFlow icomingCashFlow)
+        public void Save(Modality modality, SituationsPlan situationsPlan, Payment payment, string formPayment, string period, IcomingCashFlow icomingCashFlow)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionDataBase.stringConnection))
             {
@@ -101,68 +101,31 @@ namespace Database
                     situationsPlan._planID = planId;
                     situationsPlan.Save(transaction);
 
-                    // Tabela form_of_payment
+                    if (formPayment.ToLower() != "dinheiro")
+                        payment._paymentOnAccount = "no";
+
+                    payment._planID = planId;
+                    payment.Save(transaction);
+
+                    // Insere os dados para o próximo pagamento com a data a vencer se o periodo for mensal
+
+                    if (period.ToLower() == "mensal")
+                    {
+                        payment._id = 0;
+                        payment._numberPortion = 1;
+                        payment._payday = "";
+                        payment._paymentTime = "";
+                        payment._valueTotal = payment._valueTotal + payment._valueDiscount;
+                        payment._valueDiscount = 0.00m;
+                        payment._formPayment = formPayment;
+                        payment._paymentOnAccount = "no";
+                        payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
+                        payment.Save(transaction);
+                    }
 
                     if (formPayment.ToLower() == "dinheiro")
                     {
-                        if (formPayment.ToLower() != "dinheiro")
-                            payment._paymentOnAccount = "no";
-
-                        payment._duedate = DateTime.Now.ToShortDateString();
-                        payment._planID = planId;
-                        payment.Save(transaction);
-
-                        // Insere os dados para o próximo pagamento com a data a vencer se o periodo for mensal
-
-                        if (period.ToLower() == "mensal")
-                        {
-                            payment._id = 0;
-                            payment._numberPortion = 1;
-                            payment._payday = "";
-                            payment._paymentTime = "";
-                            payment._valueTotal = payment._valueTotal + payment._valueDiscount;
-                            payment._valueDiscount = 0.00m;
-                            payment._formPayment = formPayment;
-                            payment._paymentOnAccount = "no";
-                            payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
-                            payment.Save(transaction);
-                        }
-
                         new CashFlow().UpdateValueTotalCashFlow(icomingCashFlow._cashFlowID, payment._valueTotal, transaction);
-                    }
-                    else
-                    {
-                        foreach (DataRow dr in dataCardPayment.Rows)
-                        {
-                            int numberPortion = int.Parse(dr["portion"].ToString());
-                            string dueDate = dr["dueDate"].ToString();
-                            decimal valuePortion = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dr["value"].ToString()));
-
-                            payment._duedate = dueDate;
-                            payment._numberPortion = numberPortion;
-                            payment._valueTotal = valuePortion;
-                            payment._payday = DateTime.Now.ToShortDateString();
-                            payment._paymentTime = DateTime.Now.ToLongTimeString();
-                            payment._valueDiscount = 0.00M;
-                            payment._formPayment = formPayment;
-                            payment._paymentOnAccount = "no";
-                            payment._planID = planId;
-                            payment.Save(transaction);
-                        }
-
-                        if (period.ToLower() == "mensal")
-                        {
-                            payment._id = 0;
-                            payment._numberPortion = 1;
-                            payment._payday = "";
-                            payment._paymentTime = "";
-                            payment._valueTotal += payment._valueDiscount;
-                            payment._valueDiscount = 0.00m;
-                            payment._formPayment = formPayment;
-                            payment._paymentOnAccount = "no";
-                            payment._duedate = DateTime.Now.AddMonths(1).ToShortDateString();
-                            payment.Save(transaction);
-                        }
                     }
 
                     icomingCashFlow.Save(transaction);

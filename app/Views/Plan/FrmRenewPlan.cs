@@ -113,29 +113,32 @@ namespace SystemGymControl
                 {
                     payment._id = idCashPayment;
                     payment._valueTotal = cashInPayment.valueDiscount;
-                    payment._valueDiscount = cashInPayment.discountMoney;
-                    payment._payday = datePlan.ToShortDateString();
-                    payment._paymentTime = datePlan.ToLongTimeString();
-                    payment._formPayment = cbFormOfPayment.Text;
+                    payment._valueDiscount = cashInPayment.discountMoney;                   
                     payment._numberPortion = 1;
                     payment._paymentOnAccount = "yes";
                     icomingCashFlow._valueMoney = payment._valueTotal;
                     icomingCashFlow._valueCard = 0.00M;
+                    payment._duedate = DateTime.Now.ToShortDateString();
                 }
                 else
                 {
-                    dataCardPayment = cardInPayment.dataPortion;
+                    payment._duedate = cardInPayment.dueDate;
+                    payment._numberPortion = cardInPayment.nPortion;
+                    payment._valueDiscount = 0.00M;
+                    payment._valueTotal = decimal.Parse(txtValue.Text);
                     icomingCashFlow._valueMoney = 0.00M;
-                    icomingCashFlow._valueCard = decimal.Parse(txtValue.Text);
+                    icomingCashFlow._valueCard = payment._valueTotal;
                 }
 
-
+                payment._formPayment = cbFormOfPayment.Text;
+                payment._payday = datePlan.ToShortDateString();
+                payment._paymentTime = datePlan.ToLongTimeString();
                 icomingCashFlow._entryDate = datePlan.ToShortDateString();
                 icomingCashFlow._entryTime = datePlan.ToLongTimeString();
                 icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;
                 icomingCashFlow._descriptionIcoming = $"Pagamento da renovação do plano: {txtPackage.Text} do(a) aluno(a) {txtNameStudent.Text}";
 
-                plan.Save(new Modality(), situationsPlan, dataCardPayment, payment, cbFormOfPayment.Text, period, icomingCashFlow);
+                plan.Save(new Modality(), situationsPlan, payment, cbFormOfPayment.Text, period, icomingCashFlow);
 
                 bool generateReceipt = false;
 

@@ -9,8 +9,8 @@ namespace SystemGymControl
     {
         public bool paymentEffected { get; set; }
         public bool generateReceipt = false;
-        public DataTable dataPortion { get; set; }
         public int nPortion { get; set; }
+        public string dueDate { get; set; }
 
         decimal valuePackage;
         string formPayment;
@@ -34,24 +34,14 @@ namespace SystemGymControl
             lblvalueTotal.Text = $"R$ {valuePackage}";
             ndNumberPortions.Value = numberPortions;
             parcelValue(valuePackage, numberPortions, formPayment);
-            dgvPortions.ClearSelection();
         }
 
         private void parcelValue(decimal valuePackage, int numberPortions, string formPayment)
         {
-            dgvPortions.Rows.Clear();
-            for (int i = 1; i <= numberPortions; i++)
-            {
-                DateTime dateNow = DateTime.Now;
-                DateTime date;
-                if (formPayment.ToLower() == "cartão de crédito")
-                    date = dateNow.AddMonths(i);
-                else
-                    date = dateNow.AddDays(i);
 
-                dgvPortions.Rows.Add(i, date.ToShortDateString(), $"R$ {(valuePackage / numberPortions).ToString("0.00")}");
-            }
-            dgvPortions.ClearSelection();
+            DateTime dateNow = DateTime.Now;
+            dueDate = formPayment.ToLower() == "cartão de crédito" ? dateNow.AddMonths(1).ToShortDateString() : dateNow.AddDays(numberPortions).ToShortDateString();
+            lblValuePortion.Text = $"R$ {(valuePackage / numberPortions).ToString("0.00")}";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -76,15 +66,6 @@ namespace SystemGymControl
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-            dataPortion = new DataTable();
-            dataPortion.Columns.Add("portion", typeof(string));
-            dataPortion.Columns.Add("dueDate", typeof(string));
-            dataPortion.Columns.Add("value", typeof(string));
-            foreach (DataGridViewRow row in dgvPortions.Rows)
-            {
-                dataPortion.Rows.Add(row.Cells["portion"].Value.ToString(), row.Cells["dueDate"].Value.ToString(), row.Cells["valuePortion"].Value.ToString());
-            }
-
             nPortion = int.Parse(ndNumberPortions.Value.ToString());
             paymentEffected = true;
             this.Close();

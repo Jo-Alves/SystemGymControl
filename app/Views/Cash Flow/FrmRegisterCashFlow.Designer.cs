@@ -401,7 +401,6 @@ namespace SystemGymControl
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmRegisterCashFlow";
             this.Text = "FrmResgisterCashFlow";
-            this.Load += new System.EventHandler(this.FrmRegisterCashFlow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

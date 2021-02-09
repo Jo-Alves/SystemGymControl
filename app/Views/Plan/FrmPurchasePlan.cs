@@ -267,8 +267,6 @@ namespace SystemGymControl
             situationsPlan._observation = "";
             situationsPlan._deactivationDate = "";
 
-            DataTable dataCardPayment = null;
-
             payment._numberPortion = 1;
             string periodPackage = dgvDataPlan.CurrentRow.Cells["period"].Value.ToString().ToLower();
 
@@ -279,12 +277,15 @@ namespace SystemGymControl
                 payment._paymentOnAccount = "yes";
                 icomingCashFlow._valueMoney = payment._valueTotal;
                 icomingCashFlow._valueCard = 0.00M;
+                payment._duedate = DateTime.Now.ToShortDateString();
             }
             else
             {
-                dataCardPayment = cardInPayment.dataPortion;
+                payment._duedate = cardInPayment.dueDate;
+                payment._numberPortion = cardInPayment.nPortion;
+                payment._valueTotal = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
                 icomingCashFlow._valueMoney = 0.00M;
-                icomingCashFlow._valueCard = decimal.Parse(FormatValueDecimal.RemoveDollarSignGetValue(dgvDataPlan.CurrentRow.Cells["value"].Value.ToString()));
+                icomingCashFlow._valueCard = payment._valueTotal;
             }
 
             payment._formPayment = formPayment;
@@ -295,7 +296,7 @@ namespace SystemGymControl
             icomingCashFlow._entryTime = datePlan.ToLongTimeString();
             icomingCashFlow._cashFlowID = FrmGymControl.Instance._IdCashFlow;
             icomingCashFlow._descriptionIcoming = $"Pagamento da aquisição do plano: {dgvDataPlan.CurrentRow.Cells["description"].Value} do(a) aluno(a) {txtNameStudent.Text.Trim()}";
-            plan.Save(modality, situationsPlan, dataCardPayment, payment, formPayment, periodPackage, icomingCashFlow);
+            plan.Save(modality, situationsPlan, payment, formPayment, periodPackage, icomingCashFlow);
         }
 
         private bool checkedDgvSelected()

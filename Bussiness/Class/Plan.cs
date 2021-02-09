@@ -56,7 +56,7 @@ namespace Bussiness
             set { studentID = value; }
         }
 
-        public void Save(Modality modality, SituationsPlan situationsPlan, DataTable dataCardPayment, Payment payment, string formPayment, string period, IcomingCashFlow icomingCashFlow)
+        public void Save(Modality modality, SituationsPlan situationsPlan, Payment payment, string formPayment, string period, IcomingCashFlow icomingCashFlow)
         {
             plan._id = this.id;
             plan._datePurchasePlan = this._datePurchasePlan;
@@ -73,7 +73,7 @@ namespace Bussiness
 
             Database.IcomingCashFlow icomingCash = new Database.IcomingCashFlow() { _cashFlowID = icomingCashFlow._cashFlowID, _entryDate = icomingCashFlow._entryDate, _entryTime = icomingCashFlow._entryTime, _valueCard = icomingCashFlow._valueCard, _valueMoney = icomingCashFlow._valueMoney, _id = icomingCashFlow._id, _descriptionIcoming = icomingCashFlow._descriptionIcoming };
 
-            plan.Save(modalityDataBase, situationsPlanDataBase, dataCardPayment, paymentDatabase, formPayment, period.ToLower(), icomingCash);
+            plan.Save(modalityDataBase, situationsPlanDataBase, paymentDatabase, formPayment, period.ToLower(), icomingCash);
         }
 
         public DataTable SearchID(int id)

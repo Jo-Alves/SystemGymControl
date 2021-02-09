@@ -12,7 +12,7 @@ namespace SystemGymControl
         ItemsPackage itemsPackage = new ItemsPackage();
         FormsOfPayment formsOfPayment = new FormsOfPayment();
 
-        int idPackage, idParametersPackage, idItemsPackage, idMaxPackage, indexRowSelected = -1;
+        int idPackage, idParametersPackage, idMaxPackage, indexRowSelected = -1;
 
         public FrmSavePackage()
         {
