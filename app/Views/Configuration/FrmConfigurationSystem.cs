@@ -70,6 +70,7 @@ namespace SystemGymControl
             FrmGymControl.Instance._btnBackup.Visible = cbxSelectOptions.SelectedIndex == 1 && cbGeneratesBackup.Checked ? true : false;
 
             Settings.Default.Save();
+            FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA";
             OpenForm.ShowForm(new FrmHome(), this);
         }
 

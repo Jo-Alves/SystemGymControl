@@ -622,8 +622,8 @@ namespace SystemGymControl
                 return;
             }
 
+            lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos";
             OpenForm.ShowForm(new FrmOptionsPayment(), this);
-            lblTitle.Text = "EXPLOSION ACADEMIA";
         }
     }
 }

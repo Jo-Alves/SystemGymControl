@@ -322,12 +322,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_211B80F1EE3240748838B313B3EFD05D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_AFE9FFDBF52C95B852BBC71B9ADD7A1E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -335,6 +329,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_33919B0B8C056616C88B63911F43ED53"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_211B80F1EE3240748838B313B3EFD05D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -469,6 +469,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -889,7 +905,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Users\\Joelmir\\Desktop\\projects-freela\\SystemGymControl\\DeposityBillit\\bin\\Debug\\DeposityBillit.exe"
+            "SourcePath" = "8:..\\DeposityBillit\\bin\\Debug\\DeposityBillit.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D7D2A75F2557485AB4CCE8AFD798E609"
@@ -940,7 +956,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EFB222CAED145AEBF883BC455B7CCEF"
             {
-            "SourcePath" = "8:C:\\Users\\Joelmir\\Desktop\\projects-freela\\SystemGymControl\\app\\IMG-20201119-WA0000.ico"
+            "SourcePath" = "8:..\\app\\IMG-20201119-WA0000.ico"
             "TargetName" = "8:IMG-20201119-WA0000.ico"
             "Tag" = "8:"
             "Folder" = "8:_D7D2A75F2557485AB4CCE8AFD798E609"
@@ -1228,7 +1244,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E051FD2191E44215876661AD3FFCCD2D"
             {
-            "SourcePath" = "8:C:\\Users\\Joelmir\\Desktop\\projects-freela\\SystemGymControl\\app\\Views\\Report\\Recibo de Pagamento.rdlc"
+            "SourcePath" = "8:..\\app\\Views\\Report\\Recibo de Pagamento.rdlc"
             "TargetName" = "8:Recibo de Pagamento.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_D7D2A75F2557485AB4CCE8AFD798E609"
@@ -1345,7 +1361,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:System GYM Control"
         "ProductCode" = "8:{37420688-B7E9-433A-BBC1-F40A774F287D}"
-        "PackageCode" = "8:{F86CADE8-732A-4FC7-9414-AFBCD0E295AF}"
+        "PackageCode" = "8:{CD2FE30F-1D56-4046-BECA-D235295295CA}"
         "UpgradeCode" = "8:{FF4B9A2E-3687-4E89-950A-9E7635116275}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -1467,7 +1483,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_84F9CE8B43A44D26BCCAEEBC8DD58763"
             {
-            "Name" = "8:Deposity Billit"
+            "Name" = "8:Contas a Pagar - Boleto Bancário"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -1908,7 +1924,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_211B80F1EE3240748838B313B3EFD05D"
             {
-            "SourcePath" = "8:C:\\Users\\Joelmir\\Desktop\\projects-freela\\SystemGymControl\\app\\obj\\x64\\Release\\SystemGymControl.exe"
+            "SourcePath" = "8:..\\app\\obj\\x64\\Release\\SystemGymControl.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D7D2A75F2557485AB4CCE8AFD798E609"

@@ -60,9 +60,9 @@
             this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.lblUser.Location = new System.Drawing.Point(38, 100);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(193, 22);
+            this.lblUser.Size = new System.Drawing.Size(201, 22);
             this.lblUser.TabIndex = 3;
-            this.lblUser.Text = "Histórico de pagamento";
+            this.lblUser.Text = "Histórico de pagamentos";
             // 
             // btnHistory
             // 

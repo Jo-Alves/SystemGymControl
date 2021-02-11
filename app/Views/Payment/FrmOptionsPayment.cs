@@ -72,7 +72,7 @@ namespace SystemGymControl
                 return;
             }
 
-            FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos";
+            FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Pagamentos Mensais";
             OpenForm.ShowForm(new FrmPayments(), this);
         }
 

@@ -121,6 +121,7 @@ namespace SystemGymControl
             {
                 if (dgvDataRegisterCashFlow.CurrentCell.ColumnIndex == 0)
                 {
+                    FrmGymControl.Instance._lblTitle.Text = @"EXPLOSION ACADEMIA --- Fluxo de Caixa - Registro Atual E\S";
                     OpenForm.ShowForm(new FrmReportCashFlow(int.Parse(dgvDataRegisterCashFlow.CurrentRow.Cells["id"].Value.ToString()), dgvDataRegisterCashFlow.CurrentRow.Cells["openingDate"].Value.ToString()), this);
                 }
                 dgvDataRegisterCashFlow.ClearSelection();

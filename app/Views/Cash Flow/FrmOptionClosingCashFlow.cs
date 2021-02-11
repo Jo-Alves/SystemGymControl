@@ -17,7 +17,7 @@ namespace SystemGymControl
             {
                 if (!new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
                 {
-                    FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo Caixa - Fechamento";
+                    FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo de Caixa - Fechamento";
                     OpenForm.ShowForm(new FrmClosingCashFlow(), this);
                 }
                 else
@@ -35,7 +35,7 @@ namespace SystemGymControl
             {
                 if (!new CashFlow().CheckedBoxClosing(FrmGymControl.Instance._IdCashFlow))
                 {
-                    FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo Caixa - Retirar dinheiro";
+                    FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo de Caixa - Retirar dinheiro";
                     OpenForm.ShowForm(new FrmExitMonewBox(), this);
                 }
                 else
@@ -52,7 +52,7 @@ namespace SystemGymControl
         {
             try
             {
-                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo Caixa - Registro";
+                FrmGymControl.Instance._lblTitle.Text = "EXPLOSION ACADEMIA --- Fluxo de Caixa - Registro";
                 OpenForm.ShowForm(new FrmRegisterCashFlow(), this);
             }
             catch (Exception ex)
@@ -63,6 +63,7 @@ namespace SystemGymControl
 
         private void BtnRegisterEntyAndExit(object sender, EventArgs e)
         {
+            FrmGymControl.Instance._lblTitle.Text = @"EXPLOSION ACADEMIA --- Fluxo de Caixa - Registro Atual E\S";
             OpenForm.ShowForm(new FrmReportCashFlow(), this);
         }
     }
