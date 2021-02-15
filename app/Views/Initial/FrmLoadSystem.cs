@@ -70,6 +70,7 @@ namespace SystemGymControl
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
                 }
             }
         }
