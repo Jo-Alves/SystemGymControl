@@ -202,7 +202,10 @@ namespace SystemGymControl
                         responsible.Save();
                     }
 
-                    OpenForm.ShowForm(new FrmStudents(), this);
+                    if (!string.IsNullOrEmpty(txtId.Text) || new Plan().SearchAll().Rows.Count == 0)
+                        OpenForm.ShowForm(new FrmStudents(), this);
+                    else
+                        OpenForm.ShowForm(new FrmPurchasePlan(student._id.ToString(), student._name), this);
                 }
             }
             catch (Exception ex)
@@ -239,11 +242,6 @@ namespace SystemGymControl
                 {
                     MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtName.Focus();
-                }
-                else if (messageValidateFields == "Campo CPF obrigatório!")
-                {
-                    MessageBox.Show(messageValidateFields, "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    mkCPF.Focus();
                 }
                 else if (messageValidateFields == "Campo Bairro obrigatório!")
                 {

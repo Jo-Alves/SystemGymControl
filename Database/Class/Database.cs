@@ -84,6 +84,18 @@ namespace Database
                         "    PRIMARY KEY CLUSTERED ([id] ASC)," +
                         "    FOREIGN KEY ([student_id]) REFERENCES [dbo].[students] ([id]) ON DELETE    CASCADE" +
                         ");" +
+                        "CREATE TABLE [dbo].[par_q] (" +
+                           "[id]         INT IDENTITY(1, 1) NOT NULL," +
+                           "[answer1]    VARCHAR(3) NULL," +
+                           "[answer2]    VARCHAR(3) NULL," +
+                           "[answer3]    VARCHAR(3) NULL," +
+                           "[answer4]    VARCHAR(3) NULL," +
+                           "[answer5]    VARCHAR(3) NULL," +
+                           "[answer6]    VARCHAR(3) NULL," +
+                           "[answer7]    VARCHAR(3) NULL," +
+                           "[student_id] INT NOT NULL," +
+                           "PRIMARY KEY CLUSTERED([id] ASC)," +
+                           "FOREIGN KEY([student_id]) REFERENCES[dbo].[students]([id]) ON DELETE CASCADE); " +
                         "CREATE TABLE [dbo].[packages] (" +
                         "    [id]          INT             IDENTITY (1, 1) NOT NULL," +
                         "    [description] VARCHAR (100)   NOT NULL," +
@@ -97,7 +109,8 @@ namespace Database
                         "    [package_id]    INT             NOT NULL," +
                         "    PRIMARY KEY CLUSTERED ([id] ASC)," +
                         "    FOREIGN KEY ([package_id]) REFERENCES [dbo].[packages] ([id]) ON DELETE    CASCADE" +
-                        ");CREATE TABLE [dbo].[billing_parameters_package] (" +
+                        ");" +
+                        "CREATE TABLE [dbo].[billing_parameters_package] (" +
                         "    [id]             INT             IDENTITY (1, 1) NOT NULL," +
                         "    [value_penalty]  DECIMAL (18, 2) NULL," +
                         "    [value_interest] DECIMAL (18, 2) NULL," +

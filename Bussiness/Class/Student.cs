@@ -31,9 +31,7 @@ namespace Bussiness
 
             if (string.IsNullOrEmpty(this._name))
                 message = "Campo Nome obrigatório!";
-            else if (this._cpf.Length < 14)
-                message = "Campo CPF obrigatório!";
-            else if (string.IsNullOrEmpty(this._district))
+           else if (string.IsNullOrEmpty(this._district))
                 message = "Campo Bairro obrigatório!";
             else if (string.IsNullOrEmpty(this._address))
                 message = "Campo Endereço obrigatório!";

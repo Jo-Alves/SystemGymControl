@@ -20,7 +20,13 @@ namespace SystemGymControl
         public FrmPurchasePlan()
         {
             InitializeComponent();
-            LoadDataPackages();
+        }
+
+        public FrmPurchasePlan(string id, string name)
+        {
+            InitializeComponent();
+            txtCodigoStudent.Text = id;
+            txtNameStudent.Text = name;
         }
 
         private void LoadDataPackages()
@@ -327,6 +333,11 @@ namespace SystemGymControl
             else if (e.KeyCode == Keys.Escape)
                 btnCancel_Click(sender, e);
 
+        }
+
+        private void FrmPurchasePlan_Load(object sender, EventArgs e)
+        {
+            LoadDataPackages();
         }
     }
 }
