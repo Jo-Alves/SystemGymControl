@@ -97,11 +97,6 @@ namespace SystemGymControl
                     MessageBox.Show("Campo 'Nome do responsável' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtName.Focus();
                 }
-                else if (responsible.ValidateFieldsAndGetMessage() == "Campo CPF obrigatório!")
-                {
-                    MessageBox.Show("Campo 'CPF' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    mkCPF.Focus();
-                }
                 else if (responsible.ValidateFieldsAndGetMessage() == "Campo Grau de Parentesco obrigatório!")
                 {
                     MessageBox.Show("Campo 'Grau de Parentesco' obrigatório!", "System GYM Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

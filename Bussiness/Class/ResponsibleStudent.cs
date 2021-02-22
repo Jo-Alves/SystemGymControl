@@ -31,11 +31,9 @@ namespace Bussiness
 
             if (string.IsNullOrEmpty(this._name))
                 message = "Campo Nome do responsável obrigatório!";
-            else if (this._cpf.Length < 14)
-                message = "Campo CPF obrigatório!";
-            else if (string.IsNullOrEmpty(this._kinship))
+           else if (string.IsNullOrEmpty(this._kinship))
                 message = "Campo Grau de Parentesco obrigatório!";
-            else if (!CPF.ValidateCPF(this._cpf))
+            else if (!CPF.ValidateCPF(this._cpf) && this._cpf.Length == 14)
                 message = "CPF inválido!";
 
             return message;

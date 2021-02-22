@@ -29,7 +29,9 @@ namespace SystemGymControl
 
             var DataStudent = student.SearchID(id);
 
-            mkCPF.Enabled = false;
+            if(!string.IsNullOrEmpty(DataStudent.Rows[0]["cpf"].ToString()))
+                mkCPF.Enabled = false;
+
             txtId.Text = id.ToString();
             txtName.Text = DataStudent.Rows[0]["name"].ToString();
             mkCPF.Text = DataStudent.Rows[0]["cpf"].ToString();
@@ -202,10 +204,10 @@ namespace SystemGymControl
                         responsible.Save();
                     }
 
-                    if (!string.IsNullOrEmpty(txtId.Text) || new Plan().SearchAll().Rows.Count == 0)
+                    if (!string.IsNullOrEmpty(txtId.Text) || new Package().SearchAll().Rows.Count == 0)
                         OpenForm.ShowForm(new FrmStudents(), this);
                     else
-                        OpenForm.ShowForm(new FrmPurchasePlan(student._id.ToString(), student._name), this);
+                        OpenForm.ShowForm(new FrmPurchasePlan(student.GetMaxID().ToString(), student._name), this);
                 }
             }
             catch (Exception ex)

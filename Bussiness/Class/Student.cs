@@ -46,7 +46,7 @@ namespace Bussiness
             }
             else if (student.SearchCPF(this._cpf) && this._id == 0)
                 message = "Este CPF já está cadastrado!";
-            else if (!CPF.ValidateCPF(this._cpf) && this._id == 0)
+            else if (!CPF.ValidateCPF(this._cpf) && this._id == 0 && this._cpf.Length == 14)
                 message = "CPF inválido!";
 
             return message;
